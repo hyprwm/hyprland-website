@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="ico/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/install.css" />
+    <title>Install</title>
+  </head>
+  <body>
+    <div id="content-center" class="content-center">
+      <header id="header" class="header">
+        <div id="header-logo-div" class="header">
+          <a href="/">
+            <img
+              id="header-logo"
+              class="header"
+              src="svg/hyprland.svg"
+              alt="Hyprland Logo"
+            />
+          </a>
+        </div>
+        <div id="header-links-div" class="header">
+          <div id="header-links" class="header">
+            <a id="header-link-home" class="header-link" href="/">Hyprland</a>
+            <a id="header-link-install" class="header-link" href="/install"
+              >Install</a
+            >
+            <a id="header-link-configure" class="header-link" href="/configure"
+              >Configure</a
+            >
+          </div>
+        </div>
+        <div id="links-out" class="header-out">
+          <div id="github" class="header-out">
+            <a
+              id="link-github"
+              href="https://github.com/hyprwm/Hyprland"
+              target="_blank"
+              rel="noopener"
+              >Github</a
+            >
+          </div>
+        </div>
+      </header>
+      <div id="install_h1"><img src="svg/download.svg" alt=""><h1 >Install_</h1></div>
+      
+      <div id="warning">
+        <img src="svg/gpu.svg" alt="" />
+        <p style="line-height: 1.2">
+          NVIDIA GPUs in ANY capacity are <b>NOT</b> supported, but you may ask
+          for some help around on the
+          <a href="https://discord.com/invite/hQ9XvMUjjr">Discord server</a>,
+          people <b>have been running</b> Hyprland on NVIDIA with success.<b
+            >*</b
+          >
+        </p>
+      </div>
+      <div id="req-div">
+        <p id="req">Requirements -</p>
+        <ul>
+          <li>Internet (Which if you are reading this, must be having)</li>
+          <li>Any Unix Terminal</li>
+        </ul>
+      </div>
+      <br />
+      <p>Content:</p>
+      <ul id="table">
+        <li><a href="#arch">Install on Arch Linux</a></li>
+        <li><a href="#nix">Install on Nix and NixOS</a></li>
+        <li><a href="#fedora">Install on Fedora</a></li>
+        <li><a href="#mb">Manually Building Hyprland</a></li>
+        <li><a href="#help">Get Help</a></li>
+      </ul>
+      <br />
+      <br />
+      <h1 id="arch">Arch Linux</h1>
+      <hr />
+      <br />
+      <br>
+      <h3>AUR</h3>
+      <div id="qi-content">
+        <p>hyprland-git - compiles from latest source</p>
+        <p>hyprland - compiles from latest release source</p>
+        <p>hyprland-bin - compiled latest release</p>
+      </div>
+      <h1 id="nix">NixOS</h1>
+      <hr />
+      <br />
+      <p>
+        Make sure to check out the options of the
+        <a
+          href="https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix"
+          target="_blank"
+          rel="noopener"
+        >
+          Nix module</a
+        >.
+      </p>
+      <br />
+      <h3 style="margin-top: 20px">With Flakes</h3>
+      <div id="qi-content">
+        <p id="p-nix">
+          <span># flake.nix</span> <br />
+          <br />
+          {<br />
+          inputs = { <br />
+          nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";<br />
+          hyprland = {<br />
+          url = "github:hyprwm/Hyprland";<br />
+          <span># build with your own instance of nixpkgs</span> <br />
+          inputs.nixpkgs.follows = "nixpkgs"; <br />
+          }; <br />
+          }; <br />
+          <br />
+          outputs = { self, nixpkgs, hyprland }: { <br />
+          nixosConfigurations.<span id="sp-hostname">HOSTNAME</span> =
+          nixpkgs.lib.nixosSystem { <br />
+          <span># ...</span> <br />
+          modules = [ <br />
+          hyprland.nixosModules.default <br />
+          { programs.hyprland.enable = true; } <br />
+          <span># ... </span><br />
+          ]; <br />
+          }; <br />
+          };
+        </p>
+      </div>
+      <p style="padding-bottom: 20px">
+        Don't forget to replace <span id="sp-hostname">HOSTNAME</span> with your
+        hostname!
+      </p>
+      <h3 style="margin-top: 20px">Without Flakes</h3>
+      <p style="margin-top: 20px; margin-bottom: 20px">
+        <b>NOTE:</b> If you're using Hyprland through an overlay, set
+        <span id="code">programs.hyprland.package = pkgs.hyprland;</span>
+      </p>
+      <div id="qi-content">
+        <p id="p-nix">
+          <span># configuration.nix</span> <br />
+          {config, pkgs, ...}: let <br />
+          flake-compat = builtins.fetchTarball
+          "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+          <br />
+          hyprland = (import flake-compat { <br />
+          src = builtins.fetchTarball
+          "https://github.com/hyprwm/Hyprland/archive/master.tar.gz"; <br />
+          }).defaultNix; <br />
+          in { <br />
+          imports = [ <br />
+          hyprland.nixosModules.default <br />
+          ]; <br />
+          <br />
+          nixpkgs.overlays = [ hyprland.overlays.default ]; <br />
+          <br />
+          programs.hyprland = { <br />
+          enable = true; <br />
+          package = pkgs.hyprland; <br />
+          }; <br />
+          } <br />
+        </p>
+      </div>
+      <h3 style="font-size: 28px">Home Manager Module</h3>
+      <p style="margin-top: 20px">
+        You can use the Home Manager module by adding it to your configuration:
+      </p>
+      <div id="qi-content">
+        <p id="p-nix">
+          { config, pkgs, inputs, ... }: { <br />
+          imports = [ <br />
+          inputs.hyprland.homeManagerModules.default <br />
+          ]; <br />
+          <br />
+          wayland.windowManager.hyprland.enable = true; <br />
+          <span># ...</span> <br />
+          } <br />
+        </p>
+      </div>
+      <p>
+        For a list of available options, check the
+        <a
+          href="https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix"
+          target="_blank"
+          rel="noopener"
+        >
+          module file</a
+        >.
+      </p>
+      <div id="mix-n-match">
+        <h3 style="font-size: 28px; margin-top: 20px">Modules mix'n'match</h3>
+        <p style="margin-top: 15px">
+          If you plan on using the HM module alongside the NixOS module, set the
+          NixOS <span id="code">programs.hyprland.package = null;</span>
+        </p>
+        <p style="margin-top: 15px">
+          If you don't plan on using the NixOS module, but want to use the HM
+          module, you will have to enable all the options the NixOS module
+          enables.
+        </p>
+        <p style="margin-top: 15px">
+          If you don't plan on using any module, manually enable whatever
+          options the modules set.
+        </p>
+      </div>
+      <br />
+      <br />
+      <h1 id="fedora">Fedora</h1>
+      <hr />
+      <br />
+      <br />
+      <p style="line-height: 2">
+        The steps to build Hyprland on Fedora are relatively simple and very
+        similar to the steps described in the wiki. The main difference is in
+        the package names between Arch and Fedora. These steps were tested on
+        Fedora 35 and Fedora 36 Workstation.
+      </p>
+      <br />
+      <br />
+      <p>Step 1 - Install all the Dependencies</p>
+      <div id="qi-content">
+        <p id="p-nix">
+          sudo dnf install git ninja-build cmake meson gcc-c++ libxcb-devel
+          libX11-devel pixman-devel wayland-protocols-devel cairo-devel
+          pango-devel
+        </p>
+      </div>
+      <p>Step 2 - Download the Hyprland Source Code</p>
+      <div id="qi-content">
+        <p id="p-nix">
+          git clone
+          <span style="color: #f38ba8">--recursive</span>
+          https://github.com/hyprwm/Hyprland
+        </p>
+      </div>
+      <p>
+        The
+        <span id="code" style="color: #f38ba8; font-size: 16px"
+          >--recursive</span
+        >
+        argument is important - it will clone the required branch of wlroots
+        into the subprojects directory. Note that compiling with the master
+        branch of wlroots will cause compiler errors - you need the branch of
+        wlroots with the modified structures.
+      </p>
+      <br />
+      <p>Now you're ready to build Hyprland.</p>
+      <div id="qi-content">
+        <p id="p-nix">
+          cd Hyprland <br />
+          meson _build <br />
+          ninja -C _build <br />
+          sudo ninja -C _build install <br />
+        </p>
+      </div>
+      <p>Finally, Copy the sample config into place</p>
+      <div id="qi-content">
+        <p id="p-nix">
+          mkdir -p ~/.config/hypr <br />
+          cp example/hyprland.conf ~/.config/hypr
+        </p>
+      </div>
+      <p>
+        <b>NOTE FOR GDM USERS: </b>Hyprland <i>may</i> not show if gdm is
+        running in a X session instead of Wayland, check
+        <span id="code">/etc/gdm/custom.conf</span> to make sure Wayland is
+        enabled
+      </p>
+      <br />
+      <br />
+      <h1 id="mb">Manual Build</h1>
+      <hr />
+      <br />
+      <br />
+      <p>Step 1 - Install these Dependencies* -</p>
+      <br />
+      <div id="qi-content">
+        <p id="p-nix">
+          gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms
+          libxfixes libx11 libxcomposite xorg-xinput libxrender pixman
+          wayland-protocols cairo pango
+        </p>
+      </div>
+      <p>
+        *Please note Hyprland builds
+        <span id="code" style="font-size: 16px">wlroots</span>. Make sure you
+        have the dependencies of wlroots installed, you can make sure you have
+        them by installing wlroots separately (Hyprland doesn't mind).
+      </p>
+      <br />
+      <p>
+        Also note that Hyprland uses the C++23 standard, so your compiler has to
+        support <span id="code" style="font-size: 16px">gcc>=12.1.0 </span>or
+        <span id="code" style="font-size: 16px">clang>=15</span>.
+      </p>
+      <br />
+      <br />
+      <p>Step 2 - Download Hyprland source code</p>
+      <div id="qi-content">
+        <p id="p-nix">
+          cd ~ <br />
+          git clone
+          <span style="color: #f38ba8">--recursive</span>
+          https://github.com/hyprwm/Hyprland
+        </p>
+      </div>
+      <p>
+        The
+        <span id="code" style="color: #f38ba8; font-size: 16px"
+          >--recursive</span
+        >
+        argument is important - it will clone the required branch of wlroots
+        into the subprojects directory. Note that compiling with the master
+        branch of wlroots will cause compiler errors - you need the branch of
+        wlroots with the modified structures.
+      </p>
+      <br />
+      <br />
+      <h3>Install with Cmake (Recommended)</h3>
+      <br />
+
+      <div id="qi-content">
+        <p id="p-nix">
+          cd Hyprland <br />
+          sudo make install
+        </p>
+      </div>
+      <h3>Install with Meson</h3>
+      <br />
+      <div id="qi-content">
+        <p id="p-nix">
+          meson _build <br />
+          ninja -C _build <br />
+          sudo ninja -C _build install <br />
+        </p>
+      </div>
+      <p>Finally, Step 4 - Copy the config</p>
+      <div id="qi-content">
+        <p id="p-nix">
+          mkdir -p ~/.config/hypr <br />
+          cp example/hyprland.conf ~/.config/hypr
+        </p>
+      </div>
+      <p id="help">
+        If you have any doubt(s) or are getting any error(s), please-
+      </p>
+      <div id="help-links">
+        <a href="https://github.com/hyprwm/Hyprland/issues"
+          >1) Create an issue.</a
+        ><br />
+        <br />
+        <a href="https://github.com/hyprwm/Hyprland/discussions"
+          >2) Use the discussions page.</a
+        ><br />
+        <br />
+        <a href="https://discord.com/invite/hQ9XvMUjjr"
+          >3) Ask the community on our discord server.</a
+        >
+      </div>
+      <br />
+      <br />
+      <br />
+      <hr />
+      <footer>
+        <div>
+          <p>&#169; Hyprland Development 2022</p>
+
+          <div id="devs">
+            <p>
+              Developers -
+              <a href="https://github.com/vaxry" target="_blank" rel="noopener"
+                >Vaxry (Lead Developer)</a
+              ><span>,</span>
+              <a
+                href="https://github.com/fufezan"
+                target="_blank"
+                rel="noopener"
+                >Fufezan (Supporting Developer)</a
+              ><span>,</span>
+              <a
+                href="https://github.com/ThatOneCalculator"
+                target="_blank"
+                rel="noopener"
+                >ThatOneCalculator (Package Maintainer)</a
+              ><span> and </span
+              ><a
+                href="https://github.com/hyprwm/Hyprland/graphs/contributors"
+                target="_blank"
+                rel="noopener"
+                >our fellow contributors</a
+              >.
+            </p>
+          </div>
+          <p class="p2">
+            Website created by -
+            <a
+              class="site"
+              href="https://github.com/System-x64"
+              target="_blank"
+              rel="noopener"
+              >System-x64 (Dikshant Namdeo)</a
+            >.
+          </p>
+          <br />
+          <p class="p2" style="margin-bottom: 10px">
+            Hyprland is licensed under the BSD 3-Clause "New" or "Revised"
+            License.
+          </p>
+        </div>
+        <div id="foot-icons">
+          <a
+            href="https://github.com/hyprwm/Hyprland"
+            target="_blank"
+            rel="noopener"
+            ><img src="svg/github.svg" alt=""
+          /></a>
+          <a
+            href="https://discord.com/invite/hQ9XvMUjjr"
+            target="_blank"
+            rel="noopener"
+            ><img src="svg/discord.svg" alt=""
+          /></a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
