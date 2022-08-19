@@ -1,6 +1,6 @@
 const swiper = new Swiper(".swiper", {
   autoplay: {
-    delay: 2500,
+    delay: 2000,
     disableOnInteraction: true,
   },
   loop: true,
@@ -13,9 +13,5 @@ const swiper = new Swiper(".swiper", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
-  },
-
-  scrollbar: {
-    el: ".swiper-scrollbar",
   },
 });
