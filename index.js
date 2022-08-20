@@ -11,13 +11,6 @@ app.get("/", (req,res) => {
   res.render("home")
 })
 
-app.get("/install", (req, res) => {
-  res.render("install");
-});
-
-app.get("/configure", (req, res) => {
-  res.render("configure");
-});
 
 app.get("*", (req,res) => {
   res.render("404")
