@@ -452,13 +452,17 @@ header {
 
 .and-more h1 {
   padding-top: 30px;
-  width: 100%;
+  width: fit-content;
+  margin-inline: auto;
   font-size: 53px;
   text-align: center;
-  color: #cfe8f6;
   font-family: "JosefinSans-Regular";
   background-color: #1a1a2e;
   transition: all 0.5s ease;
+}
+
+.and-more a {
+  color: #cfe8f6;
 }
 
 .and-more h1:hover {
