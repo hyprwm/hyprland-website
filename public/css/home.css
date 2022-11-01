@@ -504,7 +504,6 @@ header {
 #get-started-button {
   width: 330px;
   background-color: aquamarine;
-  padding: 20px 80px;
   margin-left: 39%;
   margin-bottom: 160px;
   transition: all 0.5s ease;
@@ -522,6 +521,9 @@ header {
   text-decoration: none;
   font-family: "Sofia-Pro-Medium";
   font-size: 22px;
+  padding: 20px;
+  display: block;
+  text-align: center;
 }
 
 
