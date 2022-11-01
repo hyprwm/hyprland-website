@@ -504,7 +504,7 @@ header {
 #get-started-button {
   width: 330px;
   background-color: aquamarine;
-  margin-left: 39%;
+  margin-inline: auto;
   margin-bottom: 160px;
   transition: all 0.5s ease;
 }
