@@ -1,0 +1,21 @@
+.ricestext p {
+    font-family: "Sofia-Pro-Medium";
+    font-size: 20px;
+    color: #cfe8f6;
+}
+
+.bigtext {
+    font-family: "JosefinSans-Regular";
+    color: #cfe8f6;
+    font-size: 5rem;
+}
+
+.ricestop {
+    background-color: #1a1a2e;
+    display: block;
+}
+
+.compimage {
+    max-width: 60vw;
+    display: block;
+}

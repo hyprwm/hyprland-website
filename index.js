@@ -7,12 +7,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
   res.render("home")
 })
 
+app.get("/rices", (req, res) => {
+  res.render("rices")
+})
 
-app.get("*", (req,res) => {
+app.get("*", (req, res) => {
   res.render("404")
 })
 
