@@ -152,6 +152,7 @@ header {
   background-color: aquamarine;
   margin-top: 45px;
   transition: all 0.5s ease;
+  border-radius: 0.2rem;
 }
 
 #install-hypr div p {
@@ -160,6 +161,14 @@ header {
   background-color: aquamarine;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  border-radius: 0.2rem;
+  border:solid aquamarine;
+  transition: all 0.5s ease;
+}
+
+#install-hypr div p:hover {
+  background-color: #1a1a2e;
+  color: aquamarine
 }
 
 #install-hypr {
@@ -333,10 +342,14 @@ header {
   background-color: aquamarine;
   text-align: center;
   transition: all 0.5s ease;
+  border-radius: 0.2rem;
+  border: solid aquamarine;
 }
 
 #ani-text a div:hover {
   transform: scale(1.2);
+  color: aquamarine;
+  background-color: #1a1a2e;
 }
 
 .tiling {
@@ -377,6 +390,8 @@ header {
   margin: 0px 20%;
   margin-top: 40px;
   
+  border-radius: 0.2rem;
+  border: solid aquamarine;
   background-color: aquamarine;
   text-align: center;
   transition: all 0.5s ease;
@@ -384,6 +399,8 @@ header {
 
 #til-text a div:hover {
   transform: scale(1.2);
+  background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 .configure {
@@ -424,6 +441,8 @@ header {
   margin: 0px 20%;
   margin-top: 40px;
   
+  border: solid aquamarine;
+  border-radius: 0.2rem;
   background-color: aquamarine;
   text-align: center;
   transition: all 0.5s ease;
@@ -431,6 +450,8 @@ header {
 
 #con-text a div:hover {
   transform: scale(1.2);
+  background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 #con-text p  a {
@@ -508,6 +529,8 @@ header {
 
 #get-started-button {
   width: 330px;
+  border-radius: 0.2rem;
+  border: solid aquamarine;
   background-color: aquamarine;
   margin-inline: auto;
   margin-bottom: 160px;
@@ -516,6 +539,8 @@ header {
 
 #get-started-button:hover {
   transform: scale(1.2);
+  background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 
@@ -529,6 +554,12 @@ header {
   padding: 20px;
   display: block;
   text-align: center;
+  transition: all 0.5s ease;
+}
+
+#get-started-button a:hover {
+  background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 
