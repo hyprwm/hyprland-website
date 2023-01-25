@@ -1,7 +1,20 @@
-.ricestext p {
-    font-family: "Sofia-Pro-Medium";
-    font-size: 20px;
+.wofdiv {
+    margin: auto;
+    text-align: center;
     color: #cfe8f6;
+}
+
+.wofdiv > h1 {
+    font-family: "Sofia-Pro-Medium";
+    font-size: 48px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.wofdiv > p {
+    margin-bottom: 60px;
+    font-size: 20px;
+    font-family: "Sofia-Pro-Medium";
 }
 
 .bigtext {
@@ -10,19 +23,37 @@
     font-size: 5rem;
 }
 
-.ricestop {
-    background-color: #1a1a2e;
-    display: block;
+.ricewins {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 60px;
 }
 
-.compimage {
+div.ricewins > ul {
+    list-style-type: none;
+} 
+
+.month {
+    font-family: "Sofia-Pro-Medium";
+    color: #cfe8f6;
+    margin: 30px;
+}
+
+.win-text {
+    font-size: 24px;
+    color: #cfe8f6;
+    font-family: "Sofia-Pro-Medium";
+    margin: 20px;
+}
+
+li.win-text > img {
     max-width: 60vw;
-    display: block;
 }
 
-@media only screen and (max-width: 1000px) {
-    .compimage {
-        min-width: 80vw;
+@media only 
+screen and (max-width: 1000px) {
+    li.win-text > img {
         max-width: 80vw;
+        min-width: 80vw;;
     }
 }
