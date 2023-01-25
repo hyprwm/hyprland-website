@@ -19,3 +19,10 @@
     max-width: 60vw;
     display: block;
 }
+
+@media only screen and (max-width: 1000px) {
+    .compimage {
+        min-width: 80vw;
+        max-width: 80vw;
+    }
+}
