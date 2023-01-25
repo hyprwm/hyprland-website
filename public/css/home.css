@@ -80,7 +80,8 @@ header {
   margin-left: 20px;
   padding: 16px 25px;
   background-color: aquamarine;
-  border: none;
+  border: solid aquamarine;
+  border-radius: 0.2rem;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   color: #1a1a2e;
@@ -88,6 +89,8 @@ header {
 
 .cta:hover {
   transform: scale(1.2);
+  background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 
