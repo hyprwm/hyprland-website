@@ -1,179 +1,44 @@
-@font-face {
-  font-family: "LondonBetween";
-  src: url("../fonts/LondonBetween.woff") format("woff");
-}
-
-@font-face {
-  font-family: "JosefinSans-Regular";
-  src: url("../fonts/JosefinSans-Regular.woff") format("woff");
-}
-@font-face {
-  font-family: "Sofia-Pro-Light";
-  src: url("../fonts/SofiaProLight.woff") format("woff");
-}
-
-@font-face {
+.con404 {
+  margin: auto;
+  text-align: center;
+  color: #cfe8f6;
   font-family: "Sofia-Pro-Medium";
-  src: url("../fonts/SofiaProMedium.woff") format("woff");
 }
 
-@font-face {
-  font-family: "SourceCodePro-Semibold";
-  src: url("../fonts/SourceCodePro-Semibold.woff") format("woff");
-}
-
-* {
-  padding: 0px;
-  margin: 0px;
-  background-color: #1a1a2e;
-}
-
-#content-center {
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-#header {
-  display: flex;
-  background-color: #1a1a2e;
-  width: auto;
-  height: 6rem;
-
-}
-
-.header {
-  background-color: #1a1a2e;
-}
-
-#header-logo-div {
-  width: 240px;
-}
-
-
-
-#header-logo {
-  width: auto;
-  height: 100%;
-}
-
-#header-links {
-  display: flex;
-  padding-top: 15%;
-  width: 260px;
-}
-
-#header-links-div {
+.con404 > img {
+  margin-top: 60px;
+  margin-bottom: 60px;
   margin-left: auto;
-  padding-right: 10rem;
+  margin-right: auto;
+  max-height: 40vh;
+  max-width: 60vw;
 }
 
-.header-link {
-  color: #cfe8f6;
-  font-family: "LondonBetween";
+.con404 > h1 {
+  margin-bottom: 20px;
+  font-size: 48px;
+}
+
+.con404 > p {
   font-size: 20px;
-  text-decoration: none;
-  transition: transform 0.2s;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
 }
 
-
-
-.text-para-link:hover {
-  color: aquamarine;
-  font-size: 28px;
-}
-
-.text-para-link {
-  color: #cfe8f6;
-  font-size: 22px;
-  transition: font-size 0.2s;
-}
-#header-link-install {
-  margin-left: 10%;
-}
-#header-link-configure {
-  margin-left: 10%;
-}
-
-
-
-.header-link:hover {
-  transform: scale(1.3);
-  border-bottom: 2px solid aquamarine !important;
-  color: aquamarine;
-}
-
-#links-out {
-  margin-left: auto;
-}
-
-#github {
-  margin-top: 50%;
-}
-
-#link-github {
-  padding: 15px;
+.con404 > a > button{
+  padding: 20px;
   background-color: aquamarine;
-  font-family: "LondonBetween";
-  color: #1a1a2e;
-  text-decoration: none;
+  border: solid aquamarine;
+  border-radius: 0.2rem;
+  margin-bottom: 60px;
+  transition: all 0.5s ease;
+  font-size: 20px;
+  font-family: "Sofia-Pro-Medium";
 }
 
-#github {
-  transition: transform 0.2s;
-}
-
-#github:hover {
+.con404 > a > button:hover {
+  background-color: #1a1a2e;
+  color: aquamarine;
   transform: scale(1.2);
-}
-
-
-#div-img {
-    width: fit-content;
-    height: fit-content;
-    margin-left: 38%;
-    margin-top: 5%;
-    
-}
-
-#div-img img {
-    width: 300px;
-    height: 300px;
-}
-
-#div-text {
-    width: fit-content;
-    height: fit-content;
-    margin-left: 35%;
-}
-
-#div-text p {
-    font-family: "Sofia-Pro-Medium";
-    color: #cfe8f6;
-    font-size: 18px;
-}
-
-#div-text h1 {
-    font-family: "JosefinSans-Regular";
-    color: #cfe8f6;
-    font-size: 32px;
-    margin-left: 60px;
-}
-
-#div-text a button {
-    padding: 20px;
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-left:60px;
-    margin-top: 20px;
-    background-color: aquamarine;
-    border: none;
-    cursor: pointer;
-    font-family: "sofia-pro-medium";
-    font-size: 18px;
-    border-radius: 15px;
-    transition: background-color 0.2s;
-}
-
-#div-text a button:hover {
-    background-color: aqua;
 }
