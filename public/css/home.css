@@ -21,7 +21,7 @@
   font-family: "SourceCodePro-Semibold";
   src: url("../fonts/SourceCodePro-Semibold.woff") format("woff");
 }
-/* #7069c5 */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -36,6 +36,8 @@ header {
   padding: 0px 10%;
   padding-left: 8%;
   background-color: #1a1a2e;
+  padding-top: 20px;
+
 }
 
 .logo {
@@ -46,14 +48,12 @@ header {
 .logo img {
   width: 190px;
   height: auto;
-  padding-top: 20px;
   padding-right: 10px;
 }
 
 .nav__links {
   list-style: none;
   display: flex;
-
 }
 
 .nav__links a,
@@ -70,8 +70,6 @@ header {
   padding: 0px 20px;
 }
 
-
-
 .nav__links li a:hover {
   color: aquamarine;
 }
@@ -80,8 +78,7 @@ header {
   margin-left: 20px;
   padding: 16px 25px;
   background-color: aquamarine;
-  border: solid aquamarine;
-  border-radius: 0.2rem;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   color: #1a1a2e;
@@ -89,14 +86,14 @@ header {
 
 .cta:hover {
   transform: scale(1.2);
-  background-color: #1a1a2e;
-  color: aquamarine;
 }
 
-
-
 #close-id {
-  padding: 0px;
+padding: 0px;
+margin-right: 32px;
+font-size: 43px;
+margin-top: 5px;
+
 }
 
 #home {
@@ -132,6 +129,7 @@ header {
   font-family: "Sofia-Pro-Medium";
   font-size: 20px;
   color: #cfe8f6;
+  padding-top: 15px;
 }
 .text a {
   font-family: "Sofia-Pro-Medium";
@@ -143,35 +141,27 @@ header {
 
 .text {
   padding-top: 150px;
-  padding-bottom: 200px;
   padding-left: 10%;
   margin-right: auto;
   max-width: 700px;
 }
 
 #install-hypr div {
-  width: 200px;
-  height: 50px;
+  width: 300px;
+  height: 60px;
   background-color: aquamarine;
-  margin-top: 45px;
+  margin-top: 30px;
   transition: all 0.5s ease;
-  border-radius: 0.2rem;
 }
+
 
 #install-hypr div p {
   text-align: center;
-  color:#1a1a2e;
+  color: #1a1a2e;
   background-color: aquamarine;
-  padding-top: 1rem;
+  padding-top: 1.25rem;
   padding-bottom: 1rem;
-  border-radius: 0.2rem;
-  border:solid aquamarine;
-  transition: all 0.5s ease;
-}
-
-#install-hypr div p:hover {
-  background-color: #1a1a2e;
-  color: aquamarine
+  font-size: 22px;
 }
 
 #install-hypr {
@@ -181,7 +171,6 @@ header {
 #install-hypr div:hover {
   transform: scale(1.2);
 }
-
 
 #slide {
   margin-top: 100px;
@@ -198,8 +187,8 @@ header {
   height: auto;
 }
 .swiper {
-	width: 100%;
-	height: fit-content;
+  width: 100%;
+  height: fit-content;
 }
 
 .swiper-slide img {
@@ -207,7 +196,6 @@ header {
   height: auto;
 }
 
-  
 .swiper .swiper-button-prev,
 .swiper .swiper-button-next {
   color: #cfe8f6;
@@ -223,8 +211,8 @@ header {
 }
 /* Mobile Nav */
 
-.menu  {
-  display: none ;
+.menu {
+  display: none;
 }
 
 .overlay {
@@ -271,11 +259,9 @@ header {
   cursor: pointer;
 }
 
-
 .mob-menu {
   display: none;
 }
-
 
 .mob-menu {
   font-size: 40px;
@@ -341,18 +327,14 @@ header {
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-  
+
   background-color: aquamarine;
   text-align: center;
-  transition: all 0.5s ease;
-  border-radius: 0.2rem;
-  border: solid aquamarine;
+  transition: all 0.3s ease;
 }
 
 #ani-text a div:hover {
   transform: scale(1.2);
-  color: aquamarine;
-  background-color: #1a1a2e;
 }
 
 .tiling {
@@ -392,18 +374,14 @@ header {
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-  
-  border-radius: 0.2rem;
-  border: solid aquamarine;
+
   background-color: aquamarine;
   text-align: center;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 #til-text a div:hover {
   transform: scale(1.2);
-  background-color: #1a1a2e;
-  color: aquamarine;
 }
 
 .configure {
@@ -443,147 +421,48 @@ header {
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-  
-  border: solid aquamarine;
-  border-radius: 0.2rem;
+
   background-color: aquamarine;
   text-align: center;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 #con-text a div:hover {
   transform: scale(1.2);
-  background-color: #1a1a2e;
-  color: aquamarine;
 }
 
-#con-text p  a {
+#con-text p a {
   color: #cfe8f6;
   text-decoration: underline;
   transition: all 0.3s ease;
 }
-#con-text p  a:hover {
+#con-text p a:hover {
   color: aquamarine;
 }
 #link-config-discord:hover {
   color: #5865f2 !important;
 }
 
-.and-more {
-  width: 100%;
-  height: 200px;
-  background-color: #1a1a2e;
-}
-
-.and-more h1 {
-  padding-top: 30px;
-  width: fit-content;
-  margin-inline: auto;
-  font-size: 53px;
-  text-align: center;
-  font-family: "JosefinSans-Regular";
-  background-color: #1a1a2e;
-  transition: all 0.5s ease;
-}
-
-.and-more a {
-  color: #cfe8f6;
-}
-
-.and-more h1:hover {
-  color: aquamarine;
-  transform: scale(1.2);
-}
-.content {
-  margin-top: 60px;
-  width: 100%;
-  height: 300px;
-}
-/* .get-started {
-  font-family: 'JosefinSans-Regular';
-  font-size: 34px;
-  color: #cfe8f6;
-  padding-left: 10%;
-  padding-right: 10%;
-
-}
-.get-started a div {
-  color: #1a1a2e;
-  font-size: 24px;
-  font-family: "Sofia-Pro-Medium";
-  padding: 15px 60px;;
-  margin-right: 40%;
-  margin-top: 40px;
-  margin-bottom: 100px;
-  width: 300px;
-  background-color: aquamarine;
-  transition: all 0.5s ease;
-}
-.get-started a {
-  text-decoration: none;
-} */
-/* 
-.get-started  a div:hover {
-  transform: scale(1.2);
-} */
-
-
-
-
-#get-started-button {
-  width: 330px;
-  border-radius: 0.2rem;
-  border: solid aquamarine;
-  background-color: aquamarine;
-  margin-inline: auto;
-  margin-bottom: 160px;
-  transition: all 0.5s ease;
-}
-
-#get-started-button:hover {
-  transform: scale(1.2);
-  background-color: #1a1a2e;
-  color: aquamarine;
-}
-
-
-
-#get-started-button a{
-  color: #1a1a2e;
-  background-color: aquamarine;
-  text-decoration: none;
-  font-family: "Sofia-Pro-Medium";
-  font-size: 22px;
-  padding: 20px;
-  display: block;
-  text-align: center;
-  transition: all 0.5s ease;
-}
-
-#get-started-button a:hover {
-  background-color: #1a1a2e;
-  color: aquamarine;
-}
 
 
 footer {
-font-family: 'Sofia-Pro-Light';
-display: flex;
-width: 80%;
-font-size: 13px;
-color:#a3a3a3a5;
-margin: 0px 10%;
+  font-family: "Sofia-Pro-Light";
+  display: flex;
+  width: 80%;
+  font-size: 13px;
+  color: #a3a3a3a5;
+  margin: 0px 10%;
 }
 footer hr {
   width: 80% !important;
-  }
+}
 footer a {
-  color:#a3a3a3a5;
+  color: #a3a3a3a5;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 footer a:hover {
-    color:#cfe8f6;
+  color: #cfe8f6;
 }
 #devs {
   max-width: 700px;
@@ -610,8 +489,13 @@ footer a:hover {
 .footer-icons a svg:active path,
 .footer-icons a svg:focus path,
 .footer-icons a svg:hover path {
-  color: aquamarine;
+  color: #cfe8f6;
 }
+#licence {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 
 @media only screen and (max-width: 1100px) {
   .nav__links,
@@ -623,11 +507,11 @@ footer a:hover {
   }
   .mob-menu {
     display: flex;
+    margin-bottom: 8px;
   }
-  
+
   .top {
     display: inline;
-  
   }
   .text {
     text-align: center;
@@ -635,19 +519,19 @@ footer a:hover {
     padding-left: 0px;
     margin-right: 0px;
     width: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     max-width: 100%;
   }
   .text h2 {
     font-size: 46px;
     text-align: center;
-    width: 100%
+    width: 100%;
   }
   .text p {
     font-size: 18px;
     text-align: center;
     padding: 0px 10%;
-    padding-top: 30px;
+    padding-top: 15px;
   }
   #install-hypr div {
     margin-left: auto;
@@ -660,7 +544,6 @@ footer a:hover {
     border: none;
     margin-left: 10%;
     margin-right: 10%;
-    
   }
   #slide-content {
     width: auto;
@@ -673,9 +556,9 @@ footer a:hover {
   .features {
     margin: 0px;
     width: 100%;
-    padding-top: 300px;
+    padding-top: 200px;
     text-align: center;
-
+    padding-bottom: 100px;
   }
   #features-text {
     padding-bottom: 100px;
@@ -687,14 +570,14 @@ footer a:hover {
     margin-left: 0px;
   }
   #ani-text h1 {
-  padding-top: 80px;
-	font-size: 42px;
+    padding-top: 80px;
+    font-size: 42px;
   }
   #ani-text p {
     margin: 0px 10%;
   }
   .tiling {
-    margin-top: 500px;
+    margin-top: 395px;
     display: flex;
     flex-direction: column-reverse;
   }
@@ -703,12 +586,14 @@ footer a:hover {
   }
   #til-text h1 {
     padding-top: 80px;
-	font-size: 42px;
+    font-size: 42px;
   }
   #til-text p {
     margin: 0px 10%;
   }
-  #til-text{margin-right: 0px;}
+  #til-text {
+    margin-right: 0px;
+  }
   .configure {
     display: inline;
   }
@@ -719,8 +604,8 @@ footer a:hover {
     margin-left: 0px;
   }
   #con-text h1 {
-  padding-top: 80px;
-	font-size: 42px;
+    padding-top: 80px;
+    font-size: 42px;
   }
   #con-text p {
     margin: 0px 10%;
@@ -731,30 +616,11 @@ footer a:hover {
   #con-text {
     margin-right: 0px;
   }
-  .and-more {
-    padding-top: 80px;
-  }
-  .get-started {
-    margin-top: 200px;
-  }
-  .get-started a div {
-    margin-left: 20%;
-  }
-  .footer-text {
-    max-width: 250px;
-  }
-  #get-started-button {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 80px;
-    
-  }
-  .get-started {
-    margin-top: 80px;
-    
+  footer {
+    /* display: block; */
   }
 
-  }
+}
 
 @media only screen and (max-width: 648px) {
   header {
@@ -765,11 +631,21 @@ footer a:hover {
     height: auto;
   }
 
-  
   .swiper-slide img {
     width: 384px;
     height: auto;
   }
+  #install-hypr div {
+  width: 220px;
+  height: 40px;
+}
+#install-hypr div p {
+  font-size: 20px;
+}
+.text {
+  padding-top: 20%;
+  padding-bottom: 25%;
+}
   #slide {
     width: 384px;
     height: auto;
@@ -777,7 +653,6 @@ footer a:hover {
     border: none;
     margin-left: 0px;
     margin-right: 0px;
-    
   }
   .swiper {
     width: 384px;
@@ -801,8 +676,7 @@ footer a:hover {
     width: 384px;
     height: auto;
   }
-  
-  
+
   .overlay a {
     font-size: 20px;
   }
@@ -810,10 +684,11 @@ footer a:hover {
     font-size: 40px;
     top: 15px;
     right: 35px;
-    
   }
   .mob-menu {
     display: flex;
+    margin-bottom: 12px;
+    
   }
   .get-started a div {
     margin-left: 0px;
@@ -829,8 +704,39 @@ footer a:hover {
   .footer-icons {
     margin-left: 20%;
   }
-  
 
+#home {
+  border-bottom: #cee7f5 solid 3px;
 }
-
-
+#close-id {
+  margin-right: 7px;
+}
+footer {
+  display: block;
+}
+.footer-text {
+  max-width: none;
+}
+.footer-icons {
+  display: flex;
+  width: fit-content;
+  height: 60px;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: auto;
+}
+.bi.bi-github {
+  margin-right: 30px;
+}
+.footer-icons a svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 0;
+}
+#licence {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+}
