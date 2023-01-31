@@ -118,6 +118,7 @@ margin-top: 5px;
 .top {
   background-color: #1a1a2e;
   display: flex;
+  height: 643px;
 }
 
 .text h2 {
