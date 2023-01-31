@@ -12,9 +12,11 @@
 }
 
 .wofdiv > p {
-    margin-bottom: 60px;
+    
     font-size: 20px;
     font-family: "Sofia-Pro-Medium";
+    margin: 0 10%;
+    margin-bottom: 60px;
 }
 
 .bigtext {
