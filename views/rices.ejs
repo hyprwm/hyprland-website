@@ -5,23 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="ico/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="ico/favicon.ico" type="image/ico" />
+    <link
+      rel="icon"
+      href="ico/favicon-32x32.png"
+      size="32x32"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      href="ico/favicon-32x32.png"
+      size="16x16"
+      type="image/png"
+    />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/rices.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <title>Hyprland - Wall of Fame</title>
+    <title>Wall of Fame - Hyprland</title>
 </head>
 
 <body>
     <header>
-        <a class="logo" href="/"><img src="imgs/hyprland.png" alt="logo"></a>
+        <a class="logo" href="https://hyprland.org"><img src="imgs/hyprland.png" alt="logo"></a>
         <nav>
             <ul class="nav__links">
-                <li><a href="https://hyprland.org">Hyprland</a></li>
-                <li><a id="home-full" href="https://hyprland.org/rices">Wall of Fame</a></li>
-                <li><a href="https://wiki.hyprland.org">Wiki</a></li>
-                <li><a href="https://wiki.hyprland.org/FAQ/">FAQ</a></li>
-            </ul>
+          <li>
+            <a class="nav-link" data-value="Home" href="https://www.hyprland.org/">Hyprland</a>
+          </li>
+          <li><a class="nav-link" data-value="Get Started" href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get Started</a></li>
+          <li><a class="nav-link" data-value="Wiki" href="https://wiki.hyprland.org/">Wiki</a></li>
+          <li><a class="nav-link"data-value="FAQ" href="https://wiki.hyprland.org/FAQ/">FAQ</a></li>
+          
+        </ul>
         </nav>
         <a class="cta" href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Github</a>
         <p class="mob-menu">&equiv;</p>
@@ -32,7 +47,7 @@
         <p>The Wall of Fame documents the winning rices from past ricing competitons held on our Discord server.</p>
     </div>
 
-    <hr style="color: #a3a3a3a5; margin: 0px 10%;" />
+    <hr style="color: #cfe8f6; margin: 0px 10%; height: 3px;  border: none; background-color: #cfe8f6;" />
 
     <div class="ricewins">
         <ul>
@@ -45,7 +60,7 @@
         </ul>
     </div>
 
-    <hr style="color: #a3a3a3a5; margin: 0px 10%;" />
+    <hr style="color: #a3a3a3a5; margin: 0px 10%; height: 2px;  border: none; background-color: #a3a3a3a5;" />
     <footer>
         <div class="footer-text">
 
@@ -92,9 +107,10 @@
     <div id="mobile__menu" class="overlay">
         <a id="close-id" class="close">&times;</a>
         <div class="overlay__content">
-            <a id="home" href="https://hyprland.org">Hyprland</a>
-            <a href="https://wiki.hyprland.org">Wiki</a>
-            <a href="https://wiki.hyprland.org/FAQ/">FAQ</a>
+            <a href="https://www.hyprland.org/">Hyprland</a>
+        <a  href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get Started</a>
+        <a href="https://wiki.hyprland.org">Wiki</a>
+        <a href="https://wiki.hyprland.org/FAQ/">FAQ</a>
         </div>
     </div>
     <script type="text/javascript" src="js/mobile.js"></script>

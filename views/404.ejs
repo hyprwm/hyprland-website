@@ -15,14 +15,18 @@
 <body>
   <header>
 
-    <a class="logo" href="/"><img src="imgs/hyprland.png" alt="logo"></a>
+    <a class="logo" href="https://hyprland.org"><img src="imgs/hyprland.png" alt="logo"></a>
     <nav>
       <ul class="nav__links">
-        <li><a id="home-full" href="https://hyprland.org">Hyprland</a></li>
-        <li><a href="https://hyprland.org/rices">Wall of Fame</a></li>
-        <li><a href="https://wiki.hyprland.org">Wiki</a></li>
-        <li><a href="https://wiki.hyprland.org/FAQ/">FAQ</a></li>
-      </ul>
+          <li><a href="https://hyprland.org">Hyprland</a></li>
+          <li>
+            <a class="nav-link" data-value="Wall of Fame" href="https://www.hyprland.org/rices">Wall of Fame</a>
+          </li>
+          <li><a class="nav-link" data-value="Get Started" href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get Started</a></li>
+          <li><a class="nav-link" data-value="Wiki" href="https://wiki.hyprland.org/">Wiki</a></li>
+          <li><a class="nav-link"data-value="FAQ" href="https://wiki.hyprland.org/FAQ/">FAQ</a></li>
+          
+        </ul>
     </nav>
     <a class="cta" href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Github</a>
     <p class="mob-menu">&equiv;</p>
@@ -34,10 +38,10 @@
     
     <h1>Page Not Found!</h1>
     <p>Look where you land, open seas and empty hands</p>
-    <a href="/"><button>Return to Home</button></a>
+    <a href="/"><button>Return to Hyprland</button></a>
   </div>
 
-  <hr style="color: #a3a3a3a5; margin: 0px 10%;">
+  <hr style="color: #a3a3a3a5; margin: 0px 10%; height: 2px;  border: none; background-color: #a3a3a3a5;" />
   <footer>
     <div class="footer-text">
 
@@ -82,10 +86,12 @@
   <div id="mobile__menu" class="overlay">
     <a id="close-id" class="close">&times;</a>
     <div class="overlay__content">
-      <a id="home" href="https://hyprland.org">Hyprland</a>
-      <a href="https://wiki.hyprland.org">Wiki</a>
-      <a href="https://wiki.hyprland.org/FAQ/">FAQ</a>
-    </div>
+        <a  href="https://hyprland.org">Hyprland</a>
+        <a href="https://www.hyprland.org/rices">Wall Of Fame</a>
+        <a  href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get Started</a>
+        <a href="https://wiki.hyprland.org">Wiki</a>
+        <a href="https://wiki.hyprland.org/FAQ/">FAQ</a>
+      </div>
   </div>
   <script type="text/javascript" src="js/mobile.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
