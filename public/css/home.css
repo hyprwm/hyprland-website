@@ -79,6 +79,8 @@ header {
   padding: 16px 25px;
   background-color: aquamarine;
   border: none;
+  border: solid aquamarine;
+  border-radius: 0.2rem;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   color: #1a1a2e;
@@ -86,6 +88,8 @@ header {
 
 .cta:hover {
   transform: scale(1.2);
+   background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 #close-id {
@@ -153,6 +157,7 @@ margin-top: 5px;
   background-color: aquamarine;
   margin-top: 30px;
   transition: all 0.5s ease;
+  border-radius: 0.2rem;
 }
 
 
@@ -163,6 +168,14 @@ margin-top: 5px;
   padding-top: 1.25rem;
   padding-bottom: 1rem;
   font-size: 22px;
+  border-radius: 0.2rem;
+  border:solid aquamarine;
+  transition: all 0.5s ease;
+}
+
+#install-hypr div p:hover {
+  background-color: #1a1a2e;
+  color: aquamarine
 }
 
 #install-hypr {
@@ -323,12 +336,13 @@ margin-top: 5px;
 }
 
 #ani-text a div {
-  color: #1a1a2e;
+   color: #1a1a2e;
   font-family: "Sofia-Pro-Medium";
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-
+  border-radius: 0.2rem;
+  border: solid aquamarine;
   background-color: aquamarine;
   text-align: center;
   transition: all 0.3s ease;
@@ -336,6 +350,8 @@ margin-top: 5px;
 
 #ani-text a div:hover {
   transform: scale(1.2);
+    background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 .tiling {
@@ -375,7 +391,8 @@ margin-top: 5px;
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-
+  border-radius: 0.2rem;
+  border: solid aquamarine;
   background-color: aquamarine;
   text-align: center;
   transition: all 0.3s ease;
@@ -383,6 +400,8 @@ margin-top: 5px;
 
 #til-text a div:hover {
   transform: scale(1.2);
+    background-color: #1a1a2e;
+  color: aquamarine;
 }
 
 .configure {
@@ -422,7 +441,8 @@ margin-top: 5px;
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-
+    border: solid aquamarine;
+  border-radius: 0.2rem;
   background-color: aquamarine;
   text-align: center;
   transition: all 0.3s ease;
@@ -430,6 +450,9 @@ margin-top: 5px;
 
 #con-text a div:hover {
   transform: scale(1.2);
+    background-color: #1a1a2e;
+  color: aquamarine;
+  
 }
 
 #con-text p a {
