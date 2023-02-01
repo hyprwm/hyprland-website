@@ -27,7 +27,10 @@
     </title>
 
     <!--SEO-->
-    <meta property="og:site_name" content="Hyprland is a dynamic tiling wayland compositor that offers unique features like smooth animations, dynamic tiling and rounded corners. Learn more by visiting this site!" />
+    <meta
+      property="og:site_name"
+      content="Hyprland is a dynamic tiling wayland compositor that offers unique features like smooth animations, dynamic tiling and rounded corners. Learn more by visiting this site!"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.hyprland.org/" />
     <meta
@@ -56,24 +59,54 @@
       content="Configure, https://wiki.hyprland.org/Configuring/Configuring-Hyprland/"
     />
     <meta name="robots" content="FAQ, https://wiki.hyprland.org/FAQ/" />
-    <meta name="robots" content="Contribute, https://wiki.hyprland.org/Contributing-and-Debugging/" />
+    <meta
+      name="robots"
+      content="Contribute, https://wiki.hyprland.org/Contributing-and-Debugging/"
+    />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
     <header>
-      <a class="logo" href="https://hyprland.org"><img src="imgs/hyprland.png" alt="logo" /></a>
+      <a class="logo" href="https://hyprland.org"
+        ><img src="imgs/hyprland.png" alt="logo"
+      /></a>
       <nav>
         <ul class="nav__links">
           <!-- <li><a id="home-full" href="https://hyprland.org">Hyprland</a></li> -->
           <li>
-            <a class="nav-link" data-value="Wall of Fame" href="https://www.hyprland.org/rices">Wall of Fame</a>
+            <a
+              class="nav-link"
+              data-value="Wall of Fame"
+              href="https://www.hyprland.org/rices"
+              >Wall of Fame</a
+            >
           </li>
-          <li><a class="nav-link" data-value="Get Started" href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get Started</a></li>
-          <li><a class="nav-link" data-value="Wiki" href="https://wiki.hyprland.org/">Wiki</a></li>
-          <li><a class="nav-link"data-value="FAQ" href="https://wiki.hyprland.org/FAQ/">FAQ</a></li>
-          
+          <li>
+            <a
+              class="nav-link"
+              data-value="Get Started"
+              href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/"
+              >Get Started</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-value="Wiki"
+              href="https://wiki.hyprland.org/"
+              >Wiki</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-value="FAQ"
+              href="https://wiki.hyprland.org/FAQ/"
+              >FAQ</a
+            >
+          </li>
         </ul>
       </nav>
       <a
@@ -142,7 +175,6 @@
               <div class="swiper-slide">
                 <img src="imgs/img6.png" id="slide-img" />
               </div>
-              
             </div>
 
             <div class="swiper-pagination" style="color: #cfe8f6"></div>
@@ -160,6 +192,7 @@
           <video
             class="animatedVideo"
             src="videos/windows.mp4"
+            autoplay
             muted
             loop
           ></video>
@@ -200,6 +233,7 @@
           <video
             class="animatedVideo"
             src="videos/tiling.mp4"
+            autoplay
             muted
             loop
           ></video>
@@ -210,6 +244,7 @@
           <video
             class="animatedVideo"
             src="videos/configure.mp4"
+            autoplay
             muted
             loop
           ></video>
@@ -243,7 +278,15 @@
       </div>
     </div>
 
-    <hr style="color: #a3a3a3a5; margin: 0px 10%; height: 2px;  border: none; background-color: #a3a3a3a5;" />
+    <hr
+      style="
+        color: #a3a3a3a5;
+        margin: 0px 10%;
+        height: 2px;
+        border: none;
+        background-color: #a3a3a3a5;
+      "
+    />
     <footer>
       <div class="footer-text">
         <p style="margin-top: 10px">&#169; Hyprland Development 2023</p>
@@ -341,7 +384,9 @@
       <div class="overlay__content">
         <!-- <a id="home" href="https://hyprland.org">Hyprland</a> -->
         <a href="https://www.hyprland.org/rices">Wall Of Fame</a>
-        <a  href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get Started</a>
+        <a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/"
+          >Get Started</a
+        >
         <a href="https://wiki.hyprland.org">Wiki</a>
         <a href="https://wiki.hyprland.org/FAQ/">FAQ</a>
       </div>
@@ -352,7 +397,7 @@
     <script src="js/smooth-view.js"></script>
     <script src="js/github-logo.js"></script>
     <script src="js/play-vid-on-focus.js"></script>
-    
+
     <!-- <script>
       let myDiv = document.getElementById("top");
       myDiv.style.height = window.innerHeight + "px";
