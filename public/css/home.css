@@ -29,6 +29,10 @@
   background-color: #1a1a2e;
 }
 
+body {
+  background-color: #1a1a2e;
+}
+
 header {
   display: flex;
   justify-content: flex-end;
@@ -37,7 +41,6 @@ header {
   padding-left: 8%;
   background-color: #1a1a2e;
   padding-top: 20px;
-
 }
 
 .logo {
@@ -88,16 +91,15 @@ header {
 
 .cta:hover {
   transform: scale(1.2);
-   background-color: #1a1a2e;
+  background-color: #1a1a2e;
   color: aquamarine;
 }
 
 #close-id {
-padding: 0px;
-margin-right: 32px;
-font-size: 43px;
-margin-top: 5px;
-
+  padding: 0px;
+  margin-right: 32px;
+  font-size: 43px;
+  margin-top: 5px;
 }
 
 #home {
@@ -122,7 +124,7 @@ margin-top: 5px;
 .top {
   background-color: #1a1a2e;
   display: flex;
-  height: 643px;
+  height: max-content;
 }
 
 .text h2 {
@@ -134,7 +136,7 @@ margin-top: 5px;
   font-family: "Sofia-Pro-Medium";
   font-size: 20px;
   color: #cfe8f6;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 .text a {
   font-family: "Sofia-Pro-Medium";
@@ -148,34 +150,33 @@ margin-top: 5px;
   padding-top: 150px;
   padding-left: 10%;
   margin-right: auto;
-  max-width: 700px;
+  max-width: 600px;
 }
 
 #install-hypr div {
   width: 300px;
   height: 60px;
   background-color: aquamarine;
-  margin-top: 30px;
+  margin-top: 40px;
   transition: all 0.5s ease;
   border-radius: 0.2rem;
 }
-
 
 #install-hypr div p {
   text-align: center;
   color: #1a1a2e;
   background-color: aquamarine;
-  padding-top: 1.25rem;
+  padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 22px;
   border-radius: 0.2rem;
-  border:solid aquamarine;
+  border: solid aquamarine;
   transition: all 0.5s ease;
 }
 
 #install-hypr div p:hover {
   background-color: #1a1a2e;
-  color: aquamarine
+  color: aquamarine;
 }
 
 #install-hypr {
@@ -190,10 +191,11 @@ margin-top: 5px;
   margin-top: 100px;
   margin-right: 6%;
   margin-left: 40px;
-  width: 650px;
+  width: 640px;
   height: max-content;
   align-items: center;
   justify-content: center;
+  padding-bottom: 5%;
 }
 
 #slide-content {
@@ -336,10 +338,11 @@ margin-top: 5px;
 }
 
 #ani-text a div {
-   color: #1a1a2e;
+  color: #1a1a2e;
   font-family: "Sofia-Pro-Medium";
+  font-size: 16px;
   padding: 20px;
-  margin: 0px 20%;
+  margin: 0px 17%;
   margin-top: 40px;
   border-radius: 0.2rem;
   border: solid aquamarine;
@@ -350,7 +353,7 @@ margin-top: 5px;
 
 #ani-text a div:hover {
   transform: scale(1.2);
-    background-color: #1a1a2e;
+  background-color: #1a1a2e;
   color: aquamarine;
 }
 
@@ -400,7 +403,7 @@ margin-top: 5px;
 
 #til-text a div:hover {
   transform: scale(1.2);
-    background-color: #1a1a2e;
+  background-color: #1a1a2e;
   color: aquamarine;
 }
 
@@ -441,7 +444,7 @@ margin-top: 5px;
   padding: 20px;
   margin: 0px 20%;
   margin-top: 40px;
-    border: solid aquamarine;
+  border: solid aquamarine;
   border-radius: 0.2rem;
   background-color: aquamarine;
   text-align: center;
@@ -450,9 +453,8 @@ margin-top: 5px;
 
 #con-text a div:hover {
   transform: scale(1.2);
-    background-color: #1a1a2e;
+  background-color: #1a1a2e;
   color: aquamarine;
-  
 }
 
 #con-text p a {
@@ -466,8 +468,6 @@ margin-top: 5px;
 #link-config-discord:hover {
   color: #5865f2 !important;
 }
-
-
 
 footer {
   font-family: "Sofia-Pro-Light";
@@ -520,8 +520,7 @@ footer a:hover {
   margin-bottom: 10px;
 }
 
-
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1140px) {
   .nav__links,
   .cta {
     display: none;
@@ -643,7 +642,6 @@ footer a:hover {
   footer {
     /* display: block; */
   }
-
 }
 
 @media only screen and (max-width: 648px) {
@@ -660,16 +658,16 @@ footer a:hover {
     height: auto;
   }
   #install-hypr div {
-  width: 220px;
-  height: 40px;
-}
-#install-hypr div p {
-  font-size: 20px;
-}
-.text {
-  padding-top: 20%;
-  padding-bottom: 25%;
-}
+    width: 220px;
+    height: 40px;
+  }
+  #install-hypr div p {
+    font-size: 20px;
+  }
+  .text {
+    padding-top: 20%;
+    padding-bottom: 25%;
+  }
   #slide {
     width: 384px;
     height: auto;
@@ -711,8 +709,7 @@ footer a:hover {
   }
   .mob-menu {
     display: flex;
-    margin-bottom: 10px;
-    
+    margin-bottom: 8px;
   }
   .get-started a div {
     margin-left: 0px;
@@ -729,38 +726,267 @@ footer a:hover {
     margin-left: 20%;
   }
 
-#home {
-  border-bottom: #cee7f5 solid 3px;
+  #home {
+    border-bottom: #cee7f5 solid 3px;
+  }
+  #close-id {
+    margin-right: 7px;
+  }
+  footer {
+    display: block;
+  }
+  .footer-text {
+    max-width: none;
+  }
+  .footer-icons {
+    display: flex;
+    width: fit-content;
+    height: 60px;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-right: auto;
+  }
+  .bi.bi-github {
+    margin-right: 30px;
+  }
+  .footer-icons a svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 0;
+  }
+  #licence {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+  }
 }
-#close-id {
-  margin-right: 7px;
+@media only screen and (min-width: 1860px) {
+  #ani-text {
+    margin-left: auto;
+    max-width: 500px;
+    margin-top: 50px;
+  }
+  #til-text {
+    margin-right: auto;
+    max-width: 500px;
+    margin-top: 50px;
+  }
+  #con-text {
+    margin-left: auto;
+    max-width: 500px;
+    margin-top: 50px;
+  }
+  #ani-vid video {
+    width: 755px;
+  }
+
+  #til-vid video {
+    width: 755px;
+  }
+
+  #con-vid video {
+    width: 755px;
+  }
 }
-footer {
-  display: block;
+@media only screen and (min-width: 2200px) {
+  #ani-text {
+    margin-left: auto;
+    max-width: 700px;
+    margin-top: 80px;
+  }
+  #ani-text h1 {
+    font-size: 54px;
+  }
+  #ani-text p {
+    font-size: 26px;
+  }
+  #ani-text a div {
+    scale: 1.2;
+  }
+  #til-text {
+    margin-right: auto;
+    max-width: 700px;
+    margin-top: 80px;
+    margin-left: 3%;
+  }
+  #til-text h1 {
+    font-size: 54px;
+  }
+  #til-text p {
+    font-size: 26px;
+  }
+  #til-text a div {
+    scale: 1.2;
+  }
+  #con-text {
+    margin-left: auto;
+    max-width: 700px;
+    margin-top: 80px;
+  }
+  #con-text h1 {
+    font-size: 54px;
+  }
+  #con-text p {
+    font-size: 26px;
+  }
+  #con-text a div {
+    scale: 1.2;
+  }
+
+  .animation {
+    height: max-content;
+  }
+  #ani-vid video {
+    width: 80%;
+    height: auto;
+    padding-bottom: 100px;
+  }
+  .tiling {
+    height: max-content;
+  }
+  #til-vid video {
+    width: 80%;
+    height: auto;
+    padding-bottom: 100px;
+    margin-left: 25%;
+  }
+  .configure {
+    height: max-content;
+  }
+  #con-vid video {
+    width: 80%;
+    height: auto;
+    padding-bottom: 100px;
+  }
+  .top {
+    height: max-content;
+  }
+  .swiper-slide img {
+    width: 960px;
+    height: auto;
+  }
+  #slide-content {
+    width: 960px;
+    height: auto;
+  }
+  #slide {
+    width: max-content;
+    padding-bottom: 5%;
+  }
+  .text p {
+    font-size: 26px;
+    padding-top: 10px;
+  }
+  .text h2 {
+    font-size: 68px;
+  }
+  #install-hypr div {
+    scale: 1.2;
+    margin-left: 5%;
+    margin-top: 45px;
+  }
+  .text {
+    margin-top: 1%;
+    max-width: 800px;
+  }
+  #features-text {
+    font-size: 82px;
+    padding-bottom: 80px;
+  }
+  .footer-text * {
+    font-size: 16px;
+  }
+  #devs {
+    max-width: 800px;
+  }
 }
-.footer-text {
-  max-width: none;
+
+@media only screen and (min-width: 3000px) {
+  #ani-text {
+    margin-top: 5%;
+    margin-right: auto;
+  }
+  #ani-text h1 {
+    font-size: 72px;
+  }
+  #ani-text p {
+    font-size: 32px;
+  }
+  #ani-text a div {
+    scale: 1.3;
+  }
+
+  #til-text {
+    margin-top: 5%;
+    margin-left: auto;
+  }
+  #til-text h1 {
+    font-size: 72px;
+  }
+  #til-text p {
+    font-size: 32px;
+  }
+  #til-text a div {
+    scale: 1.3;
+  }
+  #con-text {
+    margin-top: 5%;
+    margin-right: auto;
+  }
+  #con-text h1 {
+    font-size: 72px;
+  }
+  #con-text p {
+    font-size: 32px;
+  }
+  #con-text a div {
+    scale: 1.3;
+  }
+  .swiper-slide img {
+    width: 1377px;
+  }
+  #slide-content {
+    width: 1377px;
+  }
+  .text {
+    max-width: 1000px;
+    margin-top: 5%;
+  }
+  .text p {
+    font-size: 32px;
+  }
+  .text h2 {
+    font-size: 82px;
+  }
+  #install-hypr div {
+    scale: 1.3;
+    margin-left: 5%;
+  }
+  #features-text {
+    font-size: 96px;
+  }
+  .nav__links a,
+  .cta {
+    font-size: 28px;
+  }
+  .logo img {
+    width: 240px;
+    height: auto;
+    padding-right: 10px;
+  }
+  .footer-text * {
+    font-size: 20px;
+  }
+  #devs {
+    max-width: 1000px;
+  }
+  .text {
+    max-width: 1000px !important;
+  }
 }
-.footer-icons {
-  display: flex;
-  width: fit-content;
-  height: 60px;
-  margin-left: auto;
-  margin-top: 30px;
-  margin-right: auto;
-}
-.bi.bi-github {
-  margin-right: 30px;
-}
-.footer-icons a svg {
-  width: 30px;
-  height: 30px;
-  margin-right: 0;
-}
-#licence {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  line-height: 1.5;
-  font-size: 14px;
-}
+@media only screen and (min-width: 1700px) {
+  .text {
+    max-width: 800px;
+  }
 }
