@@ -21,7 +21,7 @@ app.use(expressEJSLayouts);
 
 app.use((req, res, next) => {
   // Security Headers - Refer to MDN and helmetjs docs
-  res.set("Content-Security-Policy", `default-src 'self'; img-src 'self'; media-src 'self'; script-src 'unsafe-inline' 'self' https://cdn.jsdelivr.net https://code.jquery.com; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; child-src 'none'; frame-ancestors 'none'; frame-src 'none'; upgrade-insecure-requests`);
+  res.set("Content-Security-Policy", `default-src 'self'; img-src 'self'; media-src 'self'; script-src 'unsafe-inline' 'self' https://cdn.jsdelivr.net https://code.jquery.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self'; object-src 'none'; child-src 'none'; frame-ancestors 'none'; frame-src 'none'; upgrade-insecure-requests`);
   res.set("Strict-Transport-Security", "max-age=15552000; includeSubDomains");
   res.set("X-Content-Type-Options", "nosniff");
   res.set("X-Frame-Options", "DENY");
