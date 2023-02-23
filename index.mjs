@@ -4,6 +4,9 @@ const app = express();
 import { join, dirname } from "path";
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
+import compression from "compression";
+
+app.use(compression());
 app.use(express.static(join(__dirname, "public")));
 
 app.set("view engine", "ejs");
@@ -17,8 +20,8 @@ app.get("/rices", (req, res) => {
   res.render("rices");
 });
 
-app.get("*", (req, res) => {
-  res.render("404");
+app.use((req, res, next) => {
+  res.status(404).render("404");
 });
 
 app.listen(4000, () => {
