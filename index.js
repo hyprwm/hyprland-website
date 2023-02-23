@@ -1,11 +1,10 @@
-import express from "express";
+const express = require("express");
 const app = express();
 
-import { join, dirname } from "path";
-const __dirname = dirname(new URL(import.meta.url).pathname);
+const { join } = require("path");
 
-import compression from "compression";
-import expressEJSLayouts from "express-ejs-layouts";
+const compression = require("compression");
+const expressEJSLayouts = require("express-ejs-layouts");
 
 app.disable('x-powered-by');
 
