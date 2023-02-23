@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const { join, dirname } = require("path");
+const { join } = require("path");
 
 const compression = require("compression");
 const expressEJSLayouts = require("express-ejs-layouts");
