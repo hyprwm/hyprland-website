@@ -40,6 +40,6 @@ app.use((_, res) => {
   res.status(404).render("404");
 });
 
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("Listening to PORT: 4000");
 });
