@@ -4,9 +4,12 @@
   "description": "Website for Hyprland - Hyprland - A wayland compositor that doesn't sacrifice on its looks!",
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.js"
+    "start": "NODE_ENV=production node index.mjs",
+    "start:dev": "node index.mjs"
   },
-  "keywords": ["hyprland"],
+  "keywords": [
+    "hyprland"
+  ],
   "author": "",
   "license": "BSD-3-Clause",
   "dependencies": {
@@ -14,5 +17,9 @@
     "express": "^4.18.1"
   },
   "repository": "github:hyprwm/hyprland-website",
-  "private": "true"
+  "private": "true",
+  "os": [
+    "darwin",
+    "linux"
+  ]
 }
