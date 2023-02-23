@@ -41,4 +41,5 @@
   background-color: #1a1a2e;
   color: aquamarine;
   transform: scale(1.2);
+  cursor: pointer;
 }
