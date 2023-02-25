@@ -35,14 +35,14 @@ app.get("/rices", (req, res) => {
   res.render("rices");
 });
 
+app.get("/discord", (req, res) => {
+  res.status(200).send("<head><title>redirecting...</title><body><script>window.location.href='https://discord.gg/hQ9XvMUjjr';</script></body>");
+});
+
 app.use((_, res) => {
   res.status(404).render("404");
 });
 
 app.listen(process.env.PORT || 4000, () => {
   console.log("Listening to PORT: 4000");
-});
-
-app.get("/discord", (req, res) => {
-  res.status(200).send("<head><title>redirecting...</title><body><script>window.location.href='https://discord.gg/hQ9XvMUjjr';</script></body>");
 });
