@@ -1,0 +1,19 @@
+#mob-github {
+    color: #1a1a2e;
+    background-color: aquamarine;
+    /* width: 130px;
+    height: 50px; */
+    padding: 20px 30px;
+    text-align: center;
+    vertical-align: center;
+    margin-top: 20px ;
+    border-radius: 0.2rem;
+
+}
+
+#mob-github:hover {
+  transform: scale(1.2);
+  background-color: #1a1a2e;
+  color: aquamarine;
+  border: 4px solid aquamarine;
+}

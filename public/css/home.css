@@ -99,23 +99,11 @@ header {
   padding: 0px;
   margin-right: 32px;
   font-size: 43px;
+  margin-right: 6%;
   margin-top: 5px;
 }
 
-#home {
-  border-bottom: #cfe8f6 solid 4px;
-  padding-bottom: 2px;
-}
 
-#home-full {
-  border-bottom: 2px solid #cfe8f6;
-  transition: all 0.5s ease;
-  padding-bottom: 2px;
-}
-
-#home-full:hover {
-  border-bottom: 2px solid aquamarine;
-}
 
 .nav__links a:hover {
   border-bottom: 2px solid aquamarine;
@@ -519,8 +507,11 @@ footer a:hover {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+#mob-github {
+  display: none;
+}
 
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-width: 1170px) {
   .nav__links,
   .cta {
     display: none;
@@ -532,6 +523,9 @@ footer a:hover {
     display: flex;
     margin-bottom: 8px;
   }
+  #mob-github {
+  display: block;
+}
 
   .top {
     display: inline;
@@ -549,6 +543,7 @@ footer a:hover {
     font-size: 46px;
     text-align: center;
     width: 100%;
+    padding: 0 5%;
   }
   .text p {
     font-size: 18px;
@@ -726,9 +721,6 @@ footer a:hover {
     margin-left: 20%;
   }
 
-  #home {
-    border-bottom: #cee7f5 solid 3px;
-  }
   #close-id {
     margin-right: 7px;
   }
