@@ -476,6 +476,11 @@ footer a {
 footer a:hover {
   color: #cfe8f6;
 }
+
+.features *, .top * {
+  line-height: 1.2em;
+}
+
 #devs {
   max-width: 700px;
   margin-top: 12px;
