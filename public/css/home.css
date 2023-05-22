@@ -648,6 +648,9 @@ footer a:hover {
   header {
     padding-left: 5px;
   }
+  #mob-github {
+    display: block;
+  }
   .logo img {
     width: 160px;
     height: auto;
