@@ -10,8 +10,9 @@ feel free
 
 ## Requirements
 
-Install [ `Git LFS` ](https://git-lfs.com) on your system.
+`pnpm` for package management.
 
 ## Credits
 
+[VDawg](https://github.com/Visual-Dawg) - for the updated site and design
 [System-x64](https://github.com/System-x64) - for the original site code

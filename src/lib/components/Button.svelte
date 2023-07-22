@@ -43,11 +43,9 @@
 		transition: transform 180ms cubic-bezier(0.1, -0, 0.42, 1.8);
 	}
 
-	/*!!! FIREFLIES IN THE BACKGROUND */
-
 	.fancy {
-		/* background: rgba(theme(colors.black), 0.8); */
-		background-clip: padding-box;
+		background: theme(colors.black / 50%);
+		/* background-clip: padding-box; */
 		outline: 2px theme(colors.primary) solid;
 	}
 

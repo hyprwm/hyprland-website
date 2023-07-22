@@ -56,18 +56,15 @@ body {
 /* prettier-ignore */
 @keyframes x {
     0%,16.667%,to { opacity: 1 }
-
     33%,83.333% { opacity: 0 }
 }
 /* prettier-ignore */
 @keyframes y {
     0%,16.667%,66.667%,to { opacity: 0 }
-
     33.333%,50% { opacity: 1 }
 }
 /* prettier-ignore */
 @keyframes z {
     0%,50%,to { opacity: 0 }
-
     66.667%,83.333% { opacity: 1 }
 }

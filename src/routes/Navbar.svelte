@@ -6,7 +6,7 @@
 </script>
 
 <header
-	class="flex items-center p-1 z-10 justify-between text-blue-300 bg-black/50 fixed inset-4 h-7 rounded-full backdrop-blur animate-in slide-in-from-top-1 [animation-delay:1250ms] fade-in-0 duration-1000 fill-mode-backwards"
+	class="flex items-center z-40 p-1 justify-between text-blue-300 bg-black/50 fixed inset-4 h-7 rounded-full backdrop-blur animate-in slide-in-from-top-1 [animation-delay:1250ms] fade-in-0 duration-1000 fill-mode-backwards"
 >
 	<a href="/" class="flex gap-2 pl-2 text-sm items-center font-bold tracking-wide text-white">
 		<img src={logo} alt="Hyprland Logo" class="w-6" />Hyprland</a

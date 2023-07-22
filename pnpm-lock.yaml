@@ -5,18 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@chriscourses/perlin-noise':
-    specifier: ^1.0.5
-    version: 1.0.5
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
   simplex-noise:
     specifier: ^4.0.1
     version: 4.0.1
-  svelte-intersection-observer-action:
-    specifier: ^0.0.4
-    version: 0.0.4
   svelte-inview:
     specifier: ^4.0.1
     version: 4.0.1(svelte@4.0.1)
@@ -110,10 +104,6 @@ packages:
 
   /@antfu/utils@0.7.5:
     resolution: {integrity: sha512-dlR6LdS+0SzOAPx/TPRhnoi7hE251OVeT2Snw0RguNbBSbjUHdWr0l3vcUUDg26rEysT89kCbtw1lVorBXLLCg==}
-    dev: false
-
-  /@chriscourses/perlin-noise@1.0.5:
-    resolution: {integrity: sha512-AjIAlGT1M1Pc4/P3MkztzETXRI/LyGMl/fRglbY/Vgdb8Sl6Rn/yOd1XiHQD5ftiUev6i33UbReVWI95wtntpg==}
     dev: false
 
   /@esbuild/android-arm64@0.17.19:
@@ -1845,10 +1835,6 @@ packages:
     dependencies:
       svelte: 4.0.1
     dev: true
-
-  /svelte-intersection-observer-action@0.0.4:
-    resolution: {integrity: sha512-Q2ukfmZI+6Ho7XHwwTq2Z/JLLE7o61cY7DRkW3nGntEkgnlT9ZiaPccm4MI1uYiRMfrYEMYPmB4+U16bJp56Uw==}
-    dev: false
 
   /svelte-inview@4.0.1(svelte@4.0.1):
     resolution: {integrity: sha512-8NuT/DKFiZAccDw1Z16cIsdZ7K6/BGxrUfDaFaWTCEdn3YqMj1TUAkfmQ08FQ1+INl1G+TQS+ImXIBiiISgXog==}

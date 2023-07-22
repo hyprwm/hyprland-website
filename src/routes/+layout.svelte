@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$lib/components/Footer.svelte'
 	import Navbar from './Navbar.svelte'
 	import './styles.css'
 </script>
@@ -10,7 +11,5 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>Footer</p>
-	</footer>
+	<Footer />
 </div>

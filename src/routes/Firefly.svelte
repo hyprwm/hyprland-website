@@ -58,7 +58,7 @@
 </script>
 
 <div
-	class="absolute p-24 top-0 left-0 firefly pointer-events-auto opacity-50 hover:opacity-100 transition-opacity"
+	class="absolute p-24 top-0 left-0 firefly pointer-events-auto opacity-50 hover:opacity-100 transition-opacity z-0"
 	style="--x:{x}px; --y:{y}px;--size:{size}px; --fadeDelay: {Math.random() * 6 - 3}s"
 >
 	<div class="firefly-inner {classes}" />
