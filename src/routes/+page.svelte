@@ -22,7 +22,7 @@
 
 	<HallOfFameSlice />
 
-	<div class="px-8 lg:px-32"><Community /></div>
+	<Community />
 </div>
 
 <div class="mt-[16rem]" />

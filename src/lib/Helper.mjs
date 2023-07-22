@@ -1,5 +1,5 @@
 import { inview } from 'svelte-inview'
-
+import { pick } from 'remeda'
 // const mappingAnimate = {
 // 	slide: 'translate',
 // 	zoom: 'scale',
@@ -23,7 +23,9 @@ export function animateIn(node, options) {
 
 	options.duration ??= 840
 
-	const style = Object.entries(options)
+	const effects = Object.entries(pick(options, ['fade', 'zoom', 'slide']))
+
+	const style = effects
 		.map(([effect, value], _, all) => {
 			if (effect === 'slide') return `translate: 0px ${value}px`
 
@@ -42,10 +44,11 @@ export function animateIn(node, options) {
 	node.addEventListener('inview_enter', callback)
 
 	function callback() {
-		console.log('Callbacked!!')
-		node.style.opacity = '1'
-		node.style.scale = '1 1'
-		node.style.translate = '0 0'
+		effects.forEach(([effect]) => {
+			if (effect === 'slide') node.style.translate = '0 0'
+			else if (effect === 'fade') node.style.opacity = '1'
+			else if (effect === 'zoom') node.style.scale = '1 1'
+		})
 	}
 
 	return { destroy: observer.destroy }

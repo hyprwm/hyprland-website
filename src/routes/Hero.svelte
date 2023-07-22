@@ -96,19 +96,6 @@
 		animate: title_effect 1s ease infinite alternate;
 	}
 
-	@keyframes title_effect {
-		0% {
-			transform: translateX(-99px);
-			opacity: 0;
-		}
-		50% {
-			transform: translateX(0px);
-		}
-		100% {
-			transform: translateX(9px);
-		}
-	}
-
 	@keyframes move {
 		0% {
 			transform: translate3d(

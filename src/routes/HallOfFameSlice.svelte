@@ -1,78 +1,56 @@
 <script lang="ts">
 	import { animateIn } from '$lib/Helper.mjs'
 	import Button from '$lib/components/Button.svelte'
+	import FameRicePreview from './FameRicePreview.svelte'
 </script>
 
 <section
 	class="w-full relative"
 	use:animateIn={{ fade: 0, slide: 24, duration: 1200, threshold: 0.1 }}
 >
-	<div class="text-center font-extrabold mb-3 text-slate-300">Memorials of the ricing legends</div>
-	<h1 class="text-8xl font-bold text-center">Hall of Fame</h1>
+	<div class="absolute inset-0">
+		<div class="text-center font-extrabold mb-3 text-slate-300">
+			Memorials of the ricing legends
+		</div>
+		<h1 class="text-8xl font-bold text-center">Hall of Fame</h1>
+	</div>
 
 	<div
-		class="w-full flex relative flex-col gap-16 lg:gap-24 items-center pt-16 overflow-hidden px-16"
+		class="w-full flex relative flex-col gap-16 lg:gap-24 items-center justify-end pt-16 overflow-hidden px-16 [perspective:100px]"
 	>
-		<div class="rice" use:animateIn={{ fade: 0, slide: 24, duration: 1200, threshold: 0.4 }}>
-			<img
-				src="/imgs/env_4 novelknock-10.png"
-				alt="Rice desktop"
-				class="w-full nice-hover rounded-xl overflow-hidden shadow-2xl hover:scale-[1.01]"
-			/>
-			<img
-				src="/imgs/env_4 novelknock-10.png"
-				alt="Rice desktop"
-				aria-hidden="true"
-				class="rice-bg"
-			/>
-		</div>
-		<div class="rice" use:animateIn={{ slide: 48, duration: 1400, threshold: 0.4 }}>
-			<img
-				src="/imgs/ricingcomp1/amadeus.png"
-				alt="Rice desktop"
-				class="w-full rounded-t-xl overflow-hidden nice-hover hover:scale-[1.005] shadow-2xl object-cover object-top h-[200px] sm:h-[250px] lg:h-[500px] ] bottom-rice"
-			/>
-			<img
-				src="/imgs/ricingcomp1/amadeus.png"
-				alt="Rice desktop"
-				aria-hidden="true"
-				class="rice-bg clop"
-			/>
-		</div>
-
-		<a class="absolute bottom-16 left-1/2 z-20 -translate-x-1/2" href="/hall-of-fame">
+		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/hall-of-fame">
 			<Button size="lg" type="fancyOutline">Go to Hall of Fame</Button>
 		</a>
+
+		<FameRicePreview
+			createdBy={{ name: 'flicko', url: 'http://flicko.com' }}
+			image="/imgs/ricingcomp1/flicko.png"
+			containerClass="[translate:0px_0px_-100px] -mb-[30%] hover:[translate:0px_0px_-70px] hover:mb-[-15%] transition-all duration-500"
+			imageClass="[mask-image:linear-gradient(black_50%,transparent_95%)] "
+		/>
+		<FameRicePreview
+			createdBy={{ name: 'flicko', url: 'http://flicko.com' }}
+			image="/imgs/env_4 novelknock-10.png"
+			containerClass="[translate:0px_0px_-40px] -mb-[30%]"
+			imageClass="[mask-image:linear-gradient(black,transparent_95%)]"
+		/>
+		<FameRicePreview
+			createdBy={{ name: 'flicko', url: 'http://flicko.com' }}
+			image="/imgs/ricingcomp1/amadeus.png"
+			imageClass="rounded-none [mask-image:linear-gradient(black,transparent)] rounded-t-xl  h-[200px] sm:h-[250px] lg:h-[500px]"
+		/>
 	</div>
 
 	<div class="glow" />
 </section>
 
 <style lang="postcss">
-	.rice {
-		@apply relative w-full max-w-[1100px];
-	}
-	.nice-hover {
-		transition: transform 540ms cubic-bezier(0.1, -0.81, 0.31, 2);
-	}
-	.rice-bg {
-		@apply w-[calc(100%-24px)] pointer-events-none transition-[filter] duration-500   absolute left-3 brightness-150 rounded-3xl -z-10 saturate-[5] h-full blur-2xl -bottom-10 opacity-50;
-
-		.rice:hover & {
-			@apply brightness-200;
-		}
-	}
-
-	.bottom-rice {
-		mask-image: linear-gradient(black, transparent);
-	}
-
 	.glow {
 		@apply h-[200px] lg:h-[400px];
 		width: 100%;
 		/* min-width: 8800px; */
 		position: absolute;
-		opacity: 0.8;
+		opacity: 0.5;
 		bottom: 0;
 		left: 0;
 		right: 0;
