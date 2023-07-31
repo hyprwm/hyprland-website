@@ -14,7 +14,7 @@ import { pick } from 'remeda'
  *
  * Slide: Slide in in pixels.
  *
- * @param {{fade?: number, zoom?: number, slide?: number, duration?: number, threshold?: number}} options
+ * @param {{fade?: number, zoom?: number, slide?: number, duration?: number, delay?: number, threshold?: number}} options
  * @param { HTMLElement } node
  * @returns
  */
@@ -23,10 +23,10 @@ export function animateIn(node, options) {
 
 	options.duration ??= 840
 
-	const effects = Object.entries(pick(options, ['fade', 'zoom', 'slide']))
+	const effects = Object.entries(pick(options, ['fade', 'zoom', 'slide', 'duration']))
 
 	const style = effects
-		.map(([effect, value], _, all) => {
+		.map(([effect, value]) => {
 			if (effect === 'slide') return `translate: 0px ${value}px`
 
 			if (effect === 'fade') return `opacity: ${value}`
@@ -41,20 +41,35 @@ export function animateIn(node, options) {
 
 	node.style = style
 
+	let timeoutId
+
 	node.addEventListener('inview_enter', callback)
 
 	function callback() {
-		effects.forEach(([effect]) => {
-			if (effect === 'slide') node.style.translate = '0 0'
-			else if (effect === 'fade') node.style.opacity = '1'
-			else if (effect === 'zoom') node.style.scale = '1 1'
-		})
+		timeoutId = setTimeout(
+			effects.forEach(([effect]) => {
+				if (effect === 'slide') node.style.removeProperty('translate')
+				else if (effect === 'fade') node.style.removeProperty('opacity')
+				else if (effect === 'zoom') node.style.removeProperty('scale')
+			}),
+			options.delay ?? 0
+		)
 	}
 
-	return { destroy: observer.destroy }
+	return {
+		destroy: () => {
+			observer.destroy()
+			clearTimeout(timeoutId)
+		}
+	}
 }
 
-// export function animateIn(styles) {
-// 	const inview = inview()
-// 	// return ({ details: { invView, scrollDirection: vertical, node } }) => {}
-// }
+/**
+ * @param {number} start
+ * @param {number} end
+ * @param {number} given
+ * @returns
+ */
+export function lerp(start, end, given) {
+	return (1 - given) * start + given * end
+}

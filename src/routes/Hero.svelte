@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<h2
-			class="ani-in text-center mb-14 [animation-delay:944ms] fill-mode-backwards font-medium text-xl text-blue-200/60"
+			class="ani-in text-center mb-10 [animation-delay:944ms] fill-mode-backwards font-medium text-xl text-blue-200/60"
 		>
 			Dynamic tiling Wayland compositor<br />with the looks.
 		</h2>

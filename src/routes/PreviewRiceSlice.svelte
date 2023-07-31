@@ -15,10 +15,9 @@
 		on:inview_enter={({ detail: { node } }) => {
 			node.classList.remove('opacity-20')
 			node.classList.remove('scale-90')
-			// videoElement.play()
+			videoElement.play()
 		}}
 	>
-		<!--TODO Play and scale up on enter -->
 		<video
 			bind:this={videoElement}
 			src={previewRice}

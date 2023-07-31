@@ -6,14 +6,17 @@
 </script>
 
 <header
-	class="flex items-center z-40 p-1 justify-between text-blue-300 bg-black/50 fixed inset-4 h-7 rounded-full backdrop-blur animate-in slide-in-from-top-1 [animation-delay:1250ms] fade-in-0 duration-1000 fill-mode-backwards"
+	class="flex items-center z-30 justify-between fixed top-4 inset-x-6 rounded-full animate-in slide-in-from-top-1 [animation-delay:1250ms] fade-in-0 duration-1000 fill-mode-backwards"
 >
-	<a href="/" class="flex gap-2 pl-2 text-sm items-center font-bold tracking-wide text-white">
+	<a
+		href="/"
+		class="flex gap-2 px-4 py-1 text-sm rounded-full bg-black/50 items-center font-bold tracking-wide text-white"
+	>
 		<img src={logo} alt="Hyprland Logo" class="w-6" />Hyprland</a
 	>
 
-	<nav class="flex font-semibold gap-4 items-center">
-		<ul class="flex gap-4 px-3 rounded-full max-h-full border-primary border-1 border h-full">
+	<nav class="flex font-semibold items-center backdrop-blur pl-5 rounded-full bg-black/50">
+		<ul class="flex gap-5 rounded-full items-center max-h-full h-full hover:[&_li]:text-cyan-300">
 			<li>
 				<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get_started</a>
 			</li>
@@ -21,27 +24,24 @@
 				<a href="https://wiki.hyprland.org">Wiki</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/rices">Wall_of_fame</a>
+				<a href="/#">Wall_of_fame</a>
 			</li>
 		</ul>
-		<ul class="bg-purple-400 rounded-full flex items-center gap-3 px-2 py-1">
+		<ul class="border-purple-400 border mr-2 ml-4 rounded-full flex items-center gap-3 px-4">
 			<li>
 				<a href="https://github.com/hyprwm/Hyprland">
-					<DiscordIcon class="text-black" />
+					<DiscordIcon class="w-8 h-8 p-1 rounded-full hover:bg-purple-500 hover:text-white" />
 				</a>
 			</li>
 			<li>
 				<a href="https://github.com/hyprwm/Hyprland">
-					<GithubIcon class="text-black" />
+					<GithubIcon class="w-8 h-8 p-1 hover:bg-purple-500 rounded-full hover:text-white" />
 				</a>
 			</li>
 		</ul>
 		<a
-			class="bg-primary rounded-full px-4 py-1 text-black"
+			class="bg-primary rounded-full px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
 			href="https://wiki.hyprland.org/Getting-Started/Installation/">Install</a
 		>
 	</nav>
 </header>
-
-<style>
-</style>

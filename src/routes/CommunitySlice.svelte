@@ -1,0 +1,263 @@
+<script context="module">
+	export const contextId = Symbol('community context')
+</script>
+
+<script>
+	import Button from '$lib/components/Button.svelte'
+	import DiscordIcon from '~icons/prime/discord'
+	import DiscordProfilePicture from './DiscordProfilePicture.svelte'
+	import clsx from 'clsx'
+	import { animateIn } from '$lib/Helper.mjs'
+	import { setContext } from 'svelte'
+
+	let sectionElement
+	let isDraggingChan = false
+
+	/** @type {{image: string coordinates: [number, number] containerClass: string}[], size: number, quote?: string } */
+	const profiles = [
+		{
+			image: '/imgs/profile_pictures/vaxry.gif',
+			coordinates: [187, 296],
+			size: 172,
+			class: 'outline-red-500'
+		},
+		{
+			image: '/imgs/profile_pictures/fufexan.webp',
+			coordinates: [735, 441],
+			size: 164,
+			class: 'outline-yellow-500'
+		},
+		{
+			image: '/imgs/profile_pictures/raf-notashelf.webp',
+			coordinates: [391, 615],
+			size: 149,
+			class: 'outline-orange-500'
+		},
+		{
+			image: '/imgs/profile_pictures/Mathisbuilder.png',
+			coordinates: [568, 568],
+			size: 120,
+			class: 'outline-amber-500'
+		},
+		{
+			image: '/imgs/profile_pictures/dani_666..webp',
+			coordinates: [525, 764],
+			size: 80,
+			class: 'outline-red-500'
+		},
+		{
+			image: '/imgs/profile_pictures/end_4.webp',
+			coordinates: [648, 709],
+			size: 128,
+			class: 'outline-cyan-400'
+		},
+		{
+			image: '/imgs/profile_pictures/ardishco.webp',
+			coordinates: [65, 208],
+			size: 100,
+			class: 'outline-slate-200'
+		},
+		{
+			image: '/imgs/profile_pictures/outfoxxed.webp',
+			coordinates: [53, 399],
+			size: 75,
+			class: 'outline-orange-500'
+		},
+		{
+			image: '/imgs/profile_pictures/beardwarrior.webp',
+			coordinates: [24, 341],
+			size: 49,
+			class: 'outline-amber-500'
+		},
+		{
+			image: '/imgs/profile_pictures/captainiveau.webp',
+			coordinates: [47, 86],
+			size: 48,
+			class: 'outline-red-500'
+		},
+		{
+			image: '/imgs/profile_pictures/etrigan63.webp',
+			coordinates: [135, 538],
+			size: 93,
+			class: 'outline-amber-500'
+		},
+		{
+			image: '/imgs/profile_pictures/jsw.webp',
+			coordinates: [41, 566],
+			size: 49,
+			class: 'outline-sky-500'
+		},
+		{
+			image: 'imgs/chan/cool.webp',
+			coordinates: [284, 533],
+			size: 90,
+			class: 'outline-cyan-500',
+			onDragStart: ({ detail: { currentTarget } }) => {
+				isDraggingChan = true
+				currentTarget.src = 'imgs/chan/quirky.webp'
+			},
+			onDragEnd: ({ detail: { currentTarget } }) => {
+				isDraggingChan = false
+				currentTarget.src = 'imgs/chan/cool.webp'
+			},
+			onHover: ({ detail: { srcElement } }) =>
+				!isDraggingChan && (srcElement.src = 'imgs/chan/love.webp')
+		},
+		{
+			image: '/imgs/profile_pictures/7.webp',
+			coordinates: [273, 687],
+			size: 52,
+			quote: '"Meds"',
+			class: 'outline-cyan-500'
+		},
+		{
+			image: '/imgs/profile_pictures/kcrmson.webp',
+			coordinates: [648, 364],
+			size: 80,
+			class: 'outline-sky-500'
+		},
+		{
+			image: '/imgs/profile_pictures/kirottum.webp',
+			coordinates: [772, 651],
+			size: 62,
+			class: 'outline-purple-500'
+		},
+		{
+			image: '/imgs/profile_pictures/loseardes77.gif',
+			coordinates: [736, 277],
+			size: 87,
+			class: 'outline-green-500'
+		},
+		{
+			image: '/imgs/profile_pictures/neoney.webp',
+			coordinates: [898, 364],
+			size: 68,
+			class: 'outline-green-500'
+		},
+		{
+			image: '/imgs/profile_pictures/qwaranou.webp',
+			coordinates: [873, 224],
+			size: 79,
+			class: 'outline-slate-500'
+		},
+		{
+			image: '/imgs/profile_pictures/SimplyKyle!.webp',
+			coordinates: [859, 159],
+			size: 39,
+			class: 'outline-rose-500'
+		},
+		{
+			image: '/imgs/profile_pictures/sioodmy.webp',
+			coordinates: [974, 107],
+			size: 48,
+			class: 'outline-amber-500'
+		},
+		{
+			image: '/imgs/profile_pictures/flafy.webp',
+			coordinates: [340, 790],
+			size: 80,
+			class: 'outline-pink-500'
+		}
+	]
+
+	setContext(contextId, {
+		biggestSize: profiles.reduce(
+			(previousSize, { size }) => (size > previousSize ? size : previousSize),
+			1
+		),
+		smallestSize: profiles.reduce(
+			(previousSize, { size }) => (size < previousSize ? size : previousSize),
+			Number.POSITIVE_INFINITY
+		),
+		getSectionElement: () => sectionElement
+	})
+</script>
+
+<section
+	class="relative flex flex-col items-center w-screen min-h-max h-[1200px] max-w-[100vw] overflow-x-hidden"
+	bind:this={sectionElement}
+>
+	<div use:animateIn={{ slide: 24, fade: 0 }}>
+		<h1 class="text-8xl font-bold text-center mb-8">Join a great<br />community</h1>
+		<div class="text-center text-lg font-extrabold text-slate-300">
+			Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies and human_(probably)
+		</div>
+	</div>
+
+	<div class="flex flex-col items-center gap-2 group mt-16">
+		<a
+			class="discord p-4"
+			href="https://discord.com/invite/hQ9XvMUjjr"
+			target="_blank"
+			rel="noopener"
+		>
+			<DiscordIcon class="w-full h-full  " />
+		</a>
+
+		<a href="https://discord.com/invite/hQ9XvMUjjr">
+			<Button type="fancyOutline">Join us on Discord</Button>
+		</a>
+	</div>
+
+	<div class="absolute w-[1024px]">
+		<div class="flex flex-wrap gap-4 origin-bottom-right h-full">
+			{#each profiles as { onDragEnd, onDragStart, onHover, ...props }}
+				<DiscordProfilePicture
+					{...props}
+					on:dragStart={onDragStart}
+					on:dragEnd={onDragEnd}
+					on:hover={onHover}
+				/>
+			{/each}
+		</div>
+
+		<div class="">
+			<!-- Background color blobs -->
+			<div
+				class="_bg-color bg-yellow-500 top-[146px] right-[17px] w-[359px] h-[207px] opacity-20"
+			/>
+			<div class="_bg-color bg-orange-500 top-[411px] right-0 w-[400px] h-[300px] opacity-30" />
+			<div
+				class="_bg-color bg-purple-500 opacity-30 w-[321px] h-[295px] top-[209px] left-[368px]"
+			/>
+			<div class="_bg-color bg-cyan-500 opacity-30 w-[363px] h-[250px] left-[402px] top-[462px]" />
+			<div class="_bg-color bg-red-500 opacity-30 w-[323px] h-[482px] left-[53px] top-[179px]" />
+			<div
+				class="_bg-color bg-fuchsia-500 opacity-30 w-[243px] h-[167px] left-[135px] top-[596px]"
+			/>
+		</div>
+	</div>
+</section>
+
+<style lang="postcss">
+	.discord {
+		width: 9rem;
+		height: 9rem;
+		transition:
+			rotate 480ms cubic-bezier(0.5, 0, 0.5, 1.5),
+			scale 440ms cubic-bezier(1, -1.4, 0, 2),
+			filter 240ms;
+		filter: drop-shadow(0px 0px 0px cyan) drop-shadow(0px 0px 0px blue);
+
+		&:hover,
+		.group:hover & {
+			scale: 1.2 1.2;
+			rotate: 360deg;
+			filter: drop-shadow(4px 4px 14px #0fffef7a) drop-shadow(-4px -4px 12px purple);
+			animation: bounce 1s infinite;
+		}
+		&:active {
+			scale: 1;
+			transition: scale 80ms;
+		}
+	}
+
+	._bg-color {
+		position: absolute;
+		pointer-events: none;
+		filter: blur(80px);
+		border-radius: 50%;
+		z-index: -50;
+		contain: strict;
+	}
+</style>

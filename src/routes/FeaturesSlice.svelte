@@ -12,6 +12,11 @@
 	import BleedingEdgeIcon from '~icons/gg/controller'
 	import { animateIn } from '$lib/Helper.mjs'
 
+	/**
+	 * type {{name: string, github: string}}
+	 */
+	let createdBy
+
 	const context = setContext(mouseContext, {
 		x: writable(0),
 		y: writable(0),
@@ -36,7 +41,7 @@
 </script>
 
 <section class="flex flex-col items-center">
-	<div use:animateIn={{ fade: 0, slide: 24, duration: 1480, threshold: 0.4 }}>
+	<div class="text-center" use:animateIn={{ fade: 0, slide: 24, duration: 1480, threshold: 0.4 }}>
 		<div class="font-extrabold mb-3 text-slate-300">TLDR</div>
 		<h1 class="text-8xl font-bold mb-14">Features</h1>
 	</div>
@@ -51,7 +56,7 @@
 		<FeatureCard title="Smooth" class="row-span-2">
 			<p>
 				Transition from windows and workspaces smoothly, without abrupt changes. Instant input with
-				a custom wslroot patch included
+				a custom WSLroot patch included
 			</p></FeatureCard
 		>
 		<FeatureCard title="Easy to configure" color="purple">

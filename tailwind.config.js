@@ -16,5 +16,6 @@ export default {
 			}
 		}
 	},
-	plugins: [require('tailwindcss-animate')]
+	plugins: [require('tailwindcss-animate')],
+	safelist: ['animate-bounce', 'outline-amber-500']
 }

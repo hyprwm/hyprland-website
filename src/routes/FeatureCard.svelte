@@ -71,6 +71,7 @@
 >
 	<div class="p-12 z-10 w-full h-full">
 		<h1 class="text-5xl font-bold mb-6 text-white">{title}</h1>
+
 		<slot>Nothing in the slot here</slot>
 	</div>
 	<div class="gradient" />
@@ -93,8 +94,8 @@
 		background: black
 			radial-gradient(
 				circle at bottom right,
-				theme(colors.neutral.900 / 30%),
-				theme(colors.neutral.500 / 30%),
+				theme(colors.neutral.900 / 80%),
+				theme(colors.neutral.500 / 10%),
 				black
 			);
 	}
@@ -115,7 +116,7 @@
 		contain: strict;
 		background: radial-gradient(
 			320px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
-			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 50%),
+			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 70%),
 			color-mix(in srgb, var(--color2, theme(colors.blue.500)), transparent 90%)
 		);
 

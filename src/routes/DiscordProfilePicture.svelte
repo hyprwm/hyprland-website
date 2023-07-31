@@ -1,0 +1,125 @@
+<script>
+	import { json } from '@sveltejs/kit'
+	import clsx from 'clsx'
+	import interact from 'interactjs'
+	import { createEventDispatcher, getContext, onMount } from 'svelte'
+	import { spring } from 'svelte/motion'
+	import { contextId } from './CommunitySlice.svelte'
+	import { lerp } from '$lib/Helper.mjs'
+	import { inview } from 'svelte-inview'
+
+	/** @type {string} */
+	export let image
+	/** @type {string} */
+	export let containerClass = ''
+	/** @type {number} */
+	export let size
+	/** @type {[number, number]} */
+	export let coordinates
+
+	/** @type {string | undefined} */
+	export let quote = undefined
+
+	const { biggestSize, getSectionElement } = getContext(contextId)
+	const dispatch = createEventDispatcher()
+
+	const relativeSize = size / biggestSize
+	const delay = (biggestSize - size) * 5
+	const dragCoordinates = spring([0, 0], {
+		damping: lerp(0.2, 0.03, relativeSize),
+		stiffness: lerp(0.2, 0.01, relativeSize),
+		// stiffness: lerp(0.81, 0.9, relativeSize),
+		precision: 0.001
+	})
+
+	let imageElement
+	let hasEnteredView = false
+
+	onMount(() => {
+		let interactionjs = interact(imageElement).draggable({
+			inertia: { resistance: lerp(5, 200, relativeSize) },
+			listeners: {
+				move({ dx, dy }) {
+					dragCoordinates.update(([x, y]) => {
+						x += dx
+						y += dy
+						return [x, y]
+					})
+				},
+
+				start(event) {
+					dispatch('dragStart', event)
+				},
+				end(event) {
+					dispatch('dragEnd', event)
+				}
+			},
+			modifiers: [
+				interact.modifiers.restrictRect({
+					restriction: getSectionElement,
+					endOnly: true
+				})
+			]
+		})
+
+		return () => interactionjs.off()
+	})
+</script>
+
+<div
+	class={clsx('absolute top-0 left-0 select-none touch-none ', containerClass)}
+	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
+	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
+>
+	<div
+		class="absolute inset-0 w-full h-full group opacity-0 select-none touch-none"
+		style:translate={`calc( ${$dragCoordinates[0]}px  ) ${$dragCoordinates[1]}px`}
+		use:inview={{ unobserveOnEnter: true, threshold: 0.4 }}
+		class:_animate={hasEnteredView}
+		on:inview_enter={() => setTimeout(() => (hasEnteredView = true), 750)}
+	>
+		<img
+			class="w-full h-full group select-none touch-none outline-4 outline rounded-[50%] {$$restProps.class}"
+			bind:this={imageElement}
+			src={image}
+			alt={'community profile picture'}
+			aria-hidden="true"
+			on:mouseenter={(event) => dispatch('hover', event)}
+			class:hover:scale-125={!!quote}
+		/>
+
+		{#if quote}
+			<div
+				class="absolute tracking-wide opacity-0 -top-6 px-2 py-1 rounded left-1/2 -translate-x-1/2 bg-slate-800/50 pointer-events-none font-medium text-sm group-hover:opacity-100 select-none duration-150"
+			>
+				{quote}
+			</div>
+		{/if}
+	</div>
+</div>
+
+<style lang="postcss">
+	._animate {
+		animation: reveal 440ms 1 var(--delay) both cubic-bezier(0, 1, 0.765, 3.8);
+		touch-action: none;
+		user-select: none;
+
+		img {
+			transition: scale cubic-bezier(0.95, 0.82, 0.165, 2) 180ms;
+			&:hover {
+				scale: 1.05;
+			}
+		}
+	}
+
+	@keyframes reveal {
+		from {
+			opacity: 0%;
+			scale: 0.72 0.72;
+		}
+		to {
+			opacity: 100%;
+			scale: 1 1;
+		}
+	}
+</style>

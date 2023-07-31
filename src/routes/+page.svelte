@@ -1,5 +1,5 @@
 <script>
-	import Community from './Community.svelte'
+	import Community from './CommunitySlice.svelte'
 	import FeaturesSlice from './FeaturesSlice.svelte'
 	import HallOfFameSlice from './HallOfFameSlice.svelte'
 	import Hero from './Hero.svelte'
@@ -14,8 +14,8 @@
 <Hero />
 
 <div class="-mt-8 mx-auto gap-[16rem] flex flex-col items-center">
-	<div class="px-8 lg:px-32">
-		<PreviewRiceSlice />
+	<div class="px-8 mx-auto flex flex-col items-center lg:px-32">
+		<PreviewRiceSlice class="mb-52" />
 
 		<FeaturesSlice />
 	</div>
