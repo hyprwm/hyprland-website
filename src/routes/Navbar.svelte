@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores'
 	import logo from '$lib/images/logo.png'
-	import GithubIcon from '~icons/akar-icons/github-fill'
+	import GithubIcon from '~icons/ri/github-fill'
 	import DiscordIcon from '~icons/prime/discord'
 </script>
 
@@ -10,7 +10,7 @@
 >
 	<a
 		href="/"
-		class="flex gap-2 px-4 py-1 text-sm rounded-full bg-black/50 items-center font-bold tracking-wide text-white"
+		class="flex gap-2 font-london tracking-wider px-4 py-1 text-sm rounded-full bg-black/50 items-center font-bold text-white"
 	>
 		<img src={logo} alt="Hyprland Logo" class="w-6" />Hyprland</a
 	>
@@ -29,7 +29,7 @@
 		</ul>
 		<ul class="border-purple-400 border mr-2 ml-4 rounded-full flex items-center gap-3 px-4">
 			<li>
-				<a href="https://github.com/hyprwm/Hyprland">
+				<a href="https://discord.com/invite/hQ9XvMUjjr">
 					<DiscordIcon class="w-8 h-8 p-1 rounded-full hover:bg-purple-500 hover:text-white" />
 				</a>
 			</li>

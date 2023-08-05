@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: 'Space Grotesk';
-	src: url('/fonts/spacegrotesk.woff2') format('woff2');
-	font-weight: 300 700;
+	font-family: 'London Between';
+	src: url('/fonts/LondonBetween.woff') format('woff');
 	font-display: swap;
 }
 

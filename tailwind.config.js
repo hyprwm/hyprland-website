@@ -8,8 +8,9 @@ export default {
 			colors: { black: '#0D0E0F', primary: '#58E1FF', secondary: '#00A2F8' },
 			fontFamily: {
 				...fontFamily,
-				// sans: ['"Space Grotesk"', ...fontFamily['sans']]
-				sans: ['"Space Grotesk"']
+				sans: ['Work Sans Variable', ...fontFamily['sans']],
+				mono: ['IBM Plex Mono', ...fontFamily['mono']],
+				london: ['"London Between"', ...fontFamily['sans']]
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
@@ -17,5 +18,17 @@ export default {
 		}
 	},
 	plugins: [require('tailwindcss-animate')],
-	safelist: ['animate-bounce', 'outline-amber-500']
+	safelist: [
+		'animate-bounce',
+		'outline-amber-500',
+		// In here because of the footer
+		'text-teal-500',
+		'text-teal-600',
+		'text-cyan-500',
+		'text-cyan-600',
+		'text-green-500',
+		'text-green-600',
+		'text-lime-500',
+		'text-lime-600'
+	]
 }

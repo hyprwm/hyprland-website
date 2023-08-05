@@ -6,7 +6,6 @@
 	import Button from '$lib/components/Button.svelte'
 	import DiscordIcon from '~icons/prime/discord'
 	import DiscordProfilePicture from './DiscordProfilePicture.svelte'
-	import clsx from 'clsx'
 	import { animateIn } from '$lib/Helper.mjs'
 	import { setContext } from 'svelte'
 
@@ -64,10 +63,10 @@
 			class: 'outline-orange-500'
 		},
 		{
-			image: '/imgs/profile_pictures/beardwarrior.webp',
+			image: '/imgs/profile_pictures/loseardes77.gif',
 			coordinates: [24, 341],
 			size: 49,
-			class: 'outline-amber-500'
+			class: 'outline-green-500'
 		},
 		{
 			image: '/imgs/profile_pictures/captainiveau.webp',
@@ -123,10 +122,10 @@
 			class: 'outline-purple-500'
 		},
 		{
-			image: '/imgs/profile_pictures/loseardes77.gif',
+			image: '/imgs/profile_pictures/beardwarrior.webp',
 			coordinates: [736, 277],
 			size: 87,
-			class: 'outline-green-500'
+			class: 'outline-amber-500'
 		},
 		{
 			image: '/imgs/profile_pictures/neoney.webp',
@@ -174,7 +173,7 @@
 </script>
 
 <section
-	class="relative flex flex-col items-center w-screen min-h-max h-[1200px] max-w-[100vw] overflow-x-hidden"
+	class="relative flex flex-col items-center w-screen overflow-hidden min-h-max h-[1100px] -mb-[200px] max-w-[100vw]"
 	bind:this={sectionElement}
 >
 	<div use:animateIn={{ slide: 24, fade: 0 }}>

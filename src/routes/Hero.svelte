@@ -21,10 +21,14 @@
 		<div class="text-center items-center flex flex-col gap-6 mb-8">
 			<img src={Logo} alt="Hyprland Logo" class="w-32 mb-4 ani-in fill-mode-backwards" />
 			<div class="relative ani-in fill-mode-backwards [animation-delay:584ms]">
-				<h1 class="text-7xl p-2 font-bold bg-clip-text text-transparent hyprgradient">Hyprland</h1>
+				<h1
+					class="text-7xl p-2 font-bold bg-clip-text text-transparent font-london hyprgradient tracking-wider"
+				>
+					Hyprland
+				</h1>
 				<div
 					aria-hidden="true"
-					class="text-7xl top-0 pointer-events-none p-2 font-bold title-shadow absolute -z-10"
+					class="text-7xl top-0 pointer-events-none p-2 font-bold title-shadow absolute font-london tracking-wider -z-10"
 				>
 					Hyprland
 				</div>
@@ -90,8 +94,10 @@
 	}
 
 	.title-shadow {
-		text-shadow: 8px 9px 32px theme(colors.secondary / 10%),
-			-8px -9px 32px theme(colors.primary / 20%), 1px 0px 3px theme(colors.purple.500 / 50%),
+		text-shadow:
+			8px 9px 32px theme(colors.secondary / 10%),
+			-8px -9px 32px theme(colors.primary / 20%),
+			1px 0px 3px theme(colors.purple.500 / 50%),
 			0px 9px 16px theme(colors.black / 50%);
 		animate: title_effect 1s ease infinite alternate;
 	}

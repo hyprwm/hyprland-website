@@ -8,12 +8,5 @@ export default defineConfig({
 		Icons({
 			compiler: 'svelte'
 		})
-	],
-	build: {
-		rollupOptions: {
-			output: {
-				manualChunks: {}
-			}
-		}
-	}
+	]
 })

@@ -3,6 +3,7 @@
 	import FeaturesSlice from './FeaturesSlice.svelte'
 	import HallOfFameSlice from './HallOfFameSlice.svelte'
 	import Hero from './Hero.svelte'
+	import InstallSlice from './InstallSlice.svelte'
 	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
 </script>
 
@@ -23,6 +24,8 @@
 	<HallOfFameSlice />
 
 	<Community />
+
+	<InstallSlice />
 </div>
 
 <div class="mt-[16rem]" />

@@ -12,6 +12,7 @@ module.exports = {
 		node: true
 	},
 	rules: {
-		'no-unused-vars': ['off', { varsIgnorePattern: '.*' }]
+		'no-unused-vars': ['off', { varsIgnorePattern: '.*' }],
+		'svelte/no-at-html-tags': 'off'
 	}
 }
