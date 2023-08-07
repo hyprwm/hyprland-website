@@ -3,6 +3,7 @@
 	import { getContext } from 'svelte'
 	import { mouseContext } from './FeaturesSlice.svelte'
 	import { spring } from 'svelte/motion'
+	import Title from '$lib/components/Title.svelte'
 	export let title
 	export let color = 'cyan'
 
@@ -69,7 +70,7 @@
 	class:purpleGradient={color === 'purple'}
 	role="contentinfo"
 >
-	<div class="p-12 z-10 w-full h-full">
+	<div class="p-8 md:p-12 z-10 w-full h-full">
 		<h1 class="text-5xl font-bold mb-6 text-white">{title}</h1>
 
 		<slot>Nothing in the slot here</slot>
@@ -81,7 +82,7 @@
 
 <style lang="postcss">
 	.card {
-		@apply rounded-3xl relative w-full h-full bg-slate-900 hover:bg-blue-900 duration-300 transition-colors  flex items-center justify-center;
+		@apply relative flex h-full w-full items-center justify-center rounded-3xl bg-slate-900  transition-colors duration-300 hover:bg-blue-900;
 		z-index: 2;
 		contain: paint style layout;
 	}
@@ -126,7 +127,7 @@
 	}
 
 	.gradient {
-		@apply absolute inset-0  pointer-events-none w-full h-full;
+		@apply pointer-events-none absolute  inset-0 h-full w-full;
 		width: calc(100% - 2px);
 		border-radius: inherit;
 		height: calc(100% - 2px);

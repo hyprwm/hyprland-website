@@ -15,10 +15,10 @@
 </script>
 
 <footer
-	class="bg-black/50 border-t border-blue-500 relative flex items-center justify-center w-screen _shadow"
+	class="bg-black/50 mt-16 md:mt-24 lg:mt-32 border-t border-blue-500 relative flex items-center justify-center w-screen"
 >
 	<div
-		class=" flex flex-wrap gap-12 justify-between px-8 py-14 max-w-5xl text-slate-300 items-start"
+		class="flex flex-wrap gap-12 justify-between px-8 py-14 max-w-5xl text-slate-300 items-start"
 	>
 		<div class="flex flex-col gap-4">
 			<div class="text-cyan-600 text-sm uppercase font-bold">> Developers</div>

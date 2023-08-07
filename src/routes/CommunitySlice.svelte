@@ -8,6 +8,7 @@
 	import DiscordProfilePicture from './DiscordProfilePicture.svelte'
 	import { animateIn } from '$lib/Helper.mjs'
 	import { setContext } from 'svelte'
+	import Title from '$lib/components/Title.svelte'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -176,12 +177,13 @@
 	class="relative flex flex-col items-center w-screen overflow-hidden min-h-max h-[1100px] -mb-[200px] max-w-[100vw]"
 	bind:this={sectionElement}
 >
-	<div use:animateIn={{ slide: 24, fade: 0 }}>
-		<h1 class="text-8xl font-bold text-center mb-8">Join a great<br />community</h1>
-		<div class="text-center text-lg font-extrabold text-slate-300">
+	<Title>
+		<span slot="title">Join a great<br />community</span>
+
+		<span slot="subtitle">
 			Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies and human_(probably)
-		</div>
-	</div>
+		</span>
+	</Title>
 
 	<div class="flex flex-col items-center gap-2 group mt-16">
 		<a

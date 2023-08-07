@@ -54,6 +54,7 @@
 		"@fontsource/ibm-plex-mono": "^5.0.7",
 		"clsx": "^2.0.0",
 		"interactjs": "^1.10.18",
+		"prettier-plugin-tailwindcss": "^0.4.1",
 		"remeda": "^1.24.0",
 		"simplex-noise": "^4.0.1",
 		"svelte-inview": "^4.0.1",

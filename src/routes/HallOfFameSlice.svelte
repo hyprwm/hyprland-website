@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { animateIn } from '$lib/Helper.mjs'
 	import Button from '$lib/components/Button.svelte'
+	import Title from '$lib/components/Title.svelte'
 	import FameRicePreview from './FameRicePreview.svelte'
 </script>
 
@@ -8,15 +9,15 @@
 	class="w-full relative flex flex-col items-center"
 	use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}
 >
-	<div class="absolute top-0 inset-x-0 z-30">
-		<div class="text-center font-extrabold mb-3 text-slate-300">
-			Memorials of the ricing legends
-		</div>
-		<h1 class="text-8xl font-bold text-center">Hall of Fame</h1>
+	<div class="px-4 -mb-40 z-20">
+		<Title>
+			<span slot="pre"> Memorials of the ricing legends </span>
+			<span slot="title">Hall of Fame</span>
+		</Title>
 	</div>
 
 	<div
-		class="w-full -mt-24 max-w-[1100px] flex relative flex-col gap-16 lg:gap-24 items-center justify-end overflow-hidden px-16 [perspective:100px]"
+		class="w-full -mt-24 max-w-[1100px] flex relative flex-col gap-16 lg:gap-24 items-center justify-end overflow-hidden md:px-16 [perspective:100px]"
 		use:animateIn={{ slide: 24, fade: 0.5, duration: 800 }}
 	>
 		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/#">

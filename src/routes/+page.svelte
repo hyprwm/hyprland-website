@@ -14,12 +14,10 @@
 
 <Hero />
 
-<div class="-mt-8 mx-auto gap-[16rem] flex flex-col items-center">
-	<div class="px-8 mx-auto flex flex-col items-center lg:px-32">
-		<PreviewRiceSlice class="mb-52" />
+<div class="-mt-8 gap-20 md:gap-[16rem] flex flex-col items-center">
+	<PreviewRiceSlice class="mb-52" />
 
-		<FeaturesSlice />
-	</div>
+	<FeaturesSlice />
 
 	<HallOfFameSlice />
 
@@ -27,8 +25,6 @@
 
 	<InstallSlice />
 </div>
-
-<div class="mt-[16rem]" />
 
 <style>
 </style>

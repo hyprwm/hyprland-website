@@ -10,7 +10,7 @@
 	import ActiveGitIcon from '~icons/gg/git-branch'
 	import ShortcutsIcon from '~icons/gg/push-chevron-right-o'
 	import BleedingEdgeIcon from '~icons/gg/controller'
-	import { animateIn } from '$lib/Helper.mjs'
+	import Title from '$lib/components/Title.svelte'
 
 	/**
 	 * type {{name: string, github: string}}
@@ -40,11 +40,11 @@
 	}
 </script>
 
-<section class="flex flex-col items-center">
-	<div class="text-center" use:animateIn={{ fade: 0, slide: 24, duration: 1480, threshold: 0.4 }}>
-		<div class="font-extrabold mb-3 text-slate-300">TLDR</div>
-		<h1 class="text-8xl font-bold mb-14">Features</h1>
-	</div>
+<section class="px-3 md:px-8 flex flex-col items-center">
+	<Title>
+		<span slot="pre">TLDR</span>
+		<span slot="title">Features</span>
+	</Title>
 
 	<div
 		class="grid lg:grid-cols-2 lg:grid-rows-2 w-full gap-6 text-lg text-white/70 font-medium flex-wrap group"
@@ -92,6 +92,6 @@
 
 <style lang="postcss">
 	.icon-feature {
-		@apply flex gap-3 items-center justify-center font-bold opacity-60;
+		@apply flex items-center justify-center gap-3 font-bold opacity-60;
 	}
 </style>
