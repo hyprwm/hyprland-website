@@ -4,23 +4,23 @@
     color: #cfe8f6;
 }
 
-.wofdiv > h1 {
-    font-family: "Sofia-Pro-Medium";
+.wofdiv>h1 {
+    font-family: "LondonBetween";
     font-size: 48px;
     margin-top: 60px;
     margin-bottom: 30px;
 }
 
-.wofdiv > p {
-    
+.wofdiv>p {
+
     font-size: 20px;
-    font-family: "Sofia-Pro-Medium";
+    font-family: "LondonBetween";
     margin: 0 10%;
     margin-bottom: 60px;
 }
 
 .bigtext {
-    font-family: "JosefinSans-Regular";
+    font-family: "LondonBetween";
     color: #cfe8f6;
     font-size: 5rem;
 }
@@ -31,12 +31,12 @@
     margin-bottom: 60px;
 }
 
-div.ricewins > ul {
+div.ricewins>ul {
     list-style-type: none;
-} 
+}
 
 .month {
-    font-family: "Sofia-Pro-Medium";
+    font-family: "LondonBetween";
     color: #cfe8f6;
     margin: 30px;
 }
@@ -44,18 +44,18 @@ div.ricewins > ul {
 .win-text {
     font-size: 24px;
     color: #cfe8f6;
-    font-family: "Sofia-Pro-Medium";
+    font-family: "LondonBetween";
     margin: 20px;
 }
 
-li.win-text > img {
+li.win-text>img {
     max-width: 60vw;
 }
 
-@media only 
-screen and (max-width: 1000px) {
-    li.win-text > img {
+@media only screen and (max-width: 1000px) {
+    li.win-text>img {
         max-width: 80vw;
-        min-width: 80vw;;
+        min-width: 80vw;
+        ;
     }
 }
