@@ -26,7 +26,7 @@
 	>
 
 	<button
-		class="lg:hidden rounded-full p-2 bg-black/10 z-50 backdrop-blur"
+		class="lg:hidden rounded-full p-2 bg-black/10 z-50 md:backdrop-blur"
 		on:click={toggleExpanded}
 	>
 		{#if isExpanded}
