@@ -1,3 +1,4 @@
+<script>
 	import { inview } from 'svelte-inview'
 	import previewRice from '$lib/videos/end_4_rice_intro.mp4'
 	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.png'
