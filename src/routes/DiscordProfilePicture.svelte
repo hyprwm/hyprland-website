@@ -1,11 +1,9 @@
 <script>
-	import { json } from '@sveltejs/kit'
 	import clsx from 'clsx'
-	import interact from 'interactjs'
 	import { createEventDispatcher, getContext, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
-	import { contextId } from './CommunitySlice.svelte'
-	import { lerp } from '$lib/Helper.mjs'
+	import { contextId as ctxId } from './CommunitySlice.svelte'
+	import { getIsMobile, lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
 
 	/** @type {string} */
@@ -19,6 +17,10 @@
 
 	/** @type {string | undefined} */
 	export let quote = undefined
+
+	/** @type {symbol}*/
+	export let contextId = ctxId
+	export let isAnimating = true
 
 	const { biggestSize, getSectionElement } = getContext(contextId)
 	const dispatch = createEventDispatcher()
@@ -36,33 +38,39 @@
 	let hasEnteredView = false
 
 	onMount(() => {
-		let interactionjs = interact(imageElement).draggable({
-			inertia: { resistance: lerp(5, 200, relativeSize) },
-			listeners: {
-				move({ dx, dy }) {
-					dragCoordinates.update(([x, y]) => {
-						x += dx
-						y += dy
-						return [x, y]
-					})
-				},
+		if (getIsMobile()) return
 
-				start(event) {
-					dispatch('dragStart', event)
+		let interactionjs
+
+		import('interactjs').then(({ default: interact }) => {
+			interactionjs = interact(imageElement).draggable({
+				inertia: { resistance: lerp(5, 200, relativeSize) },
+				listeners: {
+					move({ dx, dy }) {
+						dragCoordinates.update(([x, y]) => {
+							x += dx
+							y += dy
+							return [x, y]
+						})
+					},
+
+					start(event) {
+						dispatch('dragStart', event)
+					},
+					end(event) {
+						dispatch('dragEnd', event)
+					}
 				},
-				end(event) {
-					dispatch('dragEnd', event)
-				}
-			},
-			modifiers: [
-				interact.modifiers.restrictRect({
-					restriction: getSectionElement,
-					endOnly: true
-				})
-			]
+				modifiers: [
+					interact.modifiers.restrictRect({
+						restriction: getSectionElement,
+						endOnly: true
+					})
+				]
+			})
 		})
 
-		return () => interactionjs.off()
+		return () => interactionjs?.off?.()
 	})
 </script>
 
@@ -72,10 +80,13 @@
 	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
 >
 	<div
-		class="absolute inset-0 w-full h-full group opacity-0 select-none touch-none"
+		class={clsx(
+			'absolute inset-0 w-full h-full group  select-none touch-none',
+			isAnimating && 'opacity-0'
+		)}
 		style:translate={`calc( ${$dragCoordinates[0]}px  ) ${$dragCoordinates[1]}px`}
 		use:inview={{ unobserveOnEnter: true, threshold: 0.4 }}
-		class:_animate={hasEnteredView}
+		class:_animate={isAnimating && hasEnteredView}
 		on:inview_enter={() => setTimeout(() => (hasEnteredView = true), 750)}
 	>
 		<img

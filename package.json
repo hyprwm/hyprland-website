@@ -56,6 +56,7 @@
 		"interactjs": "^1.10.18",
 		"prettier-plugin-tailwindcss": "^0.4.1",
 		"remeda": "^1.24.0",
+		"rxjs": "^7.8.1",
 		"simplex-noise": "^4.0.1",
 		"svelte-inview": "^4.0.1",
 		"ts-pattern": "^5.0.4"

@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores'
-	import logo from '$lib/images/logo.png'
+	import logo from '$lib/images/logos/hyprland-color.svg'
 	import GithubIcon from '~icons/ri/github-fill'
 	import DiscordIcon from '~icons/prime/discord'
 	import MenuIcon from '~icons/mingcute/menu-line'
@@ -18,9 +18,10 @@
 >
 	<a
 		href="/"
-		class="flex gap-2 font-london tracking-wider lg:px-4 py-1 text-sm rounded-full lg:bg-black/50 items-center font-bold text-white"
+		class="flex gap-4 font-london tracking-wider lg:px-4 py-1 text-sm rounded-full lg:bg-black/10 items-center lg:backdrop-blur font-bold text-white"
 	>
-		<img src={logo} alt="Hyprland Logo" class="w-6" /><span class="lg:block hidden">Hyprland</span
+		<img src={logo} alt="Hyprland Logo" class="w-6" /><span
+			class="lg:block lg:mt-1 tracking-widest text-xl hidden">Hyprland</span
 		></a
 	>
 
@@ -46,7 +47,7 @@
 				<a href="https://wiki.hyprland.org">Wiki</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/#">Wall of fame</a>
+				<a href="/wall_of_fame">Wall of fame</a>
 			</li>
 		</ul>
 		<ul
@@ -90,7 +91,7 @@
 
 		/* Desktop classes */
 		@media screen(lg) {
-			@apply relative flex-row rounded-full p-6 pl-5;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 outline outline-primary/10;
 		}
 	}
 

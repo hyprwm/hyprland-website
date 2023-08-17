@@ -12,7 +12,7 @@
 	<div class="px-4 -mb-40 z-20">
 		<Title>
 			<span slot="pre"> Memorials of the ricing legends </span>
-			<span slot="title">Hall of Fame</span>
+			<span slot="title">Wall of Fame</span>
 		</Title>
 	</div>
 
@@ -20,23 +20,23 @@
 		class="w-full -mt-24 max-w-[1100px] flex relative flex-col gap-16 lg:gap-24 items-center justify-end overflow-hidden md:px-16 [perspective:100px]"
 		use:animateIn={{ slide: 24, fade: 0.5, duration: 800 }}
 	>
-		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/#">
-			<Button size="lg" type="fancyOutline">Go to Hall of Fame</Button>
+		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/wall_of_fame">
+			<Button size="lg" type="fancyOutline">Go to Wall of Fame</Button>
 		</a>
 
 		<div
-			class="bg-blue-500 w-full [translate:0px_0px_-100px] aspect-square rounded-[50%] absolute top-0 inset-x-0 -z-30 blur-[200px]"
+			class="w-full [translate:0px_40px_-10px] md:[translate:0px_0px_-40px] absolute top-0 inset-0 -z-30 atmosphere"
 		/>
 
 		<FameRicePreview
 			image="/imgs/ricingcomp1/lauroro.jpg"
-			containerClass="[translate:0px_0px_-100px] -mb-[30%] hover:[translate:0px_0px_-98px] transition-all duration-500"
+			containerClass="[translate:0px_50px_-100px] -mb-[30%] hover:[translate:0px_0px_-98px] transition-all duration-500"
 			imageClass="[mask-image:linear-gradient(black,black_45%,transparent_65%)] opacity-50 hover:opacity-60"
 		/>
 		<FameRicePreview
 			image="/imgs/ricingcomp1/amadeus.png"
-			containerClass="[translate:0px_0px_-40px] hover:[translate:0px_0px_-38px]  -mb-[30%] duration-500 transition-all group"
-			imageClass="[mask-image:linear-gradient(black,black_50%,transparent_75%)] opacity-80 group-hover:opacity-100 transition-all duration-500"
+			containerClass="[translate:0px_50px_-40px] hover:[translate:0px_0px_-38px]  -mb-[30%] duration-500 transition-all group"
+			imageClass="md:[mask-image:linear-gradient(black,black_50%,transparent_75%)] [mask-image:linear-gradient(black,black_10%,transparent_75%)] opacity-80 group-hover:opacity-100 transition-all duration-500"
 		/>
 		<FameRicePreview
 			image="/imgs/ricingcomp1/flicko.png"
@@ -48,8 +48,12 @@
 </section>
 
 <style lang="postcss">
+	.atmosphere {
+		background: radial-gradient(closest-side, theme(colors.blue.500), transparent);
+	}
+
 	.glow {
-		@apply h-[200px] lg:h-[400px];
+		@apply h-[400px] lg:h-[400px];
 		width: 100%;
 		/* min-width: 8800px; */
 		position: absolute;

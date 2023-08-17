@@ -39,6 +39,15 @@ body {
 	border-radius: 24px;
 }
 
+/* optimize mobile */
+.animate-in,
+.animate-out,
+.ani-in {
+	@media only screen and (max-width: 640px) {
+		animation: none !important;
+	}
+}
+
 @keyframes pop {
 	0% {
 		scale: 0.98;

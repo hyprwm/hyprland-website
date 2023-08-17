@@ -6,12 +6,10 @@
 	import '@fontsource/ibm-plex-mono/500.css'
 </script>
 
-<div class="flex flex-col min-h-screen overflow-x-hidden">
-	<Navbar />
+<Navbar />
 
-	<main class="mx-auto w-full flex flex-col">
-		<slot />
-	</main>
+<main class="mx-auto w-full overflow-hidden flex flex-col">
+	<slot />
+</main>
 
-	<Footer />
-</div>
+<Footer />

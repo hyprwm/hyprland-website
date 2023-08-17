@@ -4,10 +4,10 @@
 
 	/** @type {[string, string, string, string]} */
 	let developers = [
-		['Fufexan', 'Supporting Developer', 'cyan', 'https://github.com/fufexan'],
-		['VDawg', 'Webdesign-and dev', 'teal', 'https://github.com/Visual-Dawg'],
-		['System-x64', 'Webdev', 'green', 'https://github.com/System-x64'],
-		['That one calculator', 'Package Maintaner', 'lime', 'https://github.com/ThatOneCalculator']
+		['Fufexan', 'Core Developer', 'cyan', 'https://github.com/fufexan'],
+		['NotAShelf', 'Core Member', 'teal', 'https://github.com/NotAShelf'],
+		['VDawg', 'Webdesign-and dev', 'green', 'https://github.com/Visual-Dawg'],
+		['System-x64', 'Webdev', 'lime', 'https://github.com/System-x64']
 	]
 	function createRole(role, color) {
 		return `<span class='text-${color}-500'><span class='text-${color}-600'>[ </span>${role}<span class='text-${color}-600'> ]</span></span>`
@@ -15,13 +15,13 @@
 </script>
 
 <footer
-	class="bg-black/50 mt-16 md:mt-24 lg:mt-32 border-t border-blue-500 relative flex items-center justify-center w-screen"
+	class="bg-black/50 mt-16 md:mt-24 lg:mt-32 border-t border-blue-400/50 relative flex items-center justify-center max-w-screen"
 >
 	<div
 		class="flex flex-wrap gap-12 justify-between px-8 py-14 max-w-5xl text-slate-300 items-start"
 	>
-		<div class="flex flex-col gap-4">
-			<div class="text-cyan-600 text-sm uppercase font-bold">> Developers</div>
+		<div class="flex flex-col gap-4 rounded-lg">
+			<div class="text-slate-400 text-sm uppercase font-bold">Developers</div>
 			<ul class="flex flex-col gap-3 font-medium">
 				<li>
 					<a href="https://github.com/vaxerski">
@@ -37,26 +37,26 @@
 					</li>
 				{/each}
 				<li>
-					and our <a href="https://github.com/hyprwm/Hyprland/graphs/contributors" target="_blank"
-						><span class="text-indigo-400">fellow contributors</span></a
+					<a href="https://github.com/hyprwm/Hyprland/graphs/contributors" target="_blank"
+						>and our <span class="text-indigo-400">fellow contributors</span></a
 					>
 				</li>
 			</ul>
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<div class="text-cyan-600 font-bold text-sm uppercase">Links</div>
+			<div class="text-slate-400 font-bold text-sm uppercase">Links</div>
 			<ul class="flex flex-col font-medium gap-3">
-				<li><a href="wiki.hyprland.org/">Wiki</a></li>
+				<li><a href="https://wiki.hyprland.org/">Wiki</a></li>
 				<li>
 					<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get started</a>
 				</li>
-				<li>Hall of fame</li>
+				<li><a href="/wall_of_fame">Hall of fame</a></li>
 			</ul>
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<div class="text-cyan-600 text-sm uppercase font-bold" font-bold>Socials</div>
+			<div class="text-slate-400 text-sm uppercase font-bold" font-bold>Socials</div>
 			<ul class="flex gap-6">
 				<li class="">
 					<a
@@ -72,7 +72,7 @@
 			</ul>
 		</div>
 
-		<div class="flex gap-4 flex-wrap text-sm text-slate-300 w-full">
+		<div class="flex gap-4 flex-wrap text-sm text-slate-400 font-medium w-full">
 			<div>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</div>
 			<div>© Hyprland Development 2023.</div>
 			<div>Doki doki waku waku.</div>
@@ -90,7 +90,7 @@
 		position: absolute;
 		top: -450px;
 		left: 0px;
-		width: 100vw;
+		width: 100%;
 		height: 900px;
 		z-index: -10;
 		background: radial-gradient(105vw 450px at 50% 50%, theme(colors.blue.600 / 80%), transparent);

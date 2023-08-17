@@ -23,16 +23,16 @@
 	})
 </script>
 
-<div class="flex flex-col md:flex-row md:gap-4 gap-2 items-center">
+<div class="flex group flex-col md:flex-row md:gap-4 gap-2 items-center">
 	<div
-		class="flex flex-col gap-3 justify-center items-center text-primary text-lg font-medium rounded-full w-32 h-32"
+		class="flex group-focus-within:-translate-y-1 transition-transform flex-col gap-3 justify-center items-center text-primary text-lg font-medium rounded-full w-32 h-32"
 	>
 		<img src={image} alt="Arch Logo" />{name}
 	</div>
 
 	<div class="flex flex-col relative font-mono mb-2">
 		<button
-			class="flex text-base transition-all min-w-[18rem] items-center font-medium rounded-full border-primary border py-3 pl-6 pr-6 gap-4 justify-center group active:scale-[1.01]"
+			class="flex text-base transition-transform min-w-[18rem] items-center font-medium rounded-full border-primary border py-3 pl-6 pr-6 gap-4 justify-center active:scale-[1.01]"
 			on:click={$$slots.default ? undefined : copyCommand}
 		>
 			<slot>
@@ -42,14 +42,14 @@
 						<span>{command}</span>
 					</div>
 					<ClipboardIcon
-						class="group-hover:opacity-80 group-active:opacity-100 opacity-0 w-6 h-6 hover:!opacity-100 transition-opacity"
+						class="group-hover:opacity-80 text-white group-active:opacity-100  opacity-0 w-6 h-6 hover:!opacity-100 transition-opacity duration-100"
 					/>
-				</div></slot
-			>
+				</div>
+			</slot>
 		</button>
 
 		<div
-			class="text-green-400 [translate:-50%_0px] select-none pointer-events-none absolute -top-8 w-full left-1/2 hidden max-w-max"
+			class="text-green-400 [translate:-50%_0px] select-none pointer-events-none absolute md:-top-8 max-md:-bottom-6 bg-black/10 backdrop-blur rounded-full z-20 px-2 w-full left-1/2 hidden max-w-max"
 			class:copy={isShowingCopied}
 		>
 			Copied to clipboard ✔

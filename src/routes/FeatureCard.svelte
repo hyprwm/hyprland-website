@@ -1,9 +1,9 @@
 <script>
 	import clsx from 'clsx'
-	import { getContext } from 'svelte'
+	import { getContext, onMount } from 'svelte'
 	import { mouseContext } from './FeaturesSlice.svelte'
 	import { spring } from 'svelte/motion'
-	import Title from '$lib/components/Title.svelte'
+	import { getIsMobile } from '$lib/Helper.mjs'
 	export let title
 	export let color = 'cyan'
 
@@ -11,6 +11,8 @@
 
 	/** @type HTMLDivElement */
 	let container
+	let isMobile = false
+
 	const fillX = spring(999, { damping: 0.9, stiffness: 0.021, precision: 0.3 })
 	const fillY = spring(999, { damping: 0.9, stiffness: 0.021, precision: 0.3 })
 	const borderX = spring(999, { damping: 0.9, stiffness: 0.03, precision: 0.3 })
@@ -27,7 +29,13 @@
 		}
 	}
 
+	onMount(() => {
+		isMobile = getIsMobile()
+	})
+
 	function updateGradient() {
+		if (isMobile) return
+
 		const { x: rectX, y: rectY, width, height } = container.getBoundingClientRect()
 
 		const normX = $mouseX - rectX
@@ -55,7 +63,7 @@
 </script>
 
 <div
-	class={clsx('card min-h-[20rem] ', $$restProps.class)}
+	class={clsx('card min-h-[20rem] group', $$restProps.class)}
 	style:--x={$fillX}
 	style:--y={$fillY}
 	style:--borderX={$borderX}
@@ -70,19 +78,19 @@
 	class:purpleGradient={color === 'purple'}
 	role="contentinfo"
 >
-	<div class="p-8 md:p-12 z-10 w-full h-full">
+	<div class="p-8 sm:p-12 z-10 w-full h-full flex flex-col justify-end">
 		<h1 class="text-5xl font-bold mb-6 text-white">{title}</h1>
 
 		<slot>Nothing in the slot here</slot>
 	</div>
-	<div class="gradient" />
-	<div class="gradient_black" />
-	<div class="border-gradient" />
+	<div class="gradient max-sm:hidden" />
+	<div class="gradient_black max-sm:hidden" />
+	<div class="border-gradient max-sm:hidden" />
 </div>
 
 <style lang="postcss">
 	.card {
-		@apply relative flex h-full w-full items-center justify-center rounded-3xl bg-slate-900  transition-colors duration-300 hover:bg-blue-900;
+		@apply relative flex h-full w-full items-end justify-end rounded-3xl bg-slate-950	 transition-colors  duration-300 md:bg-slate-900 md:hover:bg-blue-900;
 		z-index: 2;
 		contain: paint style layout;
 	}
@@ -114,6 +122,7 @@
 		top: 0%;
 		content: '';
 		pointer-events: none;
+		filter: brightness(1.2) saturate(2);
 		contain: strict;
 		background: radial-gradient(
 			320px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
@@ -149,6 +158,7 @@
 			translate: -25% 0%;
 			transform-origin: top left;
 			left: 50%;
+			opacity: 0%;
 			transition: all 820ms;
 			content: '';
 			pointer-events: none;
@@ -161,6 +171,10 @@
 
 			.card:hover & {
 				scale: 1 1;
+			}
+
+			.group:hover & {
+				opacity: 100%;
 			}
 		}
 	}

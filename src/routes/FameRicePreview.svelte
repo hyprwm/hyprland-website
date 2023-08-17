@@ -16,7 +16,7 @@
 		<img
 			src={image}
 			alt="Rice desktop"
-			class="w-full nice-hover object-cover object-top rounded-xl overflow-hidden shadow-2xl hover:scale-[1.01] {imageClass}"
+			class="max-sm:[xmask-image:none] w-full nice-hover object-cover object-top rounded-xl overflow-hidden shadow-2xl hover:scale-[1.01] {imageClass}"
 		/>
 		<img src={image} alt="Rice desktop" aria-hidden="true" class="rice-bg" />
 	</div>
@@ -30,7 +30,7 @@
 		transition: all 540ms cubic-bezier(0.1, -0.81, 0.31, 2);
 	}
 	.rice-bg {
-		@apply w-[calc(100%-24px)] pointer-events-none transition-[filter] duration-500   absolute left-3 brightness-150 rounded-3xl -z-10 saturate-[5] h-full blur-2xl -bottom-10 opacity-50;
+		@apply pointer-events-none absolute -bottom-10 left-3 -z-10   h-full w-[calc(100%-24px)] rounded-3xl opacity-50 blur-2xl brightness-150 saturate-[5] transition-[filter] duration-500 max-sm:hidden;
 
 		.rice:hover & {
 			@apply brightness-200;

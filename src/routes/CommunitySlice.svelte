@@ -58,10 +58,10 @@
 			class: 'outline-slate-200'
 		},
 		{
-			image: '/imgs/profile_pictures/outfoxxed.webp',
+			image: '/imgs/profile_pictures/kcrmson.webp',
 			coordinates: [53, 399],
 			size: 75,
-			class: 'outline-orange-500'
+			class: 'outline-sky-500'
 		},
 		{
 			image: '/imgs/profile_pictures/loseardes77.gif',
@@ -107,14 +107,14 @@
 			image: '/imgs/profile_pictures/7.webp',
 			coordinates: [273, 687],
 			size: 52,
-			quote: '"Meds"',
+			quote: '"meds"',
 			class: 'outline-cyan-500'
 		},
 		{
-			image: '/imgs/profile_pictures/kcrmson.webp',
+			image: '/imgs/profile_pictures/outfoxxed.webp',
 			coordinates: [648, 364],
 			size: 80,
-			class: 'outline-sky-500'
+			class: 'outline-orange-500'
 		},
 		{
 			image: '/imgs/profile_pictures/kirottum.webp',
@@ -235,9 +235,9 @@
 		width: 9rem;
 		height: 9rem;
 		transition:
-			rotate 480ms cubic-bezier(0.5, 0, 0.5, 1.5),
-			scale 440ms cubic-bezier(1, -1.4, 0, 2),
-			filter 240ms;
+			rotate 480ms cubic-bezier(0.5, 0, 0.5, 1.1),
+			scale 420ms cubic-bezier(1, 0.1, 0, 2),
+			filter 840ms;
 		filter: drop-shadow(0px 0px 0px cyan) drop-shadow(0px 0px 0px blue);
 
 		&:hover,
