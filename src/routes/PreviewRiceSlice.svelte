@@ -9,6 +9,7 @@
 	/** @type HTMLVideoElement */
 	let videoElement
 
+	let isVisible = false
 	let isShowingControls = false
 	let isMuted = true
 
@@ -24,13 +25,19 @@
 	class="max-w-7xl px-1 -mb-4 lg:px-8 w-full relative animate-in [animation-delay:1700ms] fade-in-0 fill-mode-backwards [animation-duration:2000ms] slide-in-from-bottom-10 z-20 {$$restProps.class}"
 >
 	<div
-		class="rounded-xl group opacity-20 overflow-hidden border-sky-400 border-2 scale-90 transition-all [transition-duration:1460ms] mx-3"
+		class={clsx(
+			'rounded-xl group  overflow-hidden border-sky-400 border-2  transition-all [transition-duration:1460ms] mx-3',
+			!isVisible && 'opacity-20 scale-90'
+		)}
 		role="banner"
-		use:inview={{ unobserveOnEnter: true, threshold: 0.8 }}
-		on:inview_enter={({ detail: { node } }) => {
-			node.classList.remove('opacity-20')
-			node.classList.remove('scale-90')
+		use:inview={{ threshold: 0.8 }}
+		on:inview_enter={() => {
+			isVisible = true
 			videoElement.play()
+		}}
+		on:inview_leave={() => {
+			isVisible = false
+			videoElement.pause()
 		}}
 		on:mouseenter={() => (isShowingControls = true)}
 		on:mouseleave={() => (isShowingControls = false)}
