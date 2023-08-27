@@ -1,5 +1,5 @@
 <script>
-	import { page } from '$app/stores'
+	import { navigating, page } from '$app/stores'
 	import logo from '$lib/images/logos/hyprland-color.svg'
 	import GithubIcon from '~icons/ri/github-fill'
 	import DiscordIcon from '~icons/prime/discord'
@@ -7,6 +7,8 @@
 	import CloseIcon from '~icons/mingcute/close-line'
 
 	let isExpanded = false
+
+	$: if ($navigating) isExpanded = false
 
 	function toggleExpanded() {
 		isExpanded = !isExpanded
