@@ -74,7 +74,7 @@
 
 		<div class="flex gap-4 flex-wrap text-sm text-slate-400 font-medium w-full">
 			<div>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</div>
-			<div>© Hyprland Development 2023.</div>
+			<div>© Hyprland Development {new Date().getFullYear()}.</div>
 			<div>Doki doki waku waku.</div>
 		</div>
 	</div>
