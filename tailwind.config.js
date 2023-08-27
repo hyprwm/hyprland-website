@@ -28,6 +28,8 @@ export default {
 		'text-cyan-600',
 		'text-green-500',
 		'text-green-600',
+		'text-emerald-500',
+		'text-emerald-600',
 		'text-lime-500',
 		'text-lime-600'
 	]

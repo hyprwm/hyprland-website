@@ -6,8 +6,8 @@
 	let developers = [
 		['Fufexan', 'Core Developer', 'cyan', 'https://github.com/fufexan'],
 		['NotAShelf', 'Core Member', 'teal', 'https://github.com/NotAShelf'],
-		['VDawg', 'Webdesign-and dev', 'green', 'https://github.com/Visual-Dawg'],
-		['System-x64', 'Webdev', 'lime', 'https://github.com/System-x64']
+		['VDawg', 'Webdesign-and dev', 'emerald', 'https://github.com/Visual-Dawg'],
+		['System-x64', 'Webdev', 'green', 'https://github.com/System-x64']
 	]
 	function createRole(role, color) {
 		return `<span class='text-${color}-500'><span class='text-${color}-600'>[ </span>${role}<span class='text-${color}-600'> ]</span></span>`
@@ -38,7 +38,7 @@
 				{/each}
 				<li>
 					<a href="https://github.com/hyprwm/Hyprland/graphs/contributors" target="_blank"
-						>and our <span class="text-indigo-400">fellow contributors</span></a
+						>and our <span class="text-indigo-500">fellow contributors</span></a
 					>
 				</li>
 			</ul>

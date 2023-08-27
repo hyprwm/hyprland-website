@@ -17,8 +17,6 @@
 	let isMuted = true
 	let isPaused = false
 
-	$: console.log({ isVisible })
-
 	function toggleMute() {
 		isMuted = !isMuted
 	}
@@ -45,7 +43,7 @@
 >
 	<div
 		class={clsx(
-			'rounded-xl group  relative overflow-hidden border-sky-400 border-2  transition-all [transition-duration:1460ms] mx-3 shadow-2xl shadow-cyan-400/40',
+			'rounded-xl group  relative  border-sky-400 border-2  transition-all [transition-duration:1460ms] mx-3 shadow-2xl shadow-cyan-400/40',
 			!isVisible && 'opacity-20 scale-90'
 		)}
 		role="banner"
@@ -67,6 +65,7 @@
 			src={previewRice}
 			disablepictureinpicture="true"
 			disableremoteplayback="true"
+			class="rounded-xl"
 			loop
 			muted={isMuted}
 			preload="auto"
@@ -98,7 +97,13 @@
 				</div>
 			{/if}
 		</div>
+
+		<a
+			class="px-3 pt-2 block absolute -bottom-7 left-0 max-w-max text-sm text-slate-100/70 hover:underline"
+			href="https://github.com/end-4/">Setup by @end_4</a
+		>
 	</div>
+
 	<div class="preview-rice-bg overflow-x-hidden" aria="hidden" />
 </section>
 

@@ -11,6 +11,8 @@
 	function toggleExpanded() {
 		isExpanded = !isExpanded
 	}
+
+	//! TODO close mobile menu on navigation
 </script>
 
 <header

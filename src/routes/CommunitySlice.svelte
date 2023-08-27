@@ -9,6 +9,7 @@
 	import { animateIn } from '$lib/Helper.mjs'
 	import { setContext } from 'svelte'
 	import Title from '$lib/components/Title.svelte'
+	import background from '$lib/images/community-bg.png'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -174,7 +175,7 @@
 </script>
 
 <section
-	class="relative flex flex-col items-center w-screen overflow-hidden min-h-max h-[1100px] -mb-[200px] max-w-[100vw]"
+	class="relative flex flex-col items-center w-screen min-h-max h-[1100px] -mb-[200px]"
 	bind:this={sectionElement}
 >
 	<Title>
@@ -211,23 +212,8 @@
 				/>
 			{/each}
 		</div>
-
-		<div class="">
-			<!-- Background color blobs -->
-			<div
-				class="_bg-color bg-yellow-500 top-[146px] right-[17px] w-[359px] h-[207px] opacity-20"
-			/>
-			<div class="_bg-color bg-orange-500 top-[411px] right-0 w-[400px] h-[300px] opacity-30" />
-			<div
-				class="_bg-color bg-purple-500 opacity-30 w-[321px] h-[295px] top-[209px] left-[368px]"
-			/>
-			<div class="_bg-color bg-cyan-500 opacity-30 w-[363px] h-[250px] left-[402px] top-[462px]" />
-			<div class="_bg-color bg-red-500 opacity-30 w-[323px] h-[482px] left-[53px] top-[179px]" />
-			<div
-				class="_bg-color bg-fuchsia-500 opacity-30 w-[243px] h-[167px] left-[135px] top-[596px]"
-			/>
-		</div>
 	</div>
+	<img src={background} class="absolute top-0 w-[1400px] -z-10" alt="" aria-hidden="true" />
 </section>
 
 <style lang="postcss">
@@ -251,14 +237,5 @@
 			scale: 1;
 			transition: scale 80ms;
 		}
-	}
-
-	._bg-color {
-		position: absolute;
-		pointer-events: none;
-		filter: blur(80px);
-		border-radius: 50%;
-		z-index: -50;
-		contain: strict;
 	}
 </style>

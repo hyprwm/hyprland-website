@@ -8,10 +8,14 @@
 	import { writable } from 'svelte/store'
 	import PluginsIcon from '~icons/gg/arrange-back'
 	import ShortcutsIcon from '~icons/gg/push-chevron-right-o'
-	import BleedingEdgeIcon from '~icons/gg/controller'
+	import TouchpadIcon from '~icons/gg/touchpad'
 	import Title from '$lib/components/Title.svelte'
 	import Hypractive from './Hypractive.svelte'
 	import { getIsMobile } from '$lib/Helper.mjs'
+	import configDefaultImage from '$lib/images/features/config default.png'
+	import tileDefaultImage from '$lib/images/features/tiling_default.png'
+	import configHoverImage from '$lib/images/features/config hover.png'
+	import tileHoverImage from '$lib/images/features/tiling_hover.png'
 
 	let isMobile = false
 
@@ -67,10 +71,9 @@
 			</p>
 
 			<div class="absolute _wrapper inset-0 select-none" aria-hidden>
-				<div
-					class="absolute text-[440px] -bottom-10 text-slate-500 _configure -right-40 md:right-0 font-mono"
-				>
-					{'<>'}
+				<div class="feature-image">
+					<img src={configDefaultImage} class="config-default" alt="" aria-hidden="true" />
+					<img src={configHoverImage} class="config-hover" alt="" aria-hidden="true" />
 				</div>
 			</div>
 		</FeatureCard>
@@ -79,10 +82,9 @@
 				Automatic tiling which just works. Supports multiple fine-tuneable layouts.
 			</p>
 			<div class="absolute _wrapper inset-0 select-none" aria-hidden>
-				<div
-					class="absolute text-[280px] text-slate-500 font-extrabold gap-y-4 [line-height:1] -z-10 bottom-[20px] tiling right-0 md:right-8 font-mono tiles"
-				>
-					<div class="tile" style={''}>[ ]</div>
+				<div class="feature-image">
+					<img src={tileDefaultImage} class="config-default" alt="" aria-hidden="true" />
+					<img src={tileHoverImage} class="config-hover" alt="" aria-hidden="true" />
 				</div>
 			</div>
 		</FeatureCard>
@@ -106,9 +108,12 @@
 			<ShortcutsIcon class="h-8 w-8" />
 			Global shortcuts for apps
 		</a>
-		<div class="icon-feature">
-			<BleedingEdgeIcon class="h-8 w-8" />Bleeding edge tech
-		</div>
+		<a
+			href="https://wiki.hyprland.org/Configuring/Variables/#gestures"
+			class="icon-feature hover:underline"
+		>
+			<TouchpadIcon class="h-8 w-8" />Touchpad gestures
+		</a>
 	</div>
 </section>
 
@@ -117,69 +122,31 @@
 		@apply flex items-center justify-center gap-3 font-bold text-slate-400;
 	}
 
-	._configure {
-		@apply bg-gradient-to-tl from-pink-500  to-blue-500 bg-clip-text text-blue-700;
-		line-height: 1;
-		z-index: -1;
-		transition: all 850ms ease-in-out;
-		color: rgb(255, 121, 170);
-		opacity: 0.4;
-		color: transparent;
-		text-shadow:
-			10px -10px 40px theme(colors.pink.700 / 20),
-			5px 5px 20px cyan,
-			-10px 10px 40px theme(colors.blue.700 / 20);
-		filter: saturate(2) drop-shadow(8px 8px 20px theme(colors.pink.700))
-			drop-shadow(-8px -8px 20px theme(colors.blue.700));
+	.feature-image {
+		position: absolute;
+		inset: 0 0 0 0;
+		opacity: 0.5;
 
-		._wrapper:hover & {
-			color: transparent;
-			opacity: 0.6;
-			filter: saturate(2) drop-shadow(8px 8px 12px theme(colors.pink.700))
-				drop-shadow(-8px -8px 12px theme(colors.blue.700));
-			text-shadow:
-				15px -15px 40px theme(colors.pink.700 / 80),
-				8px 8px 20px cyan,
-				-15px 15px 40px theme(colors.blue.700 / 40);
+		& img {
+			width: 800px;
+			height: 800px;
+			position: absolute;
+			right: -200px;
+			top: -209px;
+			transition: opacity 1500ms ease-in-out;
+			pointer-events: none;
 		}
 	}
-
-	.tile {
-		/* Animate a pulse animation for the glow effect */
-		/* Use different colors for the different windows */
-		background: radial-gradient(ellipse, var(--color1, cyan) 50%, var(--color2, magenta));
-		background-clip: text;
-		color: transparent;
-		letter-spacing: -55px;
-		text-shadow:
-			-5px 5px 8px color-mix(in srgb, var(--color1, magenta), transparent 90%),
-			5px -5px 8px color-mix(in srgb, color-mix(in srgb, var(--color1, rgb(0, 187, 255)), black 20%), transparent
-						10%),
-			0px 0px 15px var(--color2, magenta);
-
-		filter: saturate(1) drop-shadow(8px 8px 24px var(--color2, blue))
-			drop-shadow(
-				-8px -8px 24px color-mix(in srgb, var(--color1, rgb(0, 187, 255)), rgba(0, 0, 0, 0.056) 80%)
-			);
-		opacity: 0.4;
-		transition: all 850ms ease-in-out;
-
-		._wrapper:hover & {
-			opacity: 0.7;
-			text-shadow:
-				-15px 15px 0px color-mix(in srgb, var(--color1, cyan), transparent 60%),
-				15px -15px 8px color-mix(in srgb, color-mix(in srgb, var(--colo1r, magenta), rgb(0, 0, 111)
-								50%), transparent 30%),
-				0px 0px 15px var(--color2, magenta);
-
-			filter: saturate(2) drop-shadow(8px 8px 24px var(--color2, blue))
-				drop-shadow(
-					-8px -8px 24px color-mix(in srgb, var(--color1, magenta), rgba(0, 0, 0, 0.056) 20%)
-				);
-		}
+	.config-hover {
+		opacity: 0;
 	}
-
-	.tiles {
-		filter: drop-shadow(0px 0px 5px rgb(0, 191, 255));
+	._wrapper:hover {
+		& .config-default {
+			opacity: 0;
+		}
+		& .config-hover {
+			opacity: 1 !important;
+			filter: saturate(1.5);
+		}
 	}
 </style>
