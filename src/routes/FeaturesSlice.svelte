@@ -12,9 +12,9 @@
 	import Title from '$lib/components/Title.svelte'
 	import Hypractive from './Hypractive.svelte'
 	import { getIsMobile } from '$lib/Helper.mjs'
-	import configDefaultImage from '$lib/images/features/config default.png'
+	import configDefaultImage from '$lib/images/features/config_default.png'
 	import tileDefaultImage from '$lib/images/features/tiling_default.png'
-	import configHoverImage from '$lib/images/features/config hover.png'
+	import configHoverImage from '$lib/images/features/config_hover.png'
 	import tileHoverImage from '$lib/images/features/tiling_hover.png'
 
 	let isMobile = false
@@ -72,8 +72,8 @@
 
 			<div class="absolute _wrapper inset-0 select-none" aria-hidden>
 				<div class="feature-image">
-					<img src={configDefaultImage} class="config-default" alt="" aria-hidden="true" />
-					<img src={configHoverImage} class="config-hover" alt="" aria-hidden="true" />
+					<img src={configDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
+					<img src={configHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
 				</div>
 			</div>
 		</FeatureCard>
@@ -83,8 +83,8 @@
 			</p>
 			<div class="absolute _wrapper inset-0 select-none" aria-hidden>
 				<div class="feature-image">
-					<img src={tileDefaultImage} class="config-default" alt="" aria-hidden="true" />
-					<img src={tileHoverImage} class="config-hover" alt="" aria-hidden="true" />
+					<img src={tileDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
+					<img src={tileHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
 				</div>
 			</div>
 		</FeatureCard>
@@ -126,6 +126,11 @@
 		position: absolute;
 		inset: 0 0 0 0;
 		opacity: 0.5;
+		z-index: -10;
+
+		._wrapper:hover & {
+			opacity: 1;
+		}
 
 		& img {
 			width: 800px;
@@ -137,14 +142,14 @@
 			pointer-events: none;
 		}
 	}
-	.config-hover {
+	.feature-image_inner-hover {
 		opacity: 0;
 	}
 	._wrapper:hover {
-		& .config-default {
+		& .feature-image_inner {
 			opacity: 0;
 		}
-		& .config-hover {
+		& .feature-image_inner-hover {
 			opacity: 1 !important;
 			filter: saturate(1.5);
 		}
