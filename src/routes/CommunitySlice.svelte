@@ -213,7 +213,7 @@
 			{/each}
 		</div>
 	</div>
-	<img src={background} class="absolute top-0 w-[1400px] -z-10" alt="" aria-hidden="true" />
+	<img src={background} class="absolute top-0 min-w-[1400px] -z-10" alt="" aria-hidden="true" />
 </section>
 
 <style lang="postcss">
