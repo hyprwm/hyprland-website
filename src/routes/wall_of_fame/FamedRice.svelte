@@ -9,10 +9,18 @@
 	export let creatorProfilePicture
 	/** @type {string} */
 	export let thumbnail
-	/** @type {string} */
-	export let blurredThumbnail
+	/**
+	 * Specify the blurred background image to be used.
+	 * Defaults to `"generated_<thumbnail>"`
+	 * @type {string | undefined} */
+	export let blurredThumbnail = undefined
 	/** @type {string} */
 	export let pretitel
+
+	let background =
+		blurredThumbnail ??
+		// Get the `generated_<filename>` if blurredThumbnail is not set manually
+		`${thumbnail.substring(0, thumbnail.lastIndexOf('/'))}/generated_${thumbnail.split('/').at(-1)}`
 </script>
 
 <div class="flex flex-col gap-14">
@@ -41,11 +49,48 @@
 				class="rounded-lg hover:scale-[1.01] duration-300 transition-transform w-full"
 			/>
 		</a>
-		<img
-			src={blurredThumbnail}
+		<!-- wide background -->
+		<!-- <img
+			src={background}
 			aria-hidden="true"
-			class="absolute pointer-events-none -bottom-5 -z-10 opacity-20 inset-x-0 w-full rounded-lg"
+			class="background"
+			alt={`${name} by ${creator} thumbnail`}
+		/> -->
+		<!-- blur background -->
+		<img
+			src={background}
+			aria-hidden="true"
+			class="background-blurred"
 			alt={`${name} by ${creator} thumbnail`}
 		/>
 	</div>
 </div>
+
+<style lang="postcss">
+	.background {
+		position: absolute;
+		opacity: 0.4;
+		min-width: calc(200% + 400px);
+		height: calc(100% + 200px);
+		pointer-events: none;
+		inset: 0px 0 0 -200px;
+		translate: 0px -50%;
+		z-index: -10;
+		background: red;
+
+		mask-image: radial-gradient(closest-side, black, transparent);
+	}
+	.background-blurred {
+		position: absolute;
+		opacity: 0.3;
+		min-width: calc(120% + 400px);
+		height: calc(120% + 200px);
+		pointer-events: none;
+		top: -55%;
+		left: 50%;
+		translate: -50%;
+		z-index: -10;
+
+		mask-image: radial-gradient(farthest-side, black, transparent);
+	}
+</style>
