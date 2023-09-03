@@ -18,19 +18,19 @@
 </script>
 
 <header
-	class="flex items-center z-50 justify-between fixed top-0 inset-x-0 rounded-full animate-in slide-in-from-top-1 [animation-delay:0ms] lg:[animation-delay:1250ms] fade-in-0 duration-1000 fill-mode-backwards pt-2 px-6"
+	class="fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 duration-1000 animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards [animation-delay:0ms] lg:[animation-delay:1250ms]"
 >
 	<a
 		href="/"
-		class="flex gap-4 font-london tracking-wider lg:px-4 py-1 text-sm rounded-full lg:bg-black/10 items-center lg:backdrop-blur font-bold text-white"
+		class="flex items-center gap-4 rounded-full py-1 font-london text-sm font-bold tracking-wider text-white lg:bg-black/50 lg:px-4 lg:py-2 lg:backdrop-blur"
 	>
 		<img src={logo} alt="Hyprland Logo" class="w-6" /><span
-			class="lg:block lg:mt-1 tracking-widest text-xl hidden">Hyprland</span
+			class="hidden text-xl tracking-widest lg:mt-1 lg:block">Hyprland</span
 		></a
 	>
 
 	<button
-		class="lg:hidden rounded-full p-2 bg-black/10 z-50 md:backdrop-blur"
+		class="z-50 rounded-full bg-black/10 p-2 md:backdrop-blur lg:hidden"
 		on:click={toggleExpanded}
 	>
 		{#if isExpanded}
@@ -42,7 +42,7 @@
 
 	<nav class="nav" class:!flex={isExpanded}>
 		<ul
-			class="flex lg:flex-row flex-col gap-5 rounded-full items-center lg:max-h-full lg:h-full hover:[&_li]:text-cyan-300"
+			class="flex flex-col items-center gap-5 rounded-full lg:h-full lg:max-h-full lg:flex-row hover:[&_li]:text-cyan-300"
 		>
 			<li>
 				<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get started</a>
@@ -55,21 +55,21 @@
 			</li>
 		</ul>
 		<ul
-			class="lg:border-purple-400 lg:border lg:mr-2 lg:ml-4 lg:rounded-full flex items-center flex-row gap-3 px-4"
+			class="flex flex-row items-center gap-3 px-4 lg:ml-4 lg:mr-2 lg:rounded-full lg:border lg:border-purple-400"
 		>
 			<li>
 				<a href="https://discord.com/invite/hQ9XvMUjjr" class="social-icon">
-					<DiscordIcon class="w-full h-full" />
+					<DiscordIcon class="h-full w-full" />
 				</a>
 			</li>
 			<li>
 				<a href="https://github.com/hyprwm/Hyprland" class="social-icon">
-					<GithubIcon class="w-full h-full" />
+					<GithubIcon class="h-full w-full" />
 				</a>
 			</li>
 		</ul>
 		<a
-			class="bg-primary rounded-full px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
+			class="rounded-full bg-primary px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
 			href="https://wiki.hyprland.org/Getting-Started/Installation/">Install</a
 		>
 	</nav>

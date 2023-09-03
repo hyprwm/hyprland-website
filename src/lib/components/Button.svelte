@@ -1,18 +1,19 @@
 <script>
 	import clsx from 'clsx'
 
-	/** @type { 'md'|'lg'}*/
+	/** @type { 'md'|'lg'|'xl'}*/
 	export let size = 'md'
 	/** @type { 'primary'|'outline'|'fancyOutline' }*/
 	export let type = 'primary'
 
 	$: classes = clsx(
-		'animate  rounded font-bold text-sm hover:scale-[1.03] active:scale-95',
+		'animate  rounded text-sm font-bold hover:scale-[1.03] active:scale-95',
 		'primary' == type && 'bg-slate-200 text-black',
-		'outline' == type && 'outline-2 outline outline-slate-200 text-white bg-transparent',
+		'outline' == type && 'bg-transparent text-white outline outline-2 outline-slate-200',
 		'fancyOutline' == type && 'fancy',
-		'md' == size && 'px-4 py-2 min-w-[5rem]',
-		'lg' == size && 'px-6 py-2.5 min-w-[5rem] text-lg',
+		'md' == size && 'min-w-[5rem] px-4 py-2',
+		'lg' == size && 'min-w-[5rem] px-6 py-2.5 ',
+		'xl' == size && 'min-w-[5rem] px-8 py-4 ',
 		$$restProps.class
 	)
 </script>
@@ -21,15 +22,15 @@
 	<div class="relative">
 		<button class={classes} on:click><slot>NO LABEL PROVIDED</slot></button>
 		<span
-			class="-z-10 absolute fancy-bg inset-0 w-[110%] h-full px-4 py-2 min-w-[5rem] bg-cyan-500/90 blur-xl scale-y-75"
+			class="fancy-bg absolute inset-0 -z-10 h-full w-[110%] min-w-[5rem] scale-y-75 bg-cyan-500/90 px-4 py-2 blur-xl"
 			style="--easing: x; --duration: 8s;"
 		/>
 		<span
-			class="-z-10 absolute fancy-bg inset-0 w-[110%] h-full px-4 py-2 min-w-[5rem] bg-secondary/90 blur-xl scale-y-75"
+			class="fancy-bg absolute inset-0 -z-10 h-full w-[110%] min-w-[5rem] scale-y-75 bg-secondary/90 px-4 py-2 blur-xl"
 			style="--easing: y; --duration: 8s;"
 		/>
 		<span
-			class="-z-10 absolute fancy-bg inset-0 w-[110%] h-full px-4 py-2 min-w-[5rem] bg-purple-500/90 blur-xl scale-y-75"
+			class="fancy-bg absolute inset-0 -z-10 h-full w-[110%] min-w-[5rem] scale-y-75 bg-purple-500/90 px-4 py-2 blur-xl"
 			style="--easing: z;--duration: 8s;"
 		/>
 	</div>

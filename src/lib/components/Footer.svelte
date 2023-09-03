@@ -15,13 +15,13 @@
 </script>
 
 <footer
-	class="bg-black/50 mt-16 md:mt-24 lg:mt-32 border-t border-blue-400/50 relative flex items-center justify-center max-w-screen"
+	class="max-w-screen relative mt-16 flex items-center justify-center border-t border-blue-400/50 bg-black/50 md:mt-24 lg:mt-32"
 >
 	<div
-		class="flex flex-wrap gap-12 justify-between px-8 py-14 max-w-5xl text-slate-300 items-start"
+		class="flex max-w-5xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300"
 	>
 		<div class="flex flex-col gap-4 rounded-lg">
-			<div class="text-slate-400 text-sm uppercase font-bold">Developers</div>
+			<div class="pretitle">Developers</div>
 			<ul class="flex flex-col gap-3 font-medium">
 				<li>
 					<a href="https://github.com/vaxerski">
@@ -45,8 +45,8 @@
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<div class="text-slate-400 font-bold text-sm uppercase">Links</div>
-			<ul class="flex flex-col font-medium gap-3">
+			<div class="pretitle">Links</div>
+			<ul class="flex flex-col gap-3 font-medium">
 				<li><a href="https://wiki.hyprland.org/">Wiki</a></li>
 				<li>
 					<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get started</a>
@@ -56,7 +56,7 @@
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<div class="text-slate-400 text-sm uppercase font-bold" font-bold>Socials</div>
+			<div class="pretitle" font-bold>Socials</div>
 			<ul class="flex gap-6">
 				<li class="">
 					<a
@@ -72,7 +72,7 @@
 			</ul>
 		</div>
 
-		<div class="flex gap-4 flex-wrap text-sm text-slate-400 font-medium w-full">
+		<div class="flex w-full flex-wrap gap-4 text-sm font-medium text-slate-400">
 			<div>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</div>
 			<div>© Hyprland Development {new Date().getFullYear()}.</div>
 			<div>Doki doki waku waku.</div>
@@ -83,6 +83,10 @@
 </footer>
 
 <style lang="postcss">
+	.pretitle {
+		@apply text-sm font-bold uppercase text-slate-400;
+	}
+
 	a:hover {
 		filter: brightness(1.5);
 	}

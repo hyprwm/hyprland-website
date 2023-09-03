@@ -7,15 +7,16 @@
 
 	// Idea: Boid behavior
 
-	const maxSize = 18
-	const size = Math.max(Math.random() * maxSize, 6)
+	const maxSize = 24
+	const minSize = 7
+	const size = Math.max(Math.random() * maxSize, minSize)
 	/** How much the fireflies can vanish into the edges of the screen. Include their invisible padding for mouse detection. */
 	const edgeClip = maxSize * 8
 	const noiseY = createNoise2D()
 	const noiseX = createNoise2D()
 	const SPEED = Math.random() * 5 + 2
 
-	let classes = clsx(Math.random() > 0.5 ? 'bg-primary/70' : 'bg-blue-500/70')
+	let classes = clsx(size > maxSize / 2 ? 'bg-primary/70' : 'bg-blue-500/70')
 
 	let x = 0
 	let y = 0
@@ -67,7 +68,7 @@
 </script>
 
 <div
-	class="absolute hidden max-sm:[contain:strict] md:block p-24 top-0 left-0 firefly pointer-events-auto opacity-50 hover:opacity-100 transition-opacity z-0"
+	class="firefly pointer-events-auto absolute left-0 top-0 z-0 hidden p-24 opacity-50 transition-opacity hover:opacity-100 max-sm:[contain:strict] md:block"
 	style:--x={x + 'px'}
 	style:--y={y + 'px'}
 	style="--size:{size}px; --fadeDelay: {Math.random() * 6 - 3}s"

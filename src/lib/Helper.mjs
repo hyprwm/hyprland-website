@@ -79,28 +79,6 @@ export function lerp(start, end, given) {
 }
 
 /**
- * @param {number} t A number between 0 and 1
- * @param {number | undefined} strength
- */
-export function easeInT(t, strength) {
-	return t ** (strength ?? 2)
-}
-
-/**
- * @param {number} t A number between 0 and 1
- * @param {number | undefined} strength
- */
-export function easeOutT(t, strength) {
-	return 1 - (1 - t ** (strength ?? 2))
-}
-
-// easeOutT(0.5) //?
-// easeOutT(0.99) //?
-// easeOutT(0.2) //?
-// easeOutT(0) //?
-// easeOutT(1) //?
-
-/**
  * Taken from https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser/11381730#11381730
  */
 export function getIsMobile() {
@@ -117,4 +95,9 @@ export function getIsMobile() {
 			check = true
 	})(navigator.userAgent || navigator.vendor || window.opera)
 	return check
+}
+
+/** Get the `generated_<filename>` if blurredThumbnail is not set manually **/
+export function getBlurredPath(path) {
+	return `${path.substring(0, path.lastIndexOf('/'))}/generated_${path.split('/').at(-1)}`
 }

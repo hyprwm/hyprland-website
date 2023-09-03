@@ -24,7 +24,7 @@
 					AUR git version: <a
 						class="hover:underline hover:text-white"
 						target="_blank"
-						href="https://aur.aachlinux.org/packages/hyprland-git/">hyprland-git</a
+						href="https://aur.archlinux.org/packages/hyprland-git/">hyprland-git</a
 					>
 				</div></InstallButton
 			>

@@ -15,7 +15,7 @@ body {
 }
 
 .hyprgradient {
-	background-image: linear-gradient(to bottom right, #00e6cf, #00c4e3, #00a1f8);
+	background-image: linear-gradient(to bottom right, #00e6cf, #00c4e3, #0081c6);
 }
 
 ::selection {

@@ -6,40 +6,38 @@
 </script>
 
 <section
-	class="w-full relative flex flex-col items-center"
+	class="relative flex w-full flex-col items-center"
 	use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}
 >
-	<div class="px-4 -mb-40 z-20">
+	<div class="z-20 -mb-40 px-4">
 		<Title>
 			<span slot="pre"> Memorials of the ricing legends </span>
 			<span slot="title">Wall of Fame</span>
 		</Title>
 	</div>
 
+	<div class="atmosphere" />
+
 	<div
-		class="w-full -mt-24 max-w-[1100px] flex relative flex-col gap-16 lg:gap-24 items-center justify-end overflow-hidden md:px-16 [perspective:100px]"
+		class="relative -mt-24 flex w-full max-w-[1100px] flex-col items-center justify-end gap-16 overflow-hidden [perspective:100px] md:px-16 lg:gap-24"
 		use:animateIn={{ slide: 24, fade: 0.5, duration: 800 }}
 	>
 		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/wall_of_fame">
 			<Button size="lg" type="fancyOutline">Go to Wall of Fame</Button>
 		</a>
 
-		<div
-			class="w-full [translate:0px_40px_-10px] md:[translate:0px_0px_-40px] absolute top-0 inset-0 -z-30 atmosphere"
-		/>
-
 		<FameRicePreview
-			image="/imgs/ricingcomp1/lauroro.jpg"
+			image="/imgs/ricing_competitions/1/lauroro.webp"
 			containerClass="[translate:0px_50px_-100px] -mb-[30%] hover:[translate:0px_0px_-98px] transition-all duration-500"
 			imageClass="[mask-image:linear-gradient(black,black_45%,transparent_65%)] opacity-50 hover:opacity-60"
 		/>
 		<FameRicePreview
-			image="/imgs/ricingcomp1/amadeus.png"
+			image="/imgs/ricing_competitions/1/amadeus.webp"
 			containerClass="[translate:0px_50px_-40px] hover:[translate:0px_0px_-38px]  -mb-[30%] duration-500 transition-all group"
 			imageClass="md:[mask-image:linear-gradient(black,black_50%,transparent_75%)] [mask-image:linear-gradient(black,black_10%,transparent_75%)] opacity-80 group-hover:opacity-100 transition-all duration-500"
 		/>
 		<FameRicePreview
-			image="/imgs/ricingcomp1/flicko.png"
+			image="/imgs/ricing_competitions/1/flicko.webp"
 			imageClass="!rounded-none !rounded-t-xl [mask-image:linear-gradient(black,black_50%,transparent)] rounded-t-xl   h-[200px] sm:h-[250px] lg:h-[500px]"
 		/>
 	</div>
@@ -48,8 +46,17 @@
 </section>
 
 <style lang="postcss">
+	/* The blue gradient in the background */
 	.atmosphere {
-		background: radial-gradient(closest-side, theme(colors.blue.500), transparent);
+		position: absolute;
+		z-index: -30;
+		bottom: 0;
+		left: 50%;
+		translate: -50% 0px;
+		height: 100vh;
+		width: 200vw;
+		background: radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
+			radial-gradient(15% 20%, theme(colors.cyan.500 / 70%), transparent);
 	}
 
 	.glow {

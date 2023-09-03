@@ -1,4 +1,7 @@
 <script>
+	import { getBlurredPath } from '$lib/Helper.mjs'
+	import { inview } from 'svelte-inview'
+
 	/** @type {string} */
 	export let name
 	/** @type {string} */
@@ -17,37 +20,30 @@
 	/** @type {string} */
 	export let pretitel
 
-	let background =
-		blurredThumbnail ??
-		// Get the `generated_<filename>` if blurredThumbnail is not set manually
-		`${thumbnail.substring(0, thumbnail.lastIndexOf('/'))}/generated_${thumbnail.split('/').at(-1)}`
+	let background = blurredThumbnail ?? getBlurredPath(thumbnail)
 </script>
 
-<div class="flex flex-col gap-14">
-	<div class="flex justify-center items-center flex-col">
-		<div class="text-lg font-bold mb-2">{pretitel}</div>
-		<h3 class="text-6xl hover:text-slate-200 mb-6 font-bold">
+<div class="flex flex-col gap-12 px-4">
+	<div class="flex flex-col items-center justify-center">
+		<div class="mb-2 text-lg font-bold">{pretitel}</div>
+		<h3 class="mb-6 text-6xl font-bold hover:text-slate-200">
 			<a href={dotfilesLink} target="_blank">{name}</a>
 		</h3>
-		<a class="flex gap-3 group" href={dotfilesLink} target="_blank">
+		<a class="group flex gap-3" href={dotfilesLink} target="_blank">
 			<img
 				src={creatorProfilePicture}
-				class="rounded-full h-6 aspect-square"
+				class="aspect-square h-6 rounded-full"
 				alt={creator + ' profile picture'}
 			/>
-			<div class="font-medium text-lg transition-colors group-hover:text-white text-slate-300">
+			<div class="text-lg font-medium text-slate-300 transition-colors group-hover:text-white">
 				{creator}
 			</div>
 		</a>
 	</div>
 
-	<div class="px-6 sm:px-8 w-full max-w-[1100px] relative">
-		<a class="" href={dotfilesLink} target="_blank">
-			<img
-				src={thumbnail}
-				alt={`${name} by ${creator} thumbnail`}
-				class="rounded-lg hover:scale-[1.01] duration-300 transition-transform w-full"
-			/>
+	<div class="relative w-full max-w-[1100px] px-6 sm:px-8">
+		<a class="rice" href={dotfilesLink} target="_blank">
+			<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" />
 		</a>
 		<!-- wide background -->
 		<!-- <img
@@ -67,29 +63,47 @@
 </div>
 
 <style lang="postcss">
-	.background {
-		position: absolute;
-		opacity: 0.4;
-		min-width: calc(200% + 400px);
-		height: calc(100% + 200px);
-		pointer-events: none;
-		inset: 0px 0 0 -200px;
-		translate: 0px -50%;
-		z-index: -10;
-		background: red;
+	.rice {
+		position: relative;
+		display: block;
+		@apply w-full rounded-lg transition-transform;
+		box-shadow: 0px 0px 8px theme(colors.black / 40%);
 
-		mask-image: radial-gradient(closest-side, black, transparent);
+		& img {
+			@apply rounded-lg shadow-lg duration-300;
+			&:hover {
+				scale: 1.005;
+			}
+		}
+
+		&:after {
+			--size: 5rem;
+			color: red;
+			z-index: -1000;
+			content: ' ';
+			@apply rounded-lg shadow-2xl;
+			width: calc(100% + var(--size) * 0.5);
+			height: calc(100% + var(--size) * 0.5);
+			pointer-events: none;
+			position: absolute;
+			left: calc(var(--size) * -0.25);
+			top: calc(var(--size) * -0.25);
+			/* background: red; */
+			background: rgba(255, 255, 255, 0.05);
+			border: rgba(255, 255, 255, 0.1) solid 1px;
+		}
 	}
 	.background-blurred {
 		position: absolute;
 		opacity: 0.3;
-		min-width: calc(120% + 400px);
+		min-width: calc(120% + 200px);
 		height: calc(120% + 200px);
 		pointer-events: none;
-		top: -55%;
+		top: -45%;
 		left: 50%;
 		translate: -50%;
 		z-index: -10;
+		filter: contrast(2.5);
 
 		mask-image: radial-gradient(farthest-side, black, transparent);
 	}

@@ -2,10 +2,11 @@
 	import Title from '$lib/components/Title.svelte'
 	import Contest from './Contest.svelte'
 	import FamedRice from './FamedRice.svelte'
+	import colors from 'tailwindcss/colors'
 </script>
 
-<section class="min-h-screen flex flex-col gap-14 items-center justify-center p-8 overflow-hidden">
-	<div class="h-[50vh] min-h-min flex flex-col items-center justify-center">
+<section class="flex min-h-screen flex-col items-center justify-center gap-14 overflow-hidden">
+	<div class="flex h-[50vh] min-h-min flex-col items-center justify-center">
 		<Title>
 			<h1 slot="title">Wall of fame</h1>
 			<div slot="subtitle">
@@ -14,7 +15,7 @@
 		</Title>
 	</div>
 
-	<Contest name="Summer" number={2}>
+	<Contest name="Summer" number={2} date="May 2023" --color="orange">
 		<FamedRice
 			name="Novel Nock"
 			creator="end_4"
@@ -41,7 +42,7 @@
 		/>
 	</Contest>
 
-	<Contest name="Winter" number={1}>
+	<Contest name="Winter" number={1} date="December 2022" --color={colors.cyan[500]}>
 		<FamedRice
 			name="Unnamed"
 			creator="Flafy"

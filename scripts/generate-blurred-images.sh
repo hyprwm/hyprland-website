@@ -14,9 +14,14 @@ while IFS= read -r -d '' filepath; do
     max_brightness="65535" # The possible maximum brightness possible from the previous command
     brightness_threshold=$( python -c "print( $max_brightness * 0.5 )"  )
     
-    # Adjust the brightness, make it brighter if dark, otherwise lighten it
-    brightness_boost=$( python -c "print( (1 - ($brightness / $brightness_threshold)) * 50 )" )
+    # Boost the brightness if the image is very dark
+    brightness_boost=$( python -c "print( max( (1 - ($brightness / $brightness_threshold)) * 50 , 0) )" )
     
-    magick convert  -scale 10%   -brightness-contrast ${brightness_boost}x20 -modulate 100,500,100 -gaussian-blur 0x20 -resize 1000%   "$filepath" "$generated_filename" 
-    # magick  "$generated_filename" "./hald-clut.png" -hald-clut "$generated_filename" 
+    # Modify colors with LUT
+    magick convert -brightness-contrast ${brightness_boost}x40 -modulate 100,1000,100    "$filepath" "$generated_filename" 
+    magick  "$generated_filename" "./hald-clut.color.io.png" -hald-clut "$generated_filename" 
+    magick convert -modulate 100,250,100   -scale 10% -gaussian-blur 0x20  -resize 1000% -quality 50   "$generated_filename" "$generated_filename" 
+    
+
+    # magick convert  -scale 10%   -brightness-contrast ${brightness_boost}x25 -modulate 100,500,100  -gaussian-blur 0x20  -resize 1000%   "$filepath" "$generated_filename" 
 done

@@ -17,9 +17,10 @@
 	let isMuted = true
 	let isPaused = false
 
-	function toggleMute() {
-		isMuted = !isMuted
-	}
+	// Video has no sound anymore
+	// function toggleMute() {
+	// 	isMuted = !isMuted
+	// }
 	function togglePlay() {
 		videoElement.paused ? videoElement.play() : videoElement.pause()
 		isPaused = videoElement.paused
@@ -39,15 +40,13 @@
 </script>
 
 <section
-	class="max-w-[1400px] px-1 relative -mb-4 lg:px-8 w-full animate-in [animation-delay:1700ms] fade-in-0 fill-mode-backwards [animation-duration:2000ms] slide-in-from-bottom-10 {$$restProps.class}"
+	class="relative -mb-4 -mt-8 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] lg:px-8 {$$restProps.class}"
+	class:isVisible
 >
 	<div
-		class={clsx(
-			'rounded-xl group  relative  border-sky-400 border-2  transition-all [transition-duration:1460ms] mx-3 shadow-2xl shadow-cyan-400/40',
-			!isVisible && 'opacity-20 scale-90'
-		)}
+		class="rice-video"
 		role="banner"
-		use:inview={{ threshold: 0.8 }}
+		use:inview={{ threshold: 0.5 }}
 		on:inview_enter={() => {
 			isVisible = true
 			videoElement.play()
@@ -75,12 +74,12 @@
 		/>
 		<div
 			class={clsx(
-				'opacity-0 transition-opacity z-20  ',
+				'z-20 opacity-0 transition-opacity  ',
 				isShowingControls ? 'opacity-100' : 'pointer-events-none'
 			)}
 		>
-			<button
-				class="absolute p-2 h-10 bg-black/5 rounded-full w-10 bottom-4 right-4 opacity-70 hover:opacity-100"
+			<!-- <button
+				class="absolute bottom-4 right-4 h-10 w-10 rounded-full bg-black/5 p-2 opacity-70 hover:opacity-100"
 				on:click|stopPropagation={toggleMute}
 			>
 				{#if isMuted}
@@ -88,10 +87,10 @@
 				{:else}
 					<AudioIcon class="h-full w-full" />
 				{/if}
-			</button>
+			</button> -->
 			{#if isPaused}
 				<div
-					class="absolute h-14 rounded-full -translate-x-1/2 -translate-y-1/2 w-14 top-1/2 left-1/2 opacity-80 hover:opacity-100 pointer-events-none"
+					class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100"
 				>
 					<PauseIcon class="h-full w-full" />
 				</div>
@@ -99,18 +98,57 @@
 		</div>
 
 		<a
-			class="px-3 pt-2 block absolute -bottom-7 left-0 max-w-max text-sm text-slate-100/70 hover:underline"
+			class="absolute -bottom-7 left-0 block max-w-max px-3 pt-2 text-sm font-medium text-slate-100/70 hover:underline"
 			href="https://github.com/end-4/">Setup by @end_4</a
 		>
 	</div>
 
-	<div class="preview-rice-bg overflow-x-hidden" aria="hidden" />
+	<div class="preview-rice-bg" aria="hidden" />
 </section>
 
 <style lang="postcss">
+	.rice-video {
+		@apply mx-3  rounded-xl      transition-all;
+		transition-duration: 1460ms;
+		position: relative;
+		box-shadow: 0px 0px 44px theme(colors.primary / 80%);
+		border: solid 2px theme(colors.sky.400);
+		scale: 0.9;
+		background: theme(colors.cyan.300 / 70%);
+
+		& video {
+			@apply transition-opacity;
+			transition-duration: 1460ms;
+			opacity: 0.3;
+		}
+
+		.isVisible & {
+			scale: 1;
+			background: transparent;
+			box-shadow: 0px 0px 24px theme(colors.primary / 50%);
+
+			& video {
+				opacity: 1;
+			}
+		}
+	}
+
 	.preview-rice-bg {
-		@apply absolute inset-0  -top-40 -z-10  w-full opacity-50;
-		/* background-color: red; */
-		background-image: radial-gradient(closest-side, theme(colors.sky.500), transparent);
+		position: absolute;
+		z-index: -10;
+		opacity: 0.4;
+		min-width: 2800px;
+		overflow-x: hidden;
+		top: -160px;
+		left: 50%;
+		translate: -50% 0px;
+		width: 1100px;
+		height: 200%;
+
+		background-image: radial-gradient(
+			closest-side,
+			theme(colors.sky.500),
+			theme(colors.indigo.500 / 0%)
+		);
 	}
 </style>

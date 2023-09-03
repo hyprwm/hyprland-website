@@ -1,7 +1,8 @@
 <script>
-	import { easeOutT, lerp } from '$lib/Helper.mjs'
+	import { lerp } from '$lib/Helper.mjs'
 	import { createNoise2D } from 'simplex-noise'
 	import { onMount } from 'svelte'
+	import { expoIn } from 'svelte/easing'
 
 	/** Lifespan in milliseconds */
 	export let lifeSpan = 1500
@@ -36,8 +37,8 @@
 		async function animate() {
 			const deltaTime = (timestamp - Date.now()) / 17 // One frame should last roughly 17ms for 60fps
 
-			x += noiseX(i, 1) * speed * deltaTime * easeOutT(lifePercentage)
-			y += noiseY(i, 1) * speed * deltaTime * easeOutT(lifePercentage)
+			x += noiseX(i, 1) * speed * deltaTime * expoIn(lifePercentage)
+			y += noiseY(i, 1) * speed * deltaTime * expoIn(lifePercentage)
 
 			i += wobbliness * deltaTime
 
@@ -54,7 +55,7 @@
 </script>
 
 <div
-	class="absolute w-6 h-6 rounded-md"
+	class="absolute h-6 w-6 rounded-md"
 	style:translate={`${x}px ${y}px`}
 	style:background={color}
 	style:opacity={(lifeRemaining / lifeSpan - (1 - maxOpacity)) ** 5}

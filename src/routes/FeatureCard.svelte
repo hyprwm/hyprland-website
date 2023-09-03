@@ -13,15 +13,19 @@
 	let container
 	let isMobile = false
 
-	const fillX = spring(999, { damping: 0.9, stiffness: 0.021, precision: 0.3 })
-	const fillY = spring(999, { damping: 0.9, stiffness: 0.021, precision: 0.3 })
-	const borderX = spring(999, { damping: 0.9, stiffness: 0.03, precision: 0.3 })
-	const borderY = spring(999, { damping: 0.9, stiffness: 0.03, precision: 0.3 })
+	const damping = 0.2
+
+	const fillX = spring(999, { damping, stiffness: 0.021, precision: 0.3 })
+	const fillY = spring(999, { damping, stiffness: 0.021, precision: 0.3 })
+	const borderX = spring(999, { damping, stiffness: 0.03, precision: 0.3 })
+	const borderY = spring(999, { damping, stiffness: 0.03, precision: 0.3 })
 
 	const bounceBack = 2
 	const soft = 0.8
 
 	let isMouseOver = false
+	/** Has the mouse entered and not left*/
+	let hasMouseEntered = false
 
 	$: {
 		if (container && $mouseX !== undefined) {
@@ -45,10 +49,16 @@
 		$borderY = normY
 
 		if (!isMouseOver) {
-			/* Put it in the corners again. As it is scaled by half, 
-			coordinates should be multiplied by two. But it looks better when they peek in more */
-			fillX.set(width * 1.5, { soft: 4 })
-			fillY.set(height * 1.5, { soft: 4 })
+			hasMouseEntered = false
+
+			return
+		}
+
+		// Instantly update the blob positon without easing when the mouse has just entered
+		if (hasMouseEntered === false) {
+			fillX.set(normX, { hard: true })
+			fillY.set(normY, { hard: true })
+			hasMouseEntered = true
 			return
 		}
 
@@ -63,7 +73,7 @@
 </script>
 
 <div
-	class={clsx('card min-h-[20rem] group', $$restProps.class)}
+	class={clsx('card group min-h-[20rem]', $$restProps.class)}
 	style:--x={$fillX}
 	style:--y={$fillY}
 	style:--borderX={$borderX}
@@ -78,8 +88,8 @@
 	class:purpleGradient={color === 'purple'}
 	role="contentinfo"
 >
-	<div class="p-8 sm:p-12 z-10 w-full h-full flex flex-col justify-end">
-		<h1 class="text-5xl font-bold mb-6 text-white">{title}</h1>
+	<div class="z-10 flex h-full w-full flex-col justify-end p-8 sm:p-12">
+		<h1 class="mb-6 text-5xl font-bold text-white">{title}</h1>
 
 		<slot>Nothing in the slot here</slot>
 	</div>
@@ -96,7 +106,7 @@
 	}
 
 	.gradient_black {
-		@apply absolute inset-[1px];
+		@apply absolute inset-[2px];
 		z-index: 2;
 		border-radius: inherit;
 		contain: strict;
@@ -109,6 +119,7 @@
 			);
 	}
 
+	/* This gradient is visible on the borders when hovering */
 	.border-gradient {
 		position: absolute;
 		z-index: 1;
@@ -117,17 +128,17 @@
 		height: 100%;
 		opacity: 0%;
 		transform-origin: top left;
-		transition: opacity 140ms ease-in-out;
+		transition: opacity 120ms ease-in-out;
 		left: 0%;
 		top: 0%;
 		content: '';
 		pointer-events: none;
-		filter: brightness(1.2) saturate(2);
+		filter: brightness(1.5) saturate(4);
 		contain: strict;
 		background: radial-gradient(
-			320px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
+			620px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
 			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 70%),
-			color-mix(in srgb, var(--color2, theme(colors.blue.500)), transparent 90%)
+			transparent
 		);
 
 		.isHoverCards & {
@@ -141,12 +152,12 @@
 		border-radius: inherit;
 		height: calc(100% - 2px);
 		border-radius: inherit;
-		margin: 1px;
+		margin: 0px;
 		z-index: 20;
 		mix-blend-mode: hard-light;
 		contain: strict;
 
-		/* Gradient */
+		/* Gradient blob */
 		&::before {
 			position: absolute;
 			z-index: 20;
