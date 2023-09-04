@@ -5,6 +5,11 @@
 	import Hero from './Hero.svelte'
 	import InstallSlice from './InstallSlice.svelte'
 	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
+	import { onMount } from 'svelte'
+
+	onMount(() => {
+		console.log('Billions must tile')
+	})
 </script>
 
 <svelte:head>
@@ -14,7 +19,7 @@
 
 <Hero />
 
-<div class="-mt-8 gap-20 md:gap-[16rem] flex flex-col items-center">
+<div class="-mt-8 flex flex-col items-center gap-20 md:gap-[16rem]">
 	<PreviewRiceSlice class="mb-12" />
 
 	<FeaturesSlice />

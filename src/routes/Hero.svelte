@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte'
 	// import Firefly from './Firefly.svelte'
 	import { inview } from 'svelte-inview'
+	import HeroBackground from './HeroBackground.svelte'
 
 	let isVisible = true
 	let isMobile = false
@@ -49,6 +50,10 @@
 				<Button type="fancyOutline" size="lg">Wiki</Button>
 			</a>
 		</div>
+	</div>
+
+	<div class="absolute inset-0">
+		<HeroBackground />
 	</div>
 
 	<!-- Fireflies -->
