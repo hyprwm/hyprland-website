@@ -40,7 +40,7 @@
 </script>
 
 <section
-	class="relative -mb-4 -mt-8 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] lg:px-8 {$$restProps.class}"
+	class="relative -mb-4 -mt-8 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] lg:px-8 z-10{$$restProps.class}"
 	class:isVisible
 >
 	<div
@@ -78,6 +78,7 @@
 				isShowingControls ? 'opacity-100' : 'pointer-events-none'
 			)}
 		>
+			<!-- Currently there is no audio. Component might get refractored into a stand-alone player, so lets leave that here -->
 			<!-- <button
 				class="absolute bottom-4 right-4 h-10 w-10 rounded-full bg-black/5 p-2 opacity-70 hover:opacity-100"
 				on:click|stopPropagation={toggleMute}

@@ -75,22 +75,22 @@
 </script>
 
 <div
-	class={clsx('absolute top-0 left-0 select-none touch-none ', containerClass)}
+	class={clsx('absolute left-0 top-0 touch-none select-none ', containerClass)}
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
 	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
 >
 	<div
 		class={clsx(
-			'absolute inset-0 w-full h-full group  select-none touch-none',
+			'group absolute inset-0 h-full w-full  touch-none select-none',
 			isAnimating && 'opacity-0'
 		)}
 		style:translate={`calc( ${$dragCoordinates[0]}px  ) ${$dragCoordinates[1]}px`}
 		use:inview={{ unobserveOnEnter: true, threshold: 0.4 }}
 		class:_animate={isAnimating && hasEnteredView}
-		on:inview_enter={() => setTimeout(() => (hasEnteredView = true), 750)}
+		on:inview_enter={() => setTimeout(() => (hasEnteredView = true), 550)}
 	>
 		<img
-			class="w-full h-full group select-none touch-none outline-4 outline rounded-[50%] {$$restProps.class}"
+			class="group h-full w-full touch-none select-none rounded-[50%] outline outline-4 {$$restProps.class}"
 			bind:this={imageElement}
 			src={image}
 			alt={'community profile picture'}
@@ -101,7 +101,7 @@
 
 		{#if quote}
 			<div
-				class="absolute tracking-wide opacity-0 -top-6 px-2 py-1 rounded left-1/2 -translate-x-1/2 bg-slate-800/50 pointer-events-none font-medium text-sm group-hover:opacity-100 select-none duration-150"
+				class="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none rounded bg-slate-800/50 px-2 py-1 text-sm font-medium tracking-wide opacity-0 duration-150 group-hover:opacity-100"
 			>
 				{quote}
 			</div>

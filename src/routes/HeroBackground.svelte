@@ -1,15 +1,16 @@
 <script>
 	import baseColors from 'tailwindcss/colors'
 
-	const amountTiles = 4 // Has to be an even number as the tiles get "mirrored"
-	const workspaceHeight = 150
-	const gapLength = 24
+	const workspacesPerRow = 4
+	const workspaceHeight = 240
+	const gapLength = 32
 	const colors = [baseColors.blue[500], baseColors.cyan[400], baseColors.sky[500]]
-	const leftColumns = Array.from({ length: 3 }, () => generateRow(amountTiles))
-	const rightColumns = Array.from({ length: 3 }, () => generateRow(amountTiles))
-	const leftTotalLength = leftColumns
-		.slice(0, leftColumns.length / 2)
-		.reduce((total, current, index, array) => total + workspaceHeight + gapLength, 0)
+	const leftColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
+	const rightColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
+	/** Used to transform the rows by their own lenght*/
+	const height = workspacesPerRow * (workspaceHeight + gapLength)
+
+	let wrapperElement, mouseX, mouseY
 
 	function generateRow(amount) {
 		const base = Array.from({ length: amount }).map(generateWorkspace)
@@ -36,12 +37,15 @@
 	}
 </script>
 
-<div class="wrapper" aria-hidden="true">
+<div class="wrapper" aria-hidden="true" bind:this={wrapperElement}>
 	<div
 		class="inner-wrapper"
-		style={`--amount: ${amountTiles}; --workspace-gap: ${gapLength}px;--workspace-height: ${workspaceHeight}px;`}
+		style={`--amount: ${workspacesPerRow}; --workspace-gap: ${gapLength}px;--workspace-height: ${workspaceHeight}px; --length: ${height}px;`}
 	>
-		<div class="columns left" style={`--length: ${leftTotalLength}; `}>
+		<!-- Gradient background -->
+		<div class="top-light" />
+
+		<div class="columns left" aria-hidden="true">
 			{#each leftColumns as column}
 				<div class="column">
 					{#each column as workspace}
@@ -59,7 +63,7 @@
 			{/each}
 		</div>
 
-		<div class="columns right" style={`--length: ${leftTotalLength}; `}>
+		<div class="columns right" aria-hidden="true">
 			{#each rightColumns as column}
 				<div class="column">
 					{#each column as workspace}
@@ -81,13 +85,10 @@
 
 <style lang="postcss">
 	.left {
-		transform: rotateY(10deg);
-		mask-image: linear-gradient(to right, black, transparent);
-		/* margin-left: -2200px; */
+		transform: rotateY(10deg) rotateZ(90deg);
 	}
 	.right {
-		transform: rotateY(-10deg);
-		/* margin-left: -2200px; */
+		transform: rotateY(-10deg) rotateZ(-90deg);
 	}
 
 	.wrapper {
@@ -95,47 +96,66 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 100%;
-		/* margin-top: -200px; */
+		height: calc(100vh - 48px);
+		contain: strict;
+
+		@apply max-sm:hidden;
 	}
 
 	.inner-wrapper {
 		position: absolute;
 		perspective: 100px;
 		height: 100%;
-		width: max(100vw, 1100px);
-		/* translate: -50% 0px; */
-		/* overflow: visible; */
+		width: max(100vw, 2200px);
 		contain: strict;
 		display: flex;
-		border: red solid 1px;
-		mask-image: radial-gradient(circle, transparent 10%, black 50%);
+		mask-image: linear-gradient(to top, transparent 0%, black 20%);
+
+		&::after {
+			content: ' ';
+			background: radial-gradient(80% 250%, theme(colors.black) 10%, transparent 50%);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			translate: -50% -50%;
+			width: 100%;
+			height: 100%;
+			z-index: -10;
+			pointer-events: none;
+		}
 	}
 
 	.columns {
 		display: flex;
 		gap: 2rem;
 		flex-grow: 1;
-		mask-image: linear-gradient(to top, transparent 10%, black);
-		/* border: cyan solid 1px; */
+		mask-image: linear-gradient(to top, transparent 0%, black 30%);
+		z-index: -10;
+		height: var(--length);
+		min-height: var(--length);
+		max-height: var(--length);
 	}
 
 	.column {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		height: 200%;
 		width: 100%;
-		animation: loop 20s infinite linear;
 		gap: var(--workspace-gap);
-		/* width: 400px; */
+		z-index: -50;
+		animation: loop 98s infinite linear;
+
+		@media (prefers-reduced-motion) {
+			animation: none;
+		}
 	}
 
 	.workspace {
 		display: flex;
 		gap: 8px;
-		height: var(--workspace-height);
+		min-height: var(--workspace-height);
+		max-height: var(--workspace-height);
 		width: 100%;
-		/* border: red solid 1px; */
 	}
 
 	.tiles {
@@ -143,35 +163,44 @@
 		flex-direction: column;
 		gap: 8px;
 		flex-grow: 1;
-		/* border: blue 1px solid; */
 	}
 
 	.tile {
-		border: var(--color) 1px solid;
+		border: var(--color) 2px solid;
 		flex-grow: 1;
 		height: var(--height);
 		border-radius: 12px;
 		pointer-events: auto;
-		transition: all 140ms ease-in-out;
+		transition: all 280ms ease-in-out;
 
 		&:hover {
-			animation: flicker infinite 800ms;
+			background: color-mix(in hsl, var(--color), transparent 20%);
+			box-shadow:
+				0px 0px 10px var(--color),
+				0px 0px 40px var(--color);
 		}
+	}
+
+	.top-light {
+		background: radial-gradient(
+			100% 80% at top,
+			theme(colors.cyan.500 / 60%) 0%,
+			theme(colors.sky.500 / 20%),
+			transparent
+		);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		pointer-events: none;
 	}
 
 	@keyframes loop {
 		100% {
-			translate: 0px calc(-1px * var(--length));
-		}
-	}
-
-	@keyframes flicker {
-		0% {
-			background: mix-color(var(--color), transparent 0%);
-		}
-		100% {
-			background: var(--color);
-			box-shadow: 0px 0px 10px var(--color);
+			translate: 0px calc(-1 * var(--length));
+			/* translate: 0px -50%; */
 		}
 	}
 </style>
