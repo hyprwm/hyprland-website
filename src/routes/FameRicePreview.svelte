@@ -16,7 +16,7 @@
 		<img
 			src={image}
 			alt="Rice desktop"
-			class="nice-hover w-full rounded-xl object-cover object-top shadow-2xl hover:scale-[1.01] max-sm:[xmask-image:none] {imageClass}"
+			class="nice-hover w-full rounded-xl object-cover object-top shadow-2xl hover:scale-[1.01] {imageClass}"
 		/>
 		<div class="rice-blurred">
 			<img
@@ -49,11 +49,13 @@
 		z-index: -10;
 		background-color: red;
 		mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent);
+		contain: content layout size style;
 
 		@apply -z-10 transition-[filter] duration-500;
 
-		.rice:hover & {
+		/* Too laggy on firefox */
+		/* .rice:hover & {
 			filter: brightness(4);
-		}
+		} */
 	}
 </style>

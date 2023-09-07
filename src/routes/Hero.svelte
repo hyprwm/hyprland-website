@@ -27,7 +27,7 @@
 		class="pointer-events-none z-10 flex h-screen min-h-max flex-col items-center justify-center"
 	>
 		<div class="-mt-20 mb-8 flex flex-col items-center gap-6 text-center">
-			<img src={Logo} alt="Hyprland Logo" class="ani-in mb-6 h-48 fill-mode-backwards" />
+			<img src={Logo} alt="Hyprland Logo" class="ani-in mb-6 h-40 fill-mode-backwards sm:h-48" />
 			<div class="ani-in relative fill-mode-backwards [animation-delay:384ms]">
 				<h1
 					class="hyprgradient pointer-events-auto bg-clip-text p-2 font-london text-6xl font-bold tracking-wider text-transparent md:text-7xl md:tracking-widest"
@@ -39,7 +39,7 @@
 		<h2
 			class="ani-in pointer-events-auto mb-10 text-center text-2xl font-medium leading-9 text-blue-200/80 fill-mode-backwards [animation-delay:944ms]"
 		>
-			Dynamic tiling Wayland compositor<br />with the looks
+			Dynamic tiling Wayland compositor with the looks
 		</h2>
 
 		<div
@@ -73,7 +73,6 @@
 </section>
 
 <style lang="postcss">
-
 	@keyframes slidein {
 		from {
 			transform: translateX(0%);

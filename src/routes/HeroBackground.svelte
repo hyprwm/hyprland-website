@@ -10,8 +10,6 @@
 	/** Used to transform the rows by their own lenght*/
 	const height = workspacesPerRow * (workspaceHeight + gapLength)
 
-	let wrapperElement, mouseX, mouseY
-
 	function generateRow(amount) {
 		const base = Array.from({ length: amount }).map(generateWorkspace)
 		// For the effect to work, the items need to be duplicated
@@ -37,7 +35,7 @@
 	}
 </script>
 
-<div class="wrapper" aria-hidden="true" bind:this={wrapperElement}>
+<div class="wrapper" aria-hidden="true">
 	<div
 		class="inner-wrapper"
 		style={`--amount: ${workspacesPerRow}; --workspace-gap: ${gapLength}px;--workspace-height: ${workspaceHeight}px; --length: ${height}px;`}
@@ -110,6 +108,7 @@
 		contain: strict;
 		display: flex;
 		mask-image: linear-gradient(to top, transparent 0%, black 20%);
+		contain: layout style content;
 
 		&::after {
 			content: ' ';
@@ -122,6 +121,7 @@
 			height: 100%;
 			z-index: -10;
 			pointer-events: none;
+			contain: strict;
 		}
 	}
 
@@ -134,6 +134,8 @@
 		height: var(--length);
 		min-height: var(--length);
 		max-height: var(--length);
+		animation: backwards animate-in ease-in 2000ms 300ms;
+		contain: layout style content;
 	}
 
 	.column {
@@ -143,7 +145,8 @@
 		width: 100%;
 		gap: var(--workspace-gap);
 		z-index: -50;
-		animation: loop 98s infinite linear;
+		/* animation: loop 98s infinite linear; */
+		contain: layout style content;
 
 		@media (prefers-reduced-motion) {
 			animation: none;
@@ -156,6 +159,7 @@
 		min-height: var(--workspace-height);
 		max-height: var(--workspace-height);
 		width: 100%;
+		contain: layout style content;
 	}
 
 	.tiles {
@@ -163,6 +167,7 @@
 		flex-direction: column;
 		gap: 8px;
 		flex-grow: 1;
+		contain: layout style content;
 	}
 
 	.tile {
@@ -171,9 +176,14 @@
 		height: var(--height);
 		border-radius: 12px;
 		pointer-events: auto;
-		transition: all 280ms ease-in-out;
+		transition: 380ms ease-in-out;
+		transition-property: background opacity scale box-shadow;
+		opacity: 0.5;
+		contain: strict;
 
 		&:hover {
+			opacity: 1;
+			scale: 1.02;
 			background: color-mix(in hsl, var(--color), transparent 20%);
 			box-shadow:
 				0px 0px 10px var(--color),
@@ -184,7 +194,7 @@
 	.top-light {
 		background: radial-gradient(
 			100% 80% at top,
-			theme(colors.cyan.500 / 60%) 0%,
+			theme(colors.cyan.500 / 50%) 0%,
 			theme(colors.sky.500 / 20%),
 			transparent
 		);
@@ -195,12 +205,22 @@
 		top: 0;
 		left: 0;
 		pointer-events: none;
+		contain: strict;
 	}
 
 	@keyframes loop {
 		100% {
 			translate: 0px calc(-1 * var(--length));
 			/* translate: 0px -50%; */
+		}
+	}
+
+	@keyframes animate-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
 		}
 	}
 </style>

@@ -46,14 +46,14 @@
 	}
 </script>
 
-<section class="px-3 md:px-8 flex flex-col items-center">
+<section class="flex flex-col items-center px-3 md:px-8">
 	<Title>
 		<span slot="pre">TLDR</span>
 		<span slot="title">Features</span>
 	</Title>
 
 	<div
-		class="grid lg:grid-cols-2 lg:grid-rows-2 w-full gap-6 text-lg text-white/70 font-medium flex-wrap group"
+		class="group grid w-full flex-wrap gap-6 text-lg font-medium text-white/70 lg:grid-cols-2 lg:grid-rows-2"
 		role="contentinfo"
 		on:mouseenter={!isMobile && onMouseEnter}
 		on:mouseleave={!isMobile && onMouseLeave}
@@ -70,7 +70,7 @@
 				Live reloading config. Easy plain-text format. Sensible defaults. Great documentation.
 			</p>
 
-			<div class="absolute _wrapper inset-0 select-none" aria-hidden>
+			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
 				<div class="feature-image">
 					<img src={configDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
 					<img src={configHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
@@ -81,7 +81,7 @@
 			<p class="max-w-[60ch]">
 				Automatic tiling which just works. Supports multiple fine-tuneable layouts.
 			</p>
-			<div class="absolute _wrapper inset-0 select-none" aria-hidden>
+			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
 				<div class="feature-image">
 					<img src={tileDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
 					<img src={tileHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
@@ -90,7 +90,7 @@
 		</FeatureCard>
 	</div>
 
-	<div class="mt-14 z-10 flex-wrap justify-center flex sm:flex-row flex-col gap-8">
+	<div class="z-10 mt-14 flex flex-col flex-wrap justify-center gap-8 sm:flex-row">
 		<a
 			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
 			target="_blank"
@@ -133,13 +133,21 @@
 		}
 
 		& img {
-			width: 800px;
-			height: 800px;
 			position: absolute;
-			right: -200px;
-			top: -209px;
 			transition: opacity 1500ms ease-in-out;
 			pointer-events: none;
+
+			width: 500px;
+			height: 500px;
+			right: -80px;
+			top: -140px;
+
+			@media screen(sm) {
+				width: 800px;
+				height: 800px;
+				right: -200px;
+				top: -209px;
+			}
 		}
 	}
 	.feature-image_inner-hover {

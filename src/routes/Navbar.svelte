@@ -79,6 +79,7 @@
 	.nav {
 		/* Base classes */
 		font-weight: 600;
+		font-size: 1.5rem;
 
 		/* Mobile classes */
 		position: absolute;
@@ -90,18 +91,18 @@
 		align-items: center;
 		gap: 1rem;
 		backdrop-filter: blur(8px);
-		padding: 3rem 1rem;
+		padding: 5rem 2rem;
 		display: none;
 
 		/* Desktop classes */
 		@media screen(lg) {
-			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 outline outline-primary/10;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 text-base outline outline-primary/10;
 		}
 	}
 
 	.social-icon {
-		width: 2.5rem;
-		height: 2.5rem;
+		width: 4rem;
+		height: 4rem;
 		display: block;
 
 		@apply rounded-full p-1 hover:bg-purple-500 hover:text-white;

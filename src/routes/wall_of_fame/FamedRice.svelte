@@ -23,10 +23,10 @@
 	let background = blurredThumbnail ?? getBlurredPath(thumbnail)
 </script>
 
-<div class="flex flex-col gap-12 px-4">
+<div class="flex flex-col gap-12 px-4 {$$restProps.class}">
 	<div class="flex flex-col items-center justify-center">
 		<div class="mb-2 text-lg font-bold">{pretitel}</div>
-		<h3 class="mb-6 text-6xl font-bold hover:text-slate-200">
+		<h3 class="mb-6 text-4xl font-bold hover:text-slate-200 sm:text-6xl">
 			<a href={dotfilesLink} target="_blank">{name}</a>
 		</h3>
 		<a class="group flex gap-3" href={dotfilesLink} target="_blank">
@@ -45,13 +45,6 @@
 		<a class="rice" href={dotfilesLink} target="_blank">
 			<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" />
 		</a>
-		<!-- wide background -->
-		<!-- <img
-			src={background}
-			aria-hidden="true"
-			class="background"
-			alt={`${name} by ${creator} thumbnail`}
-		/> -->
 		<!-- blur background -->
 		<img
 			src={background}
@@ -66,6 +59,7 @@
 	.rice {
 		position: relative;
 		display: block;
+		contain: layout style;
 		@apply w-full rounded-lg transition-transform;
 		box-shadow: 0px 0px 8px theme(colors.black / 40%);
 
@@ -104,6 +98,7 @@
 		translate: -50%;
 		z-index: -10;
 		filter: contrast(2.5);
+		contain: layout size style paint;
 
 		mask-image: radial-gradient(farthest-side, black, transparent);
 	}

@@ -13,7 +13,6 @@
 	let videoElement
 
 	let isVisible = false
-	let isShowingControls = false
 	let isMuted = true
 	let isPaused = false
 
@@ -39,10 +38,7 @@
 	})
 </script>
 
-<section
-	class="relative -mb-4 -mt-8 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] lg:px-8 z-10{$$restProps.class}"
-	class:isVisible
->
+<section class={$$restProps.class} class:isVisible>
 	<div
 		class="rice-video"
 		role="banner"
@@ -56,8 +52,6 @@
 			videoElement.pause()
 		}}
 		on:inview_leave={() => (isVisible = false)}
-		on:mouseenter={() => (isShowingControls = true)}
-		on:mouseleave={() => (isShowingControls = false)}
 	>
 		<video
 			bind:this={videoElement}
@@ -75,7 +69,7 @@
 		<div
 			class={clsx(
 				'z-20 opacity-0 transition-opacity  ',
-				isShowingControls ? 'opacity-100' : 'pointer-events-none'
+				isPaused ? 'opacity-100' : 'pointer-events-none'
 			)}
 		>
 			<!-- Currently there is no audio. Component might get refractored into a stand-alone player, so lets leave that here -->
@@ -108,6 +102,11 @@
 </section>
 
 <style lang="postcss">
+	section {
+		@apply relative z-10 -mb-4 -mt-8 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] lg:px-8;
+
+		contain: layout style content;
+	}
 	.rice-video {
 		@apply mx-3  rounded-xl      transition-all;
 		transition-duration: 1460ms;

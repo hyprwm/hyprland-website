@@ -5,10 +5,7 @@
 	import FameRicePreview from './FameRicePreview.svelte'
 </script>
 
-<section
-	class="relative flex w-full flex-col items-center"
-	use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}
->
+<section class="" use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}>
 	<div class="z-20 -mb-40 px-4">
 		<Title>
 			<span slot="pre"> Memorials of the ricing legends </span>
@@ -46,6 +43,10 @@
 </section>
 
 <style lang="postcss">
+	section {
+		@apply relative flex w-full flex-col items-center;
+		contain: layout style content size;
+	}
 	/* The blue gradient in the background */
 	.atmosphere {
 		position: absolute;
