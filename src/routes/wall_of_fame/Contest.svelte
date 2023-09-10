@@ -25,7 +25,7 @@
 	}
 </script>
 
-<section class="relative flex flex-col">
+<section class="">
 	<div class="relative py-24 sm:py-40">
 		<div
 			class="flex flex-col items-center p-6 mix-blend-color-dodge"
@@ -48,6 +48,28 @@
 </section>
 
 <style lang="postcss">
+	section {
+		border-top: rgba(255, 255, 255, 0.1) 1px solid;
+		padding-top: 5rem;
+		position: relative;
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		border-radius: 4rem 4rem 0rem 0rem;
+
+		&::after {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 300px;
+			width: 100%;
+			z-index: -10;
+			background: linear-gradient(theme(colors.black / 40%), transparent);
+			mix-blend-mode: color-burn;
+			border-radius: inherit;
+		}
+	}
 	.mask {
 		/* overflow: hidden; */
 		top: 0px;
@@ -95,7 +117,7 @@
 		}
 
 		.enabled & {
-			opacity: 0.9;
+			opacity: 0.7;
 			scale: 1;
 		}
 	}

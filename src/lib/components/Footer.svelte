@@ -24,7 +24,7 @@
 			<div class="pretitle">Developers</div>
 			<ul class="flex flex-col gap-3 font-medium">
 				<li>
-					<a href="https://github.com/vaxerski">
+					<a href="https://github.com/vaxerski" target="_blank">
 						Vaxerski <span
 							class="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent"
 							>[ Lead Developer ]</span
@@ -47,9 +47,11 @@
 		<div class="flex flex-col gap-4">
 			<div class="pretitle">Links</div>
 			<ul class="flex flex-col gap-3 font-medium">
-				<li><a href="https://wiki.hyprland.org/">Wiki</a></li>
+				<li><a href="https://wiki.hyprland.org/" target="_blank">Wiki</a></li>
 				<li>
-					<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get started</a>
+					<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/" target="_blank"
+						>Get started</a
+					>
 				</li>
 				<li><a href="/wall_of_fame">Hall of fame</a></li>
 			</ul>
@@ -61,12 +63,17 @@
 				<li class="">
 					<a
 						href="https://discord.com/invite/hQ9XvMUjjr"
-						class="text-slate-400 hover:text-slate-200"><DiscordIcon class="h-12 w-12 " /></a
+						class="text-slate-400 hover:text-slate-200"
+						aria-label="Join us on Discord"
+						target="_blank"><DiscordIcon class="h-12 w-12 " /></a
 					>
 				</li>
 				<li class="">
-					<a href="https://github.com/hyprwm/Hyprland" class="text-slate-400 hover:text-slate-200"
-						><GithubIcon class="h-12 w-12 " /></a
+					<a
+						href="https://github.com/hyprwm/Hyprland"
+						class="text-slate-400 hover:text-slate-200"
+						target="_blank"
+						aria-label="Go to our Github"><GithubIcon class="h-12 w-12 " /></a
 					>
 				</li>
 			</ul>
@@ -79,7 +86,7 @@
 		</div>
 	</div>
 
-	<div class="gradient"></div>
+	<div class="gradient" aria-hidden="true" />
 </footer>
 
 <style lang="postcss">

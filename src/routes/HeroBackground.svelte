@@ -134,7 +134,7 @@
 		height: var(--length);
 		min-height: var(--length);
 		max-height: var(--length);
-		animation: backwards animate-in ease-in 2000ms 300ms;
+		/* animation: backwards animate-in ease-in 2000ms 300ms; */
 		contain: layout style content;
 	}
 
@@ -206,21 +206,5 @@
 		left: 0;
 		pointer-events: none;
 		contain: strict;
-	}
-
-	@keyframes loop {
-		100% {
-			translate: 0px calc(-1 * var(--length));
-			/* translate: 0px -50%; */
-		}
-	}
-
-	@keyframes animate-in {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
 	}
 </style>

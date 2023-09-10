@@ -32,6 +32,7 @@
 	<button
 		class="z-50 rounded-full bg-black/10 p-2 md:backdrop-blur lg:hidden"
 		on:click={toggleExpanded}
+		aria-label="Open Navigation"
 	>
 		{#if isExpanded}
 			<CloseIcon class="h-6 w-6 text-slate-200" />
@@ -45,7 +46,11 @@
 			class="flex flex-col items-center gap-5 rounded-full lg:h-full lg:max-h-full lg:flex-row hover:[&_li]:text-cyan-300"
 		>
 			<li>
-				<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/">Get started</a>
+				<a
+					href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/"
+					rel="noopener"
+					target="_blank">Get started</a
+				>
 			</li>
 			<li>
 				<a href="https://wiki.hyprland.org">Wiki</a>
@@ -58,19 +63,31 @@
 			class="flex flex-row items-center gap-3 px-4 lg:ml-4 lg:mr-2 lg:rounded-full lg:border lg:border-purple-400"
 		>
 			<li>
-				<a href="https://discord.com/invite/hQ9XvMUjjr" class="social-icon">
+				<a
+					href="https://discord.com/invite/hQ9XvMUjjr"
+					class="social-icon"
+					aria-label="Join us on Discord"
+					target="_blank"
+				>
 					<DiscordIcon class="h-full w-full" />
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/hyprwm/Hyprland" class="social-icon">
+				<a
+					href="https://github.com/hyprwm/Hyprland"
+					class="social-icon"
+					aria-label="Go to Hyprlands Github"
+					target="_blank"
+				>
 					<GithubIcon class="h-full w-full" />
 				</a>
 			</li>
 		</ul>
 		<a
 			class="rounded-full bg-primary px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
-			href="https://wiki.hyprland.org/Getting-Started/Installation/">Install</a
+			href="https://wiki.hyprland.org/Getting-Started/Installation/"
+			target="_blank"
+			aria-label="Install Hyprland">Install</a
 		>
 	</nav>
 </header>
@@ -79,7 +96,7 @@
 	.nav {
 		/* Base classes */
 		font-weight: 600;
-		font-size: 1.5rem;
+		@apply text-lg;
 
 		/* Mobile classes */
 		position: absolute;
@@ -90,7 +107,7 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1rem;
-		backdrop-filter: blur(8px);
+		backdrop-filter: blur(12px);
 		padding: 5rem 2rem;
 		display: none;
 

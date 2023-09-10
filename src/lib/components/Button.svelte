@@ -11,9 +11,9 @@
 		'primary' == type && 'bg-slate-200 text-black',
 		'outline' == type && 'bg-transparent text-white outline outline-2 outline-slate-200',
 		'fancyOutline' == type && 'fancy',
-		'md' == size && 'min-w-[5rem] px-4 py-2',
-		'lg' == size && 'min-w-[5rem] px-6 py-2.5 ',
-		'xl' == size && 'min-w-[5rem] px-8 py-4 ',
+		'md' == size && 'min-w-[5.5rem] px-4 py-2.5',
+		'lg' == size && 'min-w-[5.5rem] px-6 py-3 ',
+		'xl' == size && 'min-w-[5.5rem] px-8 py-4 ',
 		$$restProps.class
 	)
 </script>

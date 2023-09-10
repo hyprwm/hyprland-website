@@ -1,9 +1,7 @@
 <script>
 	import { inview } from 'svelte-inview'
 	import previewRice from '$lib/videos/end_4_rice_intro.mp4'
-	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.png'
-	import AudioIcon from '~icons/mingcute/volume-line'
-	import MuteIcon from '~icons/mingcute/volume-mute-line'
+	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.webp'
 	import PauseIcon from '~icons/mingcute/pause-circle-line'
 	import clsx from 'clsx'
 	import { onMount } from 'svelte'
@@ -136,6 +134,7 @@
 	.preview-rice-bg {
 		position: absolute;
 		z-index: -10;
+		pointer-events: none;
 		opacity: 0.4;
 		min-width: 2800px;
 		overflow-x: hidden;

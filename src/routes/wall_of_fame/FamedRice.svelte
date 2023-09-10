@@ -23,7 +23,7 @@
 	let background = blurredThumbnail ?? getBlurredPath(thumbnail)
 </script>
 
-<div class="flex flex-col gap-12 px-4 {$$restProps.class}">
+<div class="flex flex-col items-center gap-12 px-4 {$$restProps.class}">
 	<div class="flex flex-col items-center justify-center">
 		<div class="mb-2 text-lg font-bold">{pretitel}</div>
 		<h3 class="mb-6 text-4xl font-bold hover:text-slate-200 sm:text-6xl">
@@ -41,7 +41,7 @@
 		</a>
 	</div>
 
-	<div class="relative w-full max-w-[1100px] px-6 sm:px-8">
+	<div class="image-wrapper">
 		<a class="rice" href={dotfilesLink} target="_blank">
 			<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" />
 		</a>
@@ -56,6 +56,12 @@
 </div>
 
 <style lang="postcss">
+	.image-wrapper {
+		@apply relative w-full max-w-[1100px] px-6 sm:px-8;
+		position: relative;
+		width: 100%;
+	}
+
 	.rice {
 		position: relative;
 		display: block;

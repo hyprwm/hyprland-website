@@ -16,8 +16,12 @@
 	import tileDefaultImage from '$lib/images/features/tiling_default.png'
 	import configHoverImage from '$lib/images/features/config_hover.png'
 	import tileHoverImage from '$lib/images/features/tiling_hover.png'
+	import SmoothCircle from './SmoothCircle.svelte'
 
 	let isMobile = false
+
+	/** @type {HTMLElement}*/
+	let smoothCircleElement
 
 	const context = setContext(mouseContext, {
 		x: writable(0),
@@ -59,12 +63,14 @@
 		on:mouseleave={!isMobile && onMouseLeave}
 		bind:this={featuresContainer}
 	>
-		<FeatureCard title="Smooth" class="row-span-2">
+		<FeatureCard title="Smooth" class="row-span-2" color="purple">
 			<p class="max-w-[60ch]">
 				Transition from windows and workspaces smoothly, with great animations. High performance.
 				Instant input.
-			</p></FeatureCard
-		>
+			</p>
+
+			<SmoothCircle />
+		</FeatureCard>
 		<FeatureCard title="Easy to configure" color="purple">
 			<p class="max-w-[60ch]">
 				Live reloading config. Easy plain-text format. Sensible defaults. Great documentation.
@@ -77,7 +83,7 @@
 				</div>
 			</div>
 		</FeatureCard>
-		<FeatureCard class="" title="Dynamic tiling">
+		<FeatureCard class="" title="Dynamic tiling" color="purple">
 			<p class="max-w-[60ch]">
 				Automatic tiling which just works. Supports multiple fine-tuneable layouts.
 			</p>
@@ -138,9 +144,8 @@
 			pointer-events: none;
 
 			width: 500px;
-			height: 500px;
 			right: -80px;
-			top: -140px;
+			top: -80px;
 
 			@media screen(sm) {
 				width: 800px;

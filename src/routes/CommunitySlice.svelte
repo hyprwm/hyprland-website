@@ -17,7 +17,7 @@
 	/** @type {{image: string coordinates: [number, number] containerClass: string}[], size: number, quote?: string } */
 	const profiles = [
 		{
-			image: '/imgs/profile_pictures/vaxry.gif',
+			image: '/imgs/profile_pictures/vaxry.webp',
 			coordinates: [187, 296],
 			size: 172,
 			class: 'outline-red-500'
@@ -35,7 +35,7 @@
 			class: 'outline-orange-500'
 		},
 		{
-			image: '/imgs/profile_pictures/Mathisbuilder.png',
+			image: '/imgs/profile_pictures/Mathisbuilder.webp',
 			coordinates: [568, 568],
 			size: 120,
 			class: 'outline-amber-500'
@@ -65,7 +65,7 @@
 			class: 'outline-sky-500'
 		},
 		{
-			image: '/imgs/profile_pictures/loseardes77.gif',
+			image: '/imgs/profile_pictures/loseardes77.webp',
 			coordinates: [24, 341],
 			size: 49,
 			class: 'outline-green-500'
@@ -175,7 +175,7 @@
 </script>
 
 <section
-	class="relative flex flex-col items-center w-screen min-h-max h-[1100px] -mb-[200px]"
+	class="relative -mb-[200px] flex h-[1100px] min-h-max w-screen flex-col items-center"
 	bind:this={sectionElement}
 >
 	<Title>
@@ -186,14 +186,15 @@
 		</span>
 	</Title>
 
-	<div class="flex flex-col items-center gap-2 group mt-16">
+	<div class="group mt-16 flex flex-col items-center gap-2">
 		<a
 			class="discord p-4"
 			href="https://discord.com/invite/hQ9XvMUjjr"
 			target="_blank"
 			rel="noopener"
+			aria-label="Join us on Discord"
 		>
-			<DiscordIcon class="w-full h-full  " />
+			<DiscordIcon class="h-full w-full  " />
 		</a>
 
 		<a href="https://discord.com/invite/hQ9XvMUjjr">
@@ -202,7 +203,7 @@
 	</div>
 
 	<div class="absolute w-[1024px]">
-		<div class="flex flex-wrap gap-4 origin-bottom-right h-full">
+		<div class="flex h-full origin-bottom-right flex-wrap gap-4">
 			{#each profiles as { onDragEnd, onDragStart, onHover, ...props }}
 				<DiscordProfilePicture
 					{...props}
@@ -213,7 +214,7 @@
 			{/each}
 		</div>
 	</div>
-	<img src={background} class="absolute top-0 min-w-[1400px] -z-10" alt="" aria-hidden="true" />
+	<img src={background} class="absolute top-0 -z-10 min-w-[1400px]" alt="" aria-hidden="true" />
 </section>
 
 <style lang="postcss">

@@ -100,9 +100,23 @@
 
 <style lang="postcss">
 	.card {
-		@apply relative flex h-full w-full items-end justify-end rounded-3xl bg-neutral-950	 transition-colors  duration-300 md:bg-slate-900 md:hover:bg-blue-900;
+		@apply relative flex h-full w-full items-end justify-end rounded-3xl transition-colors  duration-300;
 		z-index: 2;
 		contain: paint style layout;
+
+		background: radial-gradient(
+			100% 100% at 100% 0%,
+			theme(colors.blue.950),
+			theme(colors.neutral.950)
+		);
+
+		@media screen(sm) {
+			background: theme(colors.slate.900);
+
+			&:hover {
+				background: theme(colors.blue.900);
+			}
+		}
 	}
 
 	.gradient_black {

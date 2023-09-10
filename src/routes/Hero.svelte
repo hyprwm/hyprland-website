@@ -24,7 +24,7 @@
 >
 	<!-- Hero text and logo -->
 	<div
-		class="pointer-events-none z-10 flex h-screen min-h-max flex-col items-center justify-center"
+		class="pointer-events-none z-10 flex h-screen min-h-max flex-col items-center justify-center px-5"
 	>
 		<div class="-mt-20 mb-8 flex flex-col items-center gap-6 text-center">
 			<img src={Logo} alt="Hyprland Logo" class="ani-in mb-6 h-40 fill-mode-backwards sm:h-48" />
@@ -37,18 +37,18 @@
 			</div>
 		</div>
 		<h2
-			class="ani-in pointer-events-auto mb-10 text-center text-2xl font-medium leading-9 text-blue-200/80 fill-mode-backwards [animation-delay:944ms]"
+			class="ani-in pointer-events-auto mb-10 max-w-[30ch] text-center text-lg font-medium leading-9 text-blue-200/80 fill-mode-backwards [animation-delay:944ms] sm:text-2xl"
 		>
 			Dynamic tiling Wayland compositor with the looks
 		</h2>
 
 		<div
-			class="pointer-events-auto flex items-center gap-6 duration-500 animate-in fade-in-0 slide-in-from-bottom-4 fill-mode-backwards [animation-delay:1390ms]"
+			class="pointer-events-auto flex items-center gap-7 duration-500 animate-in fade-in-0 slide-in-from-bottom-4 fill-mode-backwards [animation-delay:1390ms]"
 		>
 			<a href="https://wiki.hyprland.org/Getting-Started/Installation/">
 				<Button size="lg">Install</Button>
 			</a>
-			<a href="https://wiki.hyprland.org/Getting-Started/">
+			<a href="https://wiki.hyprland.org/">
 				<Button type="fancyOutline" size="lg">Wiki</Button>
 			</a>
 		</div>
