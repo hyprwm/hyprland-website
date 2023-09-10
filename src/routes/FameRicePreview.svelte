@@ -9,6 +9,10 @@
 	export let imageClass = undefined
 	/** @type {string | undefined} */
 	export let containerClass = undefined
+	/** @type {string}
+	 * The path to the image. Usually the file within `static`, but can also be an URL
+	 */
+	export let blurredBackground = undefined
 </script>
 
 <div class="rice {containerClass} group">
@@ -20,7 +24,7 @@
 		/>
 		<div class="rice-blurred">
 			<img
-				src={getBlurredPath(image)}
+				src={blurredBackground ?? getBlurredPath(image)}
 				alt="Rice desktop"
 				aria-hidden="true"
 				class="h-full w-full"

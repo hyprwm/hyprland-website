@@ -1,7 +1,4 @@
 <script>
-	import SmoothCircle from '$lib/images/features/smooth_default.png'
-	import SmoothHover from '$lib/images/features/smooth_hover.png'
-
 	const circlesAmount = 10
 	/** In millisseconds */
 	const animationDuration = 8000
@@ -28,10 +25,6 @@
 </script>
 
 <div class="wrapper">
-	<div class="yin">
-		<img src={SmoothCircle} alt="Ying yang smooth icon" />
-		<img src={SmoothHover} alt="Ying yang smooth icon" class="yin-hover" />
-	</div>
 	{#each circles as _, index}
 		<div
 			class="circle"
@@ -74,31 +67,6 @@
 		}
 
 		animation: loop infinite backwards;
-	}
-
-	.yin {
-		z-index: 100;
-		position: absolute;
-		left: -25%;
-		top: -25%;
-		/* mix-blend-mode: color-burn; */
-		opacity: 0.7;
-		height: 150%;
-		width: 150%;
-
-		/* aspect-ratio: 1; */
-		& img {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	.yin-hover {
-		display: none;
-
-		.wrapper:hover & {
-			display: flex;
-		}
 	}
 
 	@keyframes loop {

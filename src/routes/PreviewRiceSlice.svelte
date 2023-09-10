@@ -101,7 +101,7 @@
 
 <style lang="postcss">
 	section {
-		@apply relative z-10 -mb-4 -mt-8 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] lg:px-8;
+		@apply relative z-10 -mb-4 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] md:-mt-8 lg:px-8;
 
 		contain: layout style content;
 	}

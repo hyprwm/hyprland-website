@@ -26,7 +26,7 @@
 	<div
 		class="pointer-events-none z-10 flex h-screen min-h-max flex-col items-center justify-center px-5"
 	>
-		<div class="-mt-20 mb-8 flex flex-col items-center gap-6 text-center">
+		<div class="mb-8 flex flex-col items-center gap-6 text-center sm:-mt-20">
 			<img src={Logo} alt="Hyprland Logo" class="ani-in mb-6 h-40 fill-mode-backwards sm:h-48" />
 			<div class="ani-in relative fill-mode-backwards [animation-delay:384ms]">
 				<h1

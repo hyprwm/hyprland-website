@@ -13,15 +13,14 @@
 	import Hypractive from './Hypractive.svelte'
 	import { getIsMobile } from '$lib/Helper.mjs'
 	import configDefaultImage from '$lib/images/features/config_default.png'
-	import tileDefaultImage from '$lib/images/features/tiling_default.png'
 	import configHoverImage from '$lib/images/features/config_hover.png'
+	import smoothDefaultImage from '$lib/images/features/smooth_default.png'
+	import smoothHoverImage from '$lib/images/features/smooth_hover.png'
+	import tileDefaultImage from '$lib/images/features/tiling_default.png'
 	import tileHoverImage from '$lib/images/features/tiling_hover.png'
 	import SmoothCircle from './SmoothCircle.svelte'
 
 	let isMobile = false
-
-	/** @type {HTMLElement}*/
-	let smoothCircleElement
 
 	const context = setContext(mouseContext, {
 		x: writable(0),
@@ -69,7 +68,12 @@
 				Instant input.
 			</p>
 
-			<SmoothCircle />
+			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
+				<div class="feature-image">
+					<img src={smoothDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
+					<img src={smoothHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
+				</div>
+			</div>
 		</FeatureCard>
 		<FeatureCard title="Easy to configure" color="purple">
 			<p class="max-w-[60ch]">
@@ -164,7 +168,7 @@
 		}
 		& .feature-image_inner-hover {
 			opacity: 1 !important;
-			filter: saturate(1.5);
+			filter: saturate(1.3);
 		}
 	}
 </style>
