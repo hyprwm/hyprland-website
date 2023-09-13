@@ -23,40 +23,45 @@
 	})
 </script>
 
-<div class="flex group flex-col md:flex-row md:gap-4 gap-2 items-center">
+<div class="group flex flex-col items-center gap-2 md:flex-row md:gap-4">
 	<div
-		class="flex group-focus-within:-translate-y-1 transition-transform flex-col gap-3 justify-center items-center text-primary text-lg font-medium rounded-full w-32 h-32"
+		class="flex h-32 w-32 flex-col items-center justify-center gap-3 rounded-full text-lg font-medium text-primary transition-transform group-focus-within:-translate-y-1"
 	>
-		<img src={image} alt="Arch Logo" />{name}
+		<img
+			src={image}
+			class="h-20 w-32 object-contain"
+			alt="Distrubution Logo"
+			loading="lazy"
+		/>{name}
 	</div>
 
-	<div class="flex flex-col relative font-mono mb-2">
+	<div class="relative mb-2 flex flex-col font-mono">
 		<button
-			class="flex text-base transition-transform min-w-[18rem] items-center font-medium rounded-full border-primary border py-3 pl-6 pr-6 gap-4 justify-center active:scale-[1.01]"
+			class="flex min-w-[18rem] items-center justify-center gap-4 rounded-full border border-primary py-3 pl-6 pr-6 text-base font-medium transition-transform active:scale-[1.01]"
 			on:click={$$slots.default ? undefined : copyCommand}
 		>
 			<slot>
-				<div class="flex gap-4 relative justify-between w-full">
+				<div class="relative flex w-full justify-between gap-4">
 					<div class="flex gap-4">
-						<div class="text-primary select-none font-bold">></div>
+						<div class="select-none font-bold text-primary">></div>
 						<span>{command}</span>
 					</div>
 					<ClipboardIcon
-						class="group-hover:opacity-80 text-white group-active:opacity-100  opacity-0 w-6 h-6 hover:!opacity-100 transition-opacity duration-100"
+						class="h-6 w-6 text-white  opacity-0 transition-opacity duration-100 hover:!opacity-100 group-hover:opacity-80 group-active:opacity-100"
 					/>
 				</div>
 			</slot>
 		</button>
 
 		<div
-			class="text-green-400 [translate:-50%_0px] select-none pointer-events-none absolute md:-top-8 max-md:-bottom-6 bg-black/10 backdrop-blur rounded-full z-20 px-2 w-full left-1/2 hidden max-w-max"
+			class="pointer-events-none absolute left-1/2 z-20 hidden w-full max-w-max select-none rounded-full bg-black/10 px-2 text-green-400 backdrop-blur [translate:-50%_0px] max-md:-bottom-6 md:-top-8"
 			class:copy={isShowingCopied}
 		>
 			Copied to clipboard ✔
 		</div>
 
 		{#if $$slots.extra}
-			<div class="text-xs font-sans opacity-80 absolute -bottom-6 w-full flex justify-center">
+			<div class="absolute -bottom-6 flex w-full justify-center font-sans text-xs opacity-80">
 				<slot name="extra" />
 			</div>
 		{/if}

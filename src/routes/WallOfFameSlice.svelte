@@ -16,7 +16,7 @@
 	<div class="atmosphere" />
 
 	<div
-		class="relative -mt-24 flex w-full max-w-[1100px] flex-col items-center justify-end gap-16 overflow-hidden [perspective:100px] md:px-16 lg:gap-24"
+		class="relative -mt-8 flex w-full max-w-[1100px] flex-col items-center justify-end gap-16 overflow-hidden [perspective:100px] md:px-16 lg:gap-24"
 		use:animateIn={{ slide: 24, fade: 0.5, duration: 800 }}
 	>
 		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/wall_of_fame">
@@ -35,7 +35,7 @@
 		/>
 		<FameRicePreview
 			image="/imgs/ricing_competitions/1/flicko.webp"
-			imageClass="!rounded-none !rounded-t-xl [mask-image:linear-gradient(black,black_50%,transparent)] rounded-t-xl   h-[200px] sm:h-[250px] lg:h-[500px]"
+			imageClass="!rounded-none !rounded-t-xl [mask-image:linear-gradient(black,black_50%,transparent)] rounded-t-xl -mb-4 sm:-mb-8 md:-mb-24  "
 		/>
 	</div>
 
@@ -56,6 +56,8 @@
 		translate: -50% 0px;
 		height: 100vh;
 		width: 200vw;
+		max-width: 2400px;
+		max-height: 1000px;
 		background: radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
 			radial-gradient(15% 20%, theme(colors.cyan.500 / 70%), transparent);
 	}

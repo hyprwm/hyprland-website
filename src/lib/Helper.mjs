@@ -1,12 +1,6 @@
 /* eslint-disable no-useless-escape */
 import { inview } from 'svelte-inview'
 import { pick } from 'remeda'
-// const mappingAnimate = {
-// 	slide: 'translate',
-// 	zoom: 'scale',
-// 	duration: 'transition',
-// 	fade: 'opacity'
-// }
 
 /**
  * Fade: The initial opacity from 0 to 1.

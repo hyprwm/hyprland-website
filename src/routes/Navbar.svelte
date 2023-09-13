@@ -24,7 +24,7 @@
 		href="/"
 		class="flex items-center gap-4 rounded-full py-1 font-london text-sm font-bold tracking-wider text-white lg:bg-black/50 lg:px-4 lg:py-2 lg:backdrop-blur"
 	>
-		<img src={logo} alt="Hyprland Logo" class="w-6" /><span
+		<img src={logo} alt="Hyprland Logo" class="h-8 w-6 object-contain" /><span
 			class="hidden text-lg tracking-widest lg:mt-1 lg:block">Hyprland</span
 		></a
 	>

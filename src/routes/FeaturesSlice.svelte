@@ -12,13 +12,12 @@
 	import Title from '$lib/components/Title.svelte'
 	import Hypractive from './Hypractive.svelte'
 	import { getIsMobile } from '$lib/Helper.mjs'
-	import configDefaultImage from '$lib/images/features/config_default.png'
-	import configHoverImage from '$lib/images/features/config_hover.png'
-	import smoothDefaultImage from '$lib/images/features/smooth_default.png'
-	import smoothHoverImage from '$lib/images/features/smooth_hover.png'
-	import tileDefaultImage from '$lib/images/features/tiling_default.png'
-	import tileHoverImage from '$lib/images/features/tiling_hover.png'
-	import SmoothCircle from './SmoothCircle.svelte'
+	import configDefaultImage from '$lib/images/features/config_default.webp'
+	import configHoverImage from '$lib/images/features/config_hover.webp'
+	import smoothDefaultImage from '$lib/images/features/smooth_default.webp'
+	import smoothHoverImage from '$lib/images/features/smooth_hover.webp'
+	import tileDefaultImage from '$lib/images/features/tiling_default.webp'
+	import tileHoverImage from '$lib/images/features/tiling_hover.webp'
 
 	let isMobile = false
 
@@ -64,14 +63,25 @@
 	>
 		<FeatureCard title="Smooth" class="row-span-2" color="purple">
 			<p class="max-w-[60ch]">
-				Transition from windows and workspaces smoothly, with great animations. High performance.
-				Instant input.
+				Smooth transitions. Great animations. High performance. Instant input.
 			</p>
 
 			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
 				<div class="feature-image">
-					<img src={smoothDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
-					<img src={smoothHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
+					<img
+						src={smoothDefaultImage}
+						class="feature-image_inner"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
+					<img
+						src={smoothHoverImage}
+						class="feature-image_inner-hover"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
 				</div>
 			</div>
 		</FeatureCard>
@@ -82,8 +92,20 @@
 
 			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
 				<div class="feature-image">
-					<img src={configDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
-					<img src={configHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
+					<img
+						src={configDefaultImage}
+						class="feature-image_inner"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
+					<img
+						src={configHoverImage}
+						class="feature-image_inner-hover"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
 				</div>
 			</div>
 		</FeatureCard>
@@ -93,8 +115,20 @@
 			</p>
 			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
 				<div class="feature-image">
-					<img src={tileDefaultImage} class="feature-image_inner" alt="" aria-hidden="true" />
-					<img src={tileHoverImage} class="feature-image_inner-hover" alt="" aria-hidden="true" />
+					<img
+						src={tileDefaultImage}
+						class="feature-image_inner"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
+					<img
+						src={tileHoverImage}
+						class="feature-image_inner-hover"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
 				</div>
 			</div>
 		</FeatureCard>
@@ -121,6 +155,7 @@
 		<a
 			href="https://wiki.hyprland.org/Configuring/Variables/#gestures"
 			class="icon-feature hover:underline"
+			target="_blank"
 		>
 			<TouchpadIcon class="h-8 w-8" />Touchpad gestures
 		</a>
@@ -137,6 +172,9 @@
 		inset: 0 0 0 0;
 		opacity: 0.5;
 		z-index: -10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		._wrapper:hover & {
 			opacity: 1;
@@ -147,15 +185,15 @@
 			transition: opacity 1500ms ease-in-out;
 			pointer-events: none;
 
-			width: 500px;
+			width: 400px;
+			aspect-ratio: 1;
 			right: -80px;
-			top: -80px;
+			top: 50%;
+			translate: 0px -50%;
 
-			@media screen(sm) {
-				width: 800px;
-				height: 800px;
-				right: -200px;
-				top: -209px;
+			@media screen(md) {
+				width: 600px;
+				right: -80px;
 			}
 		}
 	}

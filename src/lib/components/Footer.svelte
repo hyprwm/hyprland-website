@@ -3,9 +3,9 @@
 	import GithubIcon from '~icons/ri/github-fill'
 
 	/** @type {[string, string, string, string]} */
-	let developers = [
-		['Fufexan', 'Core Developer', 'cyan', 'https://github.com/fufexan'],
-		['NotAShelf', 'Core Member', 'teal', 'https://github.com/NotAShelf'],
+	let team = [
+		['Fufexan', 'Supporting Developer', 'cyan', 'https://github.com/fufexan'],
+		['NotAShelf', 'Real Chad', 'teal', 'https://github.com/NotAShelf'],
 		['VDawg', 'Webdesign-and dev', 'emerald', 'https://github.com/Visual-Dawg'],
 		['System-x64', 'Webdev', 'green', 'https://github.com/System-x64']
 	]
@@ -17,11 +17,9 @@
 <footer
 	class="max-w-screen relative mt-16 flex items-center justify-center border-t border-blue-400/50 bg-black/50 md:mt-24 lg:mt-32"
 >
-	<div
-		class="flex max-w-5xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300"
-	>
+	<div class="footer-inner">
 		<div class="flex flex-col gap-4 rounded-lg">
-			<div class="pretitle">Developers</div>
+			<div class="pretitle">Humans</div>
 			<ul class="flex flex-col gap-3 font-medium">
 				<li>
 					<a href="https://github.com/vaxerski" target="_blank">
@@ -31,7 +29,7 @@
 						>
 					</a>
 				</li>
-				{#each developers as [name, role, color, href]}
+				{#each team as [name, role, color, href]}
 					<li>
 						<a {href} target="_blank">{name} {@html createRole(role, color)}</a>
 					</li>
@@ -90,6 +88,10 @@
 </footer>
 
 <style lang="postcss">
+	.footer-inner {
+		@apply flex max-w-5xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300;
+	}
+
 	.pretitle {
 		@apply text-sm font-bold uppercase text-slate-400;
 	}

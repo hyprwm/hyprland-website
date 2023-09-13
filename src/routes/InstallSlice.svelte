@@ -15,29 +15,29 @@
 		<span slot="title">Install now</span><span slot="subtitle"> For your favourite distro </span>
 	</Title>
 
-	<div class="flex flex-col md:gap-6 gap-12 items-center" use:animateIn={{ slide: 24, fade: 0 }}>
+	<div class="flex flex-col items-center gap-12 md:gap-6" use:animateIn={{ slide: 24, fade: 0 }}>
 		<div
-			class="md:outline md:outline-1 flex flex-col gap-12 md:gap-6 md:outline-blue-500 md:from-blue-500/40 md:to-transparent md:bg-gradient-to-tr md:shadow-xl md:p-8 md:rounded-3xl"
+			class="flex flex-col gap-12 md:gap-6 md:rounded-3xl md:bg-gradient-to-tr md:from-blue-500/40 md:to-transparent md:p-8 md:shadow-xl md:outline md:outline-1 md:outline-blue-500"
 		>
 			<InstallButton name="Arch" command="pacman -S hyprland" image={archLogo}
 				><div slot="extra">
 					AUR git version: <a
-						class="hover:underline hover:text-white"
+						class="hover:text-white hover:underline"
 						target="_blank"
 						href="https://aur.archlinux.org/packages/hyprland-git/">hyprland-git</a
 					>
 				</div></InstallButton
 			>
-			<InstallButton name="NixOs" image={nixLogo}
+			<InstallButton name="NixOS" image={nixLogo}
 				><a
 					href="https://wiki.hyprland.org/Nix/"
 					target="_blank"
-					class="flex hover:underline gap-4 items-center justify-between w-full"
+					class="flex w-full items-center justify-between gap-4 hover:underline"
 					>See instructions <LinkOutIcon /></a
 				></InstallButton
 			>
 			<InstallButton name="FreeBSD" command="pkg install hyprland" image={bsdLogo} />
-			<InstallButton name="openSuse" command="zypper in hyprland" image={suseLogo}
+			<InstallButton name="openSUSE" command="zypper in hyprland" image={suseLogo}
 				><div slot="extra">or install “hyprland” via YaST2 Software.</div></InstallButton
 			>
 		</div>

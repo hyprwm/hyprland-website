@@ -77,6 +77,7 @@
 
 	$: hue = lerp(200, 130, $cubibRelativeLevel$)
 	$: scale = lerp(0.9, 2, $cubibRelativeLevel$)
+	$: translateY = lerp(0, 10, $cubibRelativeLevel$)
 
 	/** @type {HTMLDivElement} */
 	let containerElement
@@ -95,16 +96,17 @@
 
 <div class="relative overflow-visible">
 	<button
-		class="flex hover:underline text-slate-400 gap-3 font-bold items-center active:scale-95 transition-colors drop-shadow-lg shadow-black"
+		class="flex items-center gap-3 font-bold text-slate-400 shadow-black drop-shadow-lg transition-colors hover:underline active:scale-95"
 		on:click={onClick}
 		style:color={$relativeLevel$ > 0 ? `hsl(${hue} 64% 53%)` : undefined}
 		style:scale={$relativeLevel$ > 0 ? scale : undefined}
+		style:translate={$relativeLevel$ > 0 ? `0px -${translateY}px` : undefined}
 	>
 		<ActiveGitIcon class="h-8 w-8" />
 		<span class="transition-colors"> Hypractive development </span>
 	</button>
 
-	<div class="absolute left-1/2 top-1/2 -z-10 pointer-events-none">
+	<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10">
 		{#each $tiles$ as _}
 			<GitTile
 				lifeSpan={lerp(MIN_LIFESPAN_TILE, MAX_LIFESPAN_TILE, $cubibRelativeLevel$)}
@@ -117,7 +119,7 @@
 	<div class="mask" bind:this={containerElement}>
 		{#if $hasAscended$}
 			<div
-				class="animate-in slide-in-from-bottom-[500px] fade-in-0 slide-in-from-left-20 [animation-duration:2.5s] vaxx-wrapper zoom-in-95 absolute bottom-[240px] left-1/2 z-50 -translate-x-[100px] rounded-full aspect-square"
+				class="vaxx-wrapper absolute bottom-[240px] left-1/2 z-50 aspect-square -translate-x-[100px] rounded-full animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-[500px] slide-in-from-left-20 [animation-duration:2.5s]"
 				style:width={vaxrySize + 'px'}
 			>
 				<DiscordProfilePicture

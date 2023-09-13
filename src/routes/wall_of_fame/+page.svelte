@@ -3,21 +3,57 @@
 	import Contest from './Contest.svelte'
 	import FamedRice from './FamedRice.svelte'
 	import colors from 'tailwindcss/colors'
+
+	const wisdoms = [
+		'炊き込みご飯',
+		'米どころでの休日',
+		'マッサージライス',
+		'天国の米',
+		'ジーンズの中には何キロもの米が入っているから、毎日がトレーニングなんだ。',
+		'田んぼで撃たれたんだ！',
+		'田んぼでの作業',
+		'国の保護による田んぼでの仕事',
+		'巨大な米ベースの子猫用フードがある。',
+		'スパイシー米麺',
+		'激辛炊飯器',
+		'絶対にご飯を炊いた'
+	]
+
+	const wisdomObjects = wisdoms.map((text) => ({
+		text,
+		z: Math.round(Math.random() * 10)
+	}))
 </script>
 
 <section>
-	<div class="hero-wrapper" role="heading" aria-level={0}>
+	<div class="hero-wrapper">
+		<div class="japanese" aria-hidden="true">
+			<div class="rice-symbol">「 米 」</div>
+			<div class="wisdoms">
+				{#each wisdomObjects as { text, z }}
+					<div class="wisdom" style:--z={z}>
+						{text}
+					</div>
+				{/each}
+			</div>
+		</div>
 		<Title>
-			<span slot="title">Wall of fame</span>
-			<div slot="subtitle">
-				The chronicles of the triumphant<br /> from bygone rice contests held within our Discord
+			<span slot="title" class="title">Wall of fame</span>
+			<div slot="subtitle" class="max-w-[40ch]">
+				The chronicles of the triumphant from bygone rice contests held within our Discord
 			</div>
 		</Title>
+
+		<!-- <div class="background-images" aria-hidden="true">
+			{#each data.images as image}
+				<img src={image} class="background-image" alt="" />
+			{/each}
+		</div> -->
 	</div>
 
 	<Contest name="Summer" number={2} date="May 2023" --color="orange">
 		<FamedRice
-			name="Novel Nock"
+			name="Unnamed"
 			creator="end_4"
 			pretitel="#1"
 			dotfilesLink="https://github.com/end-4/dots-hyprland/tree/novelknock"
@@ -98,10 +134,69 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: 800px;
-		width: 100%;
 		min-height: max-content;
-		margin-bottom: min(-10vh, -12rem);
-		background: radial-gradient(100% 50% at 50% 0%, theme(colors.cyan.500 / 50%), transparent);
+		height: 85vh;
+		max-height: 900px;
+		width: 100%;
+		margin-bottom: min(-10vh, -6rem);
+		background: radial-gradient(70% 50% at 50% 0%, theme(colors.cyan.500 / 50%), transparent);
+
+		animation: enter 1200ms ease-in-out;
 	}
+
+	.japanese {
+		position: relative;
+		width: 100%;
+		height: max-content;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		user-select: none;
+		animation: enter 1200ms ease-in-out;
+	}
+
+	.rice-symbol {
+		font-size: 120px;
+		color: transparent;
+		background: linear-gradient(125deg, cyan 15%, blue);
+		background-clip: text;
+		font-weight: bold;
+		text-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3);
+	}
+
+	.wisdoms {
+		position: absolute;
+		width: 500px;
+		/* translate: -50% 0px; */
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		z-index: -10;
+		opacity: 0.6;
+		/* font-size: 1.5rem; */
+	}
+
+	.wisdom {
+		width: max-content;
+		height: max-content;
+		text-align: center;
+		color: theme(colors.cyan.700);
+		text-shadow: 0px 0px 8px blue;
+	}
+
+	/* .background-images {
+		z-index: -100;
+		position: absolute;
+		inset: 1/2;
+		translate: 0px -50%;
+		display: grid;
+		width: 600px;
+		height: 200px;
+		grid: auto-flow / 1fr 1fr 1fr;
+		opacity: 0.4;
+
+		& .background-image {
+			width: 200px;
+		}
+	} */
 </style>

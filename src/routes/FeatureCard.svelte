@@ -110,7 +110,8 @@
 			theme(colors.neutral.950)
 		);
 
-		@media screen(sm) {
+		/* The card border   */
+		@media screen(md) {
 			background: theme(colors.slate.900);
 
 			&:hover {
@@ -151,7 +152,7 @@
 		contain: strict;
 		background: radial-gradient(
 			620px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
-			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 70%),
+			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 50%),
 			transparent
 		);
 

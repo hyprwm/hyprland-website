@@ -1,6 +1,6 @@
 <script>
 	import clsx from 'clsx'
-	import { createEventDispatcher, getContext, onMount } from 'svelte'
+	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
 	import { contextId as ctxId } from './CommunitySlice.svelte'
 	import { getIsMobile, lerp } from '$lib/Helper.mjs'
@@ -37,10 +37,11 @@
 	let imageElement
 	let hasEnteredView = false
 
-	onMount(() => {
-		if (getIsMobile()) return
+	/** @type {import('interactjs').default} */
+	let interactionjs
 
-		let interactionjs
+	function onViewEnter() {
+		setTimeout(() => (hasEnteredView = true), 550)
 
 		import('interactjs').then(({ default: interact }) => {
 			interactionjs = interact(imageElement).draggable({
@@ -69,15 +70,16 @@
 				]
 			})
 		})
+	}
 
-		return () => interactionjs?.off?.()
-	})
+	onDestroy(() => interactionjs?.off())
 </script>
 
 <div
 	class={clsx('absolute left-0 top-0 touch-none select-none ', containerClass)}
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
 	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
+	aria-hidden="true"
 >
 	<div
 		class={clsx(
@@ -85,23 +87,25 @@
 			isAnimating && 'opacity-0'
 		)}
 		style:translate={`calc( ${$dragCoordinates[0]}px  ) ${$dragCoordinates[1]}px`}
-		use:inview={{ unobserveOnEnter: true, threshold: 0.4 }}
+		use:inview={{ unobserveOnEnter: true, threshold: 0.2 }}
 		class:_animate={isAnimating && hasEnteredView}
-		on:inview_enter={() => setTimeout(() => (hasEnteredView = true), 550)}
+		on:inview_enter={onViewEnter}
 	>
 		<img
-			class="group h-full w-full touch-none select-none rounded-[50%] outline outline-4 {$$restProps.class}"
+			class="group h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
 			bind:this={imageElement}
 			src={image}
-			alt={'community profile picture'}
+			alt="community profile picture"
 			aria-hidden="true"
 			on:mouseenter={(event) => dispatch('hover', event)}
 			class:hover:scale-125={!!quote}
+			loading="lazy"
 		/>
 
 		{#if quote}
 			<div
 				class="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none rounded bg-slate-800/50 px-2 py-1 text-sm font-medium tracking-wide opacity-0 duration-150 group-hover:opacity-100"
+				aria-hidden="true"
 			>
 				{quote}
 			</div>

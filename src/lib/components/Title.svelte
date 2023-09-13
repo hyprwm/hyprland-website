@@ -2,7 +2,10 @@
 	import { animateIn } from '$lib/Helper.mjs'
 </script>
 
-<div use:animateIn={{ slide: 24, fade: 0 }} class="px-3 text-center {$$restProps.class}">
+<div
+	use:animateIn={{ slide: 24, fade: 0 }}
+	class="flex flex-col items-center px-3 text-center {$$restProps.class}"
+>
 	<div class="mb-3 font-extrabold text-slate-300">
 		<slot name="pre" />
 	</div>

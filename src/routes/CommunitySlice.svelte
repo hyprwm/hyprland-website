@@ -6,10 +6,9 @@
 	import Button from '$lib/components/Button.svelte'
 	import DiscordIcon from '~icons/prime/discord'
 	import DiscordProfilePicture from './DiscordProfilePicture.svelte'
-	import { animateIn } from '$lib/Helper.mjs'
 	import { setContext } from 'svelte'
 	import Title from '$lib/components/Title.svelte'
-	import background from '$lib/images/community-bg.png'
+	import background from '$lib/images/community-bg.webp'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -89,20 +88,20 @@
 			class: 'outline-sky-500'
 		},
 		{
-			image: 'imgs/chan/cool.webp',
+			image: 'imgs/chan/joy.svg',
 			coordinates: [284, 533],
 			size: 90,
-			class: 'outline-cyan-500',
+			class: 'outline-cyan-500 bg-blue-300',
 			onDragStart: ({ detail: { currentTarget } }) => {
 				isDraggingChan = true
-				currentTarget.src = 'imgs/chan/quirky.webp'
+				currentTarget.src = 'imgs/chan/surprise.svg'
 			},
 			onDragEnd: ({ detail: { currentTarget } }) => {
 				isDraggingChan = false
-				currentTarget.src = 'imgs/chan/cool.webp'
+				currentTarget.src = 'imgs/chan/tongueout.svg'
 			},
 			onHover: ({ detail: { srcElement } }) =>
-				!isDraggingChan && (srcElement.src = 'imgs/chan/love.webp')
+				!isDraggingChan && (srcElement.src = 'imgs/chan/wink.svg')
 		},
 		{
 			image: '/imgs/profile_pictures/7.webp',
@@ -158,6 +157,12 @@
 			coordinates: [340, 790],
 			size: 80,
 			class: 'outline-pink-500'
+		},
+		{
+			image: '/imgs/profile_pictures/jacekpoz.svg',
+			coordinates: [180, 730],
+			size: 80,
+			class: 'outline-yellow-500 bg-orange-700'
 		}
 	]
 
@@ -186,7 +191,7 @@
 		</span>
 	</Title>
 
-	<div class="group mt-16 flex flex-col items-center gap-2">
+	<div class="group mt-16 flex flex-col items-center">
 		<a
 			class="discord p-4"
 			href="https://discord.com/invite/hQ9XvMUjjr"
@@ -214,7 +219,13 @@
 			{/each}
 		</div>
 	</div>
-	<img src={background} class="absolute top-0 -z-10 min-w-[1400px]" alt="" aria-hidden="true" />
+	<img
+		src={background}
+		class="absolute top-0 -z-10 min-w-[1400px]"
+		alt=""
+		aria-hidden="true"
+		loading="lazy"
+	/>
 </section>
 
 <style lang="postcss">
@@ -222,9 +233,11 @@
 		width: 9rem;
 		height: 9rem;
 		transition:
-			rotate 480ms cubic-bezier(0.5, 0, 0.5, 1.1),
-			scale 420ms cubic-bezier(1, 0.1, 0, 2),
+			rotate 500ms cubic-bezier(0.5, 0, 0.5, 1),
+			scale 420ms cubic-bezier(0.5, 0.1, 0, 1),
 			filter 840ms;
+		transition-delay: 240ms, 180ms, 20ms;
+		transform: translateY(-25%);
 		filter: drop-shadow(0px 0px 0px cyan) drop-shadow(0px 0px 0px blue);
 
 		&:hover,
@@ -232,7 +245,7 @@
 			scale: 1.2 1.2;
 			rotate: 360deg;
 			filter: drop-shadow(4px 4px 14px #0fffef7a) drop-shadow(-4px -4px 12px purple);
-			animation: bounce 1s infinite;
+			animation: bounce 0.7s infinite 180ms both;
 		}
 		&:active {
 			scale: 1;

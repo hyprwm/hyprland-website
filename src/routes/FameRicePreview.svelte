@@ -20,14 +20,15 @@
 		<img
 			src={image}
 			alt="Rice desktop"
-			class="nice-hover w-full rounded-xl object-cover object-top shadow-2xl hover:scale-[1.01] {imageClass}"
+			class="nice-hover w-full rounded-xl object-cover shadow-2xl hover:scale-[1.01] {imageClass}"
 		/>
 		<div class="rice-blurred">
 			<img
 				src={blurredBackground ?? getBlurredPath(image)}
 				alt="Rice desktop"
 				aria-hidden="true"
-				class="h-full w-full"
+				class="h-full w-full object-cover"
+				loading="lazy"
 			/>
 		</div>
 	</div>
@@ -35,7 +36,7 @@
 
 <style lang="postcss">
 	.rice {
-		@apply relative w-full max-w-[1100px];
+		@apply relative h-auto w-full max-w-[1100px];
 	}
 	.nice-hover {
 		transition: all 540ms cubic-bezier(0.1, -0.81, 0.31, 2);
@@ -51,7 +52,6 @@
 		opacity: 0.9;
 		/* filter: brightness(2.5); */
 		z-index: -10;
-		background-color: red;
 		mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent);
 		contain: content layout size style;
 

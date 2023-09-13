@@ -7,6 +7,8 @@
 	import { inview } from 'svelte-inview'
 	import HeroBackground from './HeroBackground.svelte'
 
+	export let backgroundData
+
 	let isVisible = true
 	let isMobile = false
 
@@ -27,13 +29,15 @@
 		class="pointer-events-none z-10 flex h-screen min-h-max flex-col items-center justify-center px-5"
 	>
 		<div class="mb-8 flex flex-col items-center gap-6 text-center sm:-mt-20">
-			<img src={Logo} alt="Hyprland Logo" class="ani-in mb-6 h-40 fill-mode-backwards sm:h-48" />
+			<img
+				src={Logo}
+				alt="Hyprland Logo"
+				class="ani-in mb-6 h-40 w-48 object-contain fill-mode-backwards sm:h-48 sm:w-56"
+				loading="eager"
+				decoding="async"
+			/>
 			<div class="ani-in relative fill-mode-backwards [animation-delay:384ms]">
-				<h1
-					class="hyprgradient pointer-events-auto bg-clip-text p-2 font-london text-6xl font-bold tracking-wider text-transparent md:text-7xl md:tracking-widest"
-				>
-					Hyprland
-				</h1>
+				<h1 class="hyprgradient title">Hyprland</h1>
 			</div>
 		</div>
 		<h2
@@ -55,7 +59,7 @@
 	</div>
 
 	<div class="absolute inset-0">
-		<HeroBackground />
+		<HeroBackground {backgroundData} />
 	</div>
 
 	<!-- Fireflies -->
@@ -73,6 +77,13 @@
 </section>
 
 <style lang="postcss">
+	.title {
+		background-clip: text;
+		padding: 0.5rem;
+		pointer-events: auto;
+		@apply font-london text-6xl font-bold tracking-wider text-transparent md:text-7xl md:tracking-widest;
+	}
+
 	@keyframes slidein {
 		from {
 			transform: translateX(0%);

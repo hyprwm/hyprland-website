@@ -50,12 +50,17 @@
 <style lang="postcss">
 	section {
 		border-top: rgba(255, 255, 255, 0.1) 1px solid;
-		padding-top: 5rem;
+		padding-top: 4rem;
+		padding-bottom: 5rem;
 		position: relative;
 		display: flex;
 		width: 100%;
 		flex-direction: column;
-		border-radius: 4rem 4rem 0rem 0rem;
+		border-radius: 1rem 1rem 0rem 0rem;
+
+		@media screen(lg) {
+			border-radius: 4rem 4rem 0rem 0rem;
+		}
 
 		&::after {
 			content: ' ';
@@ -106,7 +111,7 @@
 
 		opacity: 0.25;
 		scale: 0.95 1;
-		transition: all 1200ms ease-in-out 120ms;
+		transition: all 1200ms ease-in-out 70ms;
 
 		top: 200px;
 		left: 50%;

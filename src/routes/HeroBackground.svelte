@@ -1,38 +1,8 @@
 <script>
-	import baseColors from 'tailwindcss/colors'
+	export let backgroundData
 
-	const workspacesPerRow = 4
-	const workspaceHeight = 240
-	const gapLength = 32
-	const colors = [baseColors.blue[500], baseColors.cyan[400], baseColors.sky[500]]
-	const leftColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
-	const rightColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
-	/** Used to transform the rows by their own lenght*/
-	const height = workspacesPerRow * (workspaceHeight + gapLength)
-
-	function generateRow(amount) {
-		const base = Array.from({ length: amount }).map(generateWorkspace)
-		// For the effect to work, the items need to be duplicated
-		return [...base, ...base]
-	}
-
-	function generateWorkspace() {
-		return [
-			generateTiles(),
-			Math.random() > 0.4 ? generateTiles() : false,
-			Math.random() > 0.7 ? generateTiles() : false
-		].filter(Boolean)
-	}
-
-	function generateTiles() {
-		const result = Math.random() > 0.5 ? [getRandomColor()] : [getRandomColor(), getRandomColor()]
-
-		return result
-	}
-
-	function getRandomColor() {
-		return colors.at(Math.floor(Math.random() * colors.length))
-	}
+	const { workspacesPerRow, gapLength, workspaceHeight, height, leftColumns, rightColumns } =
+		backgroundData
 </script>
 
 <div class="wrapper" aria-hidden="true">
@@ -50,8 +20,13 @@
 						<div class="workspace">
 							{#each workspace as tiles}
 								<div class="tiles">
-									{#each tiles as tile}
-										<div class="tile" style:--color={tile}></div>
+									{#each tiles as { color, image }}
+										<div
+											class="tile"
+											style:--color={color}
+											class:with-image={image}
+											style:--image={`url(${image})`}
+										></div>
 									{/each}
 								</div>
 							{/each}
@@ -68,8 +43,13 @@
 						<div class="workspace">
 							{#each workspace as tiles}
 								<div class="tiles">
-									{#each tiles as tile}
-										<div class="tile" style:--color={tile}></div>
+									{#each tiles as { color, image }}
+										<div
+											class="tile"
+											style:--color={color}
+											class:with-image={image}
+											style:--image={`url(${image})`}
+										></div>
 									{/each}
 								</div>
 							{/each}
@@ -83,10 +63,10 @@
 
 <style lang="postcss">
 	.left {
-		transform: rotateY(10deg) rotateZ(90deg);
+		transform: rotateY(10deg);
 	}
 	.right {
-		transform: rotateY(-10deg) rotateZ(-90deg);
+		transform: rotateY(-10deg);
 	}
 
 	.wrapper {
@@ -96,6 +76,7 @@
 		justify-content: center;
 		height: calc(100vh - 48px);
 		contain: strict;
+		pointer-events: none;
 
 		@apply max-sm:hidden;
 	}
@@ -109,6 +90,7 @@
 		display: flex;
 		mask-image: linear-gradient(to top, transparent 0%, black 20%);
 		contain: layout style content;
+		pointer-events: none;
 
 		&::after {
 			content: ' ';
@@ -148,9 +130,9 @@
 		/* animation: loop 98s infinite linear; */
 		contain: layout style content;
 
-		@media (prefers-reduced-motion) {
+		/* @media (prefers-reduced-motion) {
 			animation: none;
-		}
+		} */
 	}
 
 	.workspace {
@@ -171,23 +153,48 @@
 	}
 
 	.tile {
+		--reveal-length: 0.5s;
+
 		border: var(--color) 2px solid;
 		flex-grow: 1;
 		height: var(--height);
 		border-radius: 12px;
 		pointer-events: auto;
-		transition: 380ms ease-in-out;
-		transition-property: background opacity scale box-shadow;
+		transition: 480ms ease-in-out;
+		transition-property: background-color background-image opacity scale box-shadow;
 		opacity: 0.5;
 		contain: strict;
+		pointer-events: all;
 
 		&:hover {
 			opacity: 1;
 			scale: 1.02;
-			background: color-mix(in hsl, var(--color), transparent 20%);
+			background-color: color-mix(in hsl, var(--color), transparent 20%);
 			box-shadow:
 				0px 0px 10px var(--color),
 				0px 0px 40px var(--color);
+		}
+		&:hover.with-image {
+			scale: 1;
+			animation: reveal-artwork_tile calc(var(--reveal-length) + 280ms)
+				cubic-bezier(1, -0.4, 0.165, 1) forwards;
+		}
+
+		&.with-image::after {
+			content: ' ';
+			position: absolute;
+			inset: 0;
+			background-image: var(--image);
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			opacity: 0;
+			transition: opacity 1520ms ease-in-out;
+		}
+		&:hover::after {
+			animation: reveal-artwork var(--reveal-length) ease-in-out 400ms both;
+			opacity: 1;
+			transition: opacity 1520ms ease-in-out;
 		}
 	}
 
@@ -206,5 +213,34 @@
 		left: 0;
 		pointer-events: none;
 		contain: strict;
+	}
+
+	@keyframes reveal-artwork {
+		0% {
+			opacity: 0%;
+			filter: brightness(1);
+		}
+		50% {
+			filter: brightness(1.45);
+			opacity: 40%;
+		}
+		100% {
+			filter: brightness(1);
+			opacity: 100%;
+		}
+	}
+	@keyframes reveal-artwork_tile {
+		0% {
+			opacity: inherit;
+			scale: 1;
+		}
+		50% {
+			filter: brightness(1.5);
+			scale: 1.1;
+		}
+		100% {
+			opacity: 100%;
+			scale: 1;
+		}
 	}
 </style>

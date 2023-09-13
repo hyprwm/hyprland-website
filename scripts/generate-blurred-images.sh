@@ -20,7 +20,8 @@ while IFS= read -r -d '' filepath; do
     # Modify colors with LUT
     magick convert -brightness-contrast ${brightness_boost}x40 -modulate 100,1000,100    "$filepath" "$generated_filename" 
     magick  "$generated_filename" "./hald-clut.color.io.png" -hald-clut "$generated_filename" 
-    magick convert -modulate 100,250,100   -scale 10% -gaussian-blur 0x20  -resize 1000% -quality 50   "$generated_filename" "$generated_filename" 
+    # Also make them smaller to reduce file size
+    magick convert -modulate 100,250,100   -scale 10% -gaussian-blur 0x20  -resize 500% -quality 50   "$generated_filename" "$generated_filename" 
     
 
     # magick convert  -scale 10%   -brightness-contrast ${brightness_boost}x25 -modulate 100,500,100  -gaussian-blur 0x20  -resize 1000%   "$filepath" "$generated_filename" 

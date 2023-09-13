@@ -34,6 +34,7 @@
 				src={creatorProfilePicture}
 				class="aspect-square h-6 rounded-full"
 				alt={creator + ' profile picture'}
+				loading="lazy"
 			/>
 			<div class="text-lg font-medium text-slate-300 transition-colors group-hover:text-white">
 				{creator}
@@ -43,7 +44,7 @@
 
 	<div class="image-wrapper">
 		<a class="rice" href={dotfilesLink} target="_blank">
-			<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" />
+			<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
 		</a>
 		<!-- blur background -->
 		<img
@@ -51,6 +52,7 @@
 			aria-hidden="true"
 			class="background-blurred"
 			alt={`${name} by ${creator} thumbnail`}
+			loading="lazy"
 		/>
 	</div>
 </div>
