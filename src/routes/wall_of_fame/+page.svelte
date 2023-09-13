@@ -53,10 +53,10 @@
 
 	<Contest name="Summer" number={2} date="May 2023" --color="orange">
 		<FamedRice
-			name="Unnamed"
+			name="Summer Gruv"
 			creator="end_4"
 			pretitel="#1"
-			dotfilesLink="https://github.com/end-4/dots-hyprland/tree/novelknock"
+			dotfilesLink="https://github.com/end-4/dots-hyprland/tree/summer-gruv"
 			creatorProfilePicture="https://avatars.githubusercontent.com/u/97237370?s=24&v=4"
 			thumbnail="/imgs/ricing_competitions/2/end_4.webp"
 		/>
@@ -64,7 +64,7 @@
 			name="Unnamed"
 			creator="Flafy"
 			pretitel="#2"
-			dotfilesLink="https://github.com/Flafy"
+			dotfilesLink="https://github.com/FlafyDev/flutter_background_bar"
 			creatorProfilePicture="https://avatars.githubusercontent.com/u/25975326?v=4"
 			thumbnail="/imgs/ricing_competitions/2/flafy.webp"
 		/>
@@ -83,7 +83,7 @@
 			name="Unnamed"
 			creator="Flafy"
 			pretitel="#1"
-			dotfilesLink="https://github.com/Flafy"
+			dotfilesLink="https://github.com/FlafyDev/flutter_workspaces_2"
 			creatorProfilePicture="https://avatars.githubusercontent.com/u/25975326?v=4"
 			thumbnail="/imgs/ricing_competitions/1/flafy.webp"
 		/>
@@ -96,10 +96,10 @@
 			thumbnail="/imgs/ricing_competitions/1/flicko.webp"
 		/>
 		<FamedRice
-			name="Apatheia"
+			name="Hyprland Winter"
 			creator="amadeus"
 			pretitel="#2 (ex aequo)"
-			dotfilesLink="https://github.com/AmadeusWM/dotfiles-hyprland"
+			dotfilesLink="https://github.com/AmadeusWM/hyprland-winter"
 			creatorProfilePicture="https://avatars.githubusercontent.com/u/63149896?s=48&v=4"
 			thumbnail="/imgs/ricing_competitions/1/amadeus.webp"
 		/>
