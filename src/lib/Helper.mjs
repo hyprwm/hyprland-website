@@ -95,3 +95,7 @@ export function getIsMobile() {
 export function getBlurredPath(path) {
 	return `${path.substring(0, path.lastIndexOf('/'))}/generated_${path.split('/').at(-1)}`
 }
+
+export function getRandom(array) {
+	return array.at(Math.floor(Math.random() * array.length))
+}

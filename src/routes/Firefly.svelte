@@ -5,7 +5,7 @@
 	import clsx from 'clsx'
 	import { getIsMobile } from '$lib/Helper.mjs'
 
-	// Idea: Boid behavior
+	// Currently this is unused. I left it in here, in case it would be useful in the future
 
 	const maxSize = 24
 	const minSize = 7
@@ -20,9 +20,6 @@
 
 	let x = 0
 	let y = 0
-
-	// TODO add mouse following behaviour - flock behaviour
-	// A couple following the mouse throughout the website
 
 	onMount(() => {
 		x = window.innerWidth / (Math.random() * 4) - maxSize * 6

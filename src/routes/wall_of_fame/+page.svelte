@@ -5,16 +5,16 @@
 	import colors from 'tailwindcss/colors'
 
 	const wisdoms = [
-		'炊き込みご飯',
+		'罰は米の硬さによる',
 		'米どころでの休日',
-		'マッサージライス',
+		'フォーバイデン米術',
 		'天国の米',
 		'ジーンズの中には何キロもの米が入っているから、毎日がトレーニングなんだ。',
 		'田んぼで撃たれたんだ！',
-		'田んぼでの作業',
+		'タイ式マッサージライス 秘伝のソース添え',
 		'国の保護による田んぼでの仕事',
 		'巨大な米ベースの子猫用フードがある。',
-		'スパイシー米麺',
+		'私たちは田んぼで一生懸命働いている。',
 		'激辛炊飯器',
 		'絶対にご飯を炊いた'
 	]
@@ -140,8 +140,6 @@
 		width: 100%;
 		margin-bottom: min(-10vh, -6rem);
 		background: radial-gradient(70% 50% at 50% 0%, theme(colors.cyan.500 / 50%), transparent);
-
-		animation: enter 1200ms ease-in-out;
 	}
 
 	.japanese {
@@ -152,7 +150,8 @@
 		align-items: center;
 		justify-content: center;
 		user-select: none;
-		animation: enter 1200ms ease-in-out;
+		animation: enter 200ms ease-in-out both;
+		z-index: -10;
 	}
 
 	.rice-symbol {
@@ -173,12 +172,14 @@
 		gap: 1rem;
 		z-index: -10;
 		opacity: 0.6;
+		margin-top: -2rem;
 		/* font-size: 1.5rem; */
 	}
 
 	.wisdom {
 		width: max-content;
 		height: max-content;
+		/* max-height: 15ch; */
 		text-align: center;
 		color: theme(colors.cyan.700);
 		text-shadow: 0px 0px 8px blue;

@@ -45,6 +45,7 @@
 	function onViewEnter() {
 		setTimeout(() => (hasEnteredView = true), 550)
 
+		// Only load the library if the element entered the view, to improve performance
 		import('interactjs').then(({ default: interact }) => {
 			interactionjs = interact(imageElement).draggable({
 				inertia: { resistance: lerp(5, 200, relativeSize) },
@@ -115,10 +116,7 @@
 		/>
 
 		{#if quote}
-			<div
-				class="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none rounded bg-slate-800/50 px-2 py-1 text-sm font-medium tracking-wide opacity-0 duration-150 group-hover:opacity-100"
-				aria-hidden="true"
-			>
+			<div class="quote" aria-hidden="true">
 				{quote}
 			</div>
 		{/if}
@@ -137,6 +135,10 @@
 				scale: 1.05;
 			}
 		}
+	}
+
+	.quote {
+		@apply pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none rounded bg-slate-800/50 px-2 py-1 text-sm font-medium tracking-wide opacity-0 duration-150 group-hover:opacity-100;
 	}
 
 	@keyframes reveal {
