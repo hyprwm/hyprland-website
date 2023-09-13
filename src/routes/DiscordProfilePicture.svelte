@@ -3,7 +3,7 @@
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
 	import { contextId as ctxId } from './CommunitySlice.svelte'
-	import { getIsMobile, lerp } from '$lib/Helper.mjs'
+	import { lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
 
 	/** @type {string} */
@@ -34,8 +34,10 @@
 		precision: 0.001
 	})
 
+	/** @type {HTMLImageElement}*/
 	let imageElement
 	let hasEnteredView = false
+	let hasImageLoaded = false
 
 	/** @type {import('interactjs').default} */
 	let interactionjs
@@ -72,11 +74,20 @@
 		})
 	}
 
+	onMount(() => {
+		// Nesecarry as the load image load event might not get fired when its already loaded
+		hasImageLoaded = hasImageLoaded || imageElement.complete
+	})
+
 	onDestroy(() => interactionjs?.off())
 </script>
 
 <div
-	class={clsx('absolute left-0 top-0 touch-none select-none ', containerClass)}
+	class={clsx(
+		'absolute left-0 top-0 touch-none select-none transition-opacity ',
+		containerClass,
+		hasImageLoaded ? 'opacity-100' : 'opacity-0'
+	)}
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
 	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
 	aria-hidden="true"
@@ -94,6 +105,7 @@
 		<img
 			class="group h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
 			bind:this={imageElement}
+			on:load={() => (hasImageLoaded = true)}
 			src={image}
 			alt="community profile picture"
 			aria-hidden="true"
