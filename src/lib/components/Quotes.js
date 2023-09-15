@@ -9,5 +9,29 @@ Lt. Dixon Piper:
 That's really f***ed up.
 
 MacGruber:
-Thanks.`
+Thanks.`,
+
+	`MacGruber:
+Looks like you're keeping your bod pretty tight.
+
+Frank Korver:
+You're looking pretty good yourself.
+
+MacGruber:
+Well, everday's a workout when you gotta carry around a 20 pound python in your jeans.
+
+Frank Korver:
+You and your dick comments.
+
+MacGruber:
+It's fun to say them.
+
+Frank Korver:
+It's fun to hear them.
+
+MacGruber:
+That's why I say them.
+
+Frank Korver:
+And that's why I listen.`
 ]

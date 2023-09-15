@@ -6,10 +6,11 @@
 	import '@fontsource-variable/work-sans'
 	import '@fontsource/ibm-plex-mono/500.css'
 	import { quotes } from '$lib/components/Quotes'
+	import { getRandom } from '$lib/Helper.mjs'
 
 	onMount(() => {
 		if (import.meta.env.PROD) {
-			console.log(quotes.at(Math.floor(Math.random() * quotes.length)))
+			console.log(getRandom(quotes))
 		}
 	})
 </script>

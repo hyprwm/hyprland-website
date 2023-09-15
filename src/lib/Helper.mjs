@@ -96,6 +96,7 @@ export function getBlurredPath(path) {
 	return `${path.substring(0, path.lastIndexOf('/'))}/generated_${path.split('/').at(-1)}`
 }
 
+/** Get a random item from an array */
 export function getRandom(array) {
 	return array.at(Math.floor(Math.random() * array.length))
 }

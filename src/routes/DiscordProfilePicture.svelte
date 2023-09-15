@@ -76,7 +76,7 @@
 	}
 
 	onMount(() => {
-		// Nesecarry as the load image load event might not get fired when its already loaded
+		// Nesecarry as the load image event might not get fired when its already loaded ( for example after a page reload )
 		hasImageLoaded = hasImageLoaded || imageElement.complete
 	})
 

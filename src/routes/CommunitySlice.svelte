@@ -162,7 +162,8 @@
 			image: '/imgs/profile_pictures/jacekpoz.svg',
 			coordinates: [180, 730],
 			size: 80,
-			class: 'outline-yellow-500 bg-orange-700'
+			class: 'outline-yellow-500 bg-orange-700',
+			quote: '"Piss blob"'
 		}
 	]
 

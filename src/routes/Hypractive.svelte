@@ -30,6 +30,7 @@
 	const MIN_LIFESPAN_TILE = 800
 	const MAX_TILES_PER_CLICK = 15
 	const MIN_TILES_PER_CLICK = 2
+	/** How fast the user has to click to progress */
 	const CLICK_EACH_MS = 400
 	const ASCENION_FALLOFF = -ASCENION_CLICKS / 20
 
@@ -40,8 +41,10 @@
 		switchMap((value) =>
 			merge(
 				of(value),
+
+				/** If no new value comes in, start decreasing the progress */
 				interval(CLICK_EACH_MS + 100).pipe(
-					take(ASCENION_CLICKS),
+					take(ASCENION_CLICKS), // Prevent this interval from running forever
 					map(() => ASCENION_FALLOFF)
 				)
 			)
@@ -49,10 +52,12 @@
 		scan((level, value) => Math.min(ASCENION_CLICKS, Math.max(level + value, 0))),
 		startWith(0)
 	)
+	/** How many clicks are left in percent */
 	const relativeLevel$ = clickLevel$.pipe(map((clicks) => clicks / ASCENION_CLICKS))
-	const cubibRelativeLevel$ = relativeLevel$.pipe(map(cubicInOut))
+	/** Tween/Ease the percents for a nicer look */
+	const cubicRelativeLevel$ = relativeLevel$.pipe(map(cubicInOut))
 	const expoRelativeLevel$ = relativeLevel$.pipe(map(expoInOut))
-	// const hasAscended$ = of(true)
+
 	const hasAscended$ = relativeLevel$.pipe(
 		filter((level) => level >= 1),
 		first(),
@@ -64,7 +69,8 @@
 	const tiles$ = click$.pipe(
 		switchMap(() =>
 			merge(
-				of(Math.floor(lerp(MIN_TILES_PER_CLICK, MAX_TILES_PER_CLICK, $cubibRelativeLevel$))),
+				of(Math.floor(lerp(MIN_TILES_PER_CLICK, MAX_TILES_PER_CLICK, $cubicRelativeLevel$))),
+				// Remove the tiles after a timeout, if no new ones came in
 				timer(MAX_LIFESPAN_TILE)
 			)
 		),
@@ -75,9 +81,9 @@
 		startWith([])
 	)
 
-	$: hue = lerp(200, 130, $cubibRelativeLevel$)
-	$: scale = lerp(0.9, 2, $cubibRelativeLevel$)
-	$: translateY = lerp(0, 10, $cubibRelativeLevel$)
+	$: hue = lerp(200, 130, $cubicRelativeLevel$)
+	$: scale = lerp(0.9, 2, $cubicRelativeLevel$)
+	$: translateY = lerp(0, 10, $cubicRelativeLevel$)
 
 	/** @type {HTMLDivElement} */
 	let containerElement
@@ -109,7 +115,7 @@
 	<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10">
 		{#each $tiles$ as _}
 			<GitTile
-				lifeSpan={lerp(MIN_LIFESPAN_TILE, MAX_LIFESPAN_TILE, $cubibRelativeLevel$)}
+				lifeSpan={lerp(MIN_LIFESPAN_TILE, MAX_LIFESPAN_TILE, $cubicRelativeLevel$)}
 				maxSpeed={lerp(10, 38, $expoRelativeLevel$)}
 				minSpeed={lerp(1, 9, $expoRelativeLevel$)}
 			/>

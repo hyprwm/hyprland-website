@@ -12,6 +12,7 @@
 	let enabled = false
 
 	function setEnabled({ detail }) {
+		// Show the effect when the user scrolls in and keep it enabled until the user scrolls up from it again
 		const { inView, scrollDirection } = detail
 		const isScrollingUp = scrollDirection.vertical === 'up'
 

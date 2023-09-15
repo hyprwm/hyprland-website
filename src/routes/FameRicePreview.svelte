@@ -10,7 +10,7 @@
 	/** @type {string | undefined} */
 	export let containerClass = undefined
 	/** @type {string}
-	 * The path to the image. Usually the file within `static`, but can also be an URL
+	 * The path to the image. Usually the file within `static`, but can also be an URL. Defaults to `generated_<image>`
 	 */
 	export let blurredBackground = undefined
 </script>
