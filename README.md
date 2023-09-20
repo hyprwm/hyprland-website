@@ -6,11 +6,16 @@ If you are here to Contribute to the Wiki, [click here](https://github.com/hyprw
 
 ## Contributions
 
-feel free
+Feel free
 
 ## Requirements
 
 `pnpm` for package management.
+
+## Development
+
+- `pnpm dev` To start the dev server
+- `pnpm build` To build the static site
 
 ## Credits
 
