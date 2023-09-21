@@ -47,7 +47,7 @@
 			href="https://wiki.hyprland.org/Getting-Started/Installation/#packages"
 			class="mt-10"
 		>
-			<Button size="lg" type="fancyOutline">Install other</Button>
+			<Button size="lg" type="fancyOutline">Other options</Button>
 		</a>
 	</div>
 </section>
