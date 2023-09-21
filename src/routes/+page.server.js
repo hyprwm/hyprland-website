@@ -12,12 +12,6 @@ function getHeroBackgroundTiles() {
 	const workspaceHeight = 240
 	const gapLength = 32
 	const colors = [baseColors.blue[500], baseColors.cyan[400], baseColors.sky[500]]
-	const images = [
-		'/imgs/chan/joy.svg',
-		'/imgs/chan/surprise.svg',
-		'/imgs/chan/tongueout.svg',
-		'/imgs/waylnad.webp'
-	]
 
 	const leftColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
 
@@ -56,16 +50,11 @@ function getHeroBackgroundTiles() {
 	}
 
 	function generateTile() {
-		return { color: getRandomColor(), image: Math.random() > 0.7 ? getRandomImage() : undefined }
+		return { color: getRandomColor() }
 	}
 
 	/** @returns {string} */
 	function getRandomColor() {
 		return colors.at(Math.floor(Math.random() * colors.length))
-	}
-
-	/** @returns {string} */
-	function getRandomImage() {
-		return images.at(Math.floor(Math.random() * images.length))
 	}
 }
