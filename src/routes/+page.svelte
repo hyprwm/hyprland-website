@@ -23,7 +23,7 @@
 
 	<WallOfFameSlice />
 
-	<!-- <Community /> -->
+	<Community />
 
 	<InstallSlice />
 </div>

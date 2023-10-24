@@ -62,6 +62,16 @@
 		>
 			<li>
 				<a
+					href="https://discord.com/invite/hQ9XvMUjjr"
+					class="social-icon"
+					aria-label="Join us on Discord"
+					target="_blank"
+				>
+					<DiscordIcon class="h-full w-full" />
+				</a>
+			</li>
+			<li>
+				<a
 					href="https://github.com/hyprwm/Hyprland"
 					class="social-icon"
 					aria-label="Go to Hyprlands Github"

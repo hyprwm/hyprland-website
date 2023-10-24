@@ -56,8 +56,16 @@
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<div class="pretitle" font-bold>Github</div>
+			<div class="pretitle" font-bold>Socials</div>
 			<ul class="flex gap-6">
+				<li class="">
+					<a
+						href="https://discord.com/invite/hQ9XvMUjjr"
+						class="text-slate-400 hover:text-slate-200"
+						aria-label="Join us on Discord"
+						target="_blank"><DiscordIcon class="h-12 w-12 " /></a
+					>
+				</li>
 				<li class="">
 					<a
 						href="https://github.com/hyprwm/Hyprland"
