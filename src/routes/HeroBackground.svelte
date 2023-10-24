@@ -20,8 +20,13 @@
 						<div class="workspace">
 							{#each workspace as tiles}
 								<div class="tiles">
-									{#each tiles as { color }}
-										<div class="tile" style:--color={color}></div>
+									{#each tiles as { color, image }}
+										<div
+											class="tile"
+											style:--color={color}
+											class:with-image={image}
+											style:--image={`url(${image})`}
+										></div>
 									{/each}
 								</div>
 							{/each}
@@ -38,8 +43,13 @@
 						<div class="workspace">
 							{#each workspace as tiles}
 								<div class="tiles">
-									{#each tiles as { color }}
-										<div class="tile" style:--color={color}></div>
+									{#each tiles as { color, image }}
+										<div
+											class="tile"
+											style:--color={color}
+											class:with-image={image}
+											style:--image={`url(${image})`}
+										></div>
 									{/each}
 								</div>
 							{/each}
@@ -169,6 +179,23 @@
 			animation: reveal-artwork_tile calc(var(--reveal-length) + 280ms)
 				cubic-bezier(1, -0.4, 0.165, 1) forwards;
 		}
+
+		&.with-image::after {
+			content: ' ';
+			position: absolute;
+			inset: 0;
+			background-image: var(--image);
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			opacity: 0;
+			transition: opacity 1520ms ease-in-out;
+		}
+		&:hover::after {
+			animation: reveal-artwork var(--reveal-length) ease-in-out 400ms both;
+			opacity: 1;
+			transition: opacity 1520ms ease-in-out;
+		}
 	}
 
 	.top-light {
@@ -186,5 +213,34 @@
 		left: 0;
 		pointer-events: none;
 		contain: strict;
+	}
+
+	@keyframes reveal-artwork {
+		0% {
+			opacity: 0%;
+			filter: brightness(1);
+		}
+		50% {
+			filter: brightness(1.45);
+			opacity: 40%;
+		}
+		100% {
+			filter: brightness(1);
+			opacity: 100%;
+		}
+	}
+	@keyframes reveal-artwork_tile {
+		0% {
+			opacity: inherit;
+			scale: 1;
+		}
+		50% {
+			filter: brightness(1.5);
+			scale: 1.1;
+		}
+		100% {
+			opacity: 100%;
+			scale: 1;
+		}
 	}
 </style>
