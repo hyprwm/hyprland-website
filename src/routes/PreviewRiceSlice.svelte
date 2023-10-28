@@ -106,8 +106,8 @@
 		contain: layout style content;
 	}
 	.rice-video {
-		@apply mx-3  rounded-xl      transition-all;
-		transition-duration: 1460ms;
+		@apply mx-3  rounded-xl;
+		transition: all cubic-bezier(0.9, -1, 0.065, 1.8) 1060ms;
 		position: relative;
 		box-shadow: 0px 0px 44px theme(colors.primary / 80%);
 		border: solid 2px theme(colors.sky.400);
@@ -115,8 +115,9 @@
 		background: theme(colors.cyan.300 / 70%);
 
 		& video {
-			@apply transition-opacity;
-			transition-duration: 1460ms;
+			transition-property: opacity;
+			transition-duration: inherit;
+			transition-timing-function: inherit;
 			opacity: 0.3;
 		}
 
