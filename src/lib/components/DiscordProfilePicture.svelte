@@ -2,7 +2,7 @@
 	import clsx from 'clsx'
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
-	import { contextId as ctxId } from './CommunitySlice.svelte'
+	import { contextId as ctxId } from '../../routes/CommunitySlice.svelte'
 	import { lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
 
@@ -22,6 +22,13 @@
 	export let contextId = ctxId
 	export let isAnimating = true
 
+	/** @type {HTMLElement}*/
+	export let element = undefined
+	/** @type {HTMLImageElement}*/
+	export let imageWrapper
+	/** @type {HTMLImageElement}*/
+	export let imageElement
+
 	const { biggestSize, getSectionElement } = getContext(contextId)
 	const dispatch = createEventDispatcher()
 
@@ -34,8 +41,6 @@
 		precision: 0.001
 	})
 
-	/** @type {HTMLImageElement}*/
-	let imageElement
 	let hasEnteredView = false
 	let hasImageLoaded = false
 
@@ -92,6 +97,7 @@
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
 	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
 	aria-hidden="true"
+	bind:this={element}
 >
 	<div
 		class={clsx(
@@ -103,17 +109,20 @@
 		class:_animate={isAnimating && hasEnteredView}
 		on:inview_enter={onViewEnter}
 	>
-		<img
-			class="group h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
-			bind:this={imageElement}
-			on:load={() => (hasImageLoaded = true)}
-			src={image}
-			alt="community profile picture"
-			aria-hidden="true"
-			on:mouseenter={(event) => dispatch('hover', event)}
-			class:hover:scale-125={!!quote}
-			loading="lazy"
-		/>
+		<div class="" bind:this={imageWrapper}>
+			<img
+				class="group h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
+				bind:this={imageElement}
+				on:load={() => (hasImageLoaded = true)}
+				src={image}
+				alt="community profile picture"
+				aria-hidden="true"
+				on:mouseenter={(event) => dispatch('hover', event)}
+				class:hover:scale-125={!!quote}
+				loading="lazy"
+			/>
+			<slot />
+		</div>
 
 		{#if quote}
 			<div class="quote" aria-hidden="true">

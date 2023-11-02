@@ -20,7 +20,7 @@
 	import GitTile from '$lib/components/GitTile.svelte'
 	import { lerp } from '$lib/Helper.mjs'
 	import { cubicInOut, expoInOut } from 'svelte/easing'
-	import DiscordProfilePicture from './DiscordProfilePicture.svelte'
+	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { setContext } from 'svelte'
 
 	const click$ = new Subject()

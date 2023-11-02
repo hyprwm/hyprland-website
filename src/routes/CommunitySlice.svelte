@@ -5,10 +5,11 @@
 <script>
 	import Button from '$lib/components/Button.svelte'
 	import DiscordIcon from '~icons/prime/discord'
-	import DiscordProfilePicture from './DiscordProfilePicture.svelte'
+	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { setContext } from 'svelte'
 	import Title from '$lib/components/Title.svelte'
 	import background from '$lib/images/community-bg.webp'
+	import amongUsGreenImage from '$lib/images/amongus/green.webp'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -135,10 +136,10 @@
 			class: 'outline-green-500'
 		},
 		{
-			image: '/imgs/profile_pictures/qwaranou.webp',
+			image: amongUsGreenImage,
 			coordinates: [873, 224],
 			size: 79,
-			class: 'outline-slate-500'
+			class: 'outline-green-500'
 		},
 		{
 			image: '/imgs/profile_pictures/SimplyKyle!.webp',
@@ -208,8 +209,8 @@
 		</a>
 	</div>
 
-	<div class="absolute w-[1024px]">
-		<div class="flex h-full origin-bottom-right flex-wrap gap-4">
+	<div class="absolute w-[1024px] select-none">
+		<div class="flex h-full origin-bottom-right select-none flex-wrap gap-4">
 			{#each profiles as { onDragEnd, onDragStart, onHover, ...props }}
 				<DiscordProfilePicture
 					{...props}
@@ -222,7 +223,7 @@
 	</div>
 	<img
 		src={background}
-		class="absolute top-0 -z-10 min-w-[1400px]"
+		class="absolute top-0 -z-10 min-w-[1400px] select-none"
 		alt=""
 		aria-hidden="true"
 		loading="lazy"

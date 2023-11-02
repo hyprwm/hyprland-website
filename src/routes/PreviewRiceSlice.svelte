@@ -43,7 +43,7 @@
 		use:inview={{ threshold: 0.5 }}
 		on:inview_enter={() => {
 			isVisible = true
-			videoElement.play()
+			!isPaused && videoElement.play()
 		}}
 		on:inview_leave={() => {
 			isVisible = false
