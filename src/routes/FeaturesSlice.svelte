@@ -48,7 +48,7 @@
 	}
 </script>
 
-<section class="flex flex-col items-center px-3 md:px-8">
+<section class="relative flex flex-col items-center px-3 md:px-8">
 	<Title>
 		<span slot="pre">TLDR</span>
 		<span slot="title">Features</span>
@@ -134,7 +134,7 @@
 		</FeatureCard>
 	</div>
 
-	<div class="z-10 mt-14 flex flex-col flex-wrap justify-center gap-8 sm:flex-row">
+	<div class="z-10 mt-14 flex flex-col flex-wrap justify-center gap-8 text-lg sm:flex-row">
 		<a
 			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
 			target="_blank"

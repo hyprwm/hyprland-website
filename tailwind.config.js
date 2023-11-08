@@ -5,7 +5,7 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
-			colors: { black: '#0D0E0F', primary: '#58E1FF', secondary: '#00A2F8' },
+			colors: { black: '#0b0d0e', primary: '#58E1FF', secondary: '#00A2F8' },
 			fontFamily: {
 				...fontFamily,
 				sans: ['Work Sans Variable', ...fontFamily['sans']],
