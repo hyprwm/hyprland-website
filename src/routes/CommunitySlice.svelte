@@ -36,7 +36,7 @@
 		},
 		{
 			image: '/imgs/profile_pictures/Mathisbuilder.webp',
-			coordinates: [568, 568],
+			coordinates: [568, 594],
 			size: 120,
 			class: 'outline-amber-500'
 		},
@@ -78,8 +78,8 @@
 		},
 		{
 			image: '/imgs/profile_pictures/etrigan63.webp',
-			coordinates: [135, 538],
-			size: 93,
+			coordinates: [824, 738],
+			size: 58,
 			class: 'outline-amber-500'
 		},
 		{
@@ -106,7 +106,7 @@
 		},
 		{
 			image: '/imgs/profile_pictures/7.webp',
-			coordinates: [273, 687],
+			coordinates: [273, 760],
 			size: 52,
 			quote: '"meds"',
 			class: 'outline-cyan-500'
@@ -155,16 +155,33 @@
 		},
 		{
 			image: '/imgs/profile_pictures/flafy.webp',
-			coordinates: [340, 790],
-			size: 80,
+			coordinates: [147, 553],
+			size: 87,
 			class: 'outline-pink-500'
 		},
 		{
+			image: '/imgs/profile_pictures/vagahbond.webp',
+			coordinates: [65, 643],
+			size: 74,
+			class: 'outline-amber-500 '
+		},
+		{
+			image: '/imgs/profile_pictures/flick0.webp',
+			coordinates: [263, 653],
+			size: 65,
+			class: 'outline-stone-500 '
+		},
+		{
 			image: '/imgs/profile_pictures/jacekpoz.svg',
-			coordinates: [180, 730],
+			coordinates: [893, 622],
 			size: 80,
-			class: 'outline-yellow-500 bg-orange-700',
-			quote: '"Piss blob"'
+			class: 'outline-yellow-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/aylur.webp',
+			coordinates: [354, 798],
+			size: 80,
+			class: 'outline-amber-500 bg-black '
 		}
 	]
 
