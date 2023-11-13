@@ -2,10 +2,8 @@
 	import { inview } from 'svelte-inview'
 	import previewRice from '$lib/videos/end_4_rice_intro.mp4'
 	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.webp'
-	import PauseIcon from '~icons/mingcute/pause-circle-line'
+	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import clsx from 'clsx'
-	import { onMount } from 'svelte'
-	import { getIsMobile } from '$lib/Helper.mjs'
 
 	/** @type HTMLVideoElement */
 	let videoElement
@@ -26,14 +24,6 @@
 	function makeFullscreen() {
 		videoElement.requestFullscreen()
 	}
-
-	onMount(() => {
-		const isMobile = getIsMobile()
-
-		if (isMobile) {
-			//
-		}
-	})
 </script>
 
 <section class={$$restProps.class} class:isVisible>
@@ -85,7 +75,7 @@
 				<div
 					class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100"
 				>
-					<PauseIcon class="h-full w-full" />
+					<PlayIcon class="h-full w-full" />
 				</div>
 			{/if}
 		</div>
