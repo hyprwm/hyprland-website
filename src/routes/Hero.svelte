@@ -18,7 +18,7 @@
 </script>
 
 <section
-	class="relative flex h-max min-h-[100svh] w-full flex-col items-center justify-center overflow-x-hidden"
+	class="relative flex h-[100svh] min-h-[52rem] w-full flex-col items-center justify-center overflow-x-hidden"
 	use:inview
 	on:inview_change={({ detail: { inView } }) => {
 		isVisible = inView
@@ -26,9 +26,9 @@
 >
 	<!-- Hero text and logo -->
 	<div
-		class="pointer-events-none z-10 flex h-screen min-h-max flex-col items-center justify-center px-5"
+		class="pointer-events-none z-10 flex h-full min-h-max flex-col items-center justify-center px-5"
 	>
-		<div class="mb-8 flex flex-col items-center gap-6 text-center sm:-mt-20">
+		<div class="-mt-10 mb-8 flex flex-col items-center gap-6 text-center sm:-mt-20">
 			<img
 				src={Logo}
 				alt="Hyprland Logo"
@@ -38,15 +38,15 @@
 			/>
 		</div>
 		<h1
-			class="ani-in title pointer-events-auto mb-4 max-w-[20ch] text-center text-lg font-medium fill-mode-backwards [animation-delay:384ms] sm:text-2xl"
+			class="ani-in title pointer-events-auto mb-4 max-w-[20ch] text-center !leading-[1.25] fill-mode-backwards [animation-delay:384ms]"
 		>
 			Tiling compositor <br /><span class="hyprgradient title-gradient">with the looks</span>
 		</h1>
 		<p
-			class="ani-in mb-8 text-center text-xl font-medium text-slate-300 fill-mode-backwards [animation-delay:794ms] sm:max-w-md sm:px-0 md:max-w-lg"
+			class="ani-in mb-8 text-center text-xl font-medium text-slate-300 fill-mode-backwards [animation-delay:794ms] sm:max-w-lg sm:px-0 md:max-w-lg"
 		>
 			Hyprland provides the latest Wayland features, dynamic tiling, all the eyecandy, powerful
-			plugins<br /> and much more.
+			plugins and much more.
 		</p>
 
 		<div
@@ -77,7 +77,7 @@
 			theme(colors.cyan.500 / 0%)
 		);
 		background-clip: text;
-		@apply text-6xl font-bold tracking-tight  md:text-7xl;
+		@apply text-4xl font-bold sm:text-5xl md:text-7xl;
 	}
 
 	.title-gradient {
