@@ -5,6 +5,7 @@
 	import Hero from './Hero.svelte'
 	import InstallSlice from './InstallSlice.svelte'
 	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
+	import PluginsSlice from './PluginsSlice.svelte'
 
 	export let data
 </script>
@@ -20,6 +21,8 @@
 	<PreviewRiceSlice class="mb-12" />
 
 	<FeaturesSlice />
+
+	<PluginsSlice />
 
 	<WallOfFameSlice />
 
