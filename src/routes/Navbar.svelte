@@ -20,15 +20,15 @@
 >
 	<a
 		href="/"
-		class="flex items-center gap-4 rounded-full py-1 font-london text-sm font-bold tracking-wider text-white lg:bg-black/50 lg:px-4 lg:py-2 lg:backdrop-blur"
+		class="flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 font-london text-sm font-bold tracking-wider text-white backdrop-blur"
 	>
 		<img src={logo} alt="Hyprland Logo" class="h-8 w-6 object-contain" /><span
-			class="hidden text-lg tracking-widest lg:mt-1 lg:block">Hyprland</span
+			class="mt-1 text-lg tracking-widest">Hyprland</span
 		></a
 	>
 
 	<button
-		class="z-50 rounded-full bg-black/10 p-2 md:backdrop-blur lg:hidden"
+		class="z-50 rounded-full bg-black/50 p-2 md:backdrop-blur lg:hidden"
 		on:click={toggleExpanded}
 		aria-label="Open Navigation"
 	>
