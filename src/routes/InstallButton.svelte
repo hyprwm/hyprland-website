@@ -25,7 +25,7 @@
 
 <div class="group flex flex-col items-center gap-2 md:flex-row md:gap-4">
 	<div
-		class="flex h-32 w-32 flex-col items-center justify-center gap-3 rounded-full text-lg font-medium text-primary transition-transform group-focus-within:-translate-y-1"
+		class="relative flex h-32 w-32 flex-col items-center justify-center gap-3 rounded-full text-lg font-medium text-primary transition-transform group-focus-within:-translate-y-1"
 	>
 		<img
 			src={image}
@@ -33,6 +33,7 @@
 			alt="Distrubution Logo"
 			loading="lazy"
 		/>{name}
+		<slot name="imageExtra" />
 	</div>
 
 	<div class="relative mb-2 flex flex-col font-mono">

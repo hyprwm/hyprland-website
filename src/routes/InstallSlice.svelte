@@ -8,6 +8,7 @@
 	import InstallButton from './InstallButton.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import Title from '$lib/components/Title.svelte'
+	import amongus from '$lib/images/amongus/green.webp'
 </script>
 
 <section class="pb-6">
@@ -38,8 +39,16 @@
 			>
 			<InstallButton name="FreeBSD" command="pkg install hyprland" image={bsdLogo} />
 			<InstallButton name="openSUSE" command="zypper in hyprland" image={suseLogo}
-				><div slot="extra">or install “hyprland” via YaST2 Software.</div></InstallButton
-			>
+				><div slot="extra">or install “hyprland” via YaST2 Software.</div>
+
+				<img
+					class=" absolute inset-0 -z-10 translate-y-1 scale-90 opacity-0 transition-all duration-700 [transition-delay:2s] group-hover:-translate-y-0 group-hover:scale-100 group-hover:opacity-90"
+					src={amongus}
+					slot="imageExtra"
+					alt=""
+					srcset=""
+				/>
+			</InstallButton>
 		</div>
 
 		<a
