@@ -55,6 +55,8 @@
 		on:pause={() => (isPaused = true)}
 		{autoplay}
 		on:play={() => (isPaused = false)}
+		on:mouseenter
+		on:mouseleave
 	/>
 
 	<button on:click={makeFullscreen} class="absolute bottom-2 left-2 z-10">

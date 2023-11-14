@@ -5,11 +5,11 @@
 	import IconLinkOut from '~icons/mingcute/external-link-line'
 	import clsx from 'clsx'
 	import Video from '$lib/components/Video.svelte'
-	import { fade } from 'svelte/transition'
 
 	/** @type {HTMLVideoElement[]}*/
 	const videos = []
 	let activeIndex = 0
+	let isHoveringVideo = false
 
 	const items = [
 		{
@@ -39,11 +39,28 @@
 	function pauseVideos() {
 		videos.forEach((video) => video.pause())
 	}
+	function slideVideoIn() {
+		if (window.innerWidth < 1024) return // LG breakpoint
+		if (window.innerWidth > 2215) return // Video is fully visible
+
+		isHoveringVideo = true
+	}
+	function slideVideoOut() {
+		if (!isHoveringVideo) return
+		isHoveringVideo = false
+	}
 </script>
 
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
-	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:gap-24">
-		<div class="z-10 flex flex-col gap-10 px-6">
+	<div
+		class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 transition-all lg:grid-cols-2 lg:gap-24"
+	>
+		<div
+			class={clsx(
+				'z-10 flex flex-col gap-10 px-6 transition-transform delay-75 duration-300',
+				isHoveringVideo && '-translate-x-32'
+			)}
+		>
 			<div class="txt-shadow_ mt-8 flex flex-col gap-6">
 				<h2 class=" text-6xl font-bold">Unlock full power</h2>
 				<p class="text-lg font-bold text-slate-300">
@@ -95,7 +112,12 @@
 		</div>
 
 		<!-- Prevent the video from making the container big on small phones. 300px seem to work well for the text -->
-		<div class="z-10 h-[20rem] min-w-0 sm:h-[25rem] md:h-[30rem] lg:h-[37rem]">
+		<div
+			class={clsx(
+				'z-10 h-[20rem] min-w-0 transition-transform sm:h-[25rem] md:h-[30rem] lg:h-[37rem]',
+				isHoveringVideo && '-translate-x-56'
+			)}
+		>
 			{#each items as { src, poster }, index}
 				<Video
 					{src}
@@ -107,6 +129,8 @@
 					on:pause={pauseVideos}
 					on:play={playVideos}
 					videoClass="h-[inherit] aspect-video"
+					on:mouseenter={slideVideoIn}
+					on:mouseleave={slideVideoOut}
 				/>
 			{/each}
 			<div
@@ -134,5 +158,9 @@
 		text-shadow:
 			0px 0px 12px theme(colors.black / 90%),
 			0px 0px 24px theme(colors.black / 50%);
+	}
+
+	.slideToLeft {
+		margin-left: -15rem;
 	}
 </style>
