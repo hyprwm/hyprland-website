@@ -10,11 +10,6 @@
 	export let data
 </script>
 
-<svelte:head>
-	<title>Hyprland</title>
-	<meta name="description" content="Hyprland - Dynamic tiling Wayland compositor with the looks." />
-</svelte:head>
-
 <Hero backgroundData={data.backgroundData} />
 
 <div class="-mt-8 flex flex-col items-center gap-20 md:gap-[16rem]">
@@ -30,6 +25,16 @@
 
 	<InstallSlice />
 </div>
+
+<svelte:head>
+	<title>Hyprland</title>
+	<meta name="description" content="Hyprland - Dynamic tiling Wayland compositor with the looks." />
+	<meta
+		property="og:description"
+		content="Hyprland - Dynamic tiling Wayland compositor with the looks."
+	/>
+	<meta property="og:title" content="Hyprland: Dynamic tiling window compositor with the looks" />
+</svelte:head>
 
 <style>
 </style>

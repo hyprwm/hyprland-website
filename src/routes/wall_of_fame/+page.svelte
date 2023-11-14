@@ -123,6 +123,16 @@
 	</Contest>
 </section>
 
+<svelte:head>
+	<title>Wall of Fame</title>
+	<meta name="description" content="The winners from Hyprlands rice contests" />
+	<meta property="og:title" content="Hyprland's Wall of Fame" />
+	<meta
+		property="og:description"
+		content="The chronicles of the triumphant from bygone rice contests held within our Discord"
+	/>
+</svelte:head>
+
 <style lang="postcss">
 	section {
 		@apply relative flex min-h-screen flex-col items-center justify-center gap-14 overflow-hidden;
