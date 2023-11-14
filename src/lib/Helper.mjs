@@ -101,16 +101,3 @@ export function getBlurredPath(path) {
 export function getRandom(array) {
 	return array.at(Math.floor(Math.random() * array.length))
 }
-
-const fps = 1000 / 60 // 60 frames per second
-export const mousePosition$ = new Observable((subscriber) => {
-	// eslint-disable-next-line no-undef
-	if (globalThis.document === undefined) {
-		return
-	}
-	document.addEventListener('mousemove', nextPostion)
-	function nextPostion({ clientX, clientY }) {
-		subscriber.next({ clientX, clientY })
-	}
-	return () => document?.removeEventListener('mousemove', nextPostion)
-}).pipe(throttleTime(fps), share(), startWith({ clientX: 0, clientY: 0 }))

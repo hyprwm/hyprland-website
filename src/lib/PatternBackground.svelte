@@ -1,6 +1,7 @@
 <script>
 	import {
 		BehaviorSubject,
+		Subject,
 		combineLatest,
 		debounceTime,
 		delay,
@@ -14,7 +15,6 @@
 	} from 'rxjs'
 	import { onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
-	import { mousePosition$ } from './Helper.mjs'
 
 	/** The start position of the gradient. */
 	export let startPosition = [-1000, -1000]
@@ -23,10 +23,8 @@
 	let wrapperElement = undefined
 	/** @type {import('rxjs').BehaviorSubject<boolean>}*/
 	const isMouseOver$ = new BehaviorSubject(false).pipe(
-		switchMap((isTrue) => {
-			// Prevent elements over the background to disable the movement of the gradient, as the mouse will not be over the background anymore
-			return isTrue ? of(isTrue) : timer(5500).pipe(map(() => false))
-		}),
+		// Do not harshly stop updating the gradient when the mouse leaves, but wait a bit
+		switchMap((isTrue) => (isTrue ? of(isTrue) : timer(1500).pipe(map(() => false)))),
 		distinctUntilChanged()
 	)
 
@@ -37,6 +35,8 @@
 		map(() => wrapperElement.getBoundingClientRect().width * 3),
 		startWith(800)
 	)
+	/** @type {import('rxjs').Subject< {clientX: number, clientY: number} >}*/
+	const mousePosition$ = new Subject()
 
 	const gradientPosition$ = combineLatest([mousePosition$, gradientSize$, isMouseOver$]).pipe(
 		filter(([_, __, isMouseOver]) => isMouseOver),
@@ -65,14 +65,33 @@
 
 		gradientSize$.next()
 	}
+
+	function startTrackingMouse() {
+		if ($isMouseOver$) return
+
+		document.addEventListener('mousemove', track)
+	}
+
+	function track({ clientX, clientY }) {
+		mousePosition$.next({ clientX, clientY })
+	}
+
+	onDestroy(() => {
+		document.removeEventListener('mousemove', track)
+	})
 </script>
 
 <svelte:window on:resize={resizeGradient} />
 
 <div
 	class={$$props.class + '  wrapper'}
-	on:mouseleave={() => isMouseOver$.next(false)}
-	on:mousemove={() => isMouseOver$.next(true)}
+	on:mouseenter={startTrackingMouse}
+	on:mouseleave={({ clientX, clientY, currentTarget }) => {
+		const { x, width, y, height } = currentTarget.getBoundingClientRect()
+		const isMouseStillOver =
+			x <= clientX && y <= clientY && x + width > clientX && y + height > clientY
+		isMouseOver$.next(isMouseStillOver)
+	}}
 	aria-hidden
 	bind:this={wrapperElement}
 >
