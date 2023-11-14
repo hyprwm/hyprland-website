@@ -3,7 +3,6 @@
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import { inview } from 'svelte-inview'
 	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
-	import { onMount } from 'svelte'
 
 	/** @type {string} */
 	export let src
@@ -55,8 +54,6 @@
 		on:pause={() => (isPaused = true)}
 		{autoplay}
 		on:play={() => (isPaused = false)}
-		on:mouseenter
-		on:mouseleave
 	/>
 
 	<button on:click={makeFullscreen} class="absolute bottom-2 left-2 z-10">

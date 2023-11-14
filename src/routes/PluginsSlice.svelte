@@ -118,21 +118,26 @@
 				isHoveringVideo && '-translate-x-56'
 			)}
 		>
-			{#each items as { src, poster }, index}
-				<Video
-					{src}
-					{poster}
-					autoplay
-					bind:videoElement={videos[index]}
-					class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
-					hidden={index !== activeIndex}
-					on:pause={pauseVideos}
-					on:play={playVideos}
-					videoClass="h-[inherit] aspect-video"
-					on:mouseenter={slideVideoIn}
-					on:mouseleave={slideVideoOut}
-				/>
-			{/each}
+			<div
+				class="h-full w-full"
+				on:mouseenter={slideVideoIn}
+				on:mouseleave={slideVideoOut}
+				role="complementary"
+			>
+				{#each items as { src, poster }, index}
+					<Video
+						{src}
+						{poster}
+						autoplay
+						bind:videoElement={videos[index]}
+						class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
+						hidden={index !== activeIndex}
+						on:pause={pauseVideos}
+						on:play={playVideos}
+						videoClass="h-[inherit] aspect-video"
+					/>
+				{/each}
+			</div>
 			<div
 				class="pt-5 text-sm font-medium text-slate-300 md:text-base [&>a:hover]:text-cyan-300 [&>a:hover]:underline [&>a]:font-bold"
 			>
