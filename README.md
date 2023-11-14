@@ -10,14 +10,15 @@ Feel free
 
 ## Requirements
 
-`pnpm` for package management.
+- `pnpm` for the package management.
+- `imagemagick` to generate blurred background images.
 
 ## Development
 
 - `pnpm dev` To start the dev server
-- `pnpm build` To build the static site
+- `pnpm build` To build the static site into `./build`
 
 ## Credits
 
-[VDawg](https://github.com/Visual-Dawg) - for the updated site and design
-[System-x64](https://github.com/System-x64) - for the original site code
+- [VDawg](https://github.com/Visual-Dawg) - for the new site and design.
+- [System-x64](https://github.com/System-x64) - for the original site code
