@@ -147,7 +147,7 @@
 	}
 
 	.quote {
-		@apply pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none rounded bg-slate-800/50 px-2 py-1 text-sm font-medium tracking-wide opacity-0 duration-150 group-hover:opacity-100;
+		@apply pointer-events-none absolute -top-6 left-1/2 min-w-max -translate-x-1/2 select-none rounded bg-slate-800/50 px-2 py-1 text-sm font-medium tracking-wide opacity-0 duration-150 group-hover:opacity-100;
 	}
 
 	@keyframes reveal {

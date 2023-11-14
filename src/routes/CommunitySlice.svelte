@@ -175,7 +175,8 @@
 			image: '/imgs/profile_pictures/jacekpoz.svg',
 			coordinates: [893, 622],
 			size: 80,
-			class: 'outline-yellow-500 bg-black '
+			class: 'outline-yellow-500 bg-black ',
+			quote: '"piss blob"'
 		},
 		{
 			image: '/imgs/profile_pictures/aylur.webp',
