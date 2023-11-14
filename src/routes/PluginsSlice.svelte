@@ -53,12 +53,12 @@
 
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
 	<div
-		class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 transition-all lg:grid-cols-2 lg:gap-24"
+		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 transition-all lg:grid-cols-2 lg:gap-24"
 	>
 		<div
 			class={clsx(
 				'z-10 flex flex-col gap-10 px-6 transition-transform delay-75 duration-300',
-				isHoveringVideo && '-translate-x-32'
+				isHoveringVideo && '-translate-x-28'
 			)}
 		>
 			<div class="txt-shadow_ mt-8 flex flex-col gap-6">
@@ -143,8 +143,9 @@
 					<a href="https://github.com/hyprwm/hyprland-plugins" target="_blank">Hyprtrails</a>,
 					<a href="https://github.com/hyprwm/hyprland-plugins" target="_blank">Hyprborders</a>
 				{:else if activeIndex === 1}
-					Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, using
-					<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> to control Hyprland via IPC.
+					Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
+					<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> using Ags to control Hyprland
+					via IPC.
 				{/if}
 			</div>
 		</div>

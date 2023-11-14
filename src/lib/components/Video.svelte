@@ -31,7 +31,7 @@
 </script>
 
 <div
-	class="wrapper {$$props.class}"
+	class="wrapper group {$$props.class}"
 	role="banner"
 	use:inview={poster}
 	on:inview_enter
@@ -61,7 +61,7 @@
 
 	<button on:click={makeFullscreen} class="absolute bottom-2 left-2 z-10">
 		<IconFullscreen
-			class="h-6 w-6 rounded bg-black/10 opacity-80 transition-all duration-75 hover:scale-105 hover:opacity-100"
+			class="h-6 w-6 rounded  opacity-50   drop-shadow transition-all duration-75 hover:scale-105 hover:opacity-100 group-hover:opacity-90"
 		/>
 	</button>
 	<div
