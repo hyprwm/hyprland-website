@@ -35,6 +35,7 @@
 				class="ani-in mb-6 h-40 w-48 object-contain fill-mode-backwards sm:h-48 sm:w-56"
 				loading="eager"
 				decoding="async"
+				fetchpriority="high"
 			/>
 		</div>
 		<h1
