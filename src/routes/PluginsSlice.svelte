@@ -64,7 +64,7 @@
 			<div class="txt-shadow_ mt-8 flex flex-col gap-6">
 				<h2 class=" text-6xl font-bold">Unlock full power</h2>
 				<p class="text-lg font-bold text-slate-300">
-					Get the latest features Linux offers. Have full controll over your workflow by customizing
+					Get the latest features Linux offers. Have full control over your workflow by customizing
 					and extending it how you want.
 				</p>
 			</div>
