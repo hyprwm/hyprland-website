@@ -14,5 +14,6 @@ module.exports = {
 	rules: {
 		'no-unused-vars': ['off', { varsIgnorePattern: '.*' }],
 		'svelte/no-at-html-tags': 'off'
-	}
+	},
+	globals: { globalThis: true }
 }

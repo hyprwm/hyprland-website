@@ -60,6 +60,12 @@
 		hasJustMounted = false
 	})
 
+	$: {
+		if (!$isMouseOver$) {
+			globalThis.document?.removeEventListener('mousemove', track)
+		}
+	}
+
 	function resizeGradient() {
 		if (hasJustMounted || !isMouseOver$) return
 
@@ -69,7 +75,7 @@
 	function startTrackingMouse() {
 		if ($isMouseOver$) return
 
-		document.addEventListener('mousemove', track)
+		globalThis.document?.addEventListener('mousemove', track)
 	}
 
 	function track({ clientX, clientY }) {
@@ -77,7 +83,7 @@
 	}
 
 	onDestroy(() => {
-		document.removeEventListener('mousemove', track)
+		globalThis.document?.removeEventListener('mousemove', track)
 	})
 </script>
 
