@@ -18,31 +18,30 @@
 
 	<div class="flex flex-col items-center gap-12 md:gap-6" use:animateIn={{ slide: 24, fade: 0 }}>
 		<div
-			class="flex flex-col gap-12 md:gap-6 md:rounded-3xl md:bg-gradient-to-tr md:from-blue-500/40 md:to-transparent md:p-8 md:shadow-xl md:outline md:outline-1 md:outline-blue-500"
+			class="links_ flex flex-col gap-12 md:gap-6 md:rounded-3xl md:bg-gradient-to-tr md:from-blue-500/40 md:to-transparent md:p-8 md:shadow-xl md:outline md:outline-1 md:outline-blue-500"
 		>
 			<InstallButton name="Arch" command="pacman -S hyprland" image={archLogo}
 				><div slot="extra">
 					AUR git version: <a
-						class="hover:text-white hover:underline"
+						class=" "
 						target="_blank"
 						href="https://aur.archlinux.org/packages/hyprland-git/">hyprland-git</a
 					>
 				</div></InstallButton
 			>
-			<InstallButton name="NixOS" image={nixLogo}
-				><a
-					href="https://wiki.hyprland.org/Nix/"
-					target="_blank"
-					class="flex w-full items-center justify-between gap-4 hover:underline"
-					>See instructions <LinkOutIcon /></a
-				></InstallButton
-			>
+			<InstallButton name="NixOS" command="programs.hyprland.enable = true " image={nixLogo}
+				><div slot="extra">
+					<a href="https://wiki.hyprland.org/Nix/" target="_blank"
+						>See more details and git version</a
+					>
+				</div>
+			</InstallButton>
 			<InstallButton name="FreeBSD" command="pkg install hyprland" image={bsdLogo} />
 			<InstallButton name="openSUSE" command="zypper in hyprland" image={suseLogo}
 				><div slot="extra">or install “hyprland” via YaST2 Software.</div>
 
 				<img
-					class=" absolute inset-0 -z-10 translate-y-1 scale-90 opacity-0 transition-all duration-700 [transition-delay:2s] group-hover:-translate-y-0 group-hover:scale-100 group-hover:opacity-90"
+					class=" absolute inset-0 -z-10 translate-y-1 rotate-0 scale-90 opacity-0 transition-all duration-700 [transition-delay:2s] group-hover:-translate-x-3 group-hover:-translate-y-0 group-hover:-rotate-12 group-hover:scale-100 group-hover:opacity-90"
 					src={amongus}
 					slot="imageExtra"
 					alt=""
@@ -60,3 +59,11 @@
 		</a>
 	</div>
 </section>
+
+<style lang="postcss">
+	.links_ {
+		a {
+			@apply font-medium hover:text-white hover:underline;
+		}
+	}
+</style>

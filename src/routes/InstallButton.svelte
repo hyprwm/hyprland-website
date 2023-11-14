@@ -36,7 +36,7 @@
 		<slot name="imageExtra" />
 	</div>
 
-	<div class="relative mb-2 flex flex-col font-mono">
+	<div class="relative mb-2 flex grow flex-col font-mono">
 		<button
 			class="flex min-w-[18rem] items-center justify-center gap-4 rounded-full border border-primary py-3 pl-6 pr-6 text-base font-medium transition-transform active:scale-[1.01]"
 			on:click={$$slots.default ? undefined : copyCommand}
