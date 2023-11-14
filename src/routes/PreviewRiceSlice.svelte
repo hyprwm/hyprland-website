@@ -4,6 +4,7 @@
 	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.webp'
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import clsx from 'clsx'
+	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
 	import { onMount } from 'svelte'
 
 	/** @type HTMLVideoElement */
@@ -14,7 +15,6 @@
 
 	function togglePlay() {
 		videoElement.paused ? videoElement.play() : videoElement.pause()
-		isPaused = videoElement.paused
 	}
 
 	function makeFullscreen() {
@@ -56,11 +56,17 @@
 			muted
 			preload="auto"
 			autoplay
-			on:play={() => {}}
+			on:play={() => (isPaused = false)}
+			on:pause={() => (isPaused = true)}
 			poster={previewRiceThumbnail}
 			on:click={togglePlay}
 			on:dblclick={makeFullscreen}
 		/>
+		<button on:click={makeFullscreen} class="absolute bottom-0 left-0 z-10">
+			<IconFullscreen
+				class="h-8 w-8 rounded bg-black/10 p-2 opacity-60 transition-all duration-75 hover:scale-105 hover:opacity-100"
+			/>
+		</button>
 		<div
 			class={clsx(
 				'z-20 opacity-0 transition-opacity  ',

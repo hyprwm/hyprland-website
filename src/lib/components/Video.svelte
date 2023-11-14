@@ -2,6 +2,7 @@
 	import clsx from 'clsx'
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import { inview } from 'svelte-inview'
+	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
 	import { onMount } from 'svelte'
 
 	/** @type {string} */
@@ -55,6 +56,12 @@
 		{autoplay}
 		on:play={() => (isPaused = false)}
 	/>
+
+	<button on:click={makeFullscreen} class="absolute bottom-2 left-2 z-10">
+		<IconFullscreen
+			class="h-6 w-6 rounded bg-black/10 opacity-80 transition-all duration-75 hover:scale-105 hover:opacity-100"
+		/>
+	</button>
 	<div
 		class={clsx(
 			'z-20 opacity-0 transition-opacity  ',
