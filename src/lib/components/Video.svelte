@@ -2,6 +2,7 @@
 	import clsx from 'clsx'
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import { inview } from 'svelte-inview'
+	import { onMount } from 'svelte'
 
 	/** @type {string} */
 	export let src
@@ -14,7 +15,7 @@
 	/** @type {string}*/
 	export let videoClass = ''
 	let videoElement
-	let isPaused = !autoplay
+	let isPaused = true
 
 	function togglePlay() {
 		videoElement.paused ? videoElement.play() : videoElement.pause()
@@ -47,6 +48,7 @@
 		on:click={togglePlay}
 		on:dblclick={makeFullscreen}
 		{autoplay}
+		on:play={() => (isPaused = false)}
 	/>
 	<div
 		class={clsx(

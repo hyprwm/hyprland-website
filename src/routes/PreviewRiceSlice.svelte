@@ -4,18 +4,14 @@
 	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.webp'
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import clsx from 'clsx'
+	import { onMount } from 'svelte'
 
 	/** @type HTMLVideoElement */
 	let videoElement
 
 	let isVisible = false
-	let isMuted = true
-	let isPaused = false
+	let isPaused = true
 
-	// Video has no sound anymore
-	// function toggleMute() {
-	// 	isMuted = !isMuted
-	// }
 	function togglePlay() {
 		videoElement.paused ? videoElement.play() : videoElement.pause()
 		isPaused = videoElement.paused
@@ -24,6 +20,15 @@
 	function makeFullscreen() {
 		videoElement.requestFullscreen()
 	}
+
+	onMount(() => {
+		// Nessecary as browsers might block autoplay. The timeout is nessecary as the video is always paused at the very start, even with autoplay on
+		const timeout = setTimeout(() => {
+			isPaused = videoElement.paused
+		}, 10)
+
+		return () => clearTimeout(timeout)
+	})
 </script>
 
 <section class={$$restProps.class} class:isVisible>
@@ -33,7 +38,7 @@
 		use:inview={{ threshold: 0.5 }}
 		on:inview_enter={() => {
 			isVisible = true
-			!isPaused && videoElement.play()
+			!isPaused && videoElement.play().catch(() => {})
 		}}
 		on:inview_leave={() => {
 			isVisible = false
@@ -48,8 +53,10 @@
 			disableremoteplayback="true"
 			class="rounded-xl"
 			loop
-			muted={isMuted}
+			muted
 			preload="auto"
+			autoplay
+			on:play={() => {}}
 			poster={previewRiceThumbnail}
 			on:click={togglePlay}
 			on:dblclick={makeFullscreen}
@@ -60,20 +67,9 @@
 				isPaused ? 'opacity-100' : 'pointer-events-none'
 			)}
 		>
-			<!-- Currently there is no audio. Component might get refractored into a stand-alone player, so lets leave that here -->
-			<!-- <button
-				class="absolute bottom-4 right-4 h-10 w-10 rounded-full bg-black/5 p-2 opacity-70 hover:opacity-100"
-				on:click|stopPropagation={toggleMute}
-			>
-				{#if isMuted}
-					<MuteIcon class="h-full w-full" />
-				{:else}
-					<AudioIcon class="h-full w-full" />
-				{/if}
-			</button> -->
 			{#if isPaused}
 				<div
-					class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100"
+					class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 shadow-sm hover:opacity-100"
 				>
 					<PlayIcon class="h-full w-full" />
 				</div>
@@ -103,12 +99,15 @@
 		border: solid 2px theme(colors.sky.400);
 		scale: 0.9;
 		background: theme(colors.cyan.300 / 70%);
+		aspect-ratio: 16/9;
 
 		& video {
 			transition-property: opacity;
 			transition-duration: inherit;
 			transition-timing-function: inherit;
 			opacity: 0.3;
+			height: 100%;
+			width: 100%;
 		}
 
 		.isVisible & {
