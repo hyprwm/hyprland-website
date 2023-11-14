@@ -64,7 +64,7 @@
 		/>
 		<button on:click={makeFullscreen} class="absolute bottom-0 left-0 z-10">
 			<IconFullscreen
-				class="h-8 w-8 rounded bg-black/10 p-2 opacity-60 transition-all duration-75 hover:scale-105 hover:opacity-100"
+				class="h-10 w-10 rounded bg-black/10 p-2 opacity-60 transition-all duration-75 hover:scale-105 hover:opacity-100"
 			/>
 		</button>
 		<div
