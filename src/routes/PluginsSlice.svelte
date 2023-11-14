@@ -7,6 +7,8 @@
 	import Video from '$lib/components/Video.svelte'
 	import { fade } from 'svelte/transition'
 
+	/** @type {HTMLVideoElement[]}*/
+	const videos = []
 	let activeIndex = 0
 
 	const items = [
@@ -29,6 +31,13 @@
 
 	function setActiveItem(index) {
 		activeIndex = index
+	}
+
+	function playVideos() {
+		videos.forEach((video) => video.play())
+	}
+	function pauseVideos() {
+		videos.forEach((video) => video.pause())
 	}
 </script>
 
@@ -92,8 +101,11 @@
 					{src}
 					{poster}
 					autoplay
+					bind:videoElement={videos[index]}
 					class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
 					hidden={index !== activeIndex}
+					on:pause={pauseVideos}
+					on:play={playVideos}
 					videoClass="h-[inherit] aspect-video"
 				/>
 			{/each}

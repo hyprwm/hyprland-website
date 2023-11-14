@@ -10,11 +10,13 @@
 	export let poster
 	export let loop = true
 	export let muted = true
-	export let autoplay = false
+	/** @type {true | undefined}*/
+	export let autoplay = undefined
 	export let hidden = false
 	/** @type {string}*/
 	export let videoClass = ''
-	let videoElement
+	/** @type {HTMLVideoElement}*/
+	export let videoElement
 	let isPaused = true
 
 	function togglePlay() {
@@ -47,6 +49,9 @@
 		{poster}
 		on:click={togglePlay}
 		on:dblclick={makeFullscreen}
+		on:play
+		on:pause
+		on:pause={() => (isPaused = true)}
 		{autoplay}
 		on:play={() => (isPaused = false)}
 	/>
