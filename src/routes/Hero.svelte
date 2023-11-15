@@ -1,9 +1,7 @@
 <script>
 	import { getIsMobile } from '$lib/Helper.mjs'
 	import Button from '$lib/components/Button.svelte'
-	import Logo from '$lib/images/logos/hyprland-color.svg'
 	import { onMount } from 'svelte'
-	// import Firefly from './Firefly.svelte'
 	import { inview } from 'svelte-inview'
 	import HeroBackground from './HeroBackground.svelte'
 	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
