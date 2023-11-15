@@ -43,12 +43,6 @@
 				The chronicles of the triumphant from bygone rice contests held within our Discord
 			</div>
 		</Title>
-
-		<!-- <div class="background-images" aria-hidden="true">
-			{#each data.images as image}
-				<img src={image} class="background-image" alt="" />
-			{/each}
-		</div> -->
 	</div>
 
 	<Contest name="Summer" number={2} date="May 2023" --color="orange">
@@ -176,38 +170,19 @@
 	.wisdoms {
 		position: absolute;
 		width: 500px;
-		/* translate: -50% 0px; */
 		display: flex;
 		align-items: center;
 		gap: 1rem;
 		z-index: -10;
 		opacity: 0.6;
 		margin-top: -2rem;
-		/* font-size: 1.5rem; */
 	}
 
 	.wisdom {
 		width: max-content;
 		height: max-content;
-		/* max-height: 15ch; */
 		text-align: center;
 		color: theme(colors.cyan.700);
 		text-shadow: 0px 0px 8px blue;
 	}
-
-	/* .background-images {
-		z-index: -100;
-		position: absolute;
-		inset: 1/2;
-		translate: 0px -50%;
-		display: grid;
-		width: 600px;
-		height: 200px;
-		grid: auto-flow / 1fr 1fr 1fr;
-		opacity: 0.4;
-
-		& .background-image {
-			width: 200px;
-		}
-	} */
 </style>
