@@ -184,7 +184,7 @@
 			size: 80,
 			class: 'outline-amber-500 bg-black '
 		}
-	]
+	].sort(({ size: a }, { size: b }) => b - a)
 
 	setContext(contextId, {
 		biggestSize: profiles.reduce(
