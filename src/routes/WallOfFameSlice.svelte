@@ -58,8 +58,10 @@
 		width: 200vw;
 		max-width: 2400px;
 		max-height: 1000px;
-		background: radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
+		background: url('imgs/grain.webp'),
+			radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
 			radial-gradient(15% 20%, theme(colors.cyan.500 / 70%), transparent);
+		mask-image: radial-gradient(closest-side, white, rgba(0, 0, 0, 0.8) 70%, transparent);
 	}
 
 	.glow {
@@ -72,11 +74,13 @@
 		left: 0;
 		right: 0;
 		pointer-events: none;
-		background-image: radial-gradient(
-			ellipse at bottom,
-			theme(colors.pink.400),
-			theme(colors.indigo.700 / 50%) 50%,
-			theme(colors.indigo.950 / 0%) 80%
-		);
+		background-image: url('imgs/grain.webp'),
+			radial-gradient(
+				ellipse at bottom,
+				theme(colors.pink.400),
+				theme(colors.indigo.700 / 50%) 50%,
+				theme(colors.indigo.950 / 0%) 80%
+			);
+		mask-image: radial-gradient(ellipse at bottom, white, rgba(0, 0, 0, 1) 90%, transparent);
 	}
 </style>

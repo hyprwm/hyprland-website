@@ -37,6 +37,7 @@
 				{/each}
 			</div>
 		</div>
+		<div class="gradient_" />
 		<Title>
 			<span slot="title" class="title">Wall of fame</span>
 			<div slot="subtitle" class="max-w-[40ch]">
@@ -143,7 +144,15 @@
 		max-height: 900px;
 		width: 100%;
 		margin-bottom: min(-10vh, -6rem);
-		background: radial-gradient(70% 50% at 50% 0%, theme(colors.cyan.500 / 50%), transparent);
+	}
+
+	.gradient_ {
+		position: absolute;
+		inset: 0;
+		z-index: -1000;
+		mask-image: radial-gradient(70% 50% at 50% 0%, white 70%, transparent);
+		background: url('imgs/grain.webp'),
+			radial-gradient(70% 50% at 50% 0%, theme(colors.cyan.500 / 40%), transparent);
 	}
 
 	.japanese {

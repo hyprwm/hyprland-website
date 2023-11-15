@@ -199,12 +199,22 @@
 	}
 
 	.top-light {
-		background: radial-gradient(
+		background: url('imgs/grain.webp'),
+			radial-gradient(
+				100% 80% at top,
+				theme(colors.cyan.500 / 50%) 0%,
+				theme(colors.sky.500 / 20%),
+				transparent
+			);
+
+		mask-image: radial-gradient(
 			100% 80% at top,
-			theme(colors.cyan.500 / 50%) 0%,
-			theme(colors.sky.500 / 20%),
+			white,
+			rgba(0, 0, 0, 1),
+			rgba(0, 0, 0, 1),
 			transparent
 		);
+
 		width: 100%;
 		height: 100%;
 		position: absolute;

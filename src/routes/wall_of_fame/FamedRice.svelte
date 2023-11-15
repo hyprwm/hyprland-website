@@ -54,6 +54,7 @@
 			alt={`${name} by ${creator} thumbnail`}
 			loading="lazy"
 		/>
+		<div class="grain_" />
 	</div>
 </div>
 
@@ -109,5 +110,19 @@
 		contain: layout size style paint;
 
 		mask-image: radial-gradient(farthest-side, black, transparent);
+	}
+	.grain_ {
+		position: absolute;
+		min-width: calc(120% + 200px);
+		height: calc(120% + 200px);
+		top: -45%;
+		left: 50%;
+		translate: -50%;
+		z-index: -5;
+		contain: layout size style paint;
+
+		background-blend-mode: hard-light;
+		mask-image: radial-gradient(farthest-side, black 50%, transparent);
+		background-image: url('imgs/grain.webp');
 	}
 </style>
