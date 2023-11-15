@@ -176,13 +176,14 @@
 		z-index: -10;
 		opacity: 0.6;
 		margin-top: -2rem;
+		mask-image: linear-gradient(to top, transparent, white);
 	}
 
 	.wisdom {
 		width: max-content;
 		height: max-content;
 		text-align: center;
-		color: theme(colors.cyan.700);
+		color: theme(colors.cyan.500);
 		text-shadow: 0px 0px 8px blue;
 	}
 </style>
