@@ -5,6 +5,7 @@
 	import DiscordIcon from '~icons/prime/discord'
 	import MenuIcon from '~icons/mingcute/menu-line'
 	import CloseIcon from '~icons/mingcute/close-line'
+	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
 
 	let isExpanded = false
 
@@ -22,9 +23,8 @@
 		href="/"
 		class="flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 font-london text-sm font-bold tracking-wider text-white backdrop-blur"
 	>
-		<img src={logo} alt="Hyprland Logo" class="h-8 w-6 object-contain" /><span
-			class="mt-1 text-lg tracking-widest">Hyprland</span
-		></a
+		<HyprlandLogo class="h-8 w-6 object-contain" />
+		<span class="mt-1 text-lg tracking-widest">Hyprland</span></a
 	>
 
 	<button

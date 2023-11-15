@@ -6,6 +6,7 @@
 	// import Firefly from './Firefly.svelte'
 	import { inview } from 'svelte-inview'
 	import HeroBackground from './HeroBackground.svelte'
+	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
 
 	export let backgroundData
 
@@ -28,15 +29,10 @@
 	<div
 		class="pointer-events-none z-10 flex h-full min-h-max flex-col items-center justify-center px-5"
 	>
-		<div class="-mt-10 mb-8 flex flex-col items-center gap-6 text-center sm:-mt-20">
-			<img
-				src={Logo}
-				alt="Hyprland Logo"
-				class="ani-in mb-6 h-40 w-48 object-contain fill-mode-backwards sm:h-48 sm:w-56"
-				loading="eager"
-				decoding="async"
-				fetchpriority="high"
-			/>
+		<div
+			class="ani-in -mt-10 mb-8 flex flex-col items-center gap-6 text-center fill-mode-backwards sm:-mt-20"
+		>
+			<HyprlandLogo class=" mb-6 h-40 w-48   sm:h-48 sm:w-56" />
 		</div>
 		<h1
 			class="ani-in title pointer-events-auto mb-4 max-w-[20ch] text-center !leading-[1.25] fill-mode-backwards [animation-delay:384ms]"
