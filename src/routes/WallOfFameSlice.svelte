@@ -61,7 +61,7 @@
 		background: url('imgs/grain.webp'),
 			radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
 			radial-gradient(15% 20%, theme(colors.cyan.500 / 70%), transparent);
-		mask-image: radial-gradient(closest-side, white, rgba(0, 0, 0, 0.8) 70%, transparent);
+		mask-image: radial-gradient(closest-side, white, rgba(0, 0, 0, 0.8) 80%, transparent);
 	}
 
 	.glow {
