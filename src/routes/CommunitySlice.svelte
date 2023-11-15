@@ -183,6 +183,12 @@
 			coordinates: [354, 798],
 			size: 80,
 			class: 'outline-amber-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/aleph.nought.webp',
+			coordinates: [583, 824],
+			size: 40,
+			class: 'outline-blue-500 bg-black '
 		}
 	].sort(({ size: a }, { size: b }) => b - a)
 
