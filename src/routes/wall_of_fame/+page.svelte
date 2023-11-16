@@ -18,11 +18,6 @@
 		'激辛炊飯器',
 		'絶対にご飯を炊いた'
 	]
-
-	const wisdomObjects = wisdoms.map((text) => ({
-		text,
-		z: Math.round(Math.random() * 10)
-	}))
 </script>
 
 <section>
@@ -30,8 +25,8 @@
 		<div class="japanese" aria-hidden="true">
 			<div class="rice-symbol">「 米 」</div>
 			<div class="wisdoms">
-				{#each wisdomObjects as { text, z }}
-					<div class="wisdom" style:--z={z}>
+				{#each wisdoms as text}
+					<div class="wisdom">
 						{text}
 					</div>
 				{/each}
@@ -45,6 +40,33 @@
 			</div>
 		</Title>
 	</div>
+
+	<Contest name="Space" number={3} date="November 2023" --color="BlueViolet">
+		<FamedRice
+			name="Celestial"
+			creator="Flafy"
+			pretitel="#1"
+			dotfilesLink="https://github.com/flafydev/nixos-config/"
+			creatorProfilePicture="https://avatars.githubusercontent.com/u/44374434?s=96&v=4"
+			thumbnail="/imgs/ricing_competitions/3/flafy.webp"
+		/>
+		<FamedRice
+			name="Globes"
+			creator="Aylur"
+			pretitel="#2"
+			dotfilesLink="https://github.com/Aylur/dotfiles"
+			creatorProfilePicture="https://avatars.githubusercontent.com/u/104676705?v=4"
+			thumbnail="/imgs/ricing_competitions/3/aylur.webp"
+		/>
+		<FamedRice
+			name="Golden Era"
+			creator="VDawg"
+			pretitel="#3"
+			dotfilesLink="https://github.com/Visual-Dawg/space_dots"
+			creatorProfilePicture="https://avatars.githubusercontent.com/u/28539403?s=96&v=4"
+			thumbnail="/imgs/ricing_competitions/3/vdawg.webp"
+		/>
+	</Contest>
 
 	<Contest name="Summer" number={2} date="May 2023" --color="orange">
 		<FamedRice
