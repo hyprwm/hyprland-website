@@ -28,15 +28,19 @@
 
 <section class="">
 	<div class="relative py-24 sm:py-40">
-		<div
-			class="flex flex-col items-center p-6 mix-blend-color-dodge"
+		<header
+			class="flex flex-col items-center gap-2 p-6 mix-blend-color-dodge"
 			use:inview={{ threshold: 0.45 }}
 			on:inview_change={setEnabled}
 		>
 			<div class="text-xl font-bold text-neutral-300/80 sm:text-2xl">Contest #{number}</div>
 			<h2 class="text-center text-6xl font-bold text-neutral-200/80 sm:text-9xl">{name}</h2>
-			<h2 class="mt-2 text-center text-xl font-bold text-slate-200/80">{date}</h2>
-		</div>
+			<div
+				class="mt-2 rounded-full bg-slate-100/5 px-4 py-1 text-center text-xl font-bold text-slate-200/80 shadow"
+			>
+				{date}
+			</div>
+		</header>
 
 		<div class="mask" class:enabled>
 			<div class="background" aria-hidden="true"></div>
