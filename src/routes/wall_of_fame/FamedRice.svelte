@@ -23,10 +23,15 @@
 	let background = blurredThumbnail ?? getBlurredPath(thumbnail)
 </script>
 
-<div class="flex flex-col items-center gap-12 px-4 {$$restProps.class}">
+<div
+	class="flex flex-col items-center gap-12 px-4 {$$restProps.class}"
+	style:--bg="url('{background}')"
+>
 	<div class="flex flex-col items-center justify-center">
-		<div class="mb-2 text-lg font-bold">{pretitel}</div>
-		<h3 class="mb-6 text-4xl font-bold hover:text-slate-200 sm:text-6xl">
+		<div class="relative mb-2 rounded-full px-3 py-1 text-lg font-bold">
+			{pretitel}
+		</div>
+		<h3 class="title_">
 			<a href={dotfilesLink} target="_blank">{name}</a>
 		</h3>
 		<a class="group flex gap-3" href={dotfilesLink} target="_blank">
@@ -124,5 +129,24 @@
 		background-blend-mode: hard-light;
 		mask-image: radial-gradient(farthest-side, black 80%, transparent);
 		background-image: url('/imgs/grain.webp');
+	}
+
+	.title_ {
+		filter: saturate(1.5) brightness(1);
+		@apply relative -mt-1 mb-5 py-1 text-4xl font-bold text-transparent    sm:text-6xl;
+		background-image: linear-gradient(
+				-195deg,
+				theme(colors.white / 80%) 50%,
+				rgba(255, 255, 255, 0.4)
+			),
+			var(--bg);
+		background-size: cover;
+		background-clip: text;
+		mask-image: linear-gradient(-195deg, white 65%, transparent);
+		transition: filter 150ms ease-in-out;
+
+		&:hover {
+			filter: saturate(2.2) brightness(1.5);
+		}
 	}
 </style>
