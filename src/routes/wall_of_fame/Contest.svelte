@@ -77,7 +77,6 @@
 		}
 	}
 	.mask {
-		/* overflow: hidden; */
 		top: 0px;
 		left: 50%;
 		width: 400%;
@@ -90,7 +89,6 @@
 		transform-origin: top;
 	}
 	.background {
-		/* scale: 0.8 0.8; */
 		--c1: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 10%);
 		--c2: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 15%);
 		--c3: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 20%);

@@ -22,12 +22,7 @@
 	}
 
 	onMount(() => {
-		// Nessecary as browsers might block autoplay. The timeout is nessecary as the video is always paused at the very start, even with autoplay on
-		const timeout = setTimeout(() => {
-			isPaused = videoElement.paused
-		}, 10)
-
-		return () => clearTimeout(timeout)
+		videoElement.play().catch(() => {})
 	})
 </script>
 
