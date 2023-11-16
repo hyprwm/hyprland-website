@@ -107,7 +107,7 @@
 		height: 900px;
 		z-index: -10;
 		mask-image: radial-gradient(105vw 450px at 50% 50%, rgba(0, 0, 0, 1) 80%, transparent);
-		background: url('imgs/grain.webp'),
+		background: url('/imgs/grain.webp'),
 			radial-gradient(105vw 450px at 50% 50%, theme(colors.blue.600 / 80%), transparent);
 	}
 </style>

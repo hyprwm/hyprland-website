@@ -199,7 +199,7 @@
 	}
 
 	.top-light {
-		background: url('imgs/grain.webp'),
+		background: url('/imgs/grain.webp'),
 			radial-gradient(
 				100% 80% at top,
 				theme(colors.cyan.500 / 50%) 0%,

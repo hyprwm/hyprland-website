@@ -99,7 +99,7 @@
 		width: 100%;
 		height: 1000px;
 		z-index: -10;
-		background: url('imgs/grain.webp'),
+		background: url('/imgs/grain.webp'),
 			radial-gradient(140px 100px at 50% 45%, var(--color), transparent),
 			radial-gradient(145px 110px at 50% 45%, var(--c1), transparent),
 			radial-gradient(210px 140px, var(--c2, theme(colors.blue.600)), transparent),

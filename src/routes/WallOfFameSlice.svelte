@@ -58,7 +58,7 @@
 		width: 200vw;
 		max-width: 2400px;
 		max-height: 1000px;
-		background: url('imgs/grain.webp'),
+		background: url('/imgs/grain.webp'),
 			radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
 			radial-gradient(15% 20%, theme(colors.cyan.500 / 70%), transparent);
 		mask-image: radial-gradient(closest-side, white, rgba(0, 0, 0, 0.8) 80%, transparent);
@@ -74,7 +74,7 @@
 		left: 0;
 		right: 0;
 		pointer-events: none;
-		background-image: url('imgs/grain.webp'),
+		background-image: url('/imgs/grain.webp'),
 			radial-gradient(
 				ellipse at bottom,
 				theme(colors.pink.400),

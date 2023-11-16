@@ -135,7 +135,7 @@
 		width: 1100px;
 		height: 200%;
 
-		background-image: url('imgs/grain.webp'),
+		background-image: url('/imgs/grain.webp'),
 			radial-gradient(closest-side, theme(colors.sky.500), theme(colors.indigo.500 / 0%));
 
 		mask-image: radial-gradient(

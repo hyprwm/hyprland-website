@@ -41,7 +41,7 @@
 		</Title>
 	</div>
 
-	<Contest name="Space" number={3} date="November 2023" --color="BlueViolet">
+	<Contest name="Space" number={3} date="November 2023" --color={colors.indigo[500]}>
 		<FamedRice
 			name="Celestial"
 			creator="Flafy"
@@ -82,7 +82,7 @@
 			creator="Flafy"
 			pretitel="#2"
 			dotfilesLink="https://github.com/FlafyDev/flutter_background_bar"
-			creatorProfilePicture="https://avatars.githubusercontent.com/u/25975326?v=4"
+			creatorProfilePicture="https://avatars.githubusercontent.com/u/44374434?s=96&v=4"
 			thumbnail="/imgs/ricing_competitions/2/flafy.webp"
 		/>
 		<FamedRice
@@ -173,7 +173,7 @@
 		inset: 0;
 		z-index: -1000;
 		mask-image: radial-gradient(70% 50% at 50% 0%, white 70%, transparent);
-		background: url('imgs/grain.webp'),
+		background: url('/imgs/grain.webp'),
 			radial-gradient(70% 50% at 50% 0%, theme(colors.cyan.500 / 40%), transparent);
 	}
 

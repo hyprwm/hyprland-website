@@ -122,7 +122,7 @@
 		contain: layout size style paint;
 
 		background-blend-mode: hard-light;
-		mask-image: radial-gradient(farthest-side, black 50%, transparent);
-		background-image: url('imgs/grain.webp');
+		mask-image: radial-gradient(farthest-side, black 80%, transparent);
+		background-image: url('/imgs/grain.webp');
 	}
 </style>
