@@ -59,7 +59,7 @@
 	>
 		<div
 			class={clsx(
-				'z-10 flex flex-col gap-10 px-6 transition-transform delay-75 duration-300',
+				'z-10 flex flex-col gap-10 px-2 transition-transform delay-75 duration-300 sm:px-6',
 				isHoveringVideo && '-translate-x-36'
 			)}
 		>
