@@ -134,6 +134,7 @@
 						muted
 						bind:videoElement={videos[index]}
 						class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
+						playButtonClass=" lg:left-32 xl:left-1/2"
 						hidden={index !== activeIndex}
 						on:pause={pauseVideos}
 						on:play={playVideos}

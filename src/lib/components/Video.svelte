@@ -15,6 +15,8 @@
 	export let hidden = false
 	/** @type {string}*/
 	export let videoClass = ''
+	/** @type {string}*/
+	export let playButtonClass = ''
 	/** @type {HTMLVideoElement}*/
 	export let videoElement
 	let isPaused = true
@@ -69,7 +71,7 @@
 	>
 		{#if isPaused}
 			<div
-				class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100"
+				class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100 {playButtonClass}"
 			>
 				<PlayIcon class="h-full w-full" />
 			</div>
