@@ -54,13 +54,13 @@
 
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
 	<div
-		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 transition-all lg:grid-cols-2 lg:gap-24"
+		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 transition-all lg:grid-cols-2 lg:gap-12"
 		use:animateIn={{ fade: 0.0, slide: 24 }}
 	>
 		<div
 			class={clsx(
 				'z-10 flex flex-col gap-10 px-6 transition-transform delay-75 duration-300',
-				isHoveringVideo && '-translate-x-28'
+				isHoveringVideo && '-translate-x-36'
 			)}
 		>
 			<div class="txt-shadow_ mt-8 flex flex-col gap-6">
@@ -131,6 +131,7 @@
 						{src}
 						{poster}
 						autoplay
+						muted
 						bind:videoElement={videos[index]}
 						class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
 						hidden={index !== activeIndex}
