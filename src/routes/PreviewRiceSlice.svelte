@@ -2,79 +2,50 @@
 	import { inview } from 'svelte-inview'
 	import previewRice from '$lib/videos/end_4_rice_intro.mp4'
 	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.webp'
-	import PlayIcon from '~icons/mingcute/play-circle-line'
-	import clsx from 'clsx'
-	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
+	import Video from '$lib/components/Video.svelte'
 	import { onMount } from 'svelte'
 
 	/** @type HTMLVideoElement */
 	let videoElement
 
 	let isVisible = false
-	let isPaused = true
-
-	function togglePlay() {
-		videoElement.paused ? videoElement.play() : videoElement.pause()
-	}
-
-	function makeFullscreen() {
-		videoElement.requestFullscreen()
-	}
+	let isManuallyPaused = false
 
 	onMount(() => {
+		// The inview_leave event fires at the start and Chromium reports the video as paused, even with autoplay on.
+		// This fixes it. Catch in case autoplay is blocked
 		videoElement.play().catch(() => {})
 	})
 </script>
 
 <section class={$$restProps.class} class:isVisible>
 	<div
-		class="rice-video"
+		class="wrapper"
 		role="banner"
 		use:inview={{ threshold: 0.5 }}
 		on:inview_enter={() => {
 			isVisible = true
-			!isPaused && videoElement.play().catch(() => {})
+			if (!isManuallyPaused) {
+				videoElement.play().catch(() => {})
+			}
 		}}
 		on:inview_leave={() => {
 			isVisible = false
+			console.log('inview_leave')
+			isManuallyPaused = videoElement.paused
 			videoElement.pause()
 		}}
-		on:inview_leave={() => (isVisible = false)}
 	>
-		<video
-			bind:this={videoElement}
-			src={previewRice}
-			disablepictureinpicture="true"
-			disableremoteplayback="true"
-			class="rounded-xl"
-			loop
-			muted
-			preload="auto"
-			autoplay
-			on:play={() => (isPaused = false)}
-			on:pause={() => (isPaused = true)}
-			poster={previewRiceThumbnail}
-			on:click={togglePlay}
-			on:dblclick={makeFullscreen}
-		/>
-		<button on:click={makeFullscreen} class="absolute bottom-0 left-0 z-10">
-			<IconFullscreen
-				class="h-10 w-10 rounded bg-black/10 p-2 opacity-60 transition-all duration-75 hover:scale-105 hover:opacity-100"
+		<div class="video">
+			<Video
+				autoplay
+				muted
+				src={previewRice}
+				bind:videoElement
+				poster={previewRiceThumbnail}
+				videoClass="!rounded-2xl overflow-hidden"
+				on:play={() => (isManuallyPaused = false)}
 			/>
-		</button>
-		<div
-			class={clsx(
-				'z-20 opacity-0 transition-opacity  ',
-				isPaused ? 'opacity-100' : 'pointer-events-none'
-			)}
-		>
-			{#if isPaused}
-				<div
-					class="pointer-events-none absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 shadow-sm hover:opacity-100"
-				>
-					<PlayIcon class="h-full w-full" />
-				</div>
-			{/if}
 		</div>
 
 		<a
@@ -92,7 +63,7 @@
 
 		contain: layout style content;
 	}
-	.rice-video {
+	.wrapper {
 		@apply mx-3  rounded-xl;
 		transition: all cubic-bezier(0.9, -1, 0.065, 1.8) 1060ms;
 		position: relative;
@@ -102,13 +73,14 @@
 		background: theme(colors.cyan.300 / 70%);
 		aspect-ratio: 16/9;
 
-		& video {
+		& .video {
 			transition-property: opacity;
 			transition-duration: inherit;
 			transition-timing-function: inherit;
 			opacity: 0.3;
 			height: 100%;
 			width: 100%;
+			@apply overflow-hidden rounded-xl;
 		}
 
 		.isVisible & {
@@ -116,7 +88,7 @@
 			background: transparent;
 			box-shadow: 0px 0px 24px theme(colors.primary / 50%);
 
-			& video {
+			& .video {
 				opacity: 1;
 			}
 		}
