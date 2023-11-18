@@ -1,7 +1,6 @@
 <script>
 	import { animateIn } from '$lib/Helper.mjs'
 	import archLogo from '$lib/images/logos/arch.svg'
-	import slackwareLogo from '$lib/images/logos/slackware.svg'
 	import nixLogo from '$lib/images/logos/nixos.svg'
 	import bsdLogo from '$lib/images/logos/freebsd.svg'
 	import suseLogo from '$lib/images/logos/opensuse.svg'
@@ -49,11 +48,6 @@
 					srcset=""
 				/>
 			</InstallButton>
-			<InstallButton
-				name="Slackware"
-				command="upgradepkg --install-new hyprland-bin"
-				image={slackwareLogo}
-			/>
 		</div>
 
 		<a
