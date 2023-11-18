@@ -18,15 +18,21 @@
 			title: 'Plugins.',
 			description:
 				'Customize everything with official and community extensions. Write your own easily with C++',
-			poster: '/videos/hypr_plugins_thumb.webp',
-			src: '/videos/outfoxxed.mp4'
+			poster: '/videos/outfoxxed_thumb.webp',
+			src: '/videos/outfoxxed.mp4',
+			subtext: ` Setup with <a href="https://github.com/outfoxxed/hy3" target="_blank"> hy3</a>, by
+				<a href="https://github.com/outfoxxed/" target="_blank">Outfoxxed</a>, creator of hy3: i3
+				tiling for Hyprland. Other used plugin: <a href="https://github.com/VortexCoyote/hyprfocus" target="_blank">hyprfocus</a>`
 		},
 		{
 			icon: IconIpc,
 			title: 'Bindings and IPC.',
 			description: 'Control your desktop with your favourite languages or simply via IPC.',
 			poster: '/videos/aylur_thumb.png',
-			src: '/videos/aylur.mp4'
+			src: '/videos/aylur.mp4',
+			subtext: `Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
+				<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> using Ags to control Hyprland
+				via IPC.`
 		}
 	]
 
@@ -145,16 +151,7 @@
 			<div
 				class="pt-5 text-sm font-medium text-slate-300 md:text-base [&>a:hover]:text-cyan-300 [&>a:hover]:underline [&>a]:font-bold"
 			>
-				{#if activeIndex === 0}
-					Setup with <a href="https://github.com/outfoxxed/hy3" target="_blank"> hy3</a>, by
-					<a href="https://github.com/outfoxxed/" target="_blank">Outfoxxed</a>, creator of hy3: i3
-					tiling for Hyprland. Other used plugin:
-					<a href="https://github.com/VortexCoyote/hyprfocus" target="_blank">hyprfocus</a>
-				{:else if activeIndex === 1}
-					Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
-					<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> using Ags to control Hyprland
-					via IPC.
-				{/if}
+				{@html items[activeIndex].subtext}
 			</div>
 		</div>
 	</div>
