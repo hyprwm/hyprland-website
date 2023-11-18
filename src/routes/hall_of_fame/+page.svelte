@@ -34,7 +34,7 @@
 		</div>
 		<div class="gradient_" />
 		<Title>
-			<span slot="title" class="title">Wall of fame</span>
+			<span slot="title" class="title">Hall of fame</span>
 			<div slot="subtitle" class="max-w-[40ch]">
 				The chronicles of the triumphant from bygone rice contests held within our Discord
 			</div>
@@ -153,9 +153,9 @@
 </section>
 
 <svelte:head>
-	<title>Wall of Fame</title>
+	<title>Hall of Fame</title>
 	<meta name="description" content="The winners from Hyprlands rice contests" />
-	<meta property="og:title" content="Hyprland's Wall of Fame" />
+	<meta property="og:title" content="Hyprland's Hall of Fame" />
 	<meta
 		property="og:description"
 		content="The chronicles of the triumphant from bygone rice contests held within our Discord"

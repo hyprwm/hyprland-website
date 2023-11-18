@@ -51,7 +51,7 @@
 						>Get started</a
 					>
 				</li>
-				<li><a href="/wall_of_fame">Hall of fame</a></li>
+				<li><a href="/hall_of_fame">Hall of fame</a></li>
 			</ul>
 		</div>
 

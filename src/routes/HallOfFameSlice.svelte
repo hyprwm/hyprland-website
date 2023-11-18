@@ -9,7 +9,7 @@
 	<div class="z-20 -mb-40 px-4">
 		<Title>
 			<span slot="pre"> Memorials of the ricing legends </span>
-			<span slot="title">Wall of Fame</span>
+			<span slot="title">Hall of Fame</span>
 		</Title>
 	</div>
 
@@ -19,8 +19,8 @@
 		class="relative -mt-8 flex w-full max-w-[1100px] flex-col items-center justify-end gap-16 overflow-hidden [perspective:100px] md:px-16 lg:gap-24"
 		use:animateIn={{ slide: 24, fade: 0.5, duration: 800 }}
 	>
-		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/wall_of_fame">
-			<Button size="lg" type="fancyOutline">Go to Wall of Fame</Button>
+		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/hall_of_fame">
+			<Button size="lg" type="fancyOutline">Go to Hall of Fame</Button>
 		</a>
 
 		<FameRicePreview

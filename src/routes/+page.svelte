@@ -1,7 +1,7 @@
 <script>
 	import Community from './CommunitySlice.svelte'
 	import FeaturesSlice from './FeaturesSlice.svelte'
-	import WallOfFameSlice from './WallOfFameSlice.svelte'
+	import HallOfFameSlice from './HallOfFameSlice.svelte'
 	import Hero from './Hero.svelte'
 	import InstallSlice from './InstallSlice.svelte'
 	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
@@ -19,7 +19,7 @@
 
 	<PluginsSlice />
 
-	<WallOfFameSlice />
+	<HallOfFameSlice />
 
 	<Community />
 

@@ -53,7 +53,7 @@
 				<a href="https://wiki.hyprland.org">Wiki</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/wall_of_fame">Wall of fame</a>
+				<a href="/hall_of_fame">Hall of fame</a>
 			</li>
 		</ul>
 		<ul
