@@ -148,9 +148,8 @@
 				{#if activeIndex === 0}
 					Setup with <a href="https://github.com/outfoxxed/hy3" target="_blank"> hy3</a>, by
 					<a href="https://github.com/outfoxxed/" target="_blank">Outfoxxed</a>, creator of hy3: i3
-					tiling for Hyprland. Other used plugins:
-					<a href="https://github.com/hyprwm/hyprland-plugins" target="_blank">Hyprtrails</a>,
-					<a href="https://github.com/hyprwm/hyprland-plugins" target="_blank">Hyprborders</a>
+					tiling for Hyprland. Other used plugin:
+					<a href="https://github.com/VortexCoyote/hyprfocus" target="_blank">hyprfocus</a>
 				{:else if activeIndex === 1}
 					Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
 					<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> using Ags to control Hyprland
