@@ -2,7 +2,8 @@
 
 The hyprland.org website files. See it on [hyprland.org](https://hyprland.org)
 
-If you are here to Contribute to the Wiki, [click here](https://github.com/hyprwm/hyprland-wiki).
+> [!NOTE]  
+> If you are here to Contribute to the Wiki, [click here](https://github.com/hyprwm/hyprland-wiki).
 
 ## Contributions
 
@@ -10,13 +11,15 @@ Feel free
 
 ## Requirements
 
-- `pnpm` for the package management.
-- `imagemagick` to generate blurred background images.
+- `pnpm` for the package management. (npm works too if you only want to build it)
+- `imagemagick` to generate the blurred background images.
 
 ## Development
 
+- `pnpm install` To install the required npm packages
 - `pnpm dev` To start the dev server
 - `pnpm build` To build the static site into `./build`
+- `pnpm preview` To preview the builded site in `./build` ( no dev environment )
 
 ## Credits
 
