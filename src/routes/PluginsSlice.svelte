@@ -40,11 +40,14 @@
 		activeIndex = index
 	}
 
-	function playVideos() {
-		videos.forEach((video) => video.play())
+	function onPlay(currentIndex) {
+		videos.filter((_, index) => index !== currentIndex).forEach((video) => video.play())
 	}
-	function pauseVideos() {
-		videos.forEach((video) => video.pause())
+	function onPause(activeIndex, currentIndex) {
+		// Prevent infinite loop when active video gets paused and other videos also get paused as a result
+		if (currentIndex !== activeIndex) return
+
+		videos.filter((_, index) => index !== currentIndex).forEach((video) => video.pause())
 	}
 	function slideVideoIn() {
 		if (window.innerWidth < 1024) return // LG breakpoint
@@ -142,8 +145,8 @@
 						class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
 						playButtonClass=" lg:left-32 xl:left-1/2"
 						hidden={index !== activeIndex}
-						on:pause={pauseVideos}
-						on:play={playVideos}
+						on:pause={() => onPause(activeIndex, index)}
+						on:play={() => onPlay(index)}
 						videoClass="h-[inherit] aspect-video"
 					/>
 				{/each}
