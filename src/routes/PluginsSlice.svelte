@@ -29,7 +29,7 @@
 			title: 'Bindings and IPC.',
 			description: 'Control your desktop with your favourite languages or simply via IPC.',
 			poster: '/videos/aylur_thumb.png',
-			src: '/videos/aylur.mp4',
+			src: '/videos/aylur.webm',
 			subtext: `Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
 				<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> using Ags to control Hyprland
 				via IPC.`
