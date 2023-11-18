@@ -3,6 +3,7 @@
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import { inview } from 'svelte-inview'
 	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
+	import { onMount } from 'svelte'
 
 	/** @type {string} */
 	export let src
@@ -19,6 +20,7 @@
 	export let playButtonClass = ''
 	/** @type {HTMLVideoElement}*/
 	export let videoElement
+
 	let isPaused = true
 
 	function togglePlay() {
@@ -29,6 +31,14 @@
 	function makeFullscreen() {
 		videoElement.requestFullscreen()
 	}
+
+	// Firefox does not seem to fire the play event when the video is autoplayed. So lets check manually if autoplaying worked
+	onMount(() => {
+		const timeout = setTimeout(() => {
+			isPaused = videoElement.paused
+		}, 5)
+		return () => clearTimeout(timeout)
+	})
 </script>
 
 <div
