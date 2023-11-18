@@ -31,7 +31,6 @@
 		}}
 		on:inview_leave={() => {
 			isVisible = false
-			console.log('inview_leave')
 			isManuallyPaused = videoElement.paused
 			videoElement.pause()
 		}}
