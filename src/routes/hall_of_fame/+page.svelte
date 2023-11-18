@@ -66,18 +66,6 @@
 			creatorProfilePicture="https://avatars.githubusercontent.com/u/28539403?s=96&v=4"
 			thumbnail="/imgs/ricing_competitions/3/vdawg.webp"
 		/>
-		<FamedRice
-			name="YoRHa"
-			creator="flick0"
-			pretitel="Honorable mention"
-			dotfilesLink="https://github.com/flick0/dotfiles/tree/hyprland-yorha"
-			creatorProfilePicture="https://avatars.githubusercontent.com/u/77581181?s=96&v=4"
-			thumbnail="/imgs/ricing_competitions/3/flick0.webp"
-		>
-			<div slot="after" class="-mt-2 text-sm text-slate-300">
-				Not space themed, but awesome nevertheless
-			</div></FamedRice
-		>
 	</Contest>
 
 	<Contest name="Summer" number={2} date="May 2023" --color="orange">

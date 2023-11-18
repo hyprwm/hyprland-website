@@ -61,8 +61,6 @@
 		/>
 		<div class="grain_" />
 	</div>
-
-	<slot name="after" />
 </div>
 
 <style lang="postcss">
