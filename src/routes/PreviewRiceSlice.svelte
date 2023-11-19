@@ -1,7 +1,5 @@
 <script>
 	import { inview } from 'svelte-inview'
-	import previewRice from '$lib/videos/end_4_rice_intro.mp4'
-	import previewRiceThumbnail from '$lib/videos/end_4_thumbnail.webp'
 	import Video from '$lib/components/Video.svelte'
 	import { onMount } from 'svelte'
 
@@ -39,9 +37,9 @@
 			<Video
 				autoplay
 				muted
-				src={previewRice}
+				sources={['/videos/end_4_rice_intro.webm', '/videos/end_4_rice_intro.mp4']}
 				bind:videoElement
-				poster={previewRiceThumbnail}
+				poster={'/videos/end_4_thumbnail.webp'}
 				videoClass="!rounded-2xl overflow-hidden"
 				on:play={() => (isManuallyPaused = false)}
 			/>

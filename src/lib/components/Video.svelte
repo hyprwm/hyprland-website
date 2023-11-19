@@ -5,8 +5,8 @@
 	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
 	import { onMount } from 'svelte'
 
-	/** @type {string} */
-	export let src
+	/** @type {string[]} */
+	export let sources
 	/** @type {string} */
 	export let poster
 	export let loop = true
@@ -51,7 +51,6 @@
 >
 	<video
 		bind:this={videoElement}
-		{src}
 		{muted}
 		disablepictureinpicture="true"
 		disableremoteplayback="true"
@@ -66,7 +65,11 @@
 		on:pause={() => (isPaused = true)}
 		{autoplay}
 		on:play={() => (isPaused = false)}
-	/>
+	>
+		{#each sources as src}
+			<source {src} />
+		{/each}
+	</video>
 
 	<button on:click={makeFullscreen} class="absolute bottom-2 left-2 z-10">
 		<IconFullscreen

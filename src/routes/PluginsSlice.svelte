@@ -19,7 +19,7 @@
 			description:
 				'Customize everything with official and community extensions. Write your own easily with C++',
 			poster: '/videos/outfoxxed_thumb.webp',
-			src: '/videos/outfoxxed.mp4',
+			src: '/videos/outfoxxed',
 			subtext: ` Setup with <a href="https://github.com/outfoxxed/hy3" target="_blank"> hy3</a>, by
 				<a href="https://github.com/outfoxxed/" target="_blank">Outfoxxed</a>, creator of hy3: i3
 				tiling for Hyprland. Other used plugin: <a href="https://github.com/VortexCoyote/hyprfocus" target="_blank">hyprfocus</a>`
@@ -29,7 +29,7 @@
 			title: 'Bindings and IPC.',
 			description: 'Control your desktop with your favourite languages or simply via IPC.',
 			poster: '/videos/aylur_thumb.png',
-			src: '/videos/aylur.webm',
+			src: '/videos/aylur',
 			subtext: `Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
 				<a href="https://github.com/Aylur/ags" target="_blank">Ags</a> using Ags to control Hyprland
 				via IPC.`
@@ -137,7 +137,7 @@
 			>
 				{#each items as { src, poster }, index}
 					<Video
-						{src}
+						sources={[src + '.webm', src + '.mp4']}
 						{poster}
 						autoplay
 						muted
