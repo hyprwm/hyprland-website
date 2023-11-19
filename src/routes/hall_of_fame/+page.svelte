@@ -190,6 +190,8 @@
 	}
 
 	.rice-symbol {
+		white-space: nowrap;
+
 		font-size: 120px;
 		color: transparent;
 		background: linear-gradient(125deg, cyan 15%, blue);
