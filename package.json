@@ -4,7 +4,7 @@
 	"description": "Website for Hyprland - Hyprland - A wayland compositor with the looks.",
 	"repository": "github:hyprwm/hyprland-website",
 	"scripts": {
-		"dev": "echo 'Remove no-index for production!' && vite dev",
+		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"format": "prettier --plugin-search-dir . --write .",
