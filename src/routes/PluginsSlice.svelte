@@ -62,12 +62,12 @@
 
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
 	<div
-		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 transition-all lg:grid-cols-2 lg:gap-12"
+		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 transition-all lg:grid-cols-2 lg:gap-12"
 		use:animateIn={{ fade: 0.0, slide: 24 }}
 	>
 		<div
 			class={clsx(
-				'z-10 flex flex-col gap-10 px-2 transition-transform delay-75 duration-300 sm:px-6',
+				'z-10 flex flex-col gap-10 px-5 transition-transform delay-75 duration-300 sm:px-6',
 				isHoveringVideo && '-translate-x-36'
 			)}
 		>
@@ -124,7 +124,7 @@
 		<!-- Prevent the video from making the container big on small phones. 300px seem to work well for the text -->
 		<div
 			class={clsx(
-				'z-10 h-[20rem] min-w-0 transition-transform sm:h-[25rem] md:h-[30rem] lg:h-[37rem]',
+				'z-10  w-full min-w-0 transition-transform sm:h-[25rem] sm:px-4 md:h-[30rem] lg:h-[37rem] lg:px-0',
 				isHoveringVideo && '-translate-x-56'
 			)}
 		>
@@ -141,7 +141,7 @@
 						autoplay
 						muted
 						bind:videoElement={videos[index]}
-						class="z-10 aspect-video h-[inherit] origin-left    rounded-lg object-cover  object-left    shadow-xl shadow-cyan-700/50 outline outline-2 outline-cyan-500 duration-500"
+						class="z-10 aspect-video origin-left object-cover    object-left shadow-xl  shadow-cyan-700/50    outline-2 outline-cyan-500 duration-500 sm:h-[inherit] sm:rounded-lg sm:outline"
 						playButtonClass=" lg:left-32 xl:left-1/2"
 						hidden={index !== activeIndex}
 						on:pause={() => onPause(activeIndex, index)}
