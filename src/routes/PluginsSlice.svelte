@@ -151,7 +151,7 @@
 				{/each}
 			</div>
 			<div
-				class="pt-5 text-sm font-medium text-slate-300 md:text-base [&>a:hover]:text-cyan-300 [&>a:hover]:underline [&>a]:font-bold"
+				class="px-2 text-sm font-medium text-slate-300 sm:px-0 sm:pt-5 md:text-base [&>a:hover]:text-cyan-300 [&>a:hover]:underline [&>a]:font-bold"
 			>
 				{@html items[activeIndex].subtext}
 			</div>
