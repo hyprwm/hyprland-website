@@ -29,7 +29,7 @@
 					>
 				</div></InstallButton
 			>
-			<InstallButton name="NixOS" command="programs.hyprland.enable = true " image={nixLogo}
+			<InstallButton name="NixOS" command="programs.hyprland.enable" image={nixLogo}
 				><div slot="extra">
 					<a href="https://wiki.hyprland.org/Nix/" target="_blank"
 						>See more details and git version</a
