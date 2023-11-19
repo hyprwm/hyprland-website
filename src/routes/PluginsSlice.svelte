@@ -21,7 +21,7 @@
 			poster: '/videos/outfoxxed_thumb.webp',
 			src: '/videos/outfoxxed',
 			subtext: `
-			Setup by <a href="https://github.com/outfoxxed/" target="_blank">Outfoxxed</a> using <a href="https://github.com/outfoxxed/hy3" target="_blank">hy3</a> and <a href="https://github.com/VortexCoyote/hyprfocus" target="_blank">hyprfocus</a>`
+			Setup by <a href="https://github.com/outfoxxed/" target="_blank">outfoxxed</a> using <a href="https://github.com/outfoxxed/hy3" target="_blank">hy3</a> and <a href="https://github.com/VortexCoyote/hyprfocus" target="_blank">hyprfocus</a>`
 		},
 		{
 			icon: IconIpc,
