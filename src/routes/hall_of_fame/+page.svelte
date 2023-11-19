@@ -3,21 +3,6 @@
 	import Contest from './Contest.svelte'
 	import FamedRice from './FamedRice.svelte'
 	import colors from 'tailwindcss/colors'
-
-	const wisdoms = [
-		'罰は米の硬さによる',
-		'米どころでの休日',
-		'フォーバイデン米術',
-		'天国の米',
-		'ジーンズの中には何キロもの米が入っているから、毎日がトレーニングなんだ。',
-		'田んぼで撃たれたんだ！',
-		'タイ式マッサージライス 秘伝のソース添え',
-		'国の保護による田んぼでの仕事',
-		'巨大な米ベースの子猫用フードがある。',
-		'私たちは田んぼで一生懸命働いている。',
-		'激辛炊飯器',
-		'絶対にご飯を炊いた'
-	]
 </script>
 
 <section>
@@ -25,11 +10,7 @@
 		<div class="japanese" aria-hidden="true">
 			<div class="rice-symbol">「 米 」</div>
 			<div class="wisdoms">
-				{#each wisdoms as text}
-					<div class="wisdom">
-						{text}
-					</div>
-				{/each}
+				'ベンソンハウス-デイアングルオン：地面にスニーカー。カメラが上に移動して、バリーベンソンのベッドルームアングルを表示します。バリーの手がクローゼットの中でさまざまなセーターをめくっています。バリーイエローブラック、イエローブラック、イエローブラック、イエローブラック、イエローブラック、イエローブラック...うーん、ブラックとイエロー...アングル：バリーが選んだセーターを着て、鏡を見て。バリー（続き）ええ、少し振りましょう彼は黒と黄色のものを選びます。彼はそれから流しに行き、蜂蜜の容器を外し、髪に蜂蜜を入れます。彼は口の中でいくつか潮吹きしてうがいをします。それから彼はボトルの蓋を外し、デオドラントのようにいくつかを転がします。カット'
 			</div>
 		</div>
 		<div class="gradient_" />
@@ -210,13 +191,8 @@
 		opacity: 0.6;
 		margin-top: -2rem;
 		mask-image: linear-gradient(to top, transparent, white);
-	}
-
-	.wisdom {
-		width: max-content;
-		height: max-content;
-		text-align: center;
 		color: theme(colors.cyan.500);
 		text-shadow: 0px 0px 8px blue;
+		text-align: center;
 	}
 </style>
