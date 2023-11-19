@@ -110,7 +110,7 @@
 					target="_blank"
 				>
 					<div>
-						Checkout <span class="text-cyan-500">Awesome Hyprland</span>
+						Check out <span class="text-cyan-500">Awesome Hyprland</span>
 						for more
 					</div>
 					<IconLinkOut />
