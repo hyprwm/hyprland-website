@@ -1,6 +1,7 @@
 <script>
 	import DiscordIcon from '~icons/prime/discord'
 	import GithubIcon from '~icons/ri/github-fill'
+	import { discordLink } from '$lib/constants.mjs'
 
 	/** @type {[string, string, string, string]} */
 	let team = [
@@ -60,7 +61,7 @@
 			<ul class="flex gap-6">
 				<li class="">
 					<a
-						href="https://discord.com/invite/hQ9XvMUjjr"
+						href={discordLink}
 						class="text-slate-400 hover:text-slate-200"
 						aria-label="Join us on Discord"
 						target="_blank"><DiscordIcon class="h-12 w-12 " /></a

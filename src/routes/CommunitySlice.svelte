@@ -10,6 +10,7 @@
 	import Title from '$lib/components/Title.svelte'
 	import background from '$lib/images/community-bg.webp'
 	import amongUsGreenImage from '$lib/images/amongus/green.webp'
+	import { discordLink } from '$lib/constants.mjs'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -220,7 +221,7 @@
 	<div class="group mt-16 flex flex-col items-center">
 		<a
 			class="discord p-4"
-			href="https://discord.com/invite/hQ9XvMUjjr"
+			href={discordLink}
 			target="_blank"
 			rel="noopener"
 			aria-label="Join us on Discord"
@@ -228,7 +229,7 @@
 			<DiscordIcon class="h-full w-full  " />
 		</a>
 
-		<a href="https://discord.com/invite/hQ9XvMUjjr">
+		<a href={discordLink}>
 			<Button type="fancyOutline">Join us on Discord</Button>
 		</a>
 	</div>

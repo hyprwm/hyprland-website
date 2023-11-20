@@ -5,6 +5,7 @@
 	import MenuIcon from '~icons/mingcute/menu-line'
 	import CloseIcon from '~icons/mingcute/close-line'
 	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
+	import { discordLink } from '$lib/constants.mjs'
 
 	let isExpanded = false
 
@@ -60,12 +61,7 @@
 			class="flex flex-row items-center gap-3 px-4 lg:ml-4 lg:mr-2 lg:rounded-full lg:border lg:border-purple-400"
 		>
 			<li>
-				<a
-					href="https://discord.com/invite/hQ9XvMUjjr"
-					class="social-icon"
-					aria-label="Join us on Discord"
-					target="_blank"
-				>
+				<a href={discordLink} class="social-icon" aria-label="Join us on Discord" target="_blank">
 					<DiscordIcon class="h-full w-full" />
 				</a>
 			</li>
