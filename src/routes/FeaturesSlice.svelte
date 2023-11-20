@@ -111,7 +111,7 @@
 		</FeatureCard>
 		<FeatureCard class="" title="Dynamic tiling" color="purple">
 			<p class="max-w-[60ch]">
-				Automatic tiling which just works. Supports multiple fine-tuneable layouts.
+				Automatic tiling that just works. Supports multiple fine-tuneable layouts.
 			</p>
 			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
 				<div class="feature-image">
