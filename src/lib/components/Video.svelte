@@ -3,6 +3,7 @@
 	import PlayIcon from '~icons/mingcute/play-circle-line'
 	import { inview } from 'svelte-inview'
 	import IconFullscreen from '~icons/mingcute/fullscreen-fill'
+	import IconPause from '~icons/mingcute/pause-circle-line'
 	import { onMount } from 'svelte'
 
 	/** @type {string[]} */
@@ -71,11 +72,29 @@
 		{/each}
 	</video>
 
-	<button on:click={makeFullscreen} class="absolute bottom-2 left-2 z-10">
-		<IconFullscreen
-			class="h-6 w-6 rounded  opacity-50   drop-shadow transition-all duration-75 hover:scale-105 hover:opacity-100 group-hover:opacity-90"
-		/>
-	</button>
+	<div
+		class="absolute bottom-2 left-2 flex gap-4 opacity-80 hover:opacity-100 group-hover:opacity-90"
+	>
+		{#if !isPaused}
+			<button on:click={() => videoElement.pause()} class="z-10">
+				<IconPause
+					class="h-6 w-6 rounded     drop-shadow transition-all duration-75 hover:scale-105 "
+				/>
+			</button>
+		{:else}
+			<button on:click={() => videoElement.pause()} class="z-10">
+				<PlayIcon
+					class="h-6 w-6 rounded     drop-shadow transition-all duration-75 hover:scale-105 "
+				/>
+			</button>
+		{/if}
+		<button on:click={makeFullscreen} class="z-10">
+			<IconFullscreen
+				class="h-6 w-6 rounded  drop-shadow transition-all duration-75 hover:scale-105 "
+			/>
+		</button>
+	</div>
+
 	<div
 		class={clsx(
 			'z-20 opacity-0 transition-opacity  ',
