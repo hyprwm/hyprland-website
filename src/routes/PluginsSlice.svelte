@@ -3,14 +3,28 @@
 	import IconPlugin from '~icons/mingcute/plugin-2-line'
 	import IconIpc from '~icons/mingcute/hexagon-line'
 	import IconLinkOut from '~icons/mingcute/external-link-line'
+	import IconSlideLeft from '~icons/mingcute/align-arrow-left-line'
 	import clsx from 'clsx'
 	import Video from '$lib/components/Video.svelte'
 	import { animateIn } from '$lib/Helper.mjs'
+	import { Subject, debounceTime, map, tap, throttle, throttleTime } from 'rxjs'
+	import { onMount } from 'svelte'
+	import { fade } from 'svelte/transition'
 
 	/** @type {HTMLVideoElement[]}*/
 	const videos = []
 	let activeIndex = 0
 	let isHoveringVideo = false
+	const isVideoCroppedInput$ = new Subject()
+	/** @type {import('rxjs').Subject<boolean>}*/
+	const isVideoCropped$ = isVideoCroppedInput$.pipe(
+		debounceTime(100),
+		map(
+			() =>
+				window.innerWidth > 1024 && // LG breakpoint
+				window.innerWidth < 2200 // Video is fully visible
+		)
+	)
 
 	const items = [
 		{
@@ -48,17 +62,22 @@
 
 		videos.filter((_, index) => index !== currentIndex).forEach((video) => video.pause())
 	}
+	function toggleVideoSlide() {
+		isHoveringVideo ? slideVideoOut() : slideVideoIn()
+	}
 	function slideVideoIn() {
-		if (window.innerWidth < 1024) return // LG breakpoint
-		if (window.innerWidth > 2215) return // Video is fully visible
-
 		isHoveringVideo = true
 	}
 	function slideVideoOut() {
 		if (!isHoveringVideo) return
 		isHoveringVideo = false
 	}
+	onMount(() => {
+		isVideoCroppedInput$.next(0)
+	})
 </script>
+
+<svelte:window on:resize={() => isVideoCroppedInput$.next(0)} />
 
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
 	<div
@@ -124,16 +143,22 @@
 		<!-- Prevent the video from making the container big on small phones. 300px seem to work well for the text -->
 		<div
 			class={clsx(
-				'z-10  w-full min-w-0 transition-transform sm:h-[25rem] sm:px-4 md:h-[30rem] lg:h-[37rem] lg:px-0',
+				'relative z-10 w-full min-w-0 transition-transform sm:h-[25rem] sm:px-4 md:h-[30rem] lg:h-[37rem] lg:px-0',
 				isHoveringVideo && '-translate-x-56'
 			)}
 		>
-			<div
-				class="h-full w-full"
-				on:mouseenter={slideVideoIn}
-				on:mouseleave={slideVideoOut}
-				role="complementary"
-			>
+			{#if $isVideoCropped$}
+				<button
+					on:click={toggleVideoSlide}
+					class:rotate-180={isHoveringVideo}
+					class="group absolute -left-6 top-1/2 z-50 rounded-full bg-blue-400/5 p-2 outline outline-white/10 backdrop-blur-sm transition-transform"
+					out:fade
+				>
+					<IconSlideLeft class="h-6 w-6 transition-transform group-hover:-translate-x-0.5" />
+				</button>
+			{/if}
+
+			<div class="h-full w-full" role="complementary">
 				{#each items as { src, poster }, index}
 					<Video
 						sources={[src + '.webm', src + '.mp4']}
