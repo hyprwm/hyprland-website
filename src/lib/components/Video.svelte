@@ -82,7 +82,7 @@
 				/>
 			</button>
 		{:else}
-			<button on:click={() => videoElement.pause()} class="z-10">
+			<button on:click={() => videoElement.play()} class="z-10">
 				<PlayIcon
 					class="h-6 w-6 rounded     drop-shadow transition-all duration-75 hover:scale-105 "
 				/>
