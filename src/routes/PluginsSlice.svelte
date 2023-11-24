@@ -154,7 +154,9 @@
 					class="group absolute -left-6 top-1/2 z-50 rounded-full bg-blue-400/5 p-2 outline outline-white/10 backdrop-blur-sm transition-transform"
 					out:fade
 				>
-					<IconSlideLeft class="h-6 w-6 transition-transform group-hover:-translate-x-0.5" />
+					<IconSlideLeft
+						class="h-6 w-6 opacity-70 transition-all group-hover:-translate-x-0.5 group-hover:opacity-100"
+					/>
 				</button>
 			{/if}
 
