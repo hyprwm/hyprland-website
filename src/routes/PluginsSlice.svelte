@@ -161,7 +161,7 @@
 			<div class="h-full w-full" role="complementary">
 				{#each items as { src, poster }, index}
 					<Video
-						sources={[src + '.webm', src + '.mp4']}
+						sources={[src + '.mp4']}
 						{poster}
 						autoplay
 						muted

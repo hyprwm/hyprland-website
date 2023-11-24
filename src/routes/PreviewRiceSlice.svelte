@@ -37,7 +37,7 @@
 			<Video
 				autoplay
 				muted
-				sources={['/videos/end_4_rice_intro.webm', '/videos/end_4_rice_intro.mp4']}
+				sources={['/videos/end_4_rice_intro.mp4']}
 				bind:videoElement
 				poster={'/videos/end_4_thumbnail.webp'}
 				videoClass="!rounded-2xl overflow-hidden"
