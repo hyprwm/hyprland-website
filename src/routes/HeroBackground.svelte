@@ -191,10 +191,10 @@
 			opacity: 0;
 			transition: opacity 1520ms ease-in-out;
 		}
-		&:hover::after {
-			animation: reveal-artwork var(--reveal-length) ease-in-out 400ms both;
+		&.with-image:hover::after {
+			/* animation: reveal-artwork var(--reveal-length) ease-in-out 400ms both; */
 			opacity: 1;
-			transition: opacity 1520ms ease-in-out;
+			transition: opacity var(--reveal-length) cubic-bezier(0.89, 0.1, 0.7, 0.5);
 		}
 	}
 
@@ -228,14 +228,11 @@
 	@keyframes reveal-artwork {
 		0% {
 			opacity: 0%;
-			filter: brightness(1);
 		}
 		50% {
-			filter: brightness(1.45);
 			opacity: 40%;
 		}
 		100% {
-			filter: brightness(1);
 			opacity: 100%;
 		}
 	}
