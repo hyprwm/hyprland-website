@@ -3,9 +3,11 @@
 
 	const { workspacesPerRow, gapLength, workspaceHeight, height, leftColumns, rightColumns } =
 		backgroundData
+
+	const REVEAL_DURATION = 800 // in ms
 </script>
 
-<div class="wrapper" aria-hidden="true">
+<div class="wrapper" aria-hidden="true" style:--reveal-duration={REVEAL_DURATION + 'ms'}>
 	<div
 		class="inner-wrapper"
 		style={`--amount: ${workspacesPerRow}; --workspace-gap: ${gapLength}px;--workspace-height: ${workspaceHeight}px; --length: ${height}px;`}
@@ -21,12 +23,11 @@
 							{#each workspace as tiles}
 								<div class="tiles">
 									{#each tiles as { color, image }}
-										<div
-											class="tile"
-											style:--color={color}
-											class:with-image={image}
-											style:--image={`url(${image})`}
-										></div>
+										<div class="tile" style:--color={color} class:hasImage={image}>
+											{#if image}
+												<img src={image} class="h-full w-full object-contain" alt="" />
+											{/if}
+										</div>
 									{/each}
 								</div>
 							{/each}
@@ -44,12 +45,11 @@
 							{#each workspace as tiles}
 								<div class="tiles">
 									{#each tiles as { color, image }}
-										<div
-											class="tile"
-											style:--color={color}
-											class:with-image={image}
-											style:--image={`url(${image})`}
-										></div>
+										<div class="tile" style:--color={color} class:hasImage={image}>
+											{#if image}
+												<img src={image} class="h-full w-full object-contain" alt="" />
+											{/if}
+										</div>
 									{/each}
 								</div>
 							{/each}
@@ -116,7 +116,6 @@
 		height: var(--length);
 		min-height: var(--length);
 		max-height: var(--length);
-		/* animation: backwards animate-in ease-in 2000ms 300ms; */
 		contain: layout style content;
 	}
 
@@ -127,12 +126,7 @@
 		width: 100%;
 		gap: var(--workspace-gap);
 		z-index: -50;
-		/* animation: loop 98s infinite linear; */
 		contain: layout style content;
-
-		/* @media (prefers-reduced-motion) {
-			animation: none;
-		} */
 	}
 
 	.workspace {
@@ -153,18 +147,16 @@
 	}
 
 	.tile {
-		--reveal-length: 0.5s;
-
 		border: var(--color) 2px solid;
 		flex-grow: 1;
 		height: var(--height);
 		border-radius: 12px;
 		pointer-events: auto;
-		transition: 480ms ease-in-out;
-		transition-property: background-color background-image opacity scale box-shadow;
+		transition: all 700ms ease-in-out;
 		opacity: 0.5;
 		contain: strict;
 		pointer-events: all;
+		filter: brightness(1);
 
 		&:hover {
 			opacity: 1;
@@ -174,27 +166,27 @@
 				0px 0px 10px var(--color),
 				0px 0px 40px var(--color);
 		}
-		&:hover.with-image {
-			scale: 1;
-			animation: reveal-artwork_tile calc(var(--reveal-length) + 280ms)
-				cubic-bezier(1, -0.4, 0.165, 1) forwards;
+
+		&.hasImage {
+			transition:
+				all var(--reveal-duration) ease-in-out,
+				scale var(--reveal-duration) cubic-bezier(1, -0.4, 0.165, 1),
+				filter var(--reveal-duration) cubic-bezier(1, -0.4, 0.165, 1);
 		}
 
-		&.with-image::after {
-			content: ' ';
-			position: absolute;
-			inset: 0;
-			background-image: var(--image);
-			background-position: center;
-			background-size: contain;
-			background-repeat: no-repeat;
-			opacity: 0;
-			transition: opacity 1520ms ease-in-out;
+		&.hasImage:hover {
+			scale: 1.2;
+			filter: brightness(1.1);
 		}
-		&.with-image:hover::after {
-			/* animation: reveal-artwork var(--reveal-length) ease-in-out 400ms both; */
+
+		& img {
+			opacity: 0;
+			transition: opacity var(--reveal-duration) cubic-bezier(1, -0.4, 0.165, 1);
+			pointer-events: none;
+		}
+		&:hover img {
 			opacity: 1;
-			transition: opacity var(--reveal-length) cubic-bezier(0.89, 0.1, 0.7, 0.5);
+			/* transition: opacity 2s var(--artwork-delay); */
 		}
 	}
 
@@ -223,31 +215,5 @@
 		left: 0;
 		pointer-events: none;
 		contain: strict;
-	}
-
-	@keyframes reveal-artwork {
-		0% {
-			opacity: 0%;
-		}
-		50% {
-			opacity: 40%;
-		}
-		100% {
-			opacity: 100%;
-		}
-	}
-	@keyframes reveal-artwork_tile {
-		0% {
-			opacity: inherit;
-			scale: 1;
-		}
-		50% {
-			filter: brightness(1.5);
-			scale: 1.1;
-		}
-		100% {
-			opacity: 100%;
-			scale: 1;
-		}
 	}
 </style>
