@@ -1,3 +1,11 @@
+old 
+.svelte-kit
+build
+
+
+# For the generated blurred images
+**/generated_*
+
 # Logs
 logs
 *.log

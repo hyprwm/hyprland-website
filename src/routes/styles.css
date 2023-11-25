@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'London Between';
+	src: url('/fonts/LondonBetween.woff') format('woff');
+	font-display: swap;
+}
+
+body {
+	color: theme(colors.white);
+	background-color: theme(colors.black);
+	min-height: 100vh;
+}
+
+.hyprgradient {
+	background-image: linear-gradient(to bottom right, #00e6cf, #00c4e3, #0081c6);
+}
+
+::selection {
+	background: theme(colors.cyan.600);
+	color: theme(colors.white);
+}
+
+/* Scrollbars */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: theme(colors.slate.200/50) transparent;
+}
+*::-webkit-scrollbar {
+	width: 6px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: theme(colors.slate.700);
+	border-radius: 24px;
+}
+
+/* optimize mobile */
+.animate-in,
+.animate-out,
+.ani-in {
+	@media only screen and (max-width: 640px) {
+		animation: none !important;
+	}
+}
+
+@keyframes pop {
+	0% {
+		scale: 0.98;
+	}
+	40% {
+		scale: 1.02;
+	}
+	100% {
+		scale: 1;
+	}
+}
+
+/* Taken from Vercel */
+/* prettier-ignore */
+@keyframes x {
+    0%,16.667%,to { opacity: 1 }
+    33%,83.333% { opacity: 0 }
+}
+/* prettier-ignore */
+@keyframes y {
+    0%,16.667%,66.667%,to { opacity: 0 }
+    33.333%,50% { opacity: 1 }
+}
+/* prettier-ignore */
+@keyframes z {
+    0%,50%,to { opacity: 0 }
+    66.667%,83.333% { opacity: 1 }
+}
