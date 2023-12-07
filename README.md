@@ -11,7 +11,7 @@ Feel free
 
 ## Requirements
 
-- `pnpm` for the package management. (npm works too if you only want to build it)
+- `pnpm` for the package management. (You can also use npm if you only intend to build the project)
 - `imagemagick` to generate the blurred background images.
 
 ## Development
@@ -19,7 +19,7 @@ Feel free
 - `pnpm install` To install the required npm packages
 - `pnpm dev` To start the dev server
 - `pnpm build` To build the static site into `./build`
-- `pnpm preview` To preview the builded site in `./build` ( no dev environment )
+- `pnpm preview` To preview the built site in `./build` ( no dev environment )
 
 ## Credits
 
