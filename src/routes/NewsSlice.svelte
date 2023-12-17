@@ -36,13 +36,13 @@
 				transparent
 			);
 
-		/* mask-image: radial-gradient(
+		mask-image: radial-gradient(
 			50% 50% at 50% 50%,
 			white,
 			rgba(0, 0, 0, 1),
 			rgba(0, 0, 0, 1),
 			transparent
-		); */
+		);
 
 		position: absolute;
 		z-index: -10;
