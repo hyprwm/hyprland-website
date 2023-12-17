@@ -22,11 +22,11 @@
 
 <style lang="postcss">
 	.light {
-		width: 1800px;
+		width: 200%;
 		min-height: 500px;
 		height: 220%;
-		translate: -30% 0%;
-		/* margin-top: -200px; */
+		translate: -25% 0%;
+		margin-top: -100px;
 
 		background: url('/imgs/grain.webp'),
 			radial-gradient(
