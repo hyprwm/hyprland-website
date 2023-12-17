@@ -14,7 +14,7 @@ import { Observable, debounceTime, share, startWith, throttleTime } from 'rxjs'
  * @param { HTMLElement } node
  * @returns
  */
-export function animateIn(node, options) {
+export function animateIn(node, options = {}) {
 	// Do nothing on mobile
 	if (getIsMobile()) return { destroy: () => undefined }
 
@@ -100,4 +100,12 @@ export function getBlurredPath(path) {
 /** Get a random item from an array */
 export function getRandom(array) {
 	return array.at(Math.floor(Math.random() * array.length))
+}
+
+export function formatDate(date, dateStyle = 'medium', locales = 'en') {
+	const dateToFormat = new Date(date)
+
+	const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle })
+
+	return dateFormatter.format(dateToFormat)
 }

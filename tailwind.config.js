@@ -2,7 +2,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
 			colors: { black: '#0b0d0e', primary: '#58E1FF', secondary: '#00A2F8' },
@@ -14,10 +14,11 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
-			}
+			},
+			margin: { navbar: '3.5rem' }
 		}
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 	safelist: [
 		'animate-bounce',
 		'outline-amber-500',
