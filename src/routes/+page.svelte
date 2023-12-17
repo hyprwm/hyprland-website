@@ -6,6 +6,7 @@
 	import InstallSlice from './InstallSlice.svelte'
 	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
 	import PluginsSlice from './PluginsSlice.svelte'
+	import NewsSlice from './NewsSlice.svelte'
 
 	export let data
 </script>
@@ -22,6 +23,8 @@
 	<HallOfFameSlice />
 
 	<Community />
+
+	<NewsSlice news={data.news} />
 
 	<InstallSlice />
 </div>

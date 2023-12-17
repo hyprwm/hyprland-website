@@ -56,6 +56,9 @@
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/hall_of_fame">Hall of fame</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/news' ? 'page' : undefined}>
+				<a href="/news">News</a>
+			</li>
 		</ul>
 		<ul
 			class="flex flex-row items-center gap-3 px-4 lg:ml-4 lg:mr-2 lg:rounded-full lg:border lg:border-purple-400"

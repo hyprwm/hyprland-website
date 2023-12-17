@@ -3,8 +3,11 @@
 
 import baseColors from 'tailwindcss/colors'
 
-export const load = () => ({
-	backgroundData: getHeroBackgroundTiles()
+export const load = async ({ fetch }) => ({
+	backgroundData: getHeroBackgroundTiles(),
+	news: await fetch('/api/news')
+		.then((response) => response.json())
+		.then((news) => news.slice(0, 3))
 })
 
 function getHeroBackgroundTiles() {
