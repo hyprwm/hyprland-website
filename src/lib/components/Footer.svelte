@@ -79,9 +79,9 @@
 		</div>
 
 		<div class="flex w-full flex-wrap gap-4 text-sm font-medium text-slate-400">
-			<div>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</div>
-			<div>© Hyprland Development {new Date().getFullYear()}.</div>
-			<div>Doki doki waku waku.</div>
+			<p>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</p>
+			<p>© Hyprland Development {new Date().getFullYear()}.</p>
+			<p>Doki doki waku waku.</p>
 		</div>
 	</div>
 
