@@ -21,6 +21,11 @@ Feel free
 - `pnpm build` To build the static site into `./build`
 - `pnpm preview` To preview the built site in `./build` ( no dev environment )
 
+## Markdown features
+
+- News entries are in `content/news/` and feature a `title` and a `date`. The date can be provided as an Unix timestamp in seconds or as any string Javascript can parse.
+- `.md` files get parsed with [mdsvex](https://github.com/pngwn/mdsvex). So you can also use `svelte` code within them.
+
 ## Credits
 
 - [VDawg](https://github.com/Visual-Dawg) - for the new site and design.
