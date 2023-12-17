@@ -18,7 +18,7 @@
 	<Title>
 		<span slot="title">{data.meta.title}</span>
 		<time slot="subtitle" datetime={new Date(data.meta.date * 1000).toISOString()}
-			>Published at {formatDate(data.meta.date * 1000)}</time
+			>Published on {formatDate(data.meta.date * 1000)}</time
 		>
 	</Title>
 

@@ -12,7 +12,7 @@
 		</p>
 	{/if}
 
-	<h1 class="mb-12 text-center text-5xl font-bold md:text-8xl">
+	<h1 class="mb-12 text-center text-5xl font-bold md:text-6xl">
 		<slot name="title">No title given!!!</slot>
 	</h1>
 
