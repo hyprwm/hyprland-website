@@ -22,6 +22,7 @@ All winning wallpapers will become official Hyprland default wallpapers. Each ti
 We will have an initial monetary prize pool of 250€.
 
 ### Sponsoring
+
 If you wish to sponsor the competition, (add to the prize pool) make a one-time donation to my [ko-fi page](https://ko-fi.com/vaxry) or Crypto wallets (see pinned message on my ko-fi page)
 and in the message, state clearly "sponsoring the wallpaper competition". You can sponsor the competition until the deadline.
 
@@ -40,9 +41,11 @@ Prize for winning each category will be (prize pool / 3)
 - FFA wallpaper
 
 ## Guidelines for wallpapers
-There is ***no imposed style***, whatever style you feel like using goes. There are some general rules, though, and some category-specific ones.
+
+There is **_no imposed style_**, whatever style you feel like using goes. There are some general rules, though, and some category-specific ones.
 
 ### General rules
+
 - All submissions must be made by _you and only you_.
 - All wallpapers must be strictly SFW. (No explicit / offensive / political content)
 - All wallpapers must be more-or-less dark. No light mode, please.
@@ -55,44 +58,54 @@ There is ***no imposed style***, whatever style you feel like using goes. There 
 ### Category-specific rules
 
 _Mascot wallpaper_
+
 - You can use the official mascot in your wallpaper, but you can also draw your own.
 - If drawing your own, make sure it follows and resembles the characteristics of the official mascot. [Official Design 1](https://cdn.discordapp.com/attachments/1129546302032728174/1129546830364037150/hypr_chan_transparent.png), [Official Design 2](https://cdn.discordapp.com/attachments/1129546302032728174/1133037822006267922/vaxerski_noBG.png). Worth noting you are allowed to use a different art style.
 
 _Logo wallpaper_
+
 - The wallpaper _must_ use the Hyprland logo and have it clearly visible. You can use the logo, or the logo with the Hyprland name, aka banner. [Logo in high res](https://vaxerski.xyz/hyprland/logo.png), [Banner in high res](https://vaxerski.xyz/hyprland/banner.png).
 - The wallpaper should not feature the mascot.
 
 _FFA wallpaper_
+
 - This category is an FFA (free-for-all) and whatever goes. Be creative!
 
 ## Submitting
+
 In order to submit, send your wallpaper directly, or host it on google drive and send a link to any of:
-- Discord: **#wallpaper-contest-submissions** on the Hypr Development discord server ([link](https://discord.gg/hQ9XvMUjjr))
-- Matrix: **#vaxrys-cave:matrix.vaxry.net**
-- Mail: **vaxry [at] vaxry.net**
+
+- Discord: `#wallpaper-contest-submissions` on the Hypr Development discord server ([link](https://discord.gg/hQ9XvMUjjr))
+- Matrix: `#vaxrys-cave:matrix.vaxry.net`
+- Mail: `vaxry [at] vaxry.net`
 
 Alonside your submission, explicitly state which category your wallpaper is meant for.
 Please note that once you submit, if you used discord or matrix, _you cannot leave the room/server_, as if you win, I have to have a line of contact to you.
 
 ## Rating process
+
 Rating will be done on our Discord server, the exact date and time, as usual, will be posted in #announcements closer to the deadline.
 A board of Jury, consisting of at least me, and other moderators of the discord server, will be rating each submission live and giving points.
 
 Each jury gives:
+
 - 0 - 3 -> effort
 - 0 - 3 -> relevance (adhering to the rules, etc.)
 - 0 - 3 -> overall design (aesthetics)
 
 Additionally, we will run a public poll amongst our community and each submission
-will get 0 - 9 points for its placement in the ranking. **9 - (place / number of submissions) * 9**. (9 points for 1st place, 0 points for last place)
+will get 0 - 9 points for its placement in the ranking. **9 - (place / number of submissions) \* 9**. (9 points for 1st place, 0 points for last place)
 
 ### Disqualification
+
 If your wallpaper breaks the rules or you left the place you submitted it at, you will be disqualified.
 
 We might disqualify you for whatever reason we want to, but generally, just stick to the rules and don't be an asshole.
 
 ## Rewards
+
 You can receive rewards in any of the following means, it's up to you which one you will choose:
+
 - Paypal (preferred)
 - Crypto (ETH/BTC/SOL/LTC) (preferred)
 - Discord Nitro
@@ -100,8 +113,10 @@ You can receive rewards in any of the following means, it's up to you which one 
 - I might settle for gift cards.
 
 ## Closer
+
 Good luck to everyone! We hope to see some cool wallpapers submitted :)
 
 ### Notes
+
 - If a category turns out no winners (all submissions broke the rules or there weren't any) the prize pool will be split amongst the remaining categories. I do not expect this to happen, though.
 - The rules and guidelines might be amended in the future. Each major amendment will be announced both here and on Discord.
