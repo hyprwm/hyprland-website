@@ -47,6 +47,7 @@ There is ***no imposed style***, whatever style you feel like using goes. There 
 - All wallpapers must be strictly SFW. (No explicit / offensive / political content)
 - All wallpapers must be more-or-less dark. No light mode, please.
 - All wallpapers must be 16:9, 4K or above.
+- All wallpapers must be a PNG. No animated wallpapers.
 - AI generated content is strictly forbidden.
 - Project files from whatever software you used will be asked for privately if you win in order to verify you made it.
 - By submitting anything you agree that in case it wins you give us all rights to use it for any purpose whatsoever. (It will be used as a wallpaper, and nothing else though, I promise)
