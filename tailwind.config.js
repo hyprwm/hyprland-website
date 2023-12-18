@@ -1,4 +1,9 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
+
+console.log({ colors })
+
+// const sansFamily =
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -15,7 +20,25 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
 			},
-			margin: { navbar: '3.5rem' }
+			margin: { navbar: '3.5rem' },
+			typography: {
+				DEFAULT: {
+					css: {
+						code: {
+							padding: '0.2em 0.4em',
+							'background-color': colors.slate[700],
+							'border-radius': '6px',
+							'font-weight': 'inherit'
+						},
+						'code::before': {
+							content: '""'
+						},
+						'code::after': {
+							content: '""'
+						}
+					}
+				}
+			}
 		}
 	},
 	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
