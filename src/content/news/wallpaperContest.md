@@ -9,6 +9,8 @@ We're going to be hosting the first Hyprland Wallpaper Contest, and looking for 
 
 If you believe you have what it takes, we encourage you to try your best and submit something :)
 
+Feel free to spread this article around! The more artists the better :D
+
 ## General information
 
 The wallpaper contest will last until January 21st. The deadline for submissions is Jan 21st at 23:59 UTC.
