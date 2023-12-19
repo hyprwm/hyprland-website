@@ -13,18 +13,20 @@
 </svelte:head>
 
 <article
-	class="mt-navbar mx-auto flex max-w-4xl flex-col gap-6 px-6 pt-20 md:gap-8 md:px-8 lg:gap-28"
+	class="mx-auto mt-navbar flex max-w-4xl flex-col gap-6 px-6 pt-20 md:gap-8 md:px-8 lg:mt-32 lg:gap-14"
 >
-	<Title>
-		<span slot="title">{data.meta.title}</span>
-		<time slot="subtitle" datetime={new Date(data.meta.date * 1000).toISOString()}
+	<hgroup class="flex flex-col gap-5 duration-1000 animate-in fade-in-0 slide-in-from-bottom-4">
+		<h1 class="text-4xl font-bold lg:text-6xl">{data.meta.title}</h1>
+		<time
+			class="font-medium text-slate-300"
+			datetime={new Date(data.meta.date * 1000).toISOString()}
 			>Published on {formatDate(data.meta.date * 1000)}</time
 		>
-	</Title>
+	</hgroup>
 
 	<!-- Post -->
 	<div
-		class="prose prose-slate prose-invert delay-500 duration-1000 animate-in fade-in-0 fill-mode-backwards lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
+		class="prose prose-slate prose-invert transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:2500ms] lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
 	>
 		<svelte:component this={data.content} />
 	</div>
