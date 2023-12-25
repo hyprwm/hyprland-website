@@ -24,7 +24,7 @@
 			<ul class="flex flex-col gap-3 font-medium">
 				<li>
 					<a href="https://github.com/vaxerski" target="_blank">
-						Vaxerski <span
+						Vaxry <span
 							class="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent"
 							>[ Lead Developer ]</span
 						>

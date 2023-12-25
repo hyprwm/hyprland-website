@@ -41,7 +41,7 @@
 
 	<nav class="nav" class:!flex={isExpanded}>
 		<ul
-			class="flex flex-col items-center gap-5 rounded-full lg:h-full lg:max-h-full lg:flex-row hover:[&_li]:text-cyan-300"
+			class="flex flex-col items-center gap-5 rounded-full lg:h-full lg:max-h-full lg:flex-row [&_li]:transition-colors hover:[&_li]:text-cyan-300"
 		>
 			<li>
 				<a
@@ -60,9 +60,7 @@
 				<a href="/news">News</a>
 			</li>
 		</ul>
-		<ul
-			class="flex flex-row items-center gap-3 px-4 lg:ml-4 lg:mr-2 lg:rounded-full lg:border lg:border-purple-400"
-		>
+		<ul class="flex flex-row items-center gap-3 px-4">
 			<li>
 				<a href={discordLink} class="social-icon" aria-label="Join us on Discord" target="_blank">
 					<DiscordIcon class="h-full w-full" />
@@ -118,7 +116,7 @@
 		height: 4rem;
 		display: block;
 
-		@apply rounded-full p-1 hover:bg-purple-500 hover:text-white;
+		@apply rounded-full p-1 transition-colors hover:bg-cyan-500 hover:text-white;
 
 		@media screen(lg) {
 			width: 2rem;
