@@ -175,6 +175,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		transition: opacity 180ms ease-in-out;
 
 		._wrapper:hover & {
 			opacity: 1;
