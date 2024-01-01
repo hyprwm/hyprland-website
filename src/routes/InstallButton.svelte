@@ -30,7 +30,7 @@
 		<img
 			src={image}
 			class="h-20 w-32 object-contain"
-			alt="Distrubution Logo"
+			alt="The {name} logo"
 			loading="lazy"
 		/>{name}
 		<slot name="imageExtra" />
