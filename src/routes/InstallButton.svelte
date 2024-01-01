@@ -1,6 +1,7 @@
 <script>
-	import { onDestroy } from 'svelte'
+    import {onDestroy, onMount} from 'svelte'
 	import ClipboardIcon from '~icons/mingcute/copy-2-line'
+    import {getIsMobile} from "$lib/Helper.mjs";
 
 	/** @type {string} */
 	export let command
@@ -11,12 +12,17 @@
 
 	let isShowingCopied = false
 	let timeoutId
+    let isMobile = false
 
 	async function copyCommand() {
 		await navigator.clipboard.writeText(command).then(() => (isShowingCopied = true))
 		clearTimeout(timeoutId)
 		timeoutId = setTimeout(() => (isShowingCopied = false), 1400)
 	}
+
+    onMount(() => {
+        isMobile = getIsMobile()
+    })
 
 	onDestroy(() => {
 		clearTimeout(timeoutId)
@@ -36,7 +42,9 @@
 		<slot name="imageExtra" />
 	</div>
 
-	<div class="relative mb-2 flex grow flex-col font-mono md:mb-6">
+    <div class="relative mb-2 flex grow flex-col font-mono md:mb-6"
+        class:w-full={isMobile}
+	>
 		<button
 			class="flex min-w-[18rem] items-center justify-center gap-4 rounded-full border border-primary py-3 pl-6 pr-6 text-base font-medium transition-transform active:scale-[1.01]"
 			on:click={$$slots.default ? undefined : copyCommand}
