@@ -55,9 +55,11 @@
 						<div class="select-none font-bold text-primary">></div>
 						<span>{command}</span>
 					</div>
-					<ClipboardIcon
-						class="h-6 w-6 text-white  opacity-0 transition-opacity duration-100 hover:!opacity-100 group-hover:opacity-80 group-active:opacity-100"
-					/>
+                    {#if !isMobile}
+                        <ClipboardIcon
+                                class="h-6 w-6 text-white  opacity-0 transition-opacity duration-100 hover:!opacity-100 group-hover:opacity-80 group-active:opacity-100"
+                        />
+                    {/if}
 				</div>
 			</slot>
 		</button>
