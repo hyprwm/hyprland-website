@@ -98,12 +98,16 @@
 	function onClick() {
 		click$.next(1)
 	}
+
+	function onClickUnlocked() {
+		window.open('https://github.com/hyprwm/Hyprland/commits/main/', '_blank')
+	}
 </script>
 
 <div class="relative overflow-visible">
 	<button
 		class="flex items-center gap-3 font-bold text-slate-400 shadow-black drop-shadow-lg transition-colors hover:underline active:scale-95"
-		on:click={onClick}
+		on:click={$hasAscended$ ? onClickUnlocked : onClick}
 		style:color={$relativeLevel$ > 0 ? `hsl(${hue} 64% 53%)` : undefined}
 		style:scale={$relativeLevel$ > 0 ? scale : undefined}
 		style:translate={$relativeLevel$ > 0 ? `0px -${translateY}px` : undefined}
