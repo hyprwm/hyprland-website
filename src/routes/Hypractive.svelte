@@ -87,6 +87,7 @@
 
 	/** @type {HTMLDivElement} */
 	let containerElement
+	let isAnimationComplete = false
 
 	const vaxrySize = 220
 	const contextId = Symbol('hypractive context')
@@ -107,7 +108,7 @@
 <div class="relative overflow-visible">
 	<button
 		class="flex items-center gap-3 font-bold text-slate-400 shadow-black drop-shadow-lg transition-colors hover:underline active:scale-95"
-		on:click={$hasAscended$ ? onClickUnlocked : onClick}
+		on:click={isAnimationComplete ? onClickUnlocked : onClick}
 		style:color={$relativeLevel$ > 0 ? `hsl(${hue} 64% 53%)` : undefined}
 		style:scale={$relativeLevel$ > 0 ? scale : undefined}
 		style:translate={$relativeLevel$ > 0 ? `0px -${translateY}px` : undefined}
@@ -131,6 +132,7 @@
 			<div
 				class="vaxx-wrapper absolute bottom-[240px] left-1/2 z-50 aspect-square -translate-x-[100px] rounded-full animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-[500px] slide-in-from-left-20 [animation-duration:2.5s]"
 				style:width={vaxrySize + 'px'}
+				on:animationend={() => (isAnimationComplete = true)}
 			>
 				<DiscordProfilePicture
 					image={VaxryImage}
