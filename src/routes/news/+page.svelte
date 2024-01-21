@@ -2,8 +2,6 @@
 	import Title from '$lib/components/Title.svelte'
 	import NewsThumb from '$lib/components/news-thumb.svelte'
 
-	import { onMount } from 'svelte'
-
 	export let data
 
 	const posts = data.posts
