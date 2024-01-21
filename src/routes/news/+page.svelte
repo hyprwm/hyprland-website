@@ -10,10 +10,6 @@
 
 	const latest = posts.at(0)
 	const others = posts.slice(1)
-
-	onMount(() => {
-		console.log({ data })
-	})
 </script>
 
 <svelte:head>
