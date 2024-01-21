@@ -1,10 +1,6 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
-console.log({ colors })
-
-// const sansFamily =
-
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/**/*.{html,js,svelte,ts}'],
@@ -26,7 +22,7 @@ export default {
 					css: {
 						code: {
 							padding: '0.2em 0.4em',
-							'background-color': colors.slate[700],
+							'background-color': colors.slate[800],
 							'border-radius': '6px',
 							'font-weight': 'inherit'
 						},
