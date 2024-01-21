@@ -27,12 +27,7 @@
 	<div
 		class="relative flex h-32 w-32 flex-col items-center justify-center gap-3 rounded-full text-lg font-medium text-primary transition-transform group-focus-within:-translate-y-1"
 	>
-		<img
-			src={image}
-			class="h-20 w-32 object-contain"
-			alt="Distrubution Logo"
-			loading="lazy"
-		/>{name}
+		<img src={image} class="h-20 w-32 object-contain" alt="{name} Logo" loading="lazy" />{name}
 		<slot name="imageExtra" />
 	</div>
 
@@ -48,7 +43,7 @@
 						<span>{command}</span>
 					</div>
 					<ClipboardIcon
-						class="h-6 w-6 text-white  opacity-0 transition-opacity duration-100 hover:!opacity-100 group-hover:opacity-80 group-active:opacity-100"
+						class="hidden h-6 w-6  text-white opacity-0 transition-opacity duration-100 hover:!opacity-100 group-hover:opacity-80 group-active:opacity-100 sm:block"
 					/>
 				</div>
 			</slot>
