@@ -214,7 +214,7 @@
 		<span slot="title">Join a great<br />community</span>
 
 		<span slot="subtitle">
-			Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies and human_(probably)
+			Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies, and human_(probably)
 		</span>
 	</Title>
 
