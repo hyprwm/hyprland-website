@@ -4,10 +4,7 @@
 
 	export let data
 
-	const posts = data.posts
-
-	const latest = posts.at(0)
-	const others = posts.slice(1)
+	const { posts } = data
 </script>
 
 <svelte:head>
@@ -24,12 +21,9 @@
 	</header>
 
 	<ul
-		class="row-auto grid grid-cols-1 gap-14 delay-500 duration-1000 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards lg:grid-cols-2"
+		class="row-auto flex gap-14 delay-500 duration-1000 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards"
 	>
-		<div class="col-span-full flex lg:justify-center">
-			<NewsThumb entry={latest} />
-		</div>
-		{#each others as entry}
+		{#each posts as entry}
 			<NewsThumb {entry} />
 		{/each}
 	</ul>
