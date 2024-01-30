@@ -78,7 +78,7 @@
 	</header>
 
 	<ul
-		class="row-auto flex gap-14 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms]"
+		class="row-auto flex flex-col gap-14 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms]"
 	>
 		{#each posts as entry}
 			<NewsThumb {entry} />
@@ -109,5 +109,7 @@
 		@apply flex  items-center justify-center bg-gradient-to-tr from-blue-500/0 to-cyan-500 bg-clip-text text-transparent animate-in fade-in-0;
 		animation-duration: 2000ms;
 		font-size: min(1vh, 1rem);
+		/* There are 36 rows */
+		height: min(36vh, 36rem);
 	}
 </style>
