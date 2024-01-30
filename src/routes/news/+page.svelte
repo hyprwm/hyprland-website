@@ -106,7 +106,7 @@
 	}
 
 	.spinner-wrapper {
-		@apply flex  items-center justify-center bg-gradient-to-tr from-blue-500/0 to-cyan-500 bg-clip-text text-transparent animate-in fade-in-0;
+		@apply mb-4  flex items-center justify-center bg-gradient-to-tr from-blue-500/0 to-cyan-500 bg-clip-text text-transparent animate-in fade-in-0;
 		animation-duration: 2000ms;
 		font-size: min(1vh, 1rem);
 		/* There are 36 rows */

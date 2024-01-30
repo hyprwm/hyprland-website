@@ -46,11 +46,12 @@ export function animateIn(node, options = {}) {
 
 	function callback() {
 		timeoutId = setTimeout(
-			effects.forEach(([effect]) => {
-				if (effect === 'slide') node.style.removeProperty('translate')
-				else if (effect === 'fade') node.style.removeProperty('opacity')
-				else if (effect === 'zoom') node.style.removeProperty('scale')
-			}),
+			() =>
+				effects.forEach(([effect]) => {
+					if (effect === 'slide') node.style.removeProperty('translate')
+					else if (effect === 'fade') node.style.removeProperty('opacity')
+					else if (effect === 'zoom') node.style.removeProperty('scale')
+				}),
 			options.delay ?? 0
 		)
 	}
