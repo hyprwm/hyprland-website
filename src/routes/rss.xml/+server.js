@@ -1,13 +1,15 @@
+import { getNews } from '$lib/posts'
+
 const siteURL = 'https://hyprland.org'
 const siteTitle = 'Hyprland'
 const siteDescription = 'Tiling window manager with the looks'
 
 export const prerender = true
 
-export const GET = async ({ fetch }) => {
-	const allNews = await fetch('api/news')
-		.then((response) => response.json())
-		.then((news) => news.sort((a, b) => new Date(b.date) - new Date(a.date)))
+export const GET = async () => {
+	const allNews = await getNews().then((news) =>
+		news.sort((a, b) => new Date(b.date) - new Date(a.date))
+	)
 
 	const body = renderXml(allNews)
 	const options = {
@@ -24,7 +26,7 @@ function renderXml(posts) {
 	return `<?xml version="1.0" encoding="UTF-8" ?>
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-    <atom:link href="${siteURL}/rss" rel="self" type="application/rss+xml" />
+    <atom:link href="${siteURL}/rss.xml" rel="self" type="application/rss+xml" />
     <title>${siteTitle} News</title>
     <link>${siteURL}/news</link>
     <description>${siteDescription}</description>
