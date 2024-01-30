@@ -1,5 +1,3 @@
-import { error } from '@sveltejs/kit'
-
 export async function load({ params, fetch }) {
 	try {
 		const post = await import(`../../../content/news/${params.slug}.md`)

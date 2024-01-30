@@ -78,7 +78,7 @@
 				</li>
 				<li class="">
 					<a
-						href="/rss"
+						href="/rss.xml"
 						class="text-slate-400 hover:text-slate-200"
 						target="_blank"
 						aria-label="Rss Feed"><RssIcon class="h-12 w-12 " /></a
