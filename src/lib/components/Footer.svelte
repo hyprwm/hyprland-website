@@ -2,6 +2,7 @@
 	import DiscordIcon from '~icons/prime/discord'
 	import GithubIcon from '~icons/ri/github-fill'
 	import { discordLink } from '$lib/constants.mjs'
+	import RssIcon from '~icons/mingcute/rss-fill'
 
 	/** @type {[string, string, string, string]} */
 	let team = [
@@ -75,13 +76,21 @@
 						aria-label="Go to our Github"><GithubIcon class="h-12 w-12 " /></a
 					>
 				</li>
+				<li class="">
+					<a
+						href="/rss"
+						class="text-slate-400 hover:text-slate-200"
+						target="_blank"
+						aria-label="Rss Feed"><RssIcon class="h-12 w-12 " /></a
+					>
+				</li>
 			</ul>
 		</div>
 
 		<div class="flex w-full flex-wrap gap-4 text-sm font-medium text-slate-400">
 			<p>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</p>
 			<p>© Hyprland Development {new Date().getFullYear()}.</p>
-			<p>Doki doki waku waku.</p>
+			<p>Stay hydrated</p>
 		</div>
 	</div>
 
