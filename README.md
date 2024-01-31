@@ -12,7 +12,6 @@ Feel free
 ## Requirements
 
 - `pnpm` for the package management. (You can also use npm if you only intend to build the project)
-- `pnpm` for the package management. (You can also use npm if you only intend to build the project)
 - `imagemagick` to generate the blurred background images.
 
 ## Development
