@@ -66,7 +66,7 @@
 				Smooth transitions. Great animations. High performance. Instant input.
 			</p>
 
-			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
+			<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
 				<div class="feature-image">
 					<img
 						src={smoothDefaultImage}
@@ -90,7 +90,7 @@
 				Live reloading config. Easy plain-text format. Sensible defaults. Great documentation.
 			</p>
 
-			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
+			<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
 				<div class="feature-image">
 					<img
 						src={configDefaultImage}
@@ -113,7 +113,7 @@
 			<p class="max-w-[60ch]">
 				Automatic tiling that just works. Supports multiple fine-tuneable layouts.
 			</p>
-			<div class="_wrapper absolute inset-0 select-none" aria-hidden>
+			<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
 				<div class="feature-image">
 					<img
 						src={tileDefaultImage}

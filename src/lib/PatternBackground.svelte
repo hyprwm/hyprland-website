@@ -98,7 +98,7 @@
 			x <= clientX && y <= clientY && x + width > clientX && y + height > clientY
 		isMouseOver$.next(isMouseStillOver)
 	}}
-	aria-hidden
+	aria-hidden="true"
 	bind:this={wrapperElement}
 >
 	<div

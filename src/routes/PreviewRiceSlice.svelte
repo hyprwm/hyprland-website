@@ -10,9 +10,12 @@
 	let isManuallyPaused = false
 
 	onMount(() => {
-		// The inview_leave event fires at the start and Chromium reports the video as paused, even with autoplay on.
-		// This fixes it. Catch in case autoplay is blocked
-		videoElement.play().catch(() => {})
+		// Only autoplay on Chrome, because Firefox struggles with decoding the video
+		if (navigator.userAgent.toLowerCase().includes('chrome')) {
+			// The inview_leave event fires at the start and Chromium reports the video as paused, even with autoplay on.
+			// This fixes it. Catch in case autoplay is blocked
+			videoElement.play().catch(() => {})
+		}
 	})
 </script>
 
@@ -35,7 +38,6 @@
 	>
 		<div class="video">
 			<Video
-				autoplay
 				muted
 				sources={['/videos/end_4_rice_intro.mp4']}
 				bind:videoElement
@@ -56,7 +58,7 @@
 
 <style lang="postcss">
 	section {
-		@apply relative z-10 -mb-4 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] md:-mt-8 lg:px-8;
+		@apply animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards relative z-10 -mb-4 w-full max-w-[1400px] px-1 [animation-delay:1700ms] [animation-duration:2000ms] md:-mt-8 lg:px-8;
 
 		contain: layout style content;
 	}
