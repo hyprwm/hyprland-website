@@ -20,7 +20,7 @@ export const contests = [
 				name: 'Globes',
 				creator: 'Aylur',
 				pretitel: '#2',
-				dotfilesLink: 'https://github.com/Aylur/dotfiles',
+				dotfilesLink: 'https://github.com/Aylur/dotfiles/tree/ags-pre-ts',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/104676705?v=4',
 				thumbnail: '/imgs/ricing_competitions/3/aylur.webp'
 			},
