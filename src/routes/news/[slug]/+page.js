@@ -1,3 +1,6 @@
+import { error } from '@sveltejs/kit'
+
+
 export async function load({ params, fetch }) {
 	try {
 		const post = await import(`../../../content/news/${params.slug}.md`)
@@ -12,6 +15,6 @@ export async function load({ params, fetch }) {
 		}
 	} catch (error) {
 		console.error(error)
-		throw error(404, `Could not find ${params.slug}`)
+		error(404, `Could not find ${params.slug}`)
 	}
 }
