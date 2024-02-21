@@ -1,9 +1,9 @@
 ---
 name: CSGO Vulkan Fix
 url: https://github.com/hyprwm/hyprland-plugins
-tags: ['Miscellaneous']
+tags: ['Miscellaneous', 'Official']
 description: Fixes custom resolutions on CS:GO with `-vulkan`
-logo: /plugins/csgo-vulkan-fix-logo.svg
+logo: /imgs/plugins/csgo-vulkan-fix-logo.svg
 ---
 
 ## Add borders how you want

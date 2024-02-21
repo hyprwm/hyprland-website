@@ -1,9 +1,9 @@
 ---
 name: Hyprtrails
 url: https://github.com/hyprwm/hyprland-plugins
-tags: ['Design']
+tags: ['Design',  'Official']
 description: Adds smooth trails behind moving windows
-logo: /plugins/hyprtrails-logo.svg
+logo: /imgs/plugins/hyprtrails-logo.svg
 weight: 200
 ---
 

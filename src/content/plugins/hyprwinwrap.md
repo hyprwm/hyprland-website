@@ -1,9 +1,9 @@
 ---
-name: Border Plus Plus
+name: Hyprwinwrap
 url: https://github.com/hyprwm/hyprland-plugins
-tags: ['Design', 'Quality of Life']
+tags: ['Design', 'Quality of Life', 'Miscellaneous', 'Official']
 description: Clone of xwinwrap, allows you to put any app as a wallpaper
-logo: /plugins/hyprwinwrap-logo.svg
+logo: /imgs/plugins/hyprwinwrap-logo.svg
 ---
 
 ## Add

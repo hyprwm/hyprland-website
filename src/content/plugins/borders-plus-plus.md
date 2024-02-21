@@ -1,9 +1,10 @@
 ---
-name: Border Plus Plus
+name: Borders Plus Plus
 url: https://github.com/hyprwm/hyprland-plugins
-tags: ['design']
-description: Adds one or two additional borders to windows
-logo: /plugins/Borders-plus-plus-logo.svg
+tags: ['Design', 'Official']
+description: Adds one or two additional borders to windows Very long description here which breaks the layout I think and thus I need to write some extra Css to make sure it will look good with all texts
+logo: /imgs/plugins/Borders-plus-plus-logo.svg
+banner: /imgs/ricing_competitions/3/flafy.webp
 ---
 
 ## Add borders how you want

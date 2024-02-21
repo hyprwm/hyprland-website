@@ -4,6 +4,7 @@
 	import { cardsContext } from '$lib/components/CardsContainer.svelte'
 	import { spring } from 'svelte/motion'
 	import { getIsMobile } from '$lib/Helper.mjs'
+	/** @type {'cyan' | 'purple'}*/
 	export let color = 'cyan'
 
 	const { x: mouseX, y: mouseY, isHoverCards } = getContext(cardsContext)
@@ -27,7 +28,7 @@
 	let hasMouseEntered = false
 
 	$: {
-		if (container && $mouseX !== undefined) {
+		if (container && $mouseX && $mouseY !== undefined) {
 			updateGradient()
 		}
 	}
@@ -86,8 +87,10 @@
 	}}
 	class:purpleGradient={color === 'purple'}
 	role="contentinfo"
+	on:mouseenter
+	on:mouseleave
 >
-	<div class="z-10 flex h-full w-full flex-col justify-end p-8 sm:p-12">
+	<div class="z-10 h-full w-full">
 		<slot>Nothing in the slot here</slot>
 	</div>
 	<div class="gradient max-sm:hidden" />

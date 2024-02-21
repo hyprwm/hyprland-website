@@ -110,3 +110,13 @@ export function formatDate(date, dateStyle = 'medium', locales = 'en') {
 
 	return dateFormatter.format(dateToFormat)
 }
+
+/**
+ *
+ * @param {string} text
+ * @param {number} maxLenght
+ * @returns
+ */
+export function trimText(text, maxLenght) {
+    return text.length > maxLenght - 1 ? text.slice(0, maxLenght) + '…' : text
+}

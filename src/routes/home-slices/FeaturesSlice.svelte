@@ -27,76 +27,82 @@
 		class="group grid w-full flex-wrap gap-6 text-lg font-medium text-white/70 lg:grid-cols-2 lg:grid-rows-2"
 	>
 		<Card class="row-span-2" color="purple">
-			<h2 class="mb-6 text-5xl font-bold text-white lg:text-8xl">Smooth</h2>
-			<p class="max-w-[60ch]">
-				Smooth transitions. Great animations. High performance. Instant input.
-			</p>
+			<div class="flex flex-col justify-end p-8 sm:p-12">
+				<h2 class="mb-6 text-5xl font-bold text-white lg:text-8xl">Smooth</h2>
+				<p class="max-w-[60ch]">
+					Smooth transitions. Great animations. High performance. Instant input.
+				</p>
 
-			<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
-				<div class="feature-image">
-					<img
-						src={smoothDefaultImage}
-						class="feature-image_inner"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
-					<img
-						src={smoothHoverImage}
-						class="feature-image_inner-hover"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
+				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+					<div class="feature-image">
+						<img
+							src={smoothDefaultImage}
+							class="feature-image_inner"
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+						/>
+						<img
+							src={smoothHoverImage}
+							class="feature-image_inner-hover"
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+						/>
+					</div>
 				</div>
 			</div>
 		</Card>
 		<Card color="purple">
-			<h2 class="mb-6 text-5xl font-bold text-white">Easy to configure</h2>
-			<p class="max-w-[60ch]">
-				Live reloading config. Easy plain-text format. Sensible defaults. Great documentation.
-			</p>
+			<div class="flex flex-col justify-end p-8 sm:p-12">
+				<h2 class="mb-6 text-5xl font-bold text-white">Easy to configure</h2>
+				<p class="max-w-[60ch]">
+					Live reloading config. Easy plain-text format. Sensible defaults. Great documentation.
+				</p>
 
-			<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
-				<div class="feature-image">
-					<img
-						src={configDefaultImage}
-						class="feature-image_inner"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
-					<img
-						src={configHoverImage}
-						class="feature-image_inner-hover"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
+				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+					<div class="feature-image">
+						<img
+							src={configDefaultImage}
+							class="feature-image_inner"
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+						/>
+						<img
+							src={configHoverImage}
+							class="feature-image_inner-hover"
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+						/>
+					</div>
 				</div>
 			</div>
 		</Card>
 		<Card color="purple">
-			<h2 class="mb-6 text-5xl font-bold text-white">Dynamic tiling</h2>
-			<p class="max-w-[60ch]">
-				Automatic tiling that just works. Supports multiple fine-tuneable layouts.
-			</p>
-			<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
-				<div class="feature-image">
-					<img
-						src={tileDefaultImage}
-						class="feature-image_inner"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
-					<img
-						src={tileHoverImage}
-						class="feature-image_inner-hover"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
+			<div class="flex flex-col justify-end p-8 sm:p-12">
+				<h2 class="mb-6 text-5xl font-bold text-white">Dynamic tiling</h2>
+				<p class="max-w-[60ch]">
+					Automatic tiling that just works. Supports multiple fine-tuneable layouts.
+				</p>
+				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+					<div class="feature-image">
+						<img
+							src={tileDefaultImage}
+							class="feature-image_inner"
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+						/>
+						<img
+							src={tileHoverImage}
+							class="feature-image_inner-hover"
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+						/>
+					</div>
 				</div>
 			</div>
 		</Card>

@@ -1,9 +1,7 @@
 <script>
 	import Title from '$lib/components/Title.svelte'
-	import Card from '$lib/components/Card.svelte'
 	import CardsContainer from '$lib/components/CardsContainer.svelte'
-	import PluginCard from './plugin-card.svelte'
-	import plugin from '@tailwindcss/typography'
+	import PluginCard from './Plugin-card.svelte'
 
 	export let data
 
@@ -16,7 +14,7 @@
 </svelte:head>
 
 <section>
-	<header class="header">
+	<header class="header mt-24 md:mt-32 lg:mt-48">
 		<Title class="mb-0  duration-1000 animate-in fade-in-0">
 			<span slot="title">Plugins</span><span slot="subtitle">
 				Easily load up plugins and customize everything
@@ -25,10 +23,20 @@
 	</header>
 
 	<CardsContainer
-		class="row-auto flex flex-col gap-14 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms]"
+		class="flex w-full max-w-screen-3xl grid-flow-dense grid-cols-6 flex-col gap-4  animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid"
 	>
-		{#each plugins as plugin}
-			<PluginCard {plugin} />
+		{#each plugins as plugin, index}
+			<PluginCard
+				{plugin}
+				class={plugin.banner
+					? plugin.featured
+						? 'col-span-4'
+						: index % 2
+							? 'col-span-4'
+							: 'col-span-2'
+					: 'col-span-2'}
+				color={index % 3 === 0 ? 'purple' : 'cyan'}
+			/>
 		{/each}
 	</CardsContainer>
 </section>
@@ -39,16 +47,14 @@
 	}
 
 	.header {
-		display: flex;
+		/* display: flex;
+		justify-content: center;
+		align-items: center;
 		position: relative;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		min-height: max-content;
-		height: 55vh;
-		min-height: 500px;
-		max-height: 900px;
-		width: 100%;
-		margin-bottom: 8rem;
+		height: 100%; */
+		/* margin-bottom: 8rem; */
 	}
 </style>

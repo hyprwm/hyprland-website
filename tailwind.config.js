@@ -17,6 +17,9 @@ export default {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
 			},
 			margin: { navbar: '3.5rem' },
+			
+			screens: {'3xl': '2560px'},
+
 			typography: {
 				DEFAULT: {
 					css: {
@@ -37,7 +40,7 @@ export default {
 			}
 		}
 	},
-	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'), require('@tailwindcss/container-queries')],
 	safelist: [
 		'animate-bounce',
 		'outline-amber-500',
