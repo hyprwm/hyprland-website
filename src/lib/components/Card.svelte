@@ -1,13 +1,12 @@
 <script>
 	import clsx from 'clsx'
 	import { getContext, onMount } from 'svelte'
-	import { mouseContext } from './FeaturesSlice.svelte'
+	import { cardsContext } from '$lib/components/CardsContainer.svelte'
 	import { spring } from 'svelte/motion'
 	import { getIsMobile } from '$lib/Helper.mjs'
-	export let title
 	export let color = 'cyan'
 
-	const { x: mouseX, y: mouseY, isHoverCards } = getContext(mouseContext)
+	const { x: mouseX, y: mouseY, isHoverCards } = getContext(cardsContext)
 
 	/** @type HTMLDivElement */
 	let container
@@ -89,8 +88,6 @@
 	role="contentinfo"
 >
 	<div class="z-10 flex h-full w-full flex-col justify-end p-8 sm:p-12">
-		<h1 class="mb-6 text-5xl font-bold text-white">{title}</h1>
-
 		<slot>Nothing in the slot here</slot>
 	</div>
 	<div class="gradient max-sm:hidden" />

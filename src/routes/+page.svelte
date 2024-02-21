@@ -1,12 +1,12 @@
 <script>
-	import Community from './CommunitySlice.svelte'
-	import FeaturesSlice from './FeaturesSlice.svelte'
-	import HallOfFameSlice from './HallOfFameSlice.svelte'
-	import Hero from './Hero.svelte'
-	import InstallSlice from './InstallSlice.svelte'
-	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
-	import PluginsSlice from './PluginsSlice.svelte'
-	import NewsSlice from './NewsSlice.svelte'
+	import Community from './home-slices/CommunitySlice.svelte'
+	import FeaturesSlice from './home-slices/FeaturesSlice.svelte'
+	import HallOfFameSlice from './home-slices/HallOfFameSlice.svelte'
+	import Hero from './home-slices/Hero.svelte'
+	import InstallSlice from './home-slices/InstallSlice.svelte'
+	import PreviewRiceSlice from './home-slices/PreviewRiceSlice.svelte'
+	import PluginsSlice from './home-slices/PluginsSlice.svelte'
+	import NewsSlice from './home-slices/NewsSlice.svelte'
 
 	export let data
 </script>

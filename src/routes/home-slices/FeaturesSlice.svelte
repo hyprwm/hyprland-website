@@ -1,51 +1,20 @@
-<script context="module">
-	export const mouseContext = Symbol('mouseContext')
-</script>
-
 <script>
-	import FeatureCard from './FeatureCard.svelte'
-	import { setContext, onMount } from 'svelte'
-	import { writable } from 'svelte/store'
-	import PluginsIcon from '~icons/gg/arrange-back'
+	import Card from '$lib/components/Card.svelte'
+	import GameIcon from '~icons/gg/games'
+	import SpecialWorkspaceIcon from '~icons/gg/shutterstock'
 	import ShortcutsIcon from '~icons/gg/push-chevron-right-o'
+	import TabIcon from '~icons/gg/tab'
+	import IpcIcon from '~icons/gg/media-podcast'
 	import TouchpadIcon from '~icons/gg/touchpad'
 	import Title from '$lib/components/Title.svelte'
 	import Hypractive from './Hypractive.svelte'
-	import { getIsMobile } from '$lib/Helper.mjs'
 	import configDefaultImage from '$lib/images/features/config_default.webp'
 	import configHoverImage from '$lib/images/features/config_hover.webp'
 	import smoothDefaultImage from '$lib/images/features/smooth_default.webp'
 	import smoothHoverImage from '$lib/images/features/smooth_hover.webp'
 	import tileDefaultImage from '$lib/images/features/tiling_default.webp'
 	import tileHoverImage from '$lib/images/features/tiling_hover.webp'
-
-	let isMobile = false
-
-	const context = setContext(mouseContext, {
-		x: writable(0),
-		y: writable(0),
-		isHoverCards: writable(false)
-	})
-
-	/** @type HTMLDivElement */
-	let featuresContainer
-
-	onMount(() => {
-		isMobile = getIsMobile()
-	})
-
-	function onMouseEnter() {
-		featuresContainer.addEventListener('mousemove', trackMouse)
-		context.isHoverCards.set(true)
-	}
-	function onMouseLeave() {
-		featuresContainer.removeEventListener('mousemove', trackMouse)
-		context.isHoverCards.set(false)
-	}
-	function trackMouse({ clientX, clientY }) {
-		context.x.set(clientX)
-		context.y.set(clientY)
-	}
+	import CardsContainer from '$lib/components/CardsContainer.svelte'
 </script>
 
 <section class="relative flex flex-col items-center px-3 md:px-8">
@@ -54,14 +23,11 @@
 		<span slot="title">Features</span>
 	</Title>
 
-	<div
+	<CardsContainer
 		class="group grid w-full flex-wrap gap-6 text-lg font-medium text-white/70 lg:grid-cols-2 lg:grid-rows-2"
-		role="contentinfo"
-		on:mouseenter={!isMobile && onMouseEnter}
-		on:mouseleave={!isMobile && onMouseLeave}
-		bind:this={featuresContainer}
 	>
-		<FeatureCard title="Smooth" class="row-span-2" color="purple">
+		<Card class="row-span-2" color="purple">
+			<h2 class="mb-6 text-5xl font-bold text-white lg:text-8xl">Smooth</h2>
 			<p class="max-w-[60ch]">
 				Smooth transitions. Great animations. High performance. Instant input.
 			</p>
@@ -84,8 +50,9 @@
 					/>
 				</div>
 			</div>
-		</FeatureCard>
-		<FeatureCard title="Easy to configure" color="purple">
+		</Card>
+		<Card color="purple">
+			<h2 class="mb-6 text-5xl font-bold text-white">Easy to configure</h2>
 			<p class="max-w-[60ch]">
 				Live reloading config. Easy plain-text format. Sensible defaults. Great documentation.
 			</p>
@@ -108,8 +75,9 @@
 					/>
 				</div>
 			</div>
-		</FeatureCard>
-		<FeatureCard class="" title="Dynamic tiling" color="purple">
+		</Card>
+		<Card color="purple">
+			<h2 class="mb-6 text-5xl font-bold text-white">Dynamic tiling</h2>
 			<p class="max-w-[60ch]">
 				Automatic tiling that just works. Supports multiple fine-tuneable layouts.
 			</p>
@@ -131,17 +99,43 @@
 					/>
 				</div>
 			</div>
-		</FeatureCard>
-	</div>
+		</Card>
+	</CardsContainer>
 
-	<div class="z-10 mt-14 flex flex-col flex-wrap justify-center gap-8 text-lg sm:flex-row">
+	<div
+		class="z-10 mt-14 flex max-w-screen-xl flex-col flex-wrap justify-center gap-8 text-lg sm:flex-row"
+	>
 		<a
 			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
-			<PluginsIcon class="h-8 w-8" />
-			Plugin system
+			<GameIcon class="h-8 w-8" />
+			Tearing support
+		</a>
+		<a
+			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
+			target="_blank"
+			class="icon-feature hover:underline"
+		>
+			<IpcIcon class="h-8 w-8" />
+			Socket-based IPC
+		</a>
+		<a
+			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
+			target="_blank"
+			class="icon-feature hover:underline"
+		>
+			<TabIcon class="h-8 w-8" />
+			Window groups
+		</a>
+		<a
+			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
+			target="_blank"
+			class="icon-feature hover:underline"
+		>
+			<SpecialWorkspaceIcon class="h-8 w-8" />
+			Special workspaces
 		</a>
 		<Hypractive />
 		<a
@@ -209,5 +203,9 @@
 			opacity: 1 !important;
 			filter: saturate(1.3);
 		}
+	}
+
+	p {
+		word-break: pretty;
 	}
 </style>

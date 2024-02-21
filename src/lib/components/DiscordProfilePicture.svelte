@@ -2,7 +2,7 @@
 	import clsx from 'clsx'
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
-	import { contextId as ctxId } from '../../routes/CommunitySlice.svelte'
+	import { contextId as ctxId } from '../../routes/home-slices/CommunitySlice.svelte'
 	import { lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
 
