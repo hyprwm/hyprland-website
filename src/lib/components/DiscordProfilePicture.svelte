@@ -33,7 +33,7 @@
 	const dispatch = createEventDispatcher()
 
 	const relativeSize = size / biggestSize
-	const delay = (biggestSize - size) * 5
+	const delay = Math.pow(1 - size / biggestSize, 3) * 4050
 	const dragCoordinates = spring([0, 0], {
 		damping: lerp(0.2, 0.03, relativeSize),
 		stiffness: lerp(0.2, 0.01, relativeSize),

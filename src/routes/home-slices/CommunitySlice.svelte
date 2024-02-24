@@ -224,7 +224,7 @@
 		},
 		{
 			image: '/imgs/profile_pictures/xsty_.webp',
-			coordinates: [458, 807],
+			coordinates: [458, 913],
 			size: 35,
 			class: 'outline-orange-500  '
 		},
