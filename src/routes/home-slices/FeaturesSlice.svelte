@@ -112,18 +112,14 @@
 		class="z-10 mt-14 flex max-w-screen-xl flex-col flex-wrap justify-center gap-8 text-lg sm:flex-row"
 	>
 		<a
-			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
+			href="https://wiki.hyprland.org/Configuring/Tearing/"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
 			<GameIcon class="h-8 w-8" />
 			Tearing support
 		</a>
-		<a
-			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
-			target="_blank"
-			class="icon-feature hover:underline"
-		>
+		<a href="https://wiki.hyprland.org/IPC/" target="_blank" class="icon-feature hover:underline">
 			<IpcIcon class="h-8 w-8" />
 			Socket-based IPC
 		</a>
@@ -136,7 +132,7 @@
 			Window groups
 		</a>
 		<a
-			href="https://github.com/hyprland-community/awesome-hyprland#plugins"
+			href="https://wiki.hyprland.org/Configuring/Dispatchers/#special-workspace"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
