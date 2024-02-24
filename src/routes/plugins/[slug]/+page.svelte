@@ -15,6 +15,13 @@
 
 	/** @type {HTMLVideoElement}*/
 	let videoElement
+
+	function playVideo() {
+		videoElement && videoElement.play().catch(console.error)
+	}
+	function pauseVideo() {
+		videoElement && videoElement.pause()
+	}
 </script>
 
 <svelte:head>
@@ -36,8 +43,8 @@
 	{#if meta.banner || meta.logo}
 		<div
 			class="relative flex aspect-video w-full min-w-full items-center justify-center overflow-hidden bg-neutral-950 animate-in fade-in-0 fill-mode-backwards [animation-delay:0.4s] [animation-duration:1.2s] sm:rounded-3xl md:h-[28rem]"
-			on:mouseenter={() => videoElement && videoElement.play().catch(console.error)}
-			on:mouseleave={() => videoElement && videoElement.pause()}
+			on:mouseenter={playVideo}
+			on:mouseleave={pauseVideo}
 			role="banner"
 		>
 			{#if meta.banner?.split('.').at(-1) === 'mp4'}
@@ -73,7 +80,13 @@
 			meta.banner && meta.logo && 'sm:-mt-24 md:-mt-52 lg:-mt-64 '
 		)}
 	>
-		<hgroup class="flex w-full flex-col gap-4">
+		<hgroup
+			class="flex w-full flex-col gap-4"
+			on:mouseenter={playVideo}
+			on:mouseleave={pauseVideo}
+			role="heading"
+			aria-level="1"
+		>
 			<!-- Logo -->
 			{#if meta.logo && meta.banner}
 				<img src={meta.logo} class="size-20 md:size-28 lg:size-40" alt={'Logo ' + meta.name} />
