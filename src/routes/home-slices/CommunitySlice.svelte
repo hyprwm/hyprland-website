@@ -193,6 +193,24 @@
 			quote: 'Perfect being'
 		},
 		{
+			image: '/imgs/profile_pictures/jappie3.webp',
+			coordinates: [275, 844],
+			size: 40,
+			class: 'outline-rose-300 '
+		},
+		{
+			image: '/imgs/profile_pictures/xsty_.webp',
+			coordinates: [458, 807],
+			size: 35,
+			class: 'outline-orange-500  '
+		},
+		{
+			image: '/imgs/profile_pictures/petingoso.webp',
+			coordinates: [858, 707],
+			size: 45,
+			class: 'outline-blue-500  '
+		},
+		{
 			image: '/imgs/profile_pictures/eriedaberrie.webp',
 			coordinates: [8, 477],
 			size: 54,
