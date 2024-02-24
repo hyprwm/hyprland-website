@@ -21,7 +21,7 @@
 			class="links_ flex flex-col gap-12 px-4 md:gap-6 md:rounded-3xl md:bg-gradient-to-tr md:from-blue-500/40 md:to-transparent md:p-8 md:shadow-xl md:outline md:outline-1 md:outline-blue-500"
 		>
 			<DistroOption name="Arch" image={archLogo}>
-				<CommandButton command="pacman -S hyprland" >
+				<CommandButton command="pacman -S hyprland">
 					<div slot="extra">
 						AUR git version: <a
 							class=" "
@@ -49,15 +49,14 @@
 			<DistroOption name="openSUSE" image={suseLogo}>
 				<CommandButton command="zypper in hyprland">
 					<div slot="extra">or install “hyprland” via YaST2 Software.</div>
-
-					<img
-						class=" absolute inset-0 -z-10 translate-y-1 rotate-0 scale-90 opacity-0 transition-all duration-700 [transition-delay:2s] group-hover:-translate-x-3 group-hover:-translate-y-0 group-hover:-rotate-12 group-hover:scale-100 group-hover:opacity-90"
-						src={amongus}
-						slot="imageExtra"
-						alt=""
-						srcset=""
-					/>
 				</CommandButton>
+				<img
+					class=" absolute inset-0 -z-10 translate-y-1 rotate-0 scale-90 opacity-0 transition-all duration-700 [transition-delay:2s] group-hover:-translate-x-3 group-hover:-translate-y-0 group-hover:-rotate-12 group-hover:scale-100 group-hover:opacity-90"
+					src={amongus}
+					slot="imageExtra"
+					alt=""
+					srcset=""
+				/>
 			</DistroOption>
 		</div>
 
