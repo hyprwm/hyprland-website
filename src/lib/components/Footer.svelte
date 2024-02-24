@@ -8,8 +8,7 @@
 	let team = [
 		['Fufexan', 'Supporting Developer', 'cyan', 'https://github.com/fufexan'],
 		['NotAShelf', 'Real Chad', 'teal', 'https://github.com/NotAShelf'],
-		['VDawg', 'Webdesign-and dev', 'emerald', 'https://github.com/Visual-Dawg'],
-		['System-x64', 'Webdev', 'green', 'https://github.com/System-x64']
+		['VDawg', 'Webdesign-and dev', 'emerald', 'https://github.com/Visual-Dawg']
 	]
 	function createRole(role, color) {
 		return `<span class='text-${color}-500'><span class='text-${color}-600'>[ </span>${role}<span class='text-${color}-600'> ]</span></span>`
