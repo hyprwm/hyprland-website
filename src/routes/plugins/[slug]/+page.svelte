@@ -112,7 +112,7 @@
 						href="https://wiki.hyprland.org/Plugins/Using-Plugins/"
 						target="_blank"
 						class="w-full text-left hover:underline"
-						slot="extra">Install via hyprpm</a
+						slot="extra">Installation via hyprpm</a
 					>
 				</InstallButton>
 			</div>
