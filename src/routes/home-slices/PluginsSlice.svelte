@@ -10,6 +10,7 @@
 	import { Subject, debounceTime, map, tap, throttle, throttleTime } from 'rxjs'
 	import { onMount } from 'svelte'
 	import { fade } from 'svelte/transition'
+	import Button from '$lib/components/Button.svelte'
 
 	/** @type {HTMLVideoElement[]}*/
 	const videos = []
@@ -122,6 +123,10 @@
 				{/each}
 			</div>
 
+			<Button type="primary" size="lg" class="max-w-max"
+				><a href="/plugins/">Checkout more plugins</a></Button
+			>
+
 			<div class="-mt-5 hidden gap-1 lg:mt-12 lg:flex lg:flex-col">
 				<a
 					class="txt-shadow_ flex w-max max-w-max shrink-0 items-center gap-3 rounded font-bold text-slate-400 hover:underline"
@@ -129,8 +134,7 @@
 					target="_blank"
 				>
 					<div>
-						Check out <span class="text-cyan-500">Awesome Hyprland</span>
-						for more
+						Also see <span class="text-cyan-500">Awesome Hyprland</span>
 					</div>
 					<IconLinkOut />
 				</a>
