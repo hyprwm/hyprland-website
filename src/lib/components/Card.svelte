@@ -6,6 +6,8 @@
 	import { getIsMobile } from '$lib/Helper.mjs'
 	/** @type {'cyan' | 'purple'}*/
 	export let color = 'cyan'
+	/** @type {number | number}*/
+	export let gradientOpacity = undefined
 
 	const { x: mouseX, y: mouseY, isHoverCards } = getContext(cardsContext)
 
@@ -55,12 +57,13 @@
 		}
 
 		// Instantly update the blob positon without easing when the mouse has just entered
-		if (hasMouseEntered === false) {
+		/*		if (hasMouseEntered === false) {
 			fillX.set(normX, { hard: true })
 			fillY.set(normY, { hard: true })
 			hasMouseEntered = true
 			return
 		}
+		*/
 
 		if ($mouseX < rectX) fillX.set(rectX + bounceBack, { soft })
 		else if ($mouseX > rectX + width) fillX.set(rectX + width - bounceBack, { soft })
@@ -93,7 +96,7 @@
 	<div class="z-10 h-full w-full">
 		<slot>Nothing in the slot here</slot>
 	</div>
-	<div class="gradient max-sm:hidden" />
+	<div class="gradient max-sm:hidden" style:opacity={gradientOpacity} />
 	<div class="gradient_black max-sm:hidden" />
 	<div class="border-gradient max-sm:hidden" />
 </div>
@@ -130,7 +133,7 @@
 				circle at bottom right,
 				theme(colors.neutral.900 / 80%),
 				theme(colors.neutral.500 / 10%),
-				black
+				rgba(0, 0, 0, 0.5)
 			);
 	}
 
@@ -188,12 +191,14 @@
 			transition: all 820ms;
 			content: '';
 			pointer-events: none;
-			background: radial-gradient(
-				ellipse at calc(var(--x) * 1px) calc(var(--y) * 1px),
-				var(--color1, theme(colors.cyan.500 / 100%)),
-				var(--color2, theme(colors.blue.700 / 40%)) 25%,
-				var(--color3, theme(colors.blue.900 / 15%)) 50%
-			);
+
+			background: url('/imgs/grain.webp'),
+				radial-gradient(
+					ellipse at calc(var(--x) * 1px) calc(var(--y) * 1px),
+					var(--color1, theme(colors.cyan.500 / 100%)),
+					var(--color2, theme(colors.blue.700 / 40%)) 25%,
+					var(--color3, theme(colors.blue.900 / 15%)) 50%
+				);
 
 			.card:hover & {
 				scale: 1 1;

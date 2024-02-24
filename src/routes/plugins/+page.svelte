@@ -1,12 +1,11 @@
 <script>
 	import Title from '$lib/components/Title.svelte'
 	import CardsContainer from '$lib/components/CardsContainer.svelte'
-	import PluginCard from './Plugin-card.svelte'
+	import PluginCard from './PluginCard.svelte'
 
 	export let data
 
 	const { plugins } = data
-	console.log({ plugins })
 </script>
 
 <svelte:head>
@@ -16,25 +15,26 @@
 <section>
 	<header class="header mt-24 md:mt-32 lg:mt-48">
 		<Title class="mb-0  duration-1000 animate-in fade-in-0">
-			<span slot="title">Plugins</span><span slot="subtitle">
+			<span slot="pre">Plugins</span>
+			<span slot="title">Unlock full power</span><span slot="subtitle">
 				Easily load up plugins and customize everything
 			</span>
 		</Title>
 	</header>
 
 	<CardsContainer
-		class="flex w-full max-w-screen-3xl grid-flow-dense grid-cols-6 flex-col gap-4  animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid"
+		class="flex w-full max-w-screen-3xl grid-flow-dense grid-cols-2 flex-col gap-4 animate-in  fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid 2xl:grid-cols-6"
 	>
 		{#each plugins as plugin, index}
 			<PluginCard
 				{plugin}
 				class={plugin.banner
 					? plugin.featured
-						? 'col-span-4'
+						? '2xl:col-span-4'
 						: index % 2
-							? 'col-span-4'
-							: 'col-span-2'
-					: 'col-span-2'}
+							? '2xl:col-span-4'
+							: '2xl:col-span-2'
+					: '2xl:col-span-2'}
 				color={index % 3 === 0 ? 'purple' : 'cyan'}
 			/>
 		{/each}

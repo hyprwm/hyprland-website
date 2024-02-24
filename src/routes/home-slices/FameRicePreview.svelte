@@ -1,5 +1,5 @@
 <script>
-	import { animateIn, getBlurredPath } from '$lib/Helper.mjs'
+	import { animateIn, getGeneratedPath } from '$lib/Helper.mjs'
 
 	/** @type {string}
 	 * The path to the image. Usually the file within `static`, but can also be an URL
@@ -24,7 +24,7 @@
 		/>
 		<div class="rice-blurred">
 			<img
-				src={blurredBackground ?? getBlurredPath(image)}
+				src={blurredBackground ?? getGeneratedPath(image)}
 				alt="Rice desktop"
 				aria-hidden="true"
 				class="h-full w-full object-cover"

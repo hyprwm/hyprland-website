@@ -30,7 +30,7 @@
 			class: 'outline-yellow-500'
 		},
 		{
-			image: '/imgs/profile_pictures/raf-notashelf.webp',
+			image: '/imgs/profile_pictures/notashelf.webp',
 			coordinates: [391, 615],
 			size: 149,
 			class: 'outline-orange-500'
@@ -42,7 +42,7 @@
 			class: 'outline-amber-500'
 		},
 		{
-			image: '/imgs/profile_pictures/dani_666..webp',
+			image: '/imgs/profile_pictures/dani_2048.webp',
 			coordinates: [525, 764],
 			size: 80,
 			class: 'outline-red-500'
@@ -60,7 +60,7 @@
 			class: 'outline-slate-200'
 		},
 		{
-			image: '/imgs/profile_pictures/kcrmson.webp',
+			image: '/imgs/profile_pictures/roasted_cheese.webp',
 			coordinates: [53, 399],
 			size: 75,
 			class: 'outline-sky-500'
@@ -79,14 +79,14 @@
 		},
 		{
 			image: '/imgs/profile_pictures/etrigan63.webp',
-			coordinates: [824, 738],
-			size: 58,
+			coordinates: [1038, 446],
+			size: 52,
 			class: 'outline-amber-500'
 		},
 		{
-			image: '/imgs/profile_pictures/jsw.webp',
-			coordinates: [41, 566],
-			size: 49,
+			image: '/imgs/profile_pictures/_anon.webp',
+			coordinates: [-85, 566],
+			size: 40,
 			class: 'outline-sky-500'
 		},
 		{
@@ -144,7 +144,7 @@
 		},
 		{
 			image: '/imgs/profile_pictures/SimplyKyle!.webp',
-			coordinates: [859, 159],
+			coordinates: [887, 159],
 			size: 39,
 			class: 'outline-rose-500'
 		},
@@ -188,8 +188,57 @@
 		{
 			image: '/imgs/profile_pictures/aleph.nought.webp',
 			coordinates: [583, 824],
-			size: 40,
+			size: 69,
+			class: 'outline-white bg-black ',
+			quote: 'Perfect being'
+		},
+		{
+			image: '/imgs/profile_pictures/eriedaberrie.webp',
+			coordinates: [8, 477],
+			size: 54,
 			class: 'outline-blue-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/kosslan.webp',
+			coordinates: [69, 561],
+			size: 54,
+			class: 'outline-orange-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/lassebq.webp',
+			coordinates: [908, 463],
+			size: 54,
+			class: 'outline-blue-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/poutineburgerman.webp',
+			coordinates: [823, 184],
+			size: 44,
+			class: 'outline-blue-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/vdawg.webp',
+			coordinates: [133, 493],
+			size: 49,
+			class: 'outline-stone-900 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/wickedlyhost.webp',
+			coordinates: [119, 202],
+			size: 49,
+			class: 'outline-blue-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/yavko.webp',
+			coordinates: [179, 671],
+			size: 69,
+			class: 'outline-yellow-500 bg-black '
+		},
+		{
+			image: '/imgs/profile_pictures/mcgoth.webp',
+			coordinates: [771, 818],
+			size: 49,
+			class: 'outline-stone-500 bg-black '
 		}
 	].sort(({ size: a }, { size: b }) => b - a)
 

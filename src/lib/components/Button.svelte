@@ -7,7 +7,7 @@
 	export let type = 'primary'
 
 	$: classes = clsx(
-		'animate  rounded text-sm font-bold hover:scale-[1.03] active:scale-95',
+		'animate  rounded text-sm font-bold hover:scale-[1.01] active:scale-100',
 		'primary' == type && 'bg-slate-200 text-black',
 		'outline' == type && 'bg-transparent text-white outline outline-2 outline-slate-200',
 		'fancyOutline' == type && 'fancy',

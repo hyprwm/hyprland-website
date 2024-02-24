@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit'
 
 export async function load({ params, fetch }) {
 	try {
-		const post = await import(`../../../content/plugins/${params.slug}/index.md`)
+		const post = await import(`../../../content/plugins/${params.slug}.md`)
 		const other = await fetch('/api/plugins')
 			.then((response) => response.json())
 			.then((news) => news.filter((entry) => entry.slug !== params.slug).slice(0, 4))
@@ -12,8 +12,8 @@ export async function load({ params, fetch }) {
 			meta: post.metadata,
 			other
 		}
-	} catch (error) {
-		console.error(error)
-		throw error(404, `Could not find ${params.slug}`)
+	} catch (errorMessage) {
+		console.error(errorMessage)
+		error(404, `Could not find ${params.slug}`)
 	}
 }

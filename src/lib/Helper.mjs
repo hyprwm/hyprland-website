@@ -93,9 +93,11 @@ export function getIsMobile() {
 	return check
 }
 
-/** Get the `generated_<filename>` if blurredThumbnail is not set manually **/
-export function getBlurredPath(path) {
-	return `${path.substring(0, path.lastIndexOf('/'))}/generated_${path.split('/').at(-1)}`
+/** Get the `generated_<filename>` for the provided path  **/
+export function getGeneratedPath(path, extension = 'webp') {
+	const directory = path.substring(0, path.lastIndexOf('/'))
+	const filename = getFileNameWithoutExtension(path)
+	return `${directory}/generated_${filename}.${extension}`
 }
 
 /** Get a random item from an array */
@@ -118,5 +120,10 @@ export function formatDate(date, dateStyle = 'medium', locales = 'en') {
  * @returns
  */
 export function trimText(text, maxLenght) {
-    return text.length > maxLenght - 1 ? text.slice(0, maxLenght) + '…' : text
+	return text.length > maxLenght - 1 ? text.slice(0, maxLenght) + '…' : text
+}
+
+/** Get the filename of a filepath without its extension */
+export function getFileNameWithoutExtension(filePath) {
+	return filePath.split('/').at(-1).replace(/\..*$/, '')
 }

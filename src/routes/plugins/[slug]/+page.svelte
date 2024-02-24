@@ -1,44 +1,161 @@
 <script>
-	import { formatDate } from '$lib/Helper'
+	import CardsContainer from '$lib/components/CardsContainer.svelte'
 	import Title from '$lib/components/Title.svelte'
-	import NewsThumb from '$lib/components/news-thumb.svelte'
+	import clsx from 'clsx'
+	import PluginCard from '../PluginCard.svelte'
+	import Tag from '../Tag.svelte'
+	import { getGeneratedPath } from '$lib/Helper.mjs'
+	import Button from '$lib/components/Button.svelte'
+	import GithubIcon from '~icons/ri/github-fill'
+	import InstallButton from '$lib/components/CommandButton.svelte'
 
 	export let data
+	$: ({ meta } = data)
+	$: title = meta.name + ' Hyprland Plugin'
+
+	/** @type {HTMLVideoElement}*/
+	let videoElement
 </script>
 
 <svelte:head>
-	<title>{data.meta.title}</title>
+	<title>{title}</title>
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content={data.meta.title} />
+	<meta property="og:title" content={title} />
+	{#if meta.logo}
+		<meta property="og:image" content={meta.logo} />
+	{/if}
 </svelte:head>
 
 <article
-	class="mx-auto mt-navbar flex max-w-4xl flex-col gap-6 px-6 pt-20 md:gap-8 md:px-8 lg:mt-32 lg:gap-14"
+	class={clsx(
+		'mx-auto mt-navbar flex w-full max-w-screen-lg flex-col  transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:2500ms] lg:px-0',
+		meta.banner | meta.logo ? 'md:pt-12' : 'mt-12'
+	)}
 >
-	<hgroup class="flex flex-col gap-5 duration-1000 animate-in fade-in-0 slide-in-from-bottom-4">
-		<h1 class="text-4xl font-bold lg:text-6xl">{data.meta.title}</h1>
-		<time
-			class="font-medium text-slate-300"
-			datetime={new Date(data.meta.date * 1000).toISOString()}
-			>Published on {formatDate(data.meta.date * 1000)}</time
+	<!-- Banner  -->
+	{#if meta.banner || meta.logo}
+		<div
+			class="relative flex aspect-video w-full min-w-full items-center justify-center overflow-hidden bg-neutral-950 animate-in fade-in-0 fill-mode-backwards [animation-delay:0.4s] [animation-duration:1.2s] sm:rounded-3xl md:h-[28rem]"
+			on:mouseenter={() => videoElement && videoElement.play().catch(console.error)}
+			on:mouseleave={() => videoElement && videoElement.pause()}
+			role="banner"
 		>
-	</hgroup>
+			{#if meta.banner?.split('.').at(-1) === 'mp4'}
+				<video
+					src={meta.banner}
+					class="absolute left-1/2 top-1/2 z-10 size-full min-h-[44rem] min-w-full -translate-x-1/2 -translate-y-1/2"
+					bind:this={videoElement}
+					playsinline
+					muted
+					loop
+				></video>
+			{:else if meta.banner}
+				<img src={meta.banner} class="absolute inset-0 size-full object-cover" alt="" />
+			{:else if meta.logo}
+				<div class="grain absolute inset-0 flex size-full items-center justify-center">
+					<img src={meta.logo} class="z-30 size-48" alt="" />
+					<img
+						src={getGeneratedPath(meta.logo)}
+						class="absolute inset-0 object-cover opacity-30"
+						alt=""
+					/>
+				</div>
+			{/if}
+		</div>
+	{/if}
 
-	<!-- Post -->
+	<!-- ( Logo, Heading, Install buttons ) and tags -->
 	<div
-		class="prose prose-slate prose-invert transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:2500ms] lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
+		class={clsx(
+			'relative z-20 mx-6 mb-24 mt-6 flex    flex-col flex-wrap justify-between gap-4 duration-1000 animate-in fade-in-0 slide-in-from-bottom-4 md:mx-8 md:gap-8 lg:flex-nowrap',
+			!meta.banner && !meta.logo && 'mt-24 lg:mt-44',
+			!meta.banner && meta.logo && 'sm:-mt-16 md:-mt-20 lg:-mt-32',
+			meta.banner && meta.logo && 'sm:-mt-24 md:-mt-52 lg:-mt-64 '
+		)}
+	>
+		<hgroup class="flex w-full flex-col gap-4">
+			<!-- Logo -->
+			{#if meta.logo && meta.banner}
+				<img src={meta.logo} class="size-20 md:size-28 lg:size-40" alt={'Logo ' + meta.name} />
+			{/if}
+			<h1
+				class="_text-shadow max-w-max text-pretty bg-gradient-to-br from-white via-white to-white/50 bg-clip-text py-2 text-5xl font-bold text-transparent md:text-7xl xl:text-8xl"
+			>
+				{meta.name}
+			</h1>
+		</hgroup>
+
+		<div class="flex w-full flex-wrap gap-16 md:flex-nowrap md:gap-8">
+			<div class="flex w-full grow-[4] flex-col justify-between gap-8 md:gap-12">
+				<p class="font-medium text-slate-300 sm:text-lg xl:text-xl">
+					{meta.description}
+				</p>
+
+				<InstallButton
+					containerClass="max-w-max"
+					commandClass="text-left break-all md:break-normal  text-slate-300 group-hover:text-white"
+					command={`hyprpm add ${meta.url}`}
+					><a
+						href="https://wiki.hyprland.org/Plugins/Using-Plugins/"
+						target="_blank"
+						class="w-full text-left hover:underline"
+						slot="extra">Install via hyprpm</a
+					>
+				</InstallButton>
+			</div>
+
+			<!-- Tags, Github button -->
+			<div class="flex shrink-0 flex-col items-start gap-4 md:items-end lg:shrink-[2]">
+				<ul
+					class="flex flex-wrap items-start justify-end gap-2 md:flex-col md:items-end lg:flex-row"
+				>
+					{#each meta.tags as tag}
+						<Tag {tag} />
+					{/each}
+				</ul>
+
+				<a href={meta.url} target="_blank">
+					<GithubIcon class="size-10" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Markdown -->
+	<section
+		class="prose prose-slate prose-invert mx-auto px-6 lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg sm:px-8"
 	>
 		<svelte:component this={data.content} />
-	</div>
+	</section>
 </article>
 
+<!-- More plugins -->
 {#if data.other.length > 0}
-	<section class="mx-auto mt-72 max-w-screen-lg">
-		<Title class="mb-6"><span slot="title">More news</span></Title>
-		<ul class="grid grid-cols-2 gap-x-7 gap-y-16">
-			{#each data.other as entry}
-				<NewsThumb {entry} />
+	<section class="mx-auto mt-64 w-full max-w-screen-2xl px-0 md:px-8">
+		<Title class="mb-6"><span slot="title">More plugins</span></Title>
+		<CardsContainer class="flex w-full grid-cols-2 flex-col gap-8 xl:grid">
+			{#each data.other as plugin}
+				<PluginCard {plugin} />
 			{/each}
-		</ul>
+		</CardsContainer>
 	</section>
 {/if}
+
+<style lang="postcss">
+	.grain {
+		&::after {
+			content: ' ';
+			background: url('/imgs/grain.webp');
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 21;
+		}
+	}
+
+	._text-shadow {
+		filter: drop-shadow(0 0 20px theme(colors.black / 50%));
+	}
+</style>
