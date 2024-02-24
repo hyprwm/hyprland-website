@@ -199,16 +199,22 @@
 			class: 'outline-blue-500 bg-black '
 		},
 		{
+			image: '/imgs/profile_pictures/errornointernet.webp',
+			coordinates: [950, 277],
+			size: 47,
+			class: 'outline-orange-500 bg-stone-800'
+		},
+		{
 			image: '/imgs/profile_pictures/kosslan.webp',
 			coordinates: [69, 561],
 			size: 54,
-			class: 'outline-orange-500 bg-black '
+			class: 'outline-red-500 bg-black '
 		},
 		{
 			image: '/imgs/profile_pictures/lassebq.webp',
 			coordinates: [908, 463],
 			size: 54,
-			class: 'outline-blue-500 bg-black '
+			class: 'outline-orange-500 bg-black '
 		},
 		{
 			image: '/imgs/profile_pictures/poutineburgerman.webp',
