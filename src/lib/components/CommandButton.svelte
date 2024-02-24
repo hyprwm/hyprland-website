@@ -50,7 +50,7 @@
 	</div>
 
 	{#if $$slots.extra}
-		<div class="absolute -bottom-6 flex w-full justify-center font-sans text-xs opacity-80">
+		<div class="mt-3 flex w-full items-center justify-center font-sans text-xs opacity-80">
 			<slot name="extra" />
 		</div>
 	{/if}
