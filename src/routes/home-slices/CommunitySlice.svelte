@@ -66,6 +66,12 @@
 			class: 'outline-sky-500'
 		},
 		{
+			image: '/imgs/profile_pictures/chan_1.webp',
+			coordinates: [91, 799],
+			size: 55,
+			class: 'outline-sky-500'
+		},
+		{
 			image: '/imgs/profile_pictures/loseardes77.webp',
 			coordinates: [24, 341],
 			size: 49,
@@ -196,7 +202,25 @@
 			image: '/imgs/profile_pictures/jappie3.webp',
 			coordinates: [275, 844],
 			size: 40,
-			class: 'outline-rose-300 '
+			class: 'outline-rose-300'
+		},
+		{
+			image: '/imgs/profile_pictures/chan_cat.webp',
+			coordinates: [-10, 844],
+			size: 32,
+			class: 'outline-blue-800'
+		},
+		{
+			image: '/imgs/profile_pictures/chan_cat_2.webp',
+			coordinates: [1000, 744],
+			size: 32,
+			class: 'outline-cyan-500'
+		},
+		{
+			image: '/imgs/profile_pictures/nwg.piotr.webp',
+			coordinates: [939, 552],
+			size: 48,
+			class: 'outline-orange-500'
 		},
 		{
 			image: '/imgs/profile_pictures/xsty_.webp',
