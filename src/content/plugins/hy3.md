@@ -4,7 +4,7 @@ url: https://github.com/outfoxxed/hy3
 tags: ['Layout']
 description: i3 / sway like layout for Hyprland
 logo: /imgs/plugins/logos/hy3-logo.svg
-banner: https://user-images.githubusercontent.com/83010835/255322916-85ae8196-8b12-4e15-b060-9872db10839f.mp4
+banner: /videos/hy3-banner.mp4
 featured: true
 ---
 
