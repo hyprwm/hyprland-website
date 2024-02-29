@@ -16,13 +16,13 @@ async function getPlugins() {
 
 			return { slug, ...metadata }
 		})
-		.sort((a, b) => {
-			if (b.featured || a.featured) {
-				return b.featured ?? 0 - a.featured ?? 0
-			}
-
-			return b.weight ?? 0.1 - a.weight ?? 0
-		})
+		.sort(
+			(a, b) =>
+				(b.featured ?? 0) - (a.featured ?? 0) ||
+				(b.weight ?? 0) - (a.weight ?? 0) ||
+				((b.logo && 1) ?? 0) - ((a.logo && 1) ?? 0) ||
+				((b.banner && 1) ?? 0) - ((a.banner && 1) ?? 0)
+		)
 
 	return plugins
 }
