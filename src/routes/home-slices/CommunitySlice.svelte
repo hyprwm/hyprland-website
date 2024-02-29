@@ -371,15 +371,11 @@
 		.map(({ image, size, ...profile }) => ({
 			...profile,
 			size,
-			image:
-				image +
-				'?size=' +
-				validSizes.find(
-					(value, index) =>
-						(size >= validSizes[index - 1] ?? 0) && (size <= validSizes[index + 1] ?? 9999)
-				)
+			image: image + '?size=' + validSizes.find((_, index) => size <= validSizes[index])
 		}))
 		.sort(({ size: a }, { size: b }) => b - a)
+
+	console.log({ profiles })
 
 	setContext(contextId, {
 		biggestSize: profiles.reduce(

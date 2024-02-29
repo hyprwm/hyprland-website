@@ -107,7 +107,7 @@
 
 <style lang="postcss">
 	.card {
-		@apply relative flex h-full w-full items-end justify-end rounded-3xl transition-colors  duration-300;
+		@apply relative flex items-end justify-end rounded-3xl transition-colors  duration-300;
 		z-index: 2;
 		contain: paint style layout;
 

@@ -2,6 +2,7 @@
 	import Title from '$lib/components/Title.svelte'
 	import CardsContainer from '$lib/components/CardsContainer.svelte'
 	import PluginCard from './PluginCard.svelte'
+	import clsx from 'clsx'
 
 	export let data
 
@@ -23,19 +24,19 @@
 	</header>
 
 	<CardsContainer
-		class="flex w-full max-w-screen-3xl grid-flow-dense grid-cols-2 flex-col gap-4 animate-in  fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid 2xl:grid-cols-6"
+		class="flex w-full max-w-screen-3xl grid-flow-dense  grid-cols-12 flex-col gap-4  animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid"
 		enableBorders={false}
 	>
 		{#each plugins as plugin, index}
 			<PluginCard
 				{plugin}
-				class={plugin.banner
-					? plugin.featured
-						? '2xl:col-span-4'
-						: index % 2
-							? '2xl:col-span-4'
-							: '2xl:col-span-2'
-					: '2xl:col-span-2'}
+				class={clsx(
+					plugin.featured && plugin.banner
+						? 'h-[24rem] lg:col-span-12 xl:col-span-8  2xl:col-span-6'
+						: 'h-[20rem] xl:col-span-4 2xl:col-span-3',
+
+					'col-span-6 min-h-full '
+				)}
 				color={index % 3 === 0 ? 'purple' : 'cyan'}
 			/>
 		{/each}

@@ -2,6 +2,8 @@
 name: Hyprwinwrap
 url: https://github.com/hyprwm/hyprland-plugins
 tags: ['Design', 'Quality of Life', 'Miscellaneous', 'Official']
-description: Clone of xwinwrap, allows you to put any app as a wallpaper
-logo: /imgs/plugins/logos/hyprwinwrap-logo.svg
+description: xwinwrap clone. Set any app as your wallpaper
+logo: /plugins-data/logos/hyprwinwrap-logo.svg
+# banner: /plugins-data/hy3_banner.mp4
+featured: false
 ---

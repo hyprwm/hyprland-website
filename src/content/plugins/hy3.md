@@ -2,9 +2,9 @@
 name: hy3
 url: https://github.com/outfoxxed/hy3
 tags: ['Layout']
-description: i3 / sway like layout for Hyprland
-logo: /imgs/plugins/logos/hy3-logo.svg
-banner: /videos/hy3-banner.mp4
+description: Get an i3 / Sway like layout for Hyprland
+logo: /plugins-data/logos/hy3-logo.svg
+banner: /plugins-data/hy3_banner.mp4
 featured: true
 ---
 

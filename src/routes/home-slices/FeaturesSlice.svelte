@@ -24,7 +24,7 @@
 	</Title>
 
 	<CardsContainer
-		class="group grid w-full flex-wrap gap-6 text-lg font-medium text-white/70 lg:grid-cols-2 lg:grid-rows-2"
+		class="group grid w-full flex-wrap gap-6 text-lg font-medium text-white/70 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4"
 	>
 		<Card class="row-span-2 min-h-[20rem]" color="purple">
 			<div class="flex h-full flex-col justify-end p-8 sm:p-12">

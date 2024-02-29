@@ -120,6 +120,8 @@
 				on:mouseenter={(event) => dispatch('hover', event)}
 				class:hover:scale-125={!!quote}
 				loading="lazy"
+				referrerpolicy="no-referrer"
+				crossorigin="anonymous"
 			/>
 			<slot />
 		</div>

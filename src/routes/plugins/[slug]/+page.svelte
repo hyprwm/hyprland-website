@@ -5,7 +5,6 @@
 	import PluginCard from '../PluginCard.svelte'
 	import Tag from '../Tag.svelte'
 	import { getGeneratedPath } from '$lib/Helper.mjs'
-	import Button from '$lib/components/Button.svelte'
 	import GithubIcon from '~icons/ri/github-fill'
 	import InstallButton from '$lib/components/CommandButton.svelte'
 
@@ -35,7 +34,7 @@
 
 <article
 	class={clsx(
-		'mx-auto mt-navbar flex w-full max-w-screen-lg flex-col  transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:2500ms] lg:px-0',
+		'mx-auto mt-navbar flex min-h-[min(100vh,900px)] w-full max-w-screen-lg  flex-col transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:400ms] lg:px-0',
 		meta.banner | meta.logo ? 'md:pt-12' : 'mt-12'
 	)}
 >
@@ -144,7 +143,7 @@
 
 <!-- More plugins -->
 {#if data.other.length > 0}
-	<section class="mx-auto mt-64 w-full max-w-screen-2xl px-0 md:px-8">
+	<section class="mx-auto mt-64 w-full max-w-screen-xl px-0 md:px-8">
 		<Title class="mb-6"><span slot="title">More plugins</span></Title>
 		<CardsContainer class="flex w-full grid-cols-2 flex-col gap-8 xl:grid">
 			{#each data.other as plugin}
