@@ -8,6 +8,8 @@
 	import { onMount, setContext } from 'svelte'
 	import { writable } from 'svelte/store'
 
+	export let enableBorders = true
+
 	/** @type {HTMLElement}*/
 	let containerElement
 	let isMobile = false
@@ -15,7 +17,8 @@
 	const context = setContext(cardsContext, {
 		x: writable(0),
 		y: writable(0),
-		isHoverCards: writable(false)
+		isHoverCards: writable(false),
+		enableBorders
 	})
 
 	function onMouseEnter() {

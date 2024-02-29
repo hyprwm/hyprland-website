@@ -55,7 +55,7 @@
 
 			<!-- Texts -->
 			<h2
-				class="mb-4 min-w-[8ch] max-w-full text-pretty text-2xl font-bold text-white [overflow-wrap:break-word] md:text-3xl lg:text-4xl"
+				class="mb-2 min-w-[8ch] max-w-full text-pretty text-2xl font-bold text-white [overflow-wrap:break-word] lg:text-2xl"
 			>
 				{plugin.name}
 			</h2>
@@ -64,7 +64,7 @@
 			</p>
 
 			<!-- Tags -->
-			<ul class="mt-5 flex flex-wrap gap-2">
+			<ul class="mt-3 flex flex-wrap gap-2">
 				{#each plugin.tags ?? [] as tag}
 					<Tag {tag} />
 				{/each}
@@ -84,11 +84,7 @@
 						loop
 					></video>
 				{:else}
-					<img
-						src={plugin.banner}
-						class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
-						alt=""
-					/>
+					<img src={plugin.banner} class="absolute inset-0 size-full object-cover" alt="" />
 				{/if}
 			</div>
 		{/if}
@@ -96,11 +92,8 @@
 </Card>
 
 <style lang="postcss">
-	._drop-shadow {
-		filter: drop-shadow(0px 16px 24px black);
-	}
-
 	.logo {
+		contain: layout size;
 		&::after {
 			content: ' ';
 			position: absolute;
@@ -113,7 +106,7 @@
 			width: 120%;
 			translate: -12% 15%;
 			z-index: -1;
-			opacity: 70%;
+			opacity: 50%;
 			/* filter: brightness(2); */
 			mask-image: radial-gradient(closest-side, black 0%, transparent 99%);
 		}
@@ -121,14 +114,15 @@
 
 	.banner-container {
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
+		inset: 2px;
 		height: 70%;
 		z-index: -20;
-		margin: 2px;
-		mask-image: linear-gradient(to top, transparent, black 70%);
+		/* translate: 0 -2px; */
+		mask-image: radial-gradient(450% 120% at 0% 100%, black 18%, white);
+		/* linear-gradient(to top, black, white 70%); */
+		mask-mode: luminance;
 		@apply overflow-hidden rounded-3xl;
+		contain: strict;
 
 		@container (min-width: theme(screens.md)) {
 			position: relative;
@@ -142,6 +136,7 @@
 			clip-path: polygon(0 0, 100% 0, 100% 100%, 4rem 100%);
 			@apply rounded-l-none rounded-r-3xl;
 			flex-shrink: 2;
+			mask-image: unset;
 		}
 	}
 

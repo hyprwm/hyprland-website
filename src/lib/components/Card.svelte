@@ -9,7 +9,7 @@
 	/** @type {number | number}*/
 	export let gradientOpacity = undefined
 
-	const { x: mouseX, y: mouseY, isHoverCards } = getContext(cardsContext)
+	const { x: mouseX, y: mouseY, isHoverCards, enableBorders = true } = getContext(cardsContext)
 
 	/** @type HTMLDivElement */
 	let container
@@ -17,10 +17,10 @@
 
 	const damping = 0.2
 
-	const fillX = spring(999, { damping, stiffness: 0.021, precision: 0.3 })
-	const fillY = spring(999, { damping, stiffness: 0.021, precision: 0.3 })
-	const borderX = spring(999, { damping, stiffness: 0.03, precision: 0.3 })
-	const borderY = spring(999, { damping, stiffness: 0.03, precision: 0.3 })
+	const fillX = spring(0, { damping, stiffness: 0.021, precision: 0.3 })
+	const fillY = spring(0, { damping, stiffness: 0.021, precision: 0.3 })
+	const borderX = spring(0, { damping, stiffness: 0.03, precision: 0.3 })
+	const borderY = spring(0, { damping, stiffness: 0.03, precision: 0.3 })
 
 	const bounceBack = 2
 	const soft = 0.8
@@ -47,8 +47,10 @@
 		const normX = $mouseX - rectX
 		const normY = $mouseY - rectY
 
-		$borderX = normX
-		$borderY = normY
+		if (enableBorders) {
+			$borderX = normX
+			$borderY = normY
+		}
 
 		if (!isMouseOver) {
 			hasMouseEntered = false
@@ -79,8 +81,8 @@
 	class={clsx('card group ', $$restProps.class)}
 	style:--x={$fillX}
 	style:--y={$fillY}
-	style:--borderX={$borderX}
-	style:--borderY={$borderY}
+	style:--borderX={enableBorders && $borderX}
+	style:--borderY={enableBorders && $borderY}
 	class:isHoverCards={$isHoverCards}
 	bind:this={container}
 	on:mouseenter={() => (isMouseOver = true)}
@@ -98,7 +100,9 @@
 	</div>
 	<div class="gradient max-sm:hidden" style:opacity={gradientOpacity} />
 	<div class="gradient_black max-sm:hidden" />
-	<div class="border-gradient max-sm:hidden" />
+	{#if enableBorders}
+		<div class="border-gradient max-sm:hidden" />
+	{/if}
 </div>
 
 <style lang="postcss">
@@ -128,13 +132,7 @@
 		z-index: 2;
 		border-radius: inherit;
 		contain: strict;
-		background: black
-			radial-gradient(
-				circle at bottom right,
-				theme(colors.neutral.900 / 80%),
-				theme(colors.neutral.500 / 10%),
-				rgba(0, 0, 0, 0.5)
-			);
+		background: black;
 	}
 
 	/* This gradient is visible on the borders when hovering */
@@ -146,12 +144,10 @@
 		height: 100%;
 		opacity: 0%;
 		transform-origin: top left;
-		transition: opacity 120ms ease-in-out;
+		transition: opacity 240ms ease-in-out;
 		left: 0%;
 		top: 0%;
-		content: '';
 		pointer-events: none;
-		filter: brightness(1.5) saturate(4);
 		contain: strict;
 		background: radial-gradient(
 			620px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
@@ -183,14 +179,15 @@
 			min-width: 200%;
 			min-height: 200%;
 			aspect-ratio: 1 / 1;
-			scale: 0.5 0.5;
 			translate: -25% 0%;
 			transform-origin: top left;
 			left: 50%;
-			opacity: 0%;
-			transition: all 820ms;
+			opacity: 50%;
+			transition: all 120ms ease-in-out;
 			content: '';
 			pointer-events: none;
+			opacity: 0%;
+			contain: strict;
 
 			background: url('/imgs/grain.webp'),
 				radial-gradient(
@@ -200,12 +197,9 @@
 					var(--color3, theme(colors.blue.900 / 15%)) 50%
 				);
 
-			.card:hover & {
-				scale: 1 1;
-			}
-
 			.group:hover & {
 				opacity: 100%;
+				transition: all 820ms;
 			}
 		}
 	}

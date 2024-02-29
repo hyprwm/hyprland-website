@@ -24,6 +24,7 @@
 
 	<CardsContainer
 		class="flex w-full max-w-screen-3xl grid-flow-dense grid-cols-2 flex-col gap-4 animate-in  fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid 2xl:grid-cols-6"
+		enableBorders={false}
 	>
 		{#each plugins as plugin, index}
 			<PluginCard
