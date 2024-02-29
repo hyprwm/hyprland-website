@@ -11,6 +11,6 @@
 	}
 </script>
 
-<li class={'rounded-full  p-1 px-2.5 text-sm font-bold ' + colors[tag] ?? 'bg-slate-100/5'}>
+<li class={'rounded-full  p-1 px-2.5 text-xs font-bold ' + colors[tag] ?? 'bg-slate-100/5'}>
 	{tag}
 </li>

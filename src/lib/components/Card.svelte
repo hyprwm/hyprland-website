@@ -76,7 +76,7 @@
 </script>
 
 <div
-	class={clsx('card group min-h-[20rem]', $$restProps.class)}
+	class={clsx('card group ', $$restProps.class)}
 	style:--x={$fillX}
 	style:--y={$fillY}
 	style:--borderX={$borderX}
