@@ -8,13 +8,15 @@
 
 	let isVisible = false
 	let isManuallyPaused = false
+	let isChrome = false
 
 	onMount(() => {
+		isChrome = navigator.userAgent.toLowerCase().includes('chrome')
 		// Only autoplay on Chrome, because Firefox struggles with decoding the video
-		if (navigator.userAgent.toLowerCase().includes('chrome')) {
+		if (isChrome) {
 			// The inview_leave event fires at the start and Chromium reports the video as paused, even with autoplay on.
 			// This fixes it. Catch in case autoplay is blocked
-			videoElement.play().catch(() => {})
+			videoElement.play().catch(console.error)
 		}
 	})
 </script>
@@ -26,7 +28,7 @@
 		use:inview={{ threshold: 0.5 }}
 		on:inview_enter={() => {
 			isVisible = true
-			if (!isManuallyPaused) {
+			if (!isManuallyPaused && isChrome) {
 				videoElement.play().catch(() => {})
 			}
 		}}
@@ -44,6 +46,7 @@
 				poster={'/videos/end_4_thumbnail.webp'}
 				videoClass="!rounded-2xl overflow-hidden"
 				on:play={() => (isManuallyPaused = false)}
+				autoplay={undefined}
 			/>
 		</div>
 
@@ -58,7 +61,7 @@
 
 <style lang="postcss">
 	section {
-		@apply animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards relative z-10 -mb-4 w-full max-w-[1400px] px-1 [animation-delay:1700ms] [animation-duration:2000ms] md:-mt-8 lg:px-8;
+		@apply relative z-10 -mb-4 w-full max-w-[1400px] px-1 animate-in fade-in-0 slide-in-from-bottom-10 fill-mode-backwards [animation-delay:1700ms] [animation-duration:2000ms] md:-mt-8 lg:px-8;
 
 		contain: layout style content;
 	}
