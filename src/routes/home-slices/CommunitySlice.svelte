@@ -145,8 +145,8 @@
 			image:
 				'https://cdn.discordapp.com/avatars/544368824842190861/1fbf29ea7ca9c2109b97af2ede3806fa.webp',
 			coordinates: [736, 277],
-			size: 87,
-			class: 'outline-amber-500'
+			size: 101,
+			class: 'outline-lime-500'
 		},
 		{
 			// heisfer
@@ -154,7 +154,7 @@
 				'https://cdn.discordapp.com/avatars/344854021166727180/0c8dd04188df26093164406cc1367f58.webp',
 			coordinates: [898, 364],
 			size: 68,
-			class: 'outline-green-500'
+			class: 'outline-yellow-500'
 		},
 		{
 			image: amongUsGreenImage,
@@ -281,7 +281,7 @@
 				'https://cdn.discordapp.com/avatars/194584980922433536/7bb58205667ad9a6bf2791b59b32c109.webp',
 			coordinates: [69, 561],
 			size: 54,
-			class: 'outline-red-500 bg-black '
+			class: 'outline-blue-500 bg-black '
 		},
 		{
 			// lassebq
