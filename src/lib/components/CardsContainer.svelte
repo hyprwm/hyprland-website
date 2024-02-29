@@ -4,19 +4,21 @@
 
 <script>
 	import { getIsMobile } from '$lib/Helper.mjs'
+	import { BehaviorSubject, Subject, throttle, throttleTime } from 'rxjs'
 
 	import { onMount, setContext } from 'svelte'
 	import { writable } from 'svelte/store'
 
 	export let enableBorders = true
 
+	const fps = 1000 / 60
+
 	/** @type {HTMLElement}*/
 	let containerElement
 	let isMobile = false
 
 	const context = setContext(cardsContext, {
-		x: writable(0),
-		y: writable(0),
+		mouseCoordinates$: new BehaviorSubject({ x: 0, y: 0 }).pipe(throttleTime(fps)),
 		isHoverCards: writable(false),
 		enableBorders
 	})
@@ -30,12 +32,13 @@
 		context.isHoverCards.set(false)
 	}
 	function trackMouse({ clientX, clientY }) {
-		context.x.set(clientX)
-		context.y.set(clientY)
+		context.mouseCoordinates$.next({ x: clientX, y: clientY })
 	}
 
 	onMount(() => {
 		isMobile = getIsMobile()
+
+		return () => containerElement.removeEventListener('mousemove', trackMouse)
 	})
 </script>
 

@@ -9,7 +9,7 @@
 	/** @type {number | number}*/
 	export let gradientOpacity = undefined
 
-	const { x: mouseX, y: mouseY, isHoverCards, enableBorders = true } = getContext(cardsContext)
+	const { mouseCoordinates$, isHoverCards, enableBorders = true } = getContext(cardsContext)
 
 	/** @type HTMLDivElement */
 	let container
@@ -30,7 +30,7 @@
 	let hasMouseEntered = false
 
 	$: {
-		if (container && $mouseX && $mouseY !== undefined) {
+		if (container && $mouseCoordinates$?.x !== undefined) {
 			updateGradient()
 		}
 	}
@@ -44,8 +44,8 @@
 
 		const { x: rectX, y: rectY, width, height } = container.getBoundingClientRect()
 
-		const normX = $mouseX - rectX
-		const normY = $mouseY - rectY
+		const normX = $mouseCoordinates$.x - rectX
+		const normY = $mouseCoordinates$.y - rectY
 
 		if (enableBorders) {
 			$borderX = normX
@@ -67,12 +67,12 @@
 		}
 		*/
 
-		if ($mouseX < rectX) fillX.set(rectX + bounceBack, { soft })
-		else if ($mouseX > rectX + width) fillX.set(rectX + width - bounceBack, { soft })
+		if ($mouseCoordinates$.x < rectX) fillX.set(rectX + bounceBack, { soft })
+		else if ($mouseCoordinates$.x > rectX + width) fillX.set(rectX + width - bounceBack, { soft })
 		else fillX.set(normX)
 
-		if ($mouseY < rectY) fillY.set(rectY + bounceBack, { soft: 1 })
-		if ($mouseY > rectY + height) fillX.set(rectY - height - bounceBack, { soft })
+		if ($mouseCoordinates$.y < rectY) fillY.set(rectY + bounceBack, { soft: 1 })
+		if ($mouseCoordinates$.y > rectY + height) fillX.set(rectY - height - bounceBack, { soft })
 		else fillY.set(normY)
 	}
 </script>
