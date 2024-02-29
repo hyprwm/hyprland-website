@@ -17,11 +17,11 @@
 </script>
 
 <header
-	class="animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 duration-1000 [animation-delay:0ms] lg:[animation-delay:1250ms]"
+	class="fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 duration-1000 animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards [animation-delay:0ms]"
 >
 	<a
 		href="/"
-		class="font-london flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 text-sm font-bold tracking-wider text-white backdrop-blur"
+		class="flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 font-london text-sm font-bold tracking-wider text-white backdrop-blur"
 	>
 		<HyprlandLogo class="h-8 w-6 object-contain" />
 		<span class="mt-1 text-lg tracking-widest">Hyprland</span></a
@@ -81,7 +81,7 @@
 			</li>
 		</ul>
 		<a
-			class="bg-primary rounded-full px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
+			class="rounded-full bg-primary px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
 			href="https://wiki.hyprland.org/Getting-Started/Installation/"
 			target="_blank"
 			aria-label="Install Hyprland">Install</a
@@ -110,7 +110,7 @@
 
 		/* Desktop classes */
 		@media screen(lg) {
-			@apply outline-primary/10 relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 text-base outline;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 text-base outline outline-primary/10;
 		}
 	}
 
