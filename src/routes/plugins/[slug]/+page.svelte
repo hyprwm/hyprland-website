@@ -6,7 +6,9 @@
 	import Tag from '../Tag.svelte'
 	import { getGeneratedPath } from '$lib/Helper.mjs'
 	import GithubIcon from '~icons/ri/github-fill'
+	import BackIcon from '~icons/gg/arrow-left-r'
 	import InstallButton from '$lib/components/CommandButton.svelte'
+	import Button from '$lib/components/Button.svelte'
 
 	export let data
 	$: ({ meta } = data)
@@ -34,10 +36,13 @@
 
 <article
 	class={clsx(
-		'mx-auto mt-navbar flex min-h-[min(100vh,900px)] w-full max-w-screen-lg  flex-col transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:400ms] lg:px-0',
+		'mx-auto mt-navbar flex min-h-[min(100vh,900px)] w-full max-w-screen-lg flex-col  pt-8 transition-none delay-500 animate-in fade-in-0 fill-mode-backwards [animation-duration:400ms] lg:px-0',
 		meta.banner | meta.logo ? 'md:pt-12' : 'mt-12'
 	)}
 >
+	<a href="/plugins" class="flex items-center gap-3 text-slate-200 hover:text-slate-300"
+		><BackIcon />All plugins</a
+	>
 	<!-- Banner  -->
 	{#if meta.banner || meta.logo}
 		<div
@@ -99,10 +104,11 @@
 
 		<div class="flex w-full flex-wrap gap-16 md:flex-nowrap md:gap-8">
 			<div class="flex w-full grow-[4] flex-col justify-between gap-8 md:gap-12">
-				<p class="font-medium text-slate-300 sm:text-lg xl:text-xl">
+				<p class="font-medium text-slate-300 sm:text-lg">
 					{meta.description}
 				</p>
 
+				<span class="text-red-500">Warning here: Trust the plugin source before installing</span>
 				<InstallButton
 					containerClass="max-w-max"
 					commandClass="text-left break-all md:break-normal  text-slate-300 group-hover:text-white"
@@ -111,13 +117,17 @@
 						href="https://wiki.hyprland.org/Plugins/Using-Plugins/"
 						target="_blank"
 						class="w-full text-left hover:underline"
-						slot="extra">Installation via hyprpm</a
-					>
+						slot="extra"
+						>Installation via hyprpm ↗
+					</a>
 				</InstallButton>
 			</div>
 
 			<!-- Tags, Github button -->
-			<div class="flex shrink-0 flex-col items-start gap-4 md:items-end lg:shrink-[2]">
+			<div class="flex shrink-0 flex-col items-start gap-8 md:items-end lg:shrink-[2]">
+				<a href={meta.url} target="_blank">
+					<GithubIcon class="size-10" />
+				</a>
 				<ul
 					class="flex flex-wrap items-start justify-end gap-2 md:flex-col md:items-end lg:flex-row"
 				>
@@ -125,10 +135,6 @@
 						<Tag {tag} />
 					{/each}
 				</ul>
-
-				<a href={meta.url} target="_blank">
-					<GithubIcon class="size-10" />
-				</a>
 			</div>
 		</div>
 	</div>
@@ -143,13 +149,21 @@
 
 <!-- More plugins -->
 {#if data.other.length > 0}
-	<section class="mx-auto mt-64 w-full max-w-screen-xl px-0 md:px-8">
+	<section
+		class="relative mx-auto mt-64 flex w-full max-w-screen-xl flex-col items-center px-0 md:px-8"
+	>
 		<Title class="mb-6"><span slot="title">More plugins</span></Title>
 		<CardsContainer class="flex w-full grid-cols-2 flex-col gap-8 xl:grid">
 			{#each data.other as plugin}
-				<PluginCard {plugin} />
+				<PluginCard {plugin} class="min-h-96" />
 			{/each}
 		</CardsContainer>
+
+		<div
+			class="m-4 mt-16 max-w-max rounded-xl bg-slate-900/20 px-12 py-8 outline outline-cyan-100/5"
+		>
+			<Button type="fancyOutline"><a href="/plugins">All plugins</a></Button>
+		</div>
 	</section>
 {/if}
 

@@ -24,7 +24,7 @@
 	</header>
 
 	<CardsContainer
-		class="flex w-full max-w-screen-3xl grid-flow-dense  grid-cols-12 flex-col gap-4  animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:grid"
+		class="flex w-full max-w-screen-3xl grid-flow-dense grid-cols-10  flex-col gap-3 animate-in  fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] md:grid md:grid-cols-12 xl:grid-cols-10 3xl:grid-cols-12 "
 		enableBorders={false}
 	>
 		{#each plugins as plugin, index}
@@ -32,10 +32,10 @@
 				{plugin}
 				class={clsx(
 					plugin.featured && plugin.banner
-						? 'h-[24rem] lg:col-span-12 xl:col-span-8  2xl:col-span-6'
-						: 'h-[20rem] xl:col-span-4 2xl:col-span-3',
+						? 'col-span-8 h-[24rem] md:col-span-12 lg:col-span-9 xl:col-span-8  2xl:col-span-6'
+						: 'col-span-4 h-[17rem] @sm:h-[18rem] lg:col-span-3 xl:col-span-2 ',
 
-					'col-span-6 min-h-full '
+					' min-h-full  '
 				)}
 				color={index % 3 === 0 ? 'purple' : 'cyan'}
 			/>

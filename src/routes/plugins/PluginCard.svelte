@@ -25,7 +25,7 @@
 	>
 		<!-- Main content -->
 		<div
-			class="flex min-h-max min-w-0 shrink grow-[3] flex-col justify-end p-4 @2xl:max-w-max @4xl:min-w-20 sm:p-8 lg:p-8"
+			class="flex min-h-max min-w-0 shrink grow-[3] flex-col justify-end p-5 @xs:p-6 @md:p-8 @2xl:max-w-max @4xl:min-w-20"
 		>
 			<!-- Logo -->
 			<div
@@ -39,7 +39,7 @@
 					<div
 						class={clsx(
 							'logo relative  shadow-black   ',
-							plugin.banner ? 'size-24 max-2xl:@2xl:after:hidden' : 'size-28'
+							plugin.banner ? 'size-20 max-2xl:@2xl:after:hidden' : 'size-24 @md:size-28'
 						)}
 						style:--background={`url("${getGeneratedPath(plugin.logo)}")`}
 					>
@@ -58,12 +58,12 @@
 
 			<!-- Texts -->
 			<h2
-				class="mb-2 min-w-[8ch] max-w-full text-pretty text-2xl font-bold text-white [overflow-wrap:break-word] @xl:mb-3 @xl:text-5xl"
+				class="mb-1 min-w-[8ch] max-w-full text-pretty text-lg font-bold text-white [overflow-wrap:break-word] @xl:mb-3 @xl:text-5xl"
 			>
 				{plugin.name}
 			</h2>
 			<p
-				class="max-w-[60ch] overflow-hidden text-ellipsis text-nowrap text-sm font-medium text-slate-300 @xl:overflow-auto @xl:text-pretty"
+				class="overflow-hiddenx text-nowrapx max-w-[60ch] text-ellipsis text-sm font-medium text-slate-300 @xl:overflow-auto @xl:text-pretty @xl:text-base"
 			>
 				{trimText(plugin.description, 100)}
 			</p>
