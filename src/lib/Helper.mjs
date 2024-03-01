@@ -120,7 +120,11 @@ export function formatDate(date, dateStyle = 'medium', locales = 'en') {
  * @returns
  */
 export function trimText(text, maxLenght) {
-	return text.length > maxLenght - 1 ? text.slice(0, maxLenght) + '…' : text
+	if (text.length < maxLenght - 1) return text
+
+	const lastSpace = text.slice(0, maxLenght).lastIndexOf(' ')
+
+	return text.slice(0, lastSpace ?? maxLenght) + '…'
 }
 
 /** Get the filename of a filepath without its extension */
