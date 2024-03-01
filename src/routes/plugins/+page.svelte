@@ -4,7 +4,6 @@
 	import PluginCard from './PluginCard.svelte'
 	import clsx from 'clsx'
 	import * as R from 'remeda'
-	import { pluginCategoryColors } from './pluginCategoryColors'
 
 	export let data
 
