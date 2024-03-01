@@ -6,7 +6,7 @@ export default {
 	content: ['./src/**/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
-			colors: { black: '#0b0d0e', primary: '#58E1FF', secondary: '#00A2F8' },
+			colors: { black: '#090b0c', primary: '#58E1FF', secondary: '#00A2F8' },
 			fontFamily: {
 				...fontFamily,
 				sans: ['Work Sans Variable', ...fontFamily['sans']],
@@ -17,8 +17,8 @@ export default {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
 			},
 			margin: { navbar: '3.5rem' },
-			
-			screens: {'3xl': '2560px'},
+
+			screens: { '3xl': '2560px' },
 
 			typography: {
 				DEFAULT: {
@@ -40,7 +40,11 @@ export default {
 			}
 		}
 	},
-	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'), require('@tailwindcss/container-queries')],
+	plugins: [
+		require('tailwindcss-animate'),
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/container-queries')
+	],
 	safelist: [
 		'animate-bounce',
 		'outline-amber-500',
