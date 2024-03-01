@@ -4,10 +4,12 @@
 	import clsx from 'clsx'
 	import Tag from './Tag.svelte'
 
-	// Dont forget to put component inside of CardsContainer.svelte
+	// Dont forget to put this component inside of CardsContainer.svelte
 
 	export let plugin
 	export let color = undefined
+	export let showCategory = false
+	export let taglineMaxLength = 0
 
 	/** @type {HTMLVideoElement}*/
 	let videoElement
@@ -29,17 +31,17 @@
 		>
 			<!-- Logo -->
 			<div
-				class={clsx(
-					'relative mb-4  transition-transform  group-hover:scale-[1.02]',
-					!plugin.banner &&
-						'flex shrink-[2] grow  items-center justify-center  max-2xl:@2xl:mx-0 max-2xl:@2xl:block max-2xl:@2xl:h-auto  max-2xl:@2xl:grow-0'
-				)}
+				class="logo-container relative mb-4 transition-transform
+			group-hover:scale-[1.02]"
+				class:bannerx={plugin.banner}
 			>
 				{#if plugin.logo}
 					<div
 						class={clsx(
-							'logo relative  shadow-black   ',
-							plugin.banner ? 'size-20 max-2xl:@2xl:after:hidden' : 'size-24 @md:size-28'
+							'logo relative rounded  shadow-black   ',
+							plugin.banner
+								? 'size-20 @md:size-28 max-2xl:@2xl:after:hidden'
+								: 'size-24 @md:size-28'
 						)}
 						style:--background={`url("${getGeneratedPath(plugin.logo)}")`}
 					>
@@ -57,33 +59,32 @@
 			</div>
 
 			<!-- Texts -->
-			<h2
-				class="mb-1 min-w-[8ch] max-w-full text-pretty text-lg font-bold text-white [overflow-wrap:break-word] @xl:mb-3 @xl:text-5xl"
-			>
-				{plugin.name}
-			</h2>
-			<p
-				class="overflow-hiddenx text-nowrapx max-w-[60ch] text-ellipsis text-sm font-medium text-slate-300 @xl:overflow-auto @xl:text-pretty @xl:text-base"
-			>
-				{trimText(plugin.description, 100)}
-			</p>
+			<div class="flex flex-col">
+				<h2
+					class="min-w-[8ch] max-w-full text-pretty text-base font-bold text-white [overflow-wrap:break-word] @xl:mb-3 @xl:text-5xl"
+				>
+					{plugin.name}
+				</h2>
+				<p
+					class="overflow-hiddenx text-nowrapx max-w-[60ch] text-ellipsis text-sm font-medium text-slate-400 @xl:overflow-auto @xl:text-pretty @xl:text-base"
+				>
+					{trimText(plugin.tagline, taglineMaxLength || Number.POSITIVE_INFINITY)}
+				</p>
+			</div>
 
-			<!-- Tags -->
-			<ul
-				class="relative mt-3 flex min-h-max items-center gap-2 overflow-hidden @xl:min-w-0 @xl:flex-wrap"
-			>
-				{#each plugin.tags ?? [] as tag}
-					<Tag {tag} />
-				{/each}
+			<!-- Category -->
+			{#if showCategory}
 				<div
-					class="absolute inset-y-0 right-0 h-full w-4 bg-gradient-to-r from-transparent to-[black] @xl:hidden"
-				></div>
-			</ul>
+					class="relative mt-3 flex min-h-max items-center gap-2 overflow-hidden @xl:min-w-0 @xl:flex-wrap"
+				>
+					<Tag tag={plugin.category} />
+				</div>
+			{/if}
 		</div>
 
 		<!-- Banner -->
 		{#if plugin.banner}
-			<div class="banner-container">
+			<div class="banner-container hidden @xs:flex">
 				{#if plugin.banner.split('.').at(-1) === 'mp4'}
 					<video
 						src={plugin.banner}
@@ -119,6 +120,11 @@
 			opacity: 50%;
 			/* filter: brightness(2); */
 			mask-image: radial-gradient(closest-side, black 0%, transparent 99%);
+		}
+	}
+	.logo-container:not(.banner) {
+		@container (max-width: theme(screens.md)) {
+			@apply flex shrink-[2] grow  items-center justify-center  max-2xl:@2xl:mx-0 max-2xl:@2xl:block max-2xl:@2xl:h-auto  max-2xl:@2xl:grow-0;
 		}
 	}
 

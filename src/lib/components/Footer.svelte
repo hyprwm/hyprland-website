@@ -19,7 +19,7 @@
 	class="max-w-screen relative mt-16 flex items-center justify-center border-t border-blue-400/50 bg-black/50 md:mt-24 lg:mt-32"
 >
 	<div class="footer-inner">
-		<div class="flex flex-col gap-4 rounded-lg">
+		<div class="flex grow flex-col gap-4 rounded-lg">
 			<div class="pretitle">Humans</div>
 			<ul class="flex flex-col gap-3 font-medium">
 				<li>
@@ -98,7 +98,7 @@
 
 <style lang="postcss">
 	.footer-inner {
-		@apply flex max-w-5xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300;
+		@apply flex max-w-screen-2xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300;
 	}
 
 	.pretitle {

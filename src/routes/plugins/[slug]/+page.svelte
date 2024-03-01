@@ -40,8 +40,11 @@
 		meta.banner | meta.logo ? 'md:pt-12' : 'mt-12'
 	)}
 >
-	<a href="/plugins" class="flex items-center gap-3 text-slate-200 hover:text-slate-300"
-		><BackIcon />All plugins</a
+	<!-- Back button -->
+	<a
+		href="/plugins"
+		class="mb-2 ml-2 flex items-center gap-3 text-slate-400 hover:text-slate-100 lg:ml-0"
+		><BackIcon />Back to all plugins</a
 	>
 	<!-- Banner  -->
 	{#if meta.banner || meta.logo}
@@ -105,21 +108,24 @@
 		<div class="flex w-full flex-wrap gap-16 md:flex-nowrap md:gap-8">
 			<div class="flex w-full grow-[4] flex-col justify-between gap-8 md:gap-12">
 				<p class="font-medium text-slate-300 sm:text-lg">
-					{meta.description}
+					{meta.tagline}
 				</p>
 
-				<span class="text-red-500">Warning here: Trust the plugin source before installing</span>
 				<InstallButton
 					containerClass="max-w-max"
 					commandClass="text-left break-all md:break-normal  text-slate-300 group-hover:text-white"
 					command={`hyprpm add ${meta.url}`}
-					><a
-						href="https://wiki.hyprland.org/Plugins/Using-Plugins/"
-						target="_blank"
-						class="w-full text-left hover:underline"
-						slot="extra"
-						>Installation via hyprpm ↗
-					</a>
+				>
+					<div class="self-start justify-self-start" slot="extra">
+						<span class="text-red-200">Trust the plugin source before installing!</span>
+
+						<a
+							href="https://wiki.hyprland.org/Plugins/Using-Plugins/"
+							target="_blank"
+							class="w-full text-left hover:underline"
+							>Installation is done via hyprpm ↗
+						</a>
+					</div>
 				</InstallButton>
 			</div>
 
@@ -128,13 +134,8 @@
 				<a href={meta.url} target="_blank">
 					<GithubIcon class="size-10" />
 				</a>
-				<ul
-					class="flex flex-wrap items-start justify-end gap-2 md:flex-col md:items-end lg:flex-row"
-				>
-					{#each meta.tags as tag}
-						<Tag {tag} />
-					{/each}
-				</ul>
+
+				<Tag tag={meta.category} />
 			</div>
 		</div>
 	</div>
@@ -155,14 +156,14 @@
 		<Title class="mb-6"><span slot="title">More plugins</span></Title>
 		<CardsContainer class="flex w-full grid-cols-2 flex-col gap-8 xl:grid">
 			{#each data.other as plugin}
-				<PluginCard {plugin} class="min-h-96" />
+				<PluginCard showCategory={true} {plugin} class="min-h-96" />
 			{/each}
 		</CardsContainer>
 
 		<div
 			class="m-4 mt-16 max-w-max rounded-xl bg-slate-900/20 px-12 py-8 outline outline-cyan-100/5"
 		>
-			<Button type="fancyOutline"><a href="/plugins">All plugins</a></Button>
+			<Button type="fancyOutline"><a href="/plugins">Back to all plugins</a></Button>
 		</div>
 	</section>
 {/if}

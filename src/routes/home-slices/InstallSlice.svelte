@@ -22,7 +22,7 @@
 		>
 			<DistroOption name="Arch" image={archLogo}>
 				<CommandButton command="pacman -S hyprland">
-					<div slot="extra">
+					<div slot="extra" class="absolute -bottom-4 left-1/2 min-w-max -translate-x-1/2">
 						AUR git version: <a
 							class=" "
 							target="_blank"
@@ -34,9 +34,9 @@
 
 			<DistroOption name="NixOS" image={nixLogo}>
 				<CommandButton command="programs.hyprland.enable">
-					<div slot="extra">
+					<div slot="extra" class="absolute -bottom-4 left-1/2 min-w-max -translate-x-1/2">
 						<a href="https://wiki.hyprland.org/Nix/" target="_blank"
-							>See more details and git version</a
+							>See more details and git version ↗</a
 						>
 					</div>
 				</CommandButton>
@@ -48,7 +48,9 @@
 
 			<DistroOption name="openSUSE" image={suseLogo}>
 				<CommandButton command="zypper in hyprland">
-					<div slot="extra">or install “hyprland” via YaST2 Software.</div>
+					<div slot="extra" class="absolute -bottom-4 left-1/2 min-w-max -translate-x-1/2">
+						or install “hyprland” via YaST2 Software.
+					</div>
 				</CommandButton>
 				<img
 					class=" absolute inset-0 -z-10 translate-y-1 rotate-0 scale-90 opacity-0 transition-all duration-700 [transition-delay:2s] group-hover:-translate-x-3 group-hover:-translate-y-0 group-hover:-rotate-12 group-hover:scale-100 group-hover:opacity-90"

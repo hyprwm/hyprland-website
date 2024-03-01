@@ -375,8 +375,6 @@
 		}))
 		.sort(({ size: a }, { size: b }) => b - a)
 
-	console.log({ profiles })
-
 	setContext(contextId, {
 		biggestSize: profiles.reduce(
 			(previousSize, { size }) => (size > previousSize ? size : previousSize),

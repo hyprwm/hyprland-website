@@ -123,7 +123,7 @@
 				{/each}
 			</div>
 
-			<Button type="primary" size="lg" class="max-w-max"
+			<Button type="fancyOutline" size="lg" class="max-w-max"
 				><a href="/plugins/">Checkout more plugins</a></Button
 			>
 

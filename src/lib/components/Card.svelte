@@ -119,7 +119,7 @@
 
 		/* The card border   */
 		@media screen(md) {
-			background: theme(colors.slate.900);
+			background: theme(colors.slate.800);
 
 			&:hover {
 				background: theme(colors.blue.900);

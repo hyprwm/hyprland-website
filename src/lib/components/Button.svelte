@@ -19,7 +19,7 @@
 </script>
 
 {#if type === 'fancyOutline'}
-	<div class="relative">
+	<div class="relative max-w-max">
 		<button class={classes} on:click><slot>NO LABEL PROVIDED</slot></button>
 		<span
 			class="fancy-bg absolute inset-0 -z-10 h-full w-[110%] min-w-[5rem] scale-y-75 bg-cyan-500/90 px-4 py-2 blur-xl"

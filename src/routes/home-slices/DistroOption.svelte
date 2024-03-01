@@ -21,7 +21,7 @@
 	{/if}
 
 	<!-- Command button slot -->
-	<div class="mb-2 w-full md:mb-6">
+	<div class="mb-2 w-full">
 		<slot />
 	</div>
 </div>

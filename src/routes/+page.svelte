@@ -11,22 +11,24 @@
 	export let data
 </script>
 
-<Hero backgroundData={data.backgroundData} />
+<div class="overflow-hidden">
+	<Hero backgroundData={data.backgroundData} />
 
-<div class="-mt-8 flex flex-col items-center gap-20 md:gap-[16rem]">
-	<PreviewRiceSlice class="mb-12" />
+	<div class="-mt-8 flex flex-col items-center gap-20 md:gap-[16rem]">
+		<PreviewRiceSlice class="mb-12" />
 
-	<FeaturesSlice />
+		<FeaturesSlice />
 
-	<PluginsSlice />
+		<PluginsSlice />
 
-	<HallOfFameSlice />
+		<HallOfFameSlice />
 
-	<Community />
+		<Community profiles={data.profiles} />
 
-	<NewsSlice news={data.news} />
+		<NewsSlice news={data.news} />
 
-	<InstallSlice />
+		<InstallSlice />
+	</div>
 </div>
 
 <svelte:head>
@@ -38,6 +40,3 @@
 	/>
 	<meta property="og:title" content="Hyprland: Dynamic tiling window compositor with the looks" />
 </svelte:head>
-
-<style>
-</style>
