@@ -7,7 +7,7 @@ The `.md` files can have the following meta data:
 - url: Link to the Github repository
 - docs: Link to the documentation. Optional
 - website: Link to the website. Optional
-- logo: Relative link to the logo placed in the `/static/plugins/logos/` directory (without the `/static/` though)
+- logo: Relative link to the logo placed in the `/static/plugins-data/logos/` directory (without the `/static/` though)
 - tags: Tags for the plugin. Capitalized
 - featured: Whether the plugin is featured at the top. A maximum of 4 is shown
 - weight: Determines the sort order. A higher weight comes first.
