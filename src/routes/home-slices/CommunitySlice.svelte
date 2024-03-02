@@ -174,7 +174,7 @@
 			// thesuncat
 			image:
 				'https://cdn.discordapp.com/avatars/246125351464337418/10c8bb5456d1ca1cebf2edff62b7001f.webp',
-			coordinates: [974, 107],
+			coordinates: [1023, 552],
 			size: 48,
 			class: 'outline-amber-500'
 		},
@@ -331,7 +331,16 @@
 			size: 49,
 			class: 'outline-stone-500 bg-black '
 		},
+		{
+			// brainless.bitch
+			image:
+				'https://cdn.discordapp.com/avatars/708440359587414067/2bcdf703f69ee35c4cf39b2a89c429e8.webp',
+			coordinates: [1018, 123],
+			size: 28,
+			class: 'outline-lime-500 bg-black '
+		},
 
+		//
 		// Extras
 		{
 			image: 'imgs/chan/joy.svg',
