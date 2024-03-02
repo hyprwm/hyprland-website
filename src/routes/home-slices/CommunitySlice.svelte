@@ -310,7 +310,7 @@
 		{
 			// wickedlyhost
 			image:
-				'https://cdn.discordapp.com/guilds/961691461554950145/users/317785409763541002/avatars/5eca29ab79ffc48e5cbb935f807063db.webp?size=240',
+				'https://cdn.discordapp.com/avatars/317785409763541002/279527807f4263888fa75b2d7e68daf7.webp',
 			coordinates: [119, 202],
 			size: 49,
 			class: 'outline-blue-500 bg-black '

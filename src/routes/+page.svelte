@@ -23,7 +23,7 @@
 
 		<HallOfFameSlice />
 
-		<Community profiles={data.profiles} />
+		<Community />
 
 		<NewsSlice news={data.news} />
 

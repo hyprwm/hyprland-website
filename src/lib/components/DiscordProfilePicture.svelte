@@ -106,7 +106,7 @@
 		)}
 		style:translate={`calc( ${$dragCoordinates[0]}px  ) ${$dragCoordinates[1]}px`}
 		use:inview={{ unobserveOnEnter: true, threshold: 0.2 }}
-		class:_animate={isAnimating && hasEnteredView}
+		class:_animate={hasImageLoaded && isAnimating && hasEnteredView}
 		on:inview_enter={onViewEnter}
 	>
 		<div class="" bind:this={imageWrapper}>
@@ -122,6 +122,8 @@
 				loading="lazy"
 				referrerpolicy="no-referrer"
 				crossorigin="anonymous"
+				width={size}
+				height={size}
 			/>
 			<slot />
 		</div>
