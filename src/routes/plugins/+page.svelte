@@ -107,19 +107,19 @@
 			</div>
 
 			<CardsContainer
-				class="md:flotherex-row  flex  grow flex-col flex-wrap items-start justify-start gap-12 animate-in fade-in-0  "
+				class="md:flotherex-row flex  w-full  grow flex-col flex-wrap items-start justify-start gap-12 animate-in fade-in-0  "
 				enableBorders={false}
 			>
 				{#each pluginsByCategory as [category, plugins]}
-					<div class="flex flex-col gap-2">
+					<div class="flex w-full flex-col gap-2">
 						<h3 id={category} class="scroll-mt-32 text-lg font-medium text-slate-300">
 							{category}
 						</h3>
-						<div class="flex flex-wrap gap-4">
+						<div class="flex w-full flex-wrap gap-4">
 							{#each plugins as plugin, index}
 								<PluginCard
 									{plugin}
-									class="max-h-48 min-h-[14rem]  w-52 max-w-96 @sm:h-[18rem] 3xl:w-64   "
+									class="max-h-48 min-h-[14rem] w-full  max-w-96 @sm:h-[18rem] sm:w-52 3xl:w-64   "
 									color={index % 3 === 0 ? 'purple' : 'cyan'}
 									taglineMaxLength={38}
 								/>
