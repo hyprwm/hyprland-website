@@ -4,6 +4,7 @@
 	import PluginCard from './PluginCard.svelte'
 	import clsx from 'clsx'
 	import * as R from 'remeda'
+	import { getGeneratedPath } from '$lib/Helper.mjs'
 
 	export let data
 
@@ -31,9 +32,13 @@
 </svelte:head>
 
 <section
-	class=" flex min-h-screen w-full flex-col items-center justify-center gap-14 px-6 md:pr-8 lg:pl-0
+	class="flex min-h-screen w-full flex-col items-center justify-center gap-14 px-6 md:pr-8
+	
+	lg:pl-0
 "
 >
+	<div class="top-light"></div>
+
 	<header class="header mt-24 md:mt-32">
 		<Title class="mb-0  duration-1000 animate-in fade-in-0">
 			<span slot="pre">Plugins</span>
@@ -41,6 +46,18 @@
 				Easily load up plugins and customize everything
 			</span>
 		</Title>
+
+		<!-- <div class="absolute top-0">
+			{#each plugins.filter(({ logo }) => logo) as { logo }, index}
+				<img
+					src={getGeneratedPath(logo)}
+					alt=""
+					width={index * 50}
+					height={index * 50}
+					class="bg-logo"
+				/>
+			{/each}
+		</div> -->
 	</header>
 
 	<section
@@ -116,7 +133,39 @@
 </section>
 
 <style lang="postcss">
-	.featured-container {
-		grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+	.top-light {
+		background: url('/imgs/grain.webp'),
+			radial-gradient(
+				100% 80% at top,
+				theme(colors.cyan.500 / 50%) 0%,
+				theme(colors.sky.500 / 10%),
+				transparent
+			);
+
+		mask-image: radial-gradient(
+			100% 80% at top,
+			white,
+			rgba(0, 0, 0, 1),
+			rgba(0, 0, 0, 1),
+			transparent
+		);
+
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: -10;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+		contain: strict;
+
+		animation: parallax ease-in-out 500ms;
+		animation-timeline: scroll();
+	}
+
+	@keyframes parallax {
+		to {
+			translate: 0px 1000px;
+		}
 	}
 </style>
