@@ -48,6 +48,8 @@
 	let interactionjs
 
 	function onViewEnter() {
+		if (imageElement.__error) return
+
 		setTimeout(() => (hasEnteredView = true), 550)
 
 		// Only load the library if the element entered the view, to improve performance
@@ -124,6 +126,7 @@
 				crossorigin="anonymous"
 				width={size}
 				height={size}
+				onerror="this.__error = true"
 			/>
 			<slot />
 		</div>
