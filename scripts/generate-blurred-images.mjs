@@ -7,7 +7,7 @@ import { getFileNameWithoutExtension } from '../src/lib/Helper.mjs'
 // This script should be run from the root of the application
 const root = new URL('..', import.meta.url)
 
-const imageDirectories = ['static/imgs/ricing_competitions', 'static/imgs/plugins/logos']
+const imageDirectories = ['static/imgs/ricing_competitions', 'static/plugins-data/logos']
 const generatedPrefix = 'generated_'
 // This value seems to work well
 const maxBrightness = 65535
