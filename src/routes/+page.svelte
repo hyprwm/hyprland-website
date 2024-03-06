@@ -1,32 +1,34 @@
 <script>
-	import Community from './CommunitySlice.svelte'
-	import FeaturesSlice from './FeaturesSlice.svelte'
-	import HallOfFameSlice from './HallOfFameSlice.svelte'
-	import Hero from './Hero.svelte'
-	import InstallSlice from './InstallSlice.svelte'
-	import PreviewRiceSlice from './PreviewRiceSlice.svelte'
-	import PluginsSlice from './PluginsSlice.svelte'
-	import NewsSlice from './NewsSlice.svelte'
+	import Community from './home-slices/CommunitySlice.svelte'
+	import FeaturesSlice from './home-slices/FeaturesSlice.svelte'
+	import HallOfFameSlice from './home-slices/HallOfFameSlice.svelte'
+	import Hero from './home-slices/Hero.svelte'
+	import InstallSlice from './home-slices/InstallSlice.svelte'
+	import PreviewRiceSlice from './home-slices/PreviewRiceSlice.svelte'
+	import PluginsSlice from './home-slices/PluginsSlice.svelte'
+	import NewsSlice from './home-slices/NewsSlice.svelte'
 
 	export let data
 </script>
 
-<Hero backgroundData={data.backgroundData} />
+<div class="overflow-hidden">
+	<Hero backgroundData={data.backgroundData} />
 
-<div class="-mt-8 flex flex-col items-center gap-20 md:gap-[16rem]">
-	<PreviewRiceSlice class="mb-12" />
+	<div class="-mt-8 flex flex-col items-center gap-20 md:gap-[16rem]">
+		<PreviewRiceSlice class="mb-12" />
 
-	<FeaturesSlice />
+		<FeaturesSlice />
 
-	<PluginsSlice />
+		<PluginsSlice />
 
-	<HallOfFameSlice />
+		<HallOfFameSlice />
 
-	<Community />
+		<Community />
 
-	<NewsSlice news={data.news} />
+		<NewsSlice news={data.news} />
 
-	<InstallSlice />
+		<InstallSlice />
+	</div>
 </div>
 
 <svelte:head>
@@ -38,6 +40,3 @@
 	/>
 	<meta property="og:title" content="Hyprland: Dynamic tiling window compositor with the looks" />
 </svelte:head>
-
-<style>
-</style>

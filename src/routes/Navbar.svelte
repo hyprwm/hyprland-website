@@ -17,7 +17,7 @@
 </script>
 
 <header
-	class="fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 duration-1000 animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards [animation-delay:0ms] lg:[animation-delay:1250ms]"
+	class="fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 duration-1000 animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards [animation-delay:0ms]"
 >
 	<a
 		href="/"
@@ -58,6 +58,9 @@
 			</li>
 			<li aria-current={$page.url.pathname === '/news' ? 'page' : undefined}>
 				<a href="/news">News</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/plugins' ? 'page' : undefined}>
+				<a href="/plugins">Plugins</a>
 			</li>
 		</ul>
 		<ul class="flex flex-row items-center gap-3 px-4">

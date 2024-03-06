@@ -2,7 +2,7 @@
 	import clsx from 'clsx'
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
-	import { contextId as ctxId } from '../../routes/CommunitySlice.svelte'
+	import { contextId as ctxId } from '../../routes/home-slices/CommunitySlice.svelte'
 	import { lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
 
@@ -33,7 +33,7 @@
 	const dispatch = createEventDispatcher()
 
 	const relativeSize = size / biggestSize
-	const delay = (biggestSize - size) * 5
+	const delay = Math.pow(1 - size / biggestSize, 4) * 4654
 	const dragCoordinates = spring([0, 0], {
 		damping: lerp(0.2, 0.03, relativeSize),
 		stiffness: lerp(0.2, 0.01, relativeSize),
@@ -48,6 +48,8 @@
 	let interactionjs
 
 	function onViewEnter() {
+		if (imageElement.__error) return
+
 		setTimeout(() => (hasEnteredView = true), 550)
 
 		// Only load the library if the element entered the view, to improve performance
@@ -106,7 +108,7 @@
 		)}
 		style:translate={`calc( ${$dragCoordinates[0]}px  ) ${$dragCoordinates[1]}px`}
 		use:inview={{ unobserveOnEnter: true, threshold: 0.2 }}
-		class:_animate={isAnimating && hasEnteredView}
+		class:_animate={hasImageLoaded && isAnimating && hasEnteredView}
 		on:inview_enter={onViewEnter}
 	>
 		<div class="" bind:this={imageWrapper}>
@@ -120,6 +122,11 @@
 				on:mouseenter={(event) => dispatch('hover', event)}
 				class:hover:scale-125={!!quote}
 				loading="lazy"
+				referrerpolicy="no-referrer"
+				crossorigin="anonymous"
+				width={size}
+				height={size}
+				onerror="this.__error = true"
 			/>
 			<slot />
 		</div>

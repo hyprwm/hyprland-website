@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-static'
-import { vitePreprocess } from '@sveltejs/kit/vite'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsvex, escapeSvelte } from 'mdsvex'
-import shiki from 'shiki'
+import {getHighlighter} from 'shiki'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeSlug from 'rehype-slug'
 
@@ -10,7 +10,7 @@ const mdsvexOptions = {
 	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await shiki.getHighlighter({ theme: 'github-dark' })
+			const highlighter = await getHighlighter({ theme: 'github-dark' })
 			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
 			return `{@html \`${html}\` }`
 		}

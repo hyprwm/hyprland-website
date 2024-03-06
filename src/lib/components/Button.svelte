@@ -7,7 +7,7 @@
 	export let type = 'primary'
 
 	$: classes = clsx(
-		'animate  rounded text-sm font-bold hover:scale-[1.03] active:scale-95',
+		'animate  rounded text-sm font-bold hover:scale-[1.01] active:scale-100',
 		'primary' == type && 'bg-slate-200 text-black',
 		'outline' == type && 'bg-transparent text-white outline outline-2 outline-slate-200',
 		'fancyOutline' == type && 'fancy',
@@ -19,7 +19,7 @@
 </script>
 
 {#if type === 'fancyOutline'}
-	<div class="relative">
+	<div class="relative max-w-max">
 		<button class={classes} on:click><slot>NO LABEL PROVIDED</slot></button>
 		<span
 			class="fancy-bg absolute inset-0 -z-10 h-full w-[110%] min-w-[5rem] scale-y-75 bg-cyan-500/90 px-4 py-2 blur-xl"

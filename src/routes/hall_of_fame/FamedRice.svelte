@@ -1,5 +1,5 @@
 <script>
-	import { getBlurredPath } from '$lib/Helper.mjs'
+	import { getGeneratedPath } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
 
 	/** @type {string} */
@@ -20,7 +20,7 @@
 	/** @type {string} */
 	export let pretitel
 
-	let background = blurredThumbnail ?? getBlurredPath(thumbnail)
+	let background = blurredThumbnail ?? getGeneratedPath(thumbnail)
 </script>
 
 <div

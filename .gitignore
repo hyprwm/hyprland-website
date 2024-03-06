@@ -2,6 +2,8 @@ old
 .svelte-kit
 build
 
+**/scratch.js
+
 
 # For the generated blurred images
 **/generated_*

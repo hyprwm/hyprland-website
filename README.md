@@ -29,4 +29,3 @@ Feel free
 ## Credits
 
 - [VDawg](https://github.com/Visual-Dawg) - for the new site and design.
-- [System-x64](https://github.com/System-x64) - for the original site code

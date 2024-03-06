@@ -8,7 +8,7 @@
 
 <Navbar />
 
-<main class="mx-auto flex min-h-screen w-full flex-col overflow-hidden">
+<main class="mx-auto flex min-h-screen w-full flex-col">
 	<slot />
 </main>
 
