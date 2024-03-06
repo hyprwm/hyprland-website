@@ -83,7 +83,7 @@
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
 	<div
 		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 transition-all lg:grid-cols-2 lg:gap-12"
-		use:animateIn={{ fade: 0.7, slide: 24 }}
+		use:animateIn={{ slide: 24 }}
 	>
 		<div
 			class={clsx(
