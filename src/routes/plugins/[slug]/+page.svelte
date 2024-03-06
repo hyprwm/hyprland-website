@@ -151,7 +151,7 @@
 <!-- More plugins -->
 {#if data.other.length > 0}
 	<section
-		class="relative mx-auto mt-64 flex w-full max-w-screen-xl flex-col items-center px-0 md:px-8"
+		class="relative mx-auto mt-64 flex w-full max-w-screen-xl flex-col items-center px-0 delay-1000 duration-1000 animate-in fade-in-0 fill-mode-backwards md:px-8"
 	>
 		<Title class="mb-6"><span slot="title">More plugins</span></Title>
 		<CardsContainer class="flex w-full grid-cols-2 flex-col gap-8 xl:grid">
