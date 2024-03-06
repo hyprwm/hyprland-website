@@ -160,6 +160,7 @@
 		contain: strict;
 
 		animation: parallax ease-in-out 500ms;
+		animation-duration: 1ms;
 		animation-timeline: scroll();
 	}
 
