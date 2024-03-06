@@ -5,6 +5,8 @@
 	import Tag from './Tag.svelte'
 
 	// Dont forget to put this component inside of CardsContainer.svelte
+	// Also pass a hight class to the element, as otherwise the banner might not align properly,
+	// due to the parent container being unable to use height: full as there wont be a reference
 
 	export let plugin
 	export let color = undefined
@@ -33,7 +35,6 @@
 			<div
 				class="logo-container relative mb-4 transition-transform
 			group-hover:scale-[1.02]"
-				class:bannerx={plugin.banner}
 			>
 				{#if plugin.logo}
 					<div
@@ -131,11 +132,10 @@
 	.banner-container {
 		position: absolute;
 		inset: 2px;
-		height: 70%;
+		height: 100%;
 		z-index: -20;
 		/* translate: 0 -2px; */
 		mask-image: radial-gradient(450% 120% at 0% 100%, black 18%, white);
-		/* linear-gradient(to top, black, white 70%); */
 		mask-mode: luminance;
 		@apply rounded-3xl;
 		contain: strict;
@@ -145,7 +145,7 @@
 			/* width: 100%; */
 			height: 100%;
 			flex-grow: 1;
-			margin-right: 4px;
+			margin-right: 3px;
 			max-height: calc(100% - 4px);
 			clip-path: polygon(0 0, 100% 0, 100% 100%, 4rem 100%);
 			@apply rounded-l-none rounded-r-3xl;
