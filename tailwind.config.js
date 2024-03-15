@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/**/*.{html,js,svelte,ts}', './src/content/profiles.json'],
 	theme: {
 		extend: {
 			colors: { black: '#090b0c', primary: '#58E1FF', secondary: '#00A2F8' },
