@@ -4,7 +4,7 @@
 	import { animateIn, formatDate } from '$lib/Helper.mjs'
 	export let entry
 
-	const link = `/news/${entry.slug}`
+	$: link = `/news/${entry.slug}`
 </script>
 
 <li class="flex gap-14" use:animateIn={{ fade: 0, slide: 24 }}>
