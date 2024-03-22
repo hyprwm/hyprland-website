@@ -223,5 +223,11 @@
 		"class": "outline-lime-500 bg-black ",
 		"coordinates": [1018, 123],
 		"size": 28
+	},
+	{
+		"image": "https://cdn.discordapp.com/avatars/762344568921915412/9be93c682b400e9f97c316d2782c13bd.webp",
+		"class": "outline-pink-500 bg-black ",
+		"coordinates": [630, 470],
+		"size": 80
 	}
 ]
