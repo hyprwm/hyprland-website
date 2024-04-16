@@ -12,6 +12,7 @@
 	import amongUsGreenImage from '$lib/images/amongus/green.webp'
 	import { discordLink } from '$lib/constants.mjs'
 	import profiles from '../../content/profiles.json'
+	import Poz from './community/Poz.svelte'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -39,14 +40,14 @@
 			onHover: ({ detail: { srcElement } }) =>
 				!isDraggingChan && (srcElement.src = 'imgs/chan/wink.svg')
 		},
-		{
-			// jacekpoz
-			image: '/imgs/profile_pictures/jacekpoz.svg',
-			coordinates: [893, 622],
-			size: 80,
-			class: 'outline-yellow-500 bg-black ',
-			quote: '"piss blob"'
-		},
+		// {
+		// jacekpoz
+		// image: '/imgs/profile_pictures/jacekpoz.svg',
+		// coordinates: [893, 622],
+		// size: 80,
+		// class: 'outline-yellow-500 bg-black ',
+		// quote: '"piss blob"'
+		// },
 		{
 			image: amongUsGreenImage,
 			coordinates: [873, 224],
@@ -143,6 +144,8 @@
 						on:hover={onHover}
 					/>
 				{/each}
+
+				<Poz />
 			</div>
 		</div>
 	{/await}

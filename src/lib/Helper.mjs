@@ -1,7 +1,22 @@
-/* eslint-disable no-useless-escape */
+import {
+	Subject,
+	interval,
+	map,
+	of,
+	scan,
+	startWith,
+	switchMap,
+	merge,
+	timeInterval,
+	filter,
+	take,
+	takeUntil,
+	takeWhile,
+	pipe as rxpipe
+} from 'rxjs'
+
 import { inview } from 'svelte-inview'
 import { pick } from 'remeda'
-import { Observable, debounceTime, share, startWith, throttleTime } from 'rxjs'
 
 /**
  * Fade: The initial opacity from 0 to 1.
@@ -130,4 +145,49 @@ export function trimText(text, maxLenght) {
 /** Get the filename of a filepath without its extension */
 export function getFileNameWithoutExtension(filePath) {
 	return filePath.split('/').at(-1).replace(/\..*$/, '')
+}
+
+/**
+ * A custom operator which maps inputs to their amount (level),
+ * and completes once a target level has been reached.
+ *
+ * On inactivity the level decreases (fallof).
+ *
+ * Used here to do fancy stuff with clicks
+ */
+export function createThresholdStream({ clicksTarget = 69, clicksEachMs = 400, fallof = 20 }) {
+	const FALLOF = -clicksTarget / fallof
+
+	return rxpipe(
+		timeInterval(),
+		filter(({ interval }) => interval < clicksEachMs),
+		map(() => 1),
+		switchMap((value) =>
+			merge(
+				of(value),
+
+				/** If no new value comes in, start decreasing the progress */
+				interval(clicksEachMs + 100).pipe(
+					take(clicksTarget), // Prevent this interval from running forever
+					map(() => FALLOF)
+				)
+			)
+		),
+		scan((level, value) => Math.min(clicksTarget, Math.max(level + value, 0))),
+		startWith(0)
+	)
+}
+
+/**
+ * Tell the browser to preload an image
+ *
+ * @param {string} src
+ */
+export function preloadImage(src) {
+	return new Promise((resolve, reject) => {
+		const image = new Image()
+		image.onload = resolve
+		image.onerror = reject
+		image.src = src
+	})
 }

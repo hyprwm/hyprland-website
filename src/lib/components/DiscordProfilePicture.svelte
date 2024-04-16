@@ -28,12 +28,16 @@
 	export let imageWrapper
 	/** @type {HTMLImageElement}*/
 	export let imageElement
+	/** @type {string|undefined}*/
+	export let style = undefined
+	export let hasDelay = true
+	export let spawnInstanly = false
 
 	const { biggestSize, getSectionElement } = getContext(contextId)
 	const dispatch = createEventDispatcher()
 
 	const relativeSize = size / biggestSize
-	const delay = Math.pow(1 - size / biggestSize, 4) * 4654
+	const delay = hasDelay ? Math.pow(1 - size / biggestSize, 4) * 4654 : 0
 	const dragCoordinates = spring([0, 0], {
 		damping: lerp(0.2, 0.03, relativeSize),
 		stiffness: lerp(0.2, 0.01, relativeSize),
@@ -50,7 +54,14 @@
 	function onViewEnter() {
 		if (imageElement.__error) return
 
-		setTimeout(() => (hasEnteredView = true), 550)
+		setTimeout(
+			() => {
+				hasEnteredView = true
+				// if (spawnInstanly) isAnimating = false
+				dispatch('enteredView', { dragCoordinates, imageElement, element, delay })
+			},
+			spawnInstanly ? 0 : 550
+		)
 
 		// Only load the library if the element entered the view, to improve performance
 		import('interactjs').then(({ default: interact }) => {
@@ -82,12 +93,19 @@
 		})
 	}
 
+	const draggedUnsubscription = dragCoordinates.subscribe(([x, y]) =>
+		dispatch('dragged', [x + coordinates.at(0), y + coordinates.at(1)])
+	)
+
 	onMount(() => {
 		// Nesecarry as the load image event might not get fired when its already loaded ( for example after a page reload )
 		hasImageLoaded = hasImageLoaded || imageElement.complete
 	})
 
-	onDestroy(() => interactionjs?.off())
+	onDestroy(() => {
+		draggedUnsubscription()
+		interactionjs?.off()
+	})
 </script>
 
 <div
@@ -97,11 +115,11 @@
 		hasImageLoaded ? 'opacity-100' : 'opacity-0'
 	)}
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
-	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
+	style="width: {size}px; height: {size}px;--delay: {delay}ms; "
 	aria-hidden="true"
 	bind:this={element}
 >
-	<div
+	<button
 		class={clsx(
 			'group absolute inset-0 h-full w-full  touch-none select-none',
 			isAnimating && 'opacity-0'
@@ -110,10 +128,11 @@
 		use:inview={{ unobserveOnEnter: true, threshold: 0.2 }}
 		class:_animate={hasImageLoaded && isAnimating && hasEnteredView}
 		on:inview_enter={onViewEnter}
+		on:click
 	>
 		<div class="" bind:this={imageWrapper}>
 			<img
-				class="group h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
+				class="group aspect-square h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
 				bind:this={imageElement}
 				on:load={() => (hasImageLoaded = true)}
 				src={image}
@@ -127,6 +146,7 @@
 				width={size}
 				height={size}
 				onerror="this.__error = true"
+				{style}
 			/>
 			<slot />
 		</div>
@@ -136,7 +156,7 @@
 				{quote}
 			</div>
 		{/if}
-	</div>
+	</button>
 </div>
 
 <style lang="postcss">
