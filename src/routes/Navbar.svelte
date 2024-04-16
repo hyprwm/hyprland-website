@@ -2,10 +2,12 @@
 	import { navigating, page } from '$app/stores'
 	import GithubIcon from '~icons/ri/github-fill'
 	import DiscordIcon from '~icons/prime/discord'
+	import ForgejoIcon from '~icons/fe/git'
 	import MenuIcon from '~icons/mingcute/menu-line'
 	import CloseIcon from '~icons/mingcute/close-line'
 	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
 	import { discordLink } from '$lib/constants.mjs'
+	import { forgejoLink } from '$lib/constants.mjs'
 
 	let isExpanded = false
 
@@ -77,6 +79,11 @@
 					target="_blank"
 				>
 					<GithubIcon class="h-full w-full" />
+				</a>
+			</li>
+			<li>
+				<a href={forgejoLink} class="social-icon" aria-label="Hyprland git instance" target="_blank">
+					<ForgejoIcon class="h-full w-full" />
 				</a>
 			</li>
 		</ul>
