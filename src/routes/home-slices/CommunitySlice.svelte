@@ -40,14 +40,6 @@
 			onHover: ({ detail: { srcElement } }) =>
 				!isDraggingChan && (srcElement.src = 'imgs/chan/wink.svg')
 		},
-		// {
-		// jacekpoz
-		// image: '/imgs/profile_pictures/jacekpoz.svg',
-		// coordinates: [893, 622],
-		// size: 80,
-		// class: 'outline-yellow-500 bg-black ',
-		// quote: '"piss blob"'
-		// },
 		{
 			image: amongUsGreenImage,
 			coordinates: [873, 224],
@@ -89,7 +81,8 @@
 			(previousSize, { size }) => (size < previousSize ? size : previousSize),
 			Number.POSITIVE_INFINITY
 		),
-		getSectionElement: () => sectionElement
+		getSectionElement: () => sectionElement,
+		profileBounds: []
 	})
 
 	onMount(() => {
