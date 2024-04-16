@@ -2,6 +2,7 @@
 	import DiscordIcon from '~icons/prime/discord'
 	import GithubIcon from '~icons/ri/github-fill'
 	import { discordLink } from '$lib/constants.mjs'
+	import { forgejoLink } from '$lib/constants.mjs'
 	import RssIcon from '~icons/mingcute/rss-fill'
 	import ForgejoIcon from '~icons/fe/git'
 
@@ -86,7 +87,7 @@
 				</li>
 				<li class="">
 					<a
-						href="https://code.hyprland.org/"
+						href={forgejoLink}
 						class="text-slate-400 hover:text-slate-200"
 						target="_blank"
 						aria-label="Rss Feed"><ForgejoIcon class="h-12 w-12 " /></a
