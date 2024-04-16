@@ -3,6 +3,7 @@
 	import GithubIcon from '~icons/ri/github-fill'
 	import { discordLink } from '$lib/constants.mjs'
 	import RssIcon from '~icons/mingcute/rss-fill'
+	import ForgejoIcon from '~icons/fe/git'
 
 	/** @type {[string, string, string, string]} */
 	let team = [
@@ -58,7 +59,7 @@
 
 		<div class="flex flex-col gap-4">
 			<div class="pretitle" font-bold>Socials</div>
-			<ul class="flex gap-6">
+			<ul class="flex grid-cols-2 gap-6 gap-y-3 md:grid">
 				<li class="">
 					<a
 						href={discordLink}
@@ -81,6 +82,14 @@
 						class="text-slate-400 hover:text-slate-200"
 						target="_blank"
 						aria-label="Rss Feed"><RssIcon class="h-12 w-12 " /></a
+					>
+				</li>
+				<li class="">
+					<a
+						href="https://code.hyprland.org/"
+						class="text-slate-400 hover:text-slate-200"
+						target="_blank"
+						aria-label="Rss Feed"><ForgejoIcon class="h-12 w-12 " /></a
 					>
 				</li>
 			</ul>
