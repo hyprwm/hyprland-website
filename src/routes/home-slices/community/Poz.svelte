@@ -2,23 +2,13 @@
 	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper.mjs'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { Subject, filter, first, map, merge, of, startWith, switchMap, timer } from 'rxjs'
-	import amongPoz from '$lib/images/poz/amongpoz.webp'
-	import chinesePoz from '$lib/images/poz/chinesepoz.webp'
-	import discordPoz from '$lib/images/poz/discordpoz.webp'
-	import lepszePoz from '$lib/images/poz/discordpoz_better.webp'
-	import firePoz from '$lib/images/poz/firepoz.webp'
-	import gimgPoz from '$lib/images/poz/gimppoz.webp'
-	import lordPoz from '$lib/images/poz/jaceklord.webp'
-	import krolPoz from '$lib/images/poz/krolewnapoz.webp'
-	import marcelPoz from '$lib/images/poz/marcelinapoz.webp'
 	import edgePoz from '$lib/images/poz/msedgepoz.webp'
-	import nixPoz from '$lib/images/poz/nixpiss.webp'
-	import slimaPoz from '$lib/images/poz/slimakpoz.webp'
-	import teamPoz from '$lib/images/poz/teamspoz.webp'
-	import trollPoz from '$lib/images/poz/trollpoz.webp'
-	import windowsPoz from '$lib/images/poz/windowspoz.webp'
 	import { getContext, onDestroy } from 'svelte'
 	import { contextId } from '../CommunitySlice.svelte'
+
+	const thePozArmy = Object.values(import.meta.glob('$lib/images/poz/*', { eager: true })).map(
+		(x) => x.default
+	)
 
 	/** @type {import('$lib/Types').CommunityContext}*/
 	const { profilesState$ } = getContext(contextId)
@@ -26,7 +16,7 @@
 
 	const origin = [893, 622]
 	let newPosition
-	const clicksTarget = 15
+	const clicksTarget = 9
 	const shakeMax = 24
 	const clicksInput$ = new Subject()
 	const level$ = clicksInput$.pipe(
@@ -61,37 +51,19 @@
 		startWith({ x: 0, y: 0 })
 	)
 
-	const images = [
-		amongPoz,
-		chinesePoz,
-		discordPoz,
-		lepszePoz,
-		firePoz,
-		gimgPoz,
-		lordPoz,
-		krolPoz,
-		marcelPoz,
-		edgePoz,
-		nixPoz,
-		slimaPoz,
-		teamPoz,
-		trollPoz,
-		windowsPoz
-	]
-
 	// Preload images when the user start clicking our beloved Poz
 	const preloadSubscription = relativeLevel$
 		.pipe(
 			filter((level) => level >= 0.1),
 			first()
 		)
-		.subscribe(() => images.forEach(preloadImage))
+		.subscribe(() => thePozArmy.forEach(preloadImage))
 
 	onDestroy(() => preloadSubscription.unsubscribe())
 </script>
 
 {#if $hasFinished$}
-	{#each images as poz}
+	{#each thePozArmy as poz}
 		{@const maxSize = 75}
 		{@const size = 35 * Math.random() + 40}
 		<DiscordProfilePicture
@@ -99,7 +71,6 @@
 			coordinates={newPosition ?? origin}
 			{size}
 			class={'bg-black/50 outline-yellow-500 '}
-			quote={poz.split('/').at(-1).split('.').at(0)}
 			spawnInstantly={false}
 			isAnimating={false}
 			tag="poz"
