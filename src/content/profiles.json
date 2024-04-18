@@ -21,7 +21,8 @@
 		"image": "https://cdn.discordapp.com/avatars/378704069726044170/415dcb2ef8d1ef635e35e1d04d523cba.webp",
 		"class": "outline-amber-500",
 		"coordinates": [568, 594],
-		"size": 120
+		"size": 120,
+		"tag": "le_mod"
 	},
 	{
 		"image": "https://cdn.discordapp.com/avatars/623781003382751243/0705cf015336ae06cefcdcb2800a49e9.webp",
@@ -119,13 +120,6 @@
 		"class": "outline-stone-500 ",
 		"coordinates": [263, 653],
 		"size": 65
-	},
-	{
-		"image": "https://cdn.discordapp.com/avatars/273110996938260481/955a300031b165ac79dd4fc7ff48cb92.webp",
-		"class": "outline-yellow-500 bg-black ",
-		"coordinates": [893, 622],
-		"size": 80,
-		"quote": "\"piss blob\""
 	},
 	{
 		"image": "https://cdn.discordapp.com/avatars/231040215085481984/7f378337240110b76e6e9baa31f83670.webp",

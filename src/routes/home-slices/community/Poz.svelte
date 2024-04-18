@@ -1,11 +1,11 @@
 <script>
 	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper.mjs'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
-	import { Subject, filter, first, map, merge, min, of, startWith, switchMap, timer } from 'rxjs'
+	import { Subject, filter, first, map, merge, of, startWith, switchMap, timer } from 'rxjs'
 	import amongPoz from '$lib/images/poz/amongpoz.webp'
 	import chinesePoz from '$lib/images/poz/chinesepoz.webp'
 	import discordPoz from '$lib/images/poz/discordpoz.webp'
-	import lepszePoz from '$lib/images/poz/discordpoz_lepsze.webp'
+	import lepszePoz from '$lib/images/poz/discordpoz_better.webp'
 	import firePoz from '$lib/images/poz/firepoz.webp'
 	import gimgPoz from '$lib/images/poz/gimppoz.webp'
 	import lordPoz from '$lib/images/poz/jaceklord.webp'
@@ -17,11 +17,16 @@
 	import teamPoz from '$lib/images/poz/teamspoz.webp'
 	import trollPoz from '$lib/images/poz/trollpoz.webp'
 	import windowsPoz from '$lib/images/poz/windowspoz.webp'
-	import { fade } from 'svelte/transition'
+	import { getContext, onDestroy } from 'svelte'
+	import { contextId } from '../CommunitySlice.svelte'
+
+	/** @type {import('$lib/Types').CommunityContext}*/
+	const { profilesState$ } = getContext(contextId)
+	$: touches$$$$Voice = $profilesState$.intersections.includes('le_mod-poz')
 
 	const origin = [893, 622]
 	let newPosition
-	const clicksTarget = 5
+	const clicksTarget = 15
 	const shakeMax = 24
 	const clicksInput$ = new Subject()
 	const level$ = clicksInput$.pipe(
@@ -49,14 +54,11 @@
 					x: Math.random() * shakeModifier,
 					y: Math.random() * shakeModifier
 				}),
+				// Reset back to the original value after 140ms
 				timer(140).pipe(map(() => ({ x: 0, y: 0 })))
 			)
 		}),
 		startWith({ x: 0, y: 0 })
-	)
-
-	const randomCoordinates$ = of([0, 0]).pipe(
-		switchMap((_) => timer(2500).pipe(map((__) => (newPosition ?? origin).map())))
 	)
 
 	const images = [
@@ -78,12 +80,14 @@
 	]
 
 	// Preload images when the user start clicking our beloved Poz
-	relativeLevel$
+	const preloadSubscription = relativeLevel$
 		.pipe(
-			filter((level) => level >= 0.5),
+			filter((level) => level >= 0.1),
 			first()
 		)
 		.subscribe(() => images.forEach(preloadImage))
+
+	onDestroy(() => preloadSubscription.unsubscribe())
 </script>
 
 {#if $hasFinished$}
@@ -98,6 +102,7 @@
 			quote={poz.split('/').at(-1).split('.').at(0)}
 			spawnInstantly={false}
 			isAnimating={false}
+			tag="poz"
 			on:enteredView={({ detail: { dragCoordinates } }) => {
 				dragCoordinates.update(([x, y]) => {
 					x += lerp(400, 0, (size / maxSize) * (1 - Math.random())) * (Math.random() > 0.5 ? 1 : -1)
@@ -112,16 +117,16 @@
 {#if $showMainPoz$}
 	<div class="absolute z-20">
 		<DiscordProfilePicture
-			image={'/imgs/profile_pictures/jacekpoz.svg'}
+			image={touches$$$$Voice ? edgePoz : '/imgs/profile_pictures/jacekpoz.svg'}
 			coordinates={origin}
 			size={80}
 			class={'bg-black outline-yellow-500 '}
 			quote={'"piss blob"'}
+			intersectionHandler={(image) => (image = '"piss blob"')}
+			tag="poz"
 			on:click={() => clicksInput$.next(0)}
 			style={`scale:${$relativeLevel$ * 0.5 + 1};transition: scale 80ms linear; translate: ${$shake$.x}px ${$shake$.y}px; `}
 			on:dragged={({ detail }) => (newPosition = detail)}
-		>
-			{JSON.stringify($shake$)}
-		</DiscordProfilePicture>
+		></DiscordProfilePicture>
 	</div>
 {/if}

@@ -3,8 +3,9 @@
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
 	import { contextId as ctxId } from '../../routes/home-slices/CommunitySlice.svelte'
-	import { lerp } from '$lib/Helper.mjs'
+	import { convertStoreToObservable, isIntersecting, lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
+	import { Subject, distinctUntilChanged, throttle, throttleTime } from 'rxjs'
 
 	/** @type {string} */
 	export let image
@@ -14,6 +15,8 @@
 	export let size
 	/** @type {[number, number]} */
 	export let coordinates
+	/** @type {string | undefined} User description */
+	export let tag = undefined
 
 	/** @type {string | undefined} */
 	export let quote = undefined
@@ -33,7 +36,8 @@
 	export let hasDelay = true
 	export let spawnInstanly = false
 
-	const { biggestSize, getSectionElement } = getContext(contextId)
+	/** @type {import('$lib/Types.ts').CommunityContext} **/
+	const { biggestSize, getSectionElement, profilesState$ } = getContext(contextId)
 	const dispatch = createEventDispatcher()
 
 	const relativeSize = size / biggestSize
@@ -57,7 +61,14 @@
 		setTimeout(
 			() => {
 				hasEnteredView = true
-				// if (spawnInstanly) isAnimating = false
+				if (tag && profilesState$) {
+					profilesState$.update((state) => {
+						// No drag yet, so we can just use the normal coordinates
+						state.profiles[tag] = { size, coordinates }
+						return state
+					})
+				}
+
 				dispatch('enteredView', { dragCoordinates, imageElement, element, delay })
 			},
 			spawnInstanly ? 0 : 550
@@ -93,9 +104,33 @@
 		})
 	}
 
-	const draggedUnsubscription = dragCoordinates.subscribe(([x, y]) =>
-		dispatch('dragged', [x + coordinates.at(0), y + coordinates.at(1)])
-	)
+	const draggedSubscription = convertStoreToObservable(dragCoordinates)
+		.pipe(throttleTime(80))
+		.subscribe((drag) => {
+			const displayedPosition = getDisplayedPosition(coordinates, drag)
+			dispatch('dragged', displayedPosition)
+
+			if (!tag) return
+
+			// This whole things looks so slow, but if it works. Feel free to PR nicer way though
+			profilesState$.update((state) => {
+				state.profiles[tag] = { coordinates: displayedPosition, size }
+
+				const otherIntersections = state.intersections.filter((pair) => !pair.includes(tag))
+				const thisIntersections = Object.entries(state.profiles)
+					.filter(
+						([otherTag, rectangle]) =>
+							otherTag !== tag &&
+							isIntersecting(rectangle, { size, coordinates: displayedPosition })
+					)
+					.map(([otherTag]) => [otherTag, tag].sort().join('-'))
+				const allIntersections = [...otherIntersections, ...thisIntersections]
+
+				state.intersections = allIntersections
+
+				return state
+			})
+		})
 
 	onMount(() => {
 		// Nesecarry as the load image event might not get fired when its already loaded ( for example after a page reload )
@@ -103,9 +138,17 @@
 	})
 
 	onDestroy(() => {
-		draggedUnsubscription()
+		draggedSubscription.unsubscribe()
 		interactionjs?.off()
 	})
+
+	/**
+	 * @param {[x: number, y: number]}origin
+	 * @param {[x: number, y: number]}dragCoordinates
+	 */
+	function getDisplayedPosition(origin, dragCoordinates) {
+		return [origin.at(0) + dragCoordinates.at(0), origin.at(1) + dragCoordinates.at(1)]
+	}
 </script>
 
 <div

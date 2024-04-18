@@ -13,16 +13,19 @@
 	import { discordLink } from '$lib/constants.mjs'
 	import profiles from '../../content/profiles.json'
 	import Poz from './community/Poz.svelte'
+	import { writable } from 'svelte/store'
+	import { Observable } from 'rxjs'
+	import { writableObservable } from '$lib/Helper.mjs'
 
 	let sectionElement
 	let isDraggingChan = false
 
 	const validSizes = [16, 20, 24, 32, 40, 48, 64, 80, 96, 100, 128, 160, 240, 320, 640]
 
-	/** @type {Promise<import('./Types').CommunityProfile[]>}*/
+	/** @type {Promise<import('$lib/Types').CommunityProfile[]>}*/
 	let allProfilesPromise = new Promise(() => {})
 
-	/** @type {import('./Types').CommunityProfile[]} */
+	/** @type {import('$lib/Types').CommunityProfile[]} */
 	const extraProfiles = [
 		{
 			image: 'imgs/chan/joy.svg',
@@ -82,7 +85,7 @@
 			Number.POSITIVE_INFINITY
 		),
 		getSectionElement: () => sectionElement,
-		profileBounds: []
+		profilesState$: writableObservable({ events: [], intersections: [], profiles: {} })
 	})
 
 	onMount(() => {
