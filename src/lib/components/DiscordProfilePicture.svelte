@@ -3,8 +3,9 @@
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
 	import { contextId as ctxId } from '../../routes/home-slices/CommunitySlice.svelte'
-	import { lerp } from '$lib/Helper.mjs'
+	import { convertStoreToObservable, isIntersecting, lerp } from '$lib/Helper.mjs'
 	import { inview } from 'svelte-inview'
+	import { Subject, distinctUntilChanged, throttle, throttleTime } from 'rxjs'
 
 	/** @type {string} */
 	export let image
@@ -14,6 +15,8 @@
 	export let size
 	/** @type {[number, number]} */
 	export let coordinates
+	/** @type {string | undefined} User description */
+	export let tag = undefined
 
 	/** @type {string | undefined} */
 	export let quote = undefined
@@ -28,12 +31,17 @@
 	export let imageWrapper
 	/** @type {HTMLImageElement}*/
 	export let imageElement
+	/** @type {string|undefined}*/
+	export let style = undefined
+	export let hasDelay = true
+	export let spawnInstanly = false
 
-	const { biggestSize, getSectionElement } = getContext(contextId)
+	/** @type {import('$lib/Types.ts').CommunityContext} **/
+	const { biggestSize, getSectionElement, profilesState$ } = getContext(contextId)
 	const dispatch = createEventDispatcher()
 
 	const relativeSize = size / biggestSize
-	const delay = Math.pow(1 - size / biggestSize, 4) * 4654
+	const delay = hasDelay ? Math.pow(1 - size / biggestSize, 4) * 4654 : 0
 	const dragCoordinates = spring([0, 0], {
 		damping: lerp(0.2, 0.03, relativeSize),
 		stiffness: lerp(0.2, 0.01, relativeSize),
@@ -50,7 +58,21 @@
 	function onViewEnter() {
 		if (imageElement.__error) return
 
-		setTimeout(() => (hasEnteredView = true), 550)
+		setTimeout(
+			() => {
+				hasEnteredView = true
+				if (tag && profilesState$) {
+					profilesState$.update((state) => {
+						// No drag yet, so we can just use the normal coordinates
+						state.profiles[tag] = { size, coordinates }
+						return state
+					})
+				}
+
+				dispatch('enteredView', { dragCoordinates, imageElement, element, delay })
+			},
+			spawnInstanly ? 0 : 550
+		)
 
 		// Only load the library if the element entered the view, to improve performance
 		import('interactjs').then(({ default: interact }) => {
@@ -82,12 +104,51 @@
 		})
 	}
 
+	const draggedSubscription = convertStoreToObservable(dragCoordinates)
+		.pipe(throttleTime(80))
+		.subscribe((drag) => {
+			const displayedPosition = getDisplayedPosition(coordinates, drag)
+			dispatch('dragged', displayedPosition)
+
+			if (!tag) return
+
+			// This whole things looks so slow, but if it works. Feel free to PR nicer way though
+			profilesState$.update((state) => {
+				state.profiles[tag] = { coordinates: displayedPosition, size }
+
+				const otherIntersections = state.intersections.filter((pair) => !pair.includes(tag))
+				const thisIntersections = Object.entries(state.profiles)
+					.filter(
+						([otherTag, rectangle]) =>
+							otherTag !== tag &&
+							isIntersecting(rectangle, { size, coordinates: displayedPosition })
+					)
+					.map(([otherTag]) => [otherTag, tag].sort().join('-'))
+				const allIntersections = [...otherIntersections, ...thisIntersections]
+
+				state.intersections = allIntersections
+
+				return state
+			})
+		})
+
 	onMount(() => {
 		// Nesecarry as the load image event might not get fired when its already loaded ( for example after a page reload )
 		hasImageLoaded = hasImageLoaded || imageElement.complete
 	})
 
-	onDestroy(() => interactionjs?.off())
+	onDestroy(() => {
+		draggedSubscription.unsubscribe()
+		interactionjs?.off()
+	})
+
+	/**
+	 * @param {[x: number, y: number]}origin
+	 * @param {[x: number, y: number]}dragCoordinates
+	 */
+	function getDisplayedPosition(origin, dragCoordinates) {
+		return [origin.at(0) + dragCoordinates.at(0), origin.at(1) + dragCoordinates.at(1)]
+	}
 </script>
 
 <div
@@ -97,11 +158,11 @@
 		hasImageLoaded ? 'opacity-100' : 'opacity-0'
 	)}
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
-	style="width: {size}px; height: {size}px;--delay: {delay}ms;"
+	style="width: {size}px; height: {size}px;--delay: {delay}ms; "
 	aria-hidden="true"
 	bind:this={element}
 >
-	<div
+	<button
 		class={clsx(
 			'group absolute inset-0 h-full w-full  touch-none select-none',
 			isAnimating && 'opacity-0'
@@ -110,10 +171,11 @@
 		use:inview={{ unobserveOnEnter: true, threshold: 0.2 }}
 		class:_animate={hasImageLoaded && isAnimating && hasEnteredView}
 		on:inview_enter={onViewEnter}
+		on:click
 	>
 		<div class="" bind:this={imageWrapper}>
 			<img
-				class="group h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
+				class="group aspect-square h-full w-full touch-none select-none rounded-[50%] object-cover outline outline-4 {$$restProps.class}"
 				bind:this={imageElement}
 				on:load={() => (hasImageLoaded = true)}
 				src={image}
@@ -127,6 +189,7 @@
 				width={size}
 				height={size}
 				onerror="this.__error = true"
+				{style}
 			/>
 			<slot />
 		</div>
@@ -136,7 +199,7 @@
 				{quote}
 			</div>
 		{/if}
-	</div>
+	</button>
 </div>
 
 <style lang="postcss">

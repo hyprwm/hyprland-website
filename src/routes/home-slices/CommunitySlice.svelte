@@ -12,16 +12,20 @@
 	import amongUsGreenImage from '$lib/images/amongus/green.webp'
 	import { discordLink } from '$lib/constants.mjs'
 	import profiles from '../../content/profiles.json'
+	import Poz from './community/Poz.svelte'
+	import { writable } from 'svelte/store'
+	import { Observable } from 'rxjs'
+	import { writableObservable } from '$lib/Helper.mjs'
 
 	let sectionElement
 	let isDraggingChan = false
 
 	const validSizes = [16, 20, 24, 32, 40, 48, 64, 80, 96, 100, 128, 160, 240, 320, 640]
 
-	/** @type {Promise<import('./Types').CommunityProfile[]>}*/
+	/** @type {Promise<import('$lib/Types').CommunityProfile[]>}*/
 	let allProfilesPromise = new Promise(() => {})
 
-	/** @type {import('./Types').CommunityProfile[]} */
+	/** @type {import('$lib/Types').CommunityProfile[]} */
 	const extraProfiles = [
 		{
 			image: 'imgs/chan/joy.svg',
@@ -38,14 +42,6 @@
 			},
 			onHover: ({ detail: { srcElement } }) =>
 				!isDraggingChan && (srcElement.src = 'imgs/chan/wink.svg')
-		},
-		{
-			// jacekpoz
-			image: '/imgs/profile_pictures/jacekpoz.svg',
-			coordinates: [893, 622],
-			size: 80,
-			class: 'outline-yellow-500 bg-black ',
-			quote: '"piss blob"'
 		},
 		{
 			image: amongUsGreenImage,
@@ -88,7 +84,8 @@
 			(previousSize, { size }) => (size < previousSize ? size : previousSize),
 			Number.POSITIVE_INFINITY
 		),
-		getSectionElement: () => sectionElement
+		getSectionElement: () => sectionElement,
+		profilesState$: writableObservable({ events: [], intersections: [], profiles: {} })
 	})
 
 	onMount(() => {
@@ -143,6 +140,8 @@
 						on:hover={onHover}
 					/>
 				{/each}
+
+				<Poz />
 			</div>
 		</div>
 	{/await}
