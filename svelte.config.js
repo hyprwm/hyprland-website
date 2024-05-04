@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsvex, escapeSvelte } from 'mdsvex'
-import {getHighlighter} from 'shiki'
+import { getHighlighter } from 'shiki'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeSlug from 'rehype-slug'
 
@@ -22,7 +22,12 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	kit: { adapter: adapter() },
+	kit: {
+		adapter: adapter(),
+		alias: {
+			$components: './src/lib/components'
+		}
+	},
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)]
 }
 
