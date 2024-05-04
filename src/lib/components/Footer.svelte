@@ -55,6 +55,7 @@
 					>
 				</li>
 				<li><a href="/hall_of_fame">Hall of fame</a></li>
+				<li><a href="/organization">hyprwm Organization</a></li>
 			</ul>
 		</div>
 
