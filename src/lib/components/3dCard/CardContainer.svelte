@@ -5,6 +5,7 @@
 	import { setContext } from 'svelte'
 	import { writable, type Writable } from 'svelte/store'
 	import type { Card3dContext } from './Types'
+	import { animateIn } from '$lib/Helper.mjs'
 
 	export let containerClass: string | undefined = undefined
 
@@ -34,7 +35,10 @@
 	}
 </script>
 
-<div class="flex items-center justify-center [perspective:1000px]">
+<div
+	class="flex items-center justify-center [perspective:1000px]"
+	use:animateIn={{ slide: 24, fade: 0 }}
+>
 	<div
 		class={`${containerClass} group/card translate flex w-max  items-center  justify-center transition-all  [transform-style:preserve-3d]  `}
 		on:mouseenter={handleMouseEnter}
