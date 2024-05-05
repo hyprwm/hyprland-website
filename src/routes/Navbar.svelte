@@ -46,13 +46,6 @@
 			class="flex flex-col items-center gap-5 rounded-full lg:h-full lg:max-h-full lg:flex-row [&_li]:transition-colors hover:[&_li]:text-cyan-300"
 		>
 			<li>
-				<a
-					href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/"
-					rel="noopener"
-					target="_blank">Get started</a
-				>
-			</li>
-			<li>
 				<a href="https://wiki.hyprland.org">Wiki</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
@@ -64,8 +57,11 @@
 			<li aria-current={$page.url.pathname === '/plugins' ? 'page' : undefined}>
 				<a href="/plugins">Plugins</a>
 			</li>
+			<li>
+				<a href="/organization">Organization</a>
+			</li>
 		</ul>
-		<ul class="flex flex-row items-center gap-3 px-4">
+		<ul class="flex flex-row items-center gap-1">
 			<li>
 				<a href={discordLink} class="social-icon" aria-label="Join us on Discord" target="_blank">
 					<DiscordIcon class="h-full w-full" />
@@ -82,7 +78,12 @@
 				</a>
 			</li>
 			<li>
-				<a href={forgejoLink} class="social-icon" aria-label="Hyprland git instance" target="_blank">
+				<a
+					href={forgejoLink}
+					class="social-icon"
+					aria-label="Hyprland git instance"
+					target="_blank"
+				>
 					<ForgejoIcon class="h-full w-full" />
 				</a>
 			</li>
