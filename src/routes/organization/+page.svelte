@@ -3,7 +3,8 @@
 	import CardContainer from '$components/3dCard/CardContainer.svelte'
 	import CardItem from '$components/3dCard/CardItem.svelte'
 	import Title from '$components/Title.svelte'
-	import { get } from 'svelte/store'
+	import Uhay from '$lib/images/teams/uhay.webp'
+	import rfcLogo from '$lib/images/teams/rfc.webp'
 </script>
 
 <main>
@@ -14,10 +15,14 @@
 		</Title>
 	</div>
 	<section class="flex flex-col items-center">
-		<h2 class="mb-4 text-4xl font-bold [animation-delay:300ms]">Teams</h2>
+		<h2
+			class="mb-4 text-4xl font-bold duration-1000 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-both [animation-delay:300ms]"
+		>
+			Teams
+		</h2>
 
 		<div
-			class="flex max-w-full flex-wrap items-center justify-center gap-8 px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 [&>*]:animate-in [&>*]:fade-in-0 [&>*]:slide-in-from-bottom-6 [&>*]:fill-mode-backwards [&>*]:[animation-duration:1400ms]"
+			class="flex max-w-full flex-wrap items-center justify-center gap-8 px-8 lg:grid lg:grid-cols-2 xl:grid-cols-3 [&>*]:animate-in [&>*]:fade-in-0 [&>*]:slide-in-from-bottom-6 [&>*]:fill-mode-backwards [&>*]:[animation-delay:950ms] [&>*]:[animation-duration:400ms]"
 		>
 			<!-- RFC -->
 			<CardContainer containerClass="mt-20">
@@ -27,7 +32,7 @@
 					<CardItem class="w-full text-xl font-bold  text-white" translateZ={30}>
 						<div class="mb-4 flex w-full items-center justify-center">
 							<img
-								src="https://images-ext-1.discordapp.net/external/Sfe4WDX8-BapzTSt6PBRm7G3JtznnVE8dCN0-pWQmn8/https/s.mj.run/nG05gh6Li-w?format=webp&width=979&height=979"
+								src={rfcLogo}
 								class="-mt-20 size-64 rounded-xl shadow-2xl shadow-blue-500 outline outline-blue-500/20 group-hover/card:outline-cyan-500/50"
 								alt="RFC Team logo"
 							/>
@@ -59,7 +64,7 @@
 					<CardItem class="w-full text-xl font-bold  text-white" translateZ={30}>
 						<div class="mb-4 flex w-full items-center justify-center">
 							<img
-								src="https://media.discordapp.net/attachments/1233710054729842729/1235516223819878420/visualdawg_logo_black_background_globe_minimalistic_illustratio_addd6568-b95f-40ec-8de6-e90366f66bea.png?ex=6636a1e6&is=66355066&hm=83c0f90353c3a748589b25ac919c3e1acd56029efbdc9c86b2f5a5427d12d563&=&format=webp&quality=lossless&width=560&height=560"
+								src={Uhay}
 								class="-mt-20 size-64 rounded-xl shadow-2xl shadow-blue-500 outline outline-blue-500/20 group-hover/card:outline-cyan-500/50"
 								alt="RFC Team logo"
 							/>
@@ -71,7 +76,7 @@
 					<CardItem class="h-6  w-full  text-base text-white" translateZ={90}>
 						<div class=" font-medium text-slate-400">
 							<p class="group-hover/web:visible">
-								{hasMouseEntered ? 'Hello world' : 'Web. JS. Design.'}
+								{hasMouseEntered ? 'It`s pronounced UI you ' : 'Web. JS. Design.'}
 							</p>
 						</div>
 					</CardItem>
