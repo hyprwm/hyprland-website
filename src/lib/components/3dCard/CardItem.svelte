@@ -21,5 +21,5 @@
 		? `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`
 		: `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`}
 >
-	<slot>Forgot to add something here</slot>
+	<slot><span class="text-red-500">Forgot to add something here</span></slot>
 </div>
