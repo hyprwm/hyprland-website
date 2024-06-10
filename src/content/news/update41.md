@@ -7,6 +7,8 @@ Just as we thought 0.40.0 was a mega-release, we now proudly present 0.41.0, whi
 
 0.41.0 changes over 25000 lines of code over almost 200 commits from dozens of contributors.
 
+See the release on [Github](https://github.com/hyprwm/Hyprland/releases/tag/v0.41.0).
+
 ## Ongoing work to detach from wlroots
 
 As I've explained in [my blogpost on vaxry.net](https://blog.vaxry.net/articles/2024-wlrootsRewrite) there's currently
