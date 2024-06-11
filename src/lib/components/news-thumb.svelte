@@ -12,7 +12,7 @@
 		<div class="flex flex-col gap-4 text-sm font-medium text-slate-400">
 			<p class="font-bold text-slate-400">{formatDate(entry.date)}</p>
 		</div>
-		<h2 class="title text-4xl font-bold hover:text-slate-200 md:text-5xl lg:text-6xl">
+		<h2 class="title text-3xl font-bold hover:text-slate-200 md:text-5xl lg:text-6xl">
 			<a href={link}>{entry.title}</a>
 		</h2>
 		<a
