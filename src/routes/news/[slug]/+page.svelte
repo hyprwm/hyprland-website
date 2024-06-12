@@ -35,7 +35,7 @@
 {#if data.other.length > 0}
 	<section class="mx-auto mt-72 max-w-screen-lg">
 		<Title class="mb-6"><span slot="title">More news</span></Title>
-		<ul class="grid grid-cols-2 gap-x-7 gap-y-16">
+		<ul class="grid grid-cols-2 gap-x-7 gap-y-16 overflow-auto">
 			{#each data.other as entry}
 				<NewsThumb {entry} />
 			{/each}
