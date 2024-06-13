@@ -17,6 +17,8 @@ import {
 import { inview } from 'svelte-inview'
 import { pick } from 'remeda'
 import { writable } from 'svelte/store'
+import { twMerge } from 'tailwind-merge'
+import clsx from 'clsx'
 
 /**
  * Fade: The initial opacity from 0 to 1.
@@ -235,4 +237,12 @@ export function isIntersecting(rect1, rect2) {
 		rect1.coordinates[1] + rect1.size < rect2.coordinates[1] ||
 		rect2.coordinates[1] + rect2.size < rect1.coordinates[1]
 	)
+}
+
+/**
+ * Merge Tailwind classes
+ * @param {import('clsx').ClassValue} classes
+ */
+export function cn(...classes) {
+	return twMerge(clsx(classes))
 }

@@ -1,12 +1,12 @@
 <script>
-	import clsx from 'clsx'
+	import { cn } from '$lib/Helper.mjs'
 
 	/** @type { 'md'|'lg'|'xl'}*/
 	export let size = 'md'
 	/** @type { 'primary'|'outline'|'fancyOutline' }*/
 	export let type = 'primary'
 
-	$: classes = clsx(
+	$: classes = cn(
 		'animate  rounded text-sm font-bold hover:scale-[1.01] active:scale-100',
 		'primary' == type && 'bg-slate-200 text-black',
 		'outline' == type && 'bg-transparent text-white outline outline-2 outline-slate-200',
