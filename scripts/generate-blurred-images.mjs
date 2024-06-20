@@ -72,8 +72,11 @@ function exec(command) {
 			stdio: ['inherit', 'inherit', 'pipe']
 		})
 
-		if (stderr.toString().trim()) throw stderr.toString().trim()
 		if (error) throw error
+
+		const stdError = stderr.toString().trim()
+
+		if (stdError && !stdError.includes('WARNING')) throw new Error(stdError)
 
 		return stdout
 	} catch (error) {
