@@ -21,7 +21,7 @@
 					b.name.localeCompare(a.name)
 			)
 		),
-		R.toPairs,
+		R.entries(),
 		R.tap((x) => console.log({ x })),
 		R.sort(([a], [b]) => a.localeCompare(b))
 	)
