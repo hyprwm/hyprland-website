@@ -108,7 +108,7 @@
 
 <style lang="postcss">
 	.footer-inner {
-		@apply flex max-w-screen-2xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300;
+		@apply flex max-w-screen-xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300;
 	}
 
 	.pretitle {
