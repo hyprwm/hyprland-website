@@ -12,7 +12,7 @@
 		"size": 164
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/419880181101232129/61747b6c8981fc817c390ff0d6d93ff2.webp",
+		"image": "https://cdn.discordapp.com/avatars/419880181101232129/d5ec2616075dc0fddb3de528c9113628.webp",
 		"class": "outline-orange-500",
 		"coordinates": [391, 615],
 		"size": 149
@@ -24,7 +24,7 @@
 		"size": 120
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/623781003382751243/e5d393ffeefe1accf5ee7c01cb648974.webp",
+		"image": "https://cdn.discordapp.com/avatars/623781003382751243/960ba27a9adbfa0084902d07ba2c44e1.webp",
 		"class": "outline-orange-500",
 		"coordinates": [525, 764],
 		"size": 80
@@ -54,13 +54,13 @@
 		"size": 48
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/979473046404476998/c9a4af31050a785d896f7880f9d268e3.webp",
+		"image": "https://cdn.discordapp.com/avatars/979473046404476998/794a68cb5d6cd130305d3f5633d14e44.webp",
 		"class": "outline-amber-500",
 		"coordinates": [1038, 446],
 		"size": 52
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/486802226577276929/bbb57d3c5ce38b864c214c08df454208.webp",
+		"image": "https://cdn.discordapp.com/avatars/486802226577276929/0f1a8a2e105d492d52cd3a6eee74b1a6.webp",
 		"class": "outline-cyan-500",
 		"coordinates": [273, 760],
 		"size": 52,
@@ -121,13 +121,6 @@
 		"size": 65
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/273110996938260481/c5c77f8af7f34807e5a1afe954f9afde.webp",
-		"class": "outline-yellow-500 bg-black ",
-		"coordinates": [893, 622],
-		"size": 80,
-		"quote": "\"piss blob\""
-	},
-	{
 		"image": "https://cdn.discordapp.com/avatars/231040215085481984/7f378337240110b76e6e9baa31f83670.webp",
 		"class": "outline-amber-500",
 		"coordinates": [354, 798],
@@ -177,7 +170,7 @@
 		"size": 47
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/194584980922433536/ae9bc8baf50b773e3b26f2b7662b29fc.webp",
+		"image": "https://cdn.discordapp.com/avatars/194584980922433536/6b119f98b1d876fbcd53b32b15ce1d35.webp",
 		"class": "outline-blue-500 bg-black ",
 		"coordinates": [69, 561],
 		"size": 54
@@ -201,7 +194,7 @@
 		"size": 49
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/317785409763541002/d4d82711e6304dfa8ca819ce5c8675ac.webp",
+		"image": "https://cdn.discordapp.com/avatars/317785409763541002/a6bd7ec5842e5210c3e0808aace18fa4.webp",
 		"class": "outline-blue-500 bg-black ",
 		"coordinates": [119, 202],
 		"size": 49
