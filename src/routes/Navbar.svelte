@@ -19,14 +19,14 @@
 </script>
 
 <header
-	class="fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 duration-1000 animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards [animation-delay:0ms]"
+	class="fixed inset-x-0 top-0 z-50 flex items-center justify-between rounded-full px-6 pt-2 text-sm duration-1000 animate-in fade-in-0 slide-in-from-top-1 fill-mode-backwards [animation-delay:0ms]"
 >
 	<a
 		href="/"
-		class="flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 font-london text-sm font-bold tracking-wider text-white backdrop-blur"
+		class="flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 font-london font-bold tracking-wider text-white backdrop-blur"
 	>
 		<HyprlandLogo class="h-8 w-6 object-contain" />
-		<span class="mt-1 text-lg tracking-widest">Hyprland</span></a
+		<span class="mt-1 tracking-widest">Hyprland</span></a
 	>
 
 	<button
@@ -82,7 +82,12 @@
 				</a>
 			</li>
 			<li>
-				<a href={forgejoLink} class="social-icon" aria-label="Hyprland git instance" target="_blank">
+				<a
+					href={forgejoLink}
+					class="social-icon"
+					aria-label="Hyprland git instance"
+					target="_blank"
+				>
 					<ForgejoIcon class="h-full w-full" />
 				</a>
 			</li>
@@ -100,7 +105,6 @@
 	.nav {
 		/* Base classes */
 		font-weight: 600;
-		@apply text-lg;
 
 		/* Mobile classes */
 		position: absolute;
@@ -117,7 +121,7 @@
 
 		/* Desktop classes */
 		@media screen(lg) {
-			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 text-base outline outline-primary/10;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 outline outline-primary/10;
 		}
 	}
 
