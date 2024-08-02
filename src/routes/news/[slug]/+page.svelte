@@ -1,6 +1,7 @@
 <script>
 	import { formatDate } from '$lib/Helper'
-	import Title from '$lib/components/Title.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import NewsThumb from '$lib/components/news-thumb.svelte'
 
 	export let data
@@ -34,7 +35,10 @@
 
 {#if data.other.length > 0}
 	<section class="mx-auto mt-72 max-w-screen-lg">
-		<Title class="mb-6"><span slot="title">More news</span></Title>
+		<Title class="mb-6">
+			<TitleHeading slot="title" class="">More news</TitleHeading>
+		</Title>
+
 		<ul class="grid grid-cols-2 gap-x-7 gap-y-16 overflow-auto">
 			{#each data.other as entry}
 				<NewsThumb {entry} />

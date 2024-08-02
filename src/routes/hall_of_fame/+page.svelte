@@ -1,5 +1,7 @@
 <script>
-	import Title from '$lib/components/Title.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import Contest from './Contest.svelte'
 	import FamedRice from './FamedRice.svelte'
 
@@ -16,10 +18,10 @@
 		</div>
 		<div class="gradient_" />
 		<Title>
-			<span slot="title" class="title">Hall of fame</span>
-			<div slot="subtitle" class="max-w-[40ch]">
+			<TitleHeading slot="title" class="">Hall of Fame</TitleHeading>
+			<TitleSubtile slot="subtitle" class="class-w-[40ch]">
 				The chronicles of the triumphant from bygone rice contests held within our Discord
-			</div>
+			</TitleSubtile>
 		</Title>
 	</div>
 

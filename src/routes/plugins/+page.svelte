@@ -1,10 +1,13 @@
 <script>
-	import Title from '$lib/components/Title.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import CardsContainer from '$lib/components/CardsContainer.svelte'
 	import PluginCard from './PluginCard.svelte'
 	import clsx from 'clsx'
 	import * as R from 'remeda'
 	import { getGeneratedPath } from '$lib/Helper.mjs'
+	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
+	import TitlePre from '$lib/components/Title/TitlePre.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 
 	export let data
 
@@ -40,11 +43,10 @@
 	<div class="top-light"></div>
 
 	<header class="header mt-24 md:mt-32">
-		<Title class="mb-0  duration-1000 animate-in fade-in-0">
-			<span slot="pre">Plugins</span>
-			<span slot="title">Unlock full power</span><span slot="subtitle">
-				Easily load up plugins and customize everything
-			</span>
+		<Title>
+			<TitlePre>Plugins</TitlePre>
+			<TitleHeading slot="title" class="">Unlock full power</TitleHeading>
+			<TitleSubtile>Easily load up plugins and customize everything</TitleSubtile>
 		</Title>
 
 		<!-- <div class="absolute top-0">

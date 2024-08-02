@@ -6,7 +6,7 @@
 	import TabIcon from '~icons/gg/tab'
 	import IpcIcon from '~icons/gg/media-podcast'
 	import TouchpadIcon from '~icons/gg/touchpad'
-	import Title from '$lib/components/Title.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import Hypractive from './Hypractive.svelte'
 	import configDefaultImage from '$lib/images/features/config_default.webp'
 	import configHoverImage from '$lib/images/features/config_hover.webp'
@@ -15,12 +15,14 @@
 	import tileDefaultImage from '$lib/images/features/tiling_default.webp'
 	import tileHoverImage from '$lib/images/features/tiling_hover.webp'
 	import CardsContainer from '$lib/components/CardsContainer.svelte'
+	import TitlePre from '$lib/components/Title/TitlePre.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 </script>
 
 <section class="relative flex flex-col items-center px-3 md:px-8">
 	<Title>
-		<span slot="pre">TLDR</span>
-		<span slot="title">Features</span>
+		<TitlePre slot="pre">TLDR</TitlePre>
+		<TitleHeading slot="title" class="">Features</TitleHeading>
 	</Title>
 
 	<CardsContainer
