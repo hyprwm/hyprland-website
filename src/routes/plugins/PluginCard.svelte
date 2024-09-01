@@ -24,7 +24,8 @@
 	class={$$restProps.class}
 	gradientOpacity={0.5}
 	><a
-		href="/plugins/{plugin.slug}"
+		href={plugin.url}
+		target="_blank"
 		class="relative flex size-full min-h-max items-stretch @container"
 	>
 		<!-- Main content -->
@@ -125,7 +126,7 @@
 	}
 	.logo-container:not(.banner) {
 		@container (max-width: theme(screens.md)) {
-			@apply flex shrink-[2] grow  items-center justify-center  max-2xl:@2xl:mx-0 max-2xl:@2xl:block max-2xl:@2xl:h-auto  max-2xl:@2xl:grow-0;
+			@apply flex shrink-[2] grow items-center justify-center max-2xl:@2xl:mx-0 max-2xl:@2xl:block max-2xl:@2xl:h-auto max-2xl:@2xl:grow-0;
 		}
 	}
 

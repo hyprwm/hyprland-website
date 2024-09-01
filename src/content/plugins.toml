@@ -1,0 +1,70 @@
+# - name: Name of the plugin
+# - tagline: Very concise description of the plugin
+# - url: Link to the Github repository
+# - logo: Relative link to the logo placed in the `/static/plugins-data/logos/` directory (without the `/static/` though)
+# - tags: Tags for the plugin. Capitalized
+# - featured: Whether the plugin is featured at the top. A maximum of 4 is shown
+# - weight: Determines the sort order. A higher weight comes first.
+
+# Please only use darkmode images/videos.
+# Do not use yellow and yellowish colors, unless nesssecary.
+
+
+[[plugins]]
+name     = "Borders++"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Extra window borders"
+logo     = "/plugins-data/logos/Borders-plus-plus-logo.svg"
+featured = true
+
+[[plugins]]
+name     = "CSGO Vulkan Fix"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Miscellaneous"
+tagline  = "CSGO custom resolutions fix"
+
+
+[[plugins]]
+name     = "dwindle-autogroup"
+url      = "https://github.com/ItsDrike/hyprland-dwindle-autogroup"
+category = "Layout"
+tagline  = "Auto-grouping for dwindle mode"
+featured = false
+
+
+[[plugins]]
+name     = "hy3"
+url      = "https://github.com/outfoxxed/hy3"
+category = "Layout"
+tagline  = "i3 / Sway like layout"
+logo     = "/plugins-data/logos/hy3-logo.svg"
+banner   = "/plugins-data/hy3_banner.mp4"
+featured = true
+
+
+[[plugins]]
+name     = "Hyprbars"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Bring back title bars"
+logo     = "/plugins-data/logos/hyprbars-logo.svg"
+featured = true
+
+
+[[plugins]]
+name     = "Hyprtrails"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Smooth window trails"
+logo     = "/plugins-data/logos/hyprtrails-logo.svg"
+featured = true
+
+
+[[plugins]]
+name     = "Hyprwinwrap"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Quality of Life"
+tagline  = "Any app as wallpaper"
+logo     = "/plugins-data/logos/hyprwinwrap-logo.svg"
+featured = true
