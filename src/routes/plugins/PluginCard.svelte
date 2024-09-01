@@ -24,7 +24,8 @@
 	class={$$restProps.class}
 	gradientOpacity={0.5}
 	><a
-		href="/plugins/{plugin.slug}"
+		href={plugin.url}
+		target="_blank"
 		class="relative flex size-full min-h-max items-stretch @container"
 	>
 		<!-- Main content -->
@@ -54,7 +55,10 @@
 						aria-hidden="true"
 						class="letter-logo -ml-4 flex items-center justify-center bg-gradient-to-tr from-primary via-sky-400 to-blue-400 bg-clip-text text-center text-6xl font-bold leading-none text-transparent"
 					>
-						{plugin.name[0]}
+						{plugin.name
+							.replace(/[-\.\_]/g, '')
+							.replace(/^hypr-?(land)?/i, '')[0]
+							?.toUpperCase()}
 					</div>
 				{/if}
 			</div>
@@ -125,7 +129,7 @@
 	}
 	.logo-container:not(.banner) {
 		@container (max-width: theme(screens.md)) {
-			@apply flex shrink-[2] grow  items-center justify-center  max-2xl:@2xl:mx-0 max-2xl:@2xl:block max-2xl:@2xl:h-auto  max-2xl:@2xl:grow-0;
+			@apply flex shrink-[2] grow items-center justify-center max-2xl:@2xl:mx-0 max-2xl:@2xl:block max-2xl:@2xl:h-auto max-2xl:@2xl:grow-0;
 		}
 	}
 

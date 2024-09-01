@@ -1,14 +1,16 @@
 <script>
 	import NewsThumb from '$lib/components/news-thumb.svelte'
-	import Title from '$lib/components/Title.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import TitlePre from '$lib/components/Title/TitlePre.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 
 	export let news
 </script>
 
 <section class="relative mb-12 max-w-5xl px-8 md:mb-20">
-	<Title class="mb-8">
-		<span slot="pre">Read while it's fresh</span>
-		<span slot="title">Latest news</span>
+	<Title>
+		<TitlePre>Read while it's fresh!</TitlePre>
+		<TitleHeading slot="title" class="">Latest news</TitleHeading>
 	</Title>
 
 	<ul class="flex flex-col gap-12">

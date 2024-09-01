@@ -6,14 +6,17 @@
 	import suseLogo from '$lib/images/logos/opensuse.svg'
 	import DistroOption from './DistroOption.svelte'
 	import Button from '$lib/components/Button.svelte'
-	import Title from '$lib/components/Title.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import amongus from '$lib/images/amongus/green.webp'
 	import CommandButton from '$lib/components/CommandButton.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 </script>
 
 <section class="pb-6">
-	<Title class="mb-8">
-		<span slot="title">Install now</span><span slot="subtitle"> For your favourite distro </span>
+	<Title>
+		<TitleHeading slot="title" class="">Install now</TitleHeading>
+		<TitleSubtile slot="subtitle" class="">For yor favourite distro</TitleSubtile>
 	</Title>
 
 	<div class="flex flex-col items-center gap-12 md:gap-6" use:animateIn={{ slide: 24, fade: 0 }}>

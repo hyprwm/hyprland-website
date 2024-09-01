@@ -7,7 +7,7 @@
 	import DiscordIcon from '~icons/prime/discord'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { onMount, setContext } from 'svelte'
-	import Title from '$lib/components/Title.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import background from '$lib/images/community-bg.webp'
 	import amongUsGreenImage from '$lib/images/amongus/green.webp'
 	import { discordLink } from '$lib/constants.mjs'
@@ -16,6 +16,8 @@
 	import { writable } from 'svelte/store'
 	import { Observable } from 'rxjs'
 	import { writableObservable } from '$lib/Helper.mjs'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 
 	let sectionElement
 	let isDraggingChan = false
@@ -106,11 +108,10 @@
 	bind:this={sectionElement}
 >
 	<Title>
-		<span slot="title">Join a great<br />community</span>
-
-		<span slot="subtitle">
+		<TitleHeading slot="title" class="">Join a great<br />community</TitleHeading>
+		<TitleSubtile slot="subtitle" class="class-w-[40ch]">
 			Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies, and human_(probably)
-		</span>
+		</TitleSubtile>
 	</Title>
 
 	<div class="group mt-16 flex flex-col items-center">

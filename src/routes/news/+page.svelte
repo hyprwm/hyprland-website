@@ -1,8 +1,10 @@
 <script>
 	import LogoPng from '$lib/images/logos/HyprlandLogo.png'
-	import Title from '$lib/components/Title.svelte'
+	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import NewsThumb from '$lib/components/news-thumb.svelte'
 	import { onDestroy, onMount } from 'svelte'
+	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
+	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 
 	export let data
 
@@ -63,17 +65,16 @@
 </script>
 
 <svelte:head>
-	<title>{''}</title>
+	<title>Hyprland News</title>
 </svelte:head>
 
 <section>
 	<header class="header">
 		<pre class="spinner-wrapper" bind:this={asciiElement} />
 
-		<Title class="mb-0  duration-1000 animate-in fade-in-0">
-			<span slot="title">News</span><span slot="subtitle">
-				Fresh updates straight from the oven
-			</span>
+		<Title>
+			<TitleHeading slot="title" class="">News</TitleHeading>
+			<TitleSubtile>Fresh updates straight from the oven</TitleSubtile>
 		</Title>
 	</header>
 
@@ -106,7 +107,7 @@
 	}
 
 	.spinner-wrapper {
-		@apply mb-4  flex items-center justify-center bg-gradient-to-tr from-blue-500/0 to-cyan-500 bg-clip-text text-transparent animate-in fade-in-0;
+		@apply mb-4 flex items-center justify-center bg-gradient-to-tr from-blue-500/0 to-cyan-500 bg-clip-text text-transparent animate-in fade-in-0;
 		animation-duration: 2000ms;
 		font-size: min(1vh, 1rem);
 		/* There are 36 rows */
