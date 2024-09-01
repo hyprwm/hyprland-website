@@ -19,7 +19,7 @@
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 </script>
 
-<section class="relative flex flex-col items-center px-3 md:px-8">
+<section class="relative flex max-w-screen-xl flex-col items-center px-3 md:px-8">
 	<Title>
 		<TitlePre slot="pre">TLDR</TitlePre>
 		<TitleHeading slot="title" class="">Features</TitleHeading>
