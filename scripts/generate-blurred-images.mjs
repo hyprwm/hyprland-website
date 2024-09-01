@@ -21,17 +21,23 @@ const filePaths = await globby(imageDirectories, {
 		extensions: ['svg', 'webp', 'jpg', 'png', 'gif', 'bmp', 'jpeg']
 	},
 	gitignore: false
-}).then((filePaths) => {
-	const fileNames = filePaths.map(getFileNameWithoutExtension)
+}).then((filePaths) =>
+	filePaths
+		.filter((filePath) => {
+			const isGenerated = getFileNameWithoutExtension(filePath).startsWith(generatedPrefix)
 
-	return filePaths
-		.filter(
-			(file) =>
-				!getFileNameWithoutExtension(file).startsWith(generatedPrefix) &&
-				!fileNames.includes(generatedPrefix + getFileNameWithoutExtension(file))
-		)
+			if (isGenerated) return false
+
+			const fileName = getFileNameWithoutExtension(filePath)
+			const fileDirectory = filePath.split('/').slice(0, -2).join('/') + '/'
+			const generatedFilePath = `${fileDirectory}${generatedPrefix}${fileName}.webp`
+
+			const isAlreadyBlurred = filePaths.includes(generatedFilePath)
+
+			return !isAlreadyBlurred
+		})
 		.map((filePath) => new URL(filePath, root))
-})
+)
 
 for (const filePathUrl of filePaths) {
 	const extension = filePathUrl.pathname.split('.').at(-1)
