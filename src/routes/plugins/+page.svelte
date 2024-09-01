@@ -25,7 +25,6 @@
 			)
 		),
 		R.entries(),
-		R.tap((x) => console.log({ x })),
 		R.sort(([a], [b]) => a.localeCompare(b))
 	)
 </script>
