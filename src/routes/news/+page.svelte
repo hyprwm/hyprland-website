@@ -65,7 +65,7 @@
 </script>
 
 <svelte:head>
-	<title>{''}</title>
+	<title>Hyprland News</title>
 </svelte:head>
 
 <section>
