@@ -29,7 +29,7 @@ tagline  = "CSGO custom resolutions fix"
 name     = "dwindle-autogroup"
 url      = "https://github.com/ItsDrike/hyprland-dwindle-autogroup"
 category = "Layout"
-tagline  = "Auto-grouping for dwindle mode"
+tagline  = "Dwindle mode auto-grouping"
 featured = false
 
 
@@ -68,3 +68,36 @@ category = "Quality of Life"
 tagline  = "Any app as wallpaper"
 logo     = "/plugins-data/logos/hyprwinwrap-logo.svg"
 featured = true
+
+[[plugins]]
+name     = "hyprgrass"
+url      = "https://github.com/horriblename/hyprgrass"
+category = "Quality of Life"
+tagline  = "Touch gestures"
+featured = false
+
+
+[[plugins]]
+name     = "hyprNStack"
+url      = "https://github.com/zakk4223/hyprNStack"
+category = "Layout"
+tagline  = "N-Stack tiling"
+
+[[plugins]]
+name     = "hyprland-virtual-desktops"
+url      = "https://github.com/levnikmyskin/hyprland-virtual-desktops"
+category = "Layout"
+tagline  = "Virtual desktops"
+
+
+[[plugins]]
+name     = "hypr-darkwindow"
+url      = "https://github.com/micha4w/Hypr-DarkWindow"
+category = "Design"
+tagline  = "Invert window colors"
+
+[[plugins]]
+name     = "hyprexpo"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Workspaces overview"
