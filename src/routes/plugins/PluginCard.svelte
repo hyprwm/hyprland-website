@@ -55,7 +55,10 @@
 						aria-hidden="true"
 						class="letter-logo -ml-4 flex items-center justify-center bg-gradient-to-tr from-primary via-sky-400 to-blue-400 bg-clip-text text-center text-6xl font-bold leading-none text-transparent"
 					>
-						{plugin.name[0]}
+						{plugin.name
+							.replace(/[-\.\_]/g, '')
+							.replace(/^hypr-?(land)?/i, '')[0]
+							?.toUpperCase()}
 					</div>
 				{/if}
 			</div>
