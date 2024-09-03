@@ -4,7 +4,6 @@ import { parse } from 'smol-toml'
 import { readFile } from 'node:fs/promises'
 import pluginsToml from '../../../content/plugins.toml?raw'
 
-/** Get the plugins of the `content/plugins/` directory */
 async function getPlugins() {
 	const plugins = parse(pluginsToml).plugins.sort(
 		(a, b) =>
