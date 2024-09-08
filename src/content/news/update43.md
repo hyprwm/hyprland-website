@@ -25,4 +25,6 @@ Additionally to all the bugfixes, some new features have been added, for example
 Hyprland continues being the most advanced independent wayland compositor, all thanks to the amazing community and the huge
 influx of new contributors! Your contributions are greatly appreciated.
 
+See the full release [on github](https://github.com/hyprwm/Hyprland/releases/tag/v0.43.0).
+
 Cheers, vax.
