@@ -1,6 +1,8 @@
 ---
 title: Hyprland is now fully independent!
 date: 1721559307
+author: Vaxry
+authorLink: https://github.com/vaxerski/
 ---
 
 With great pleasure may I announce that our move off of wlroots is now complete and [MR 6608](https://github.com/hyprwm/Hyprland/pull/6608) is
@@ -48,14 +50,14 @@ The changes are staged for 0.42.0. If you want to test them right away, check ou
 Massive thanks to all the people who helped in the long process (what was it, like 3 months?) of rewriting the wlroots stack to a nicer language.
 
 Special thanks to:
- - Agent00Ming (testing and patience)
- - Ikalco (tons of patches)
- - gulafaran (patches and testing)
- - phonetic112 (testing)
- - UjinT34 (testing and patches)
- - fufexan (nix and meson)
- - And everyone who helped test here and there! There's been 38 participants in the aquamarine MR alone!
 
+- Agent00Ming (testing and patience)
+- Ikalco (tons of patches)
+- gulafaran (patches and testing)
+- phonetic112 (testing)
+- UjinT34 (testing and patches)
+- fufexan (nix and meson)
+- And everyone who helped test here and there! There's been 38 participants in the aquamarine MR alone!
 
 Cheers and ad meliora,
 vaxry.

@@ -18,11 +18,21 @@
 >
 	<hgroup class="flex flex-col gap-5 duration-1000 animate-in fade-in-0 slide-in-from-bottom-4">
 		<h1 class="text-4xl font-bold lg:text-6xl">{data.meta.title}</h1>
-		<time
-			class="font-medium text-slate-300"
-			datetime={new Date(data.meta.date * 1000).toISOString()}
-			>Published on {formatDate(data.meta.date * 1000)}</time
-		>
+		<div class="font-medium text-slate-300">
+			<time datetime={new Date(data.meta.date * 1000).toISOString()}
+				>Published on {formatDate(data.meta.date * 1000)}</time
+			>
+			{#if data.meta.author}
+				by
+				{#if data.meta.authorLink}
+					<a href={data.meta.authorLink} rel="authro" target="_blank" class="hover:underline"
+						>{data.meta.author}</a
+					>
+				{:else}
+					{data.meta.author}
+				{/if}
+			{/if}
+		</div>
 	</hgroup>
 
 	<!-- Post -->

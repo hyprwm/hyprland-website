@@ -1,6 +1,8 @@
 ---
 title: We're hosting a Hyprland wallpaper contest!
 date: 1702852617
+author: Vaxry
+authorLink: https://github.com/vaxerski/
 ---
 
 To all artists, designers and enjoyers of graphics: this is a piece of news for you!
