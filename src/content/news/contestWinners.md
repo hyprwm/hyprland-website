@@ -1,6 +1,8 @@
 ---
 title: Wallpaper contest winners
 date: 1706570428
+author: Vaxry
+authorLink: https://github.com/vaxerski/
 ---
 
 The competition has ended, we got some great submissions, and have finally managed to narrow down 3 winners.
@@ -54,4 +56,3 @@ srev:
 VDawg:
 
 ![](https://hyprland.org/imgs/blog/contestWinners/VDawg.png)
-

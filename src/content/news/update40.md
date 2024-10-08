@@ -1,6 +1,8 @@
 ---
-title: A Hyprland mega-release 0.40.0 
+title: A Hyprland mega-release 0.40.0
 date: 1714838440
+author: Vaxry
+authorLink: https://github.com/vaxerski/
 ---
 
 Changing over 15,000 lines of code, the Hyprland 0.40.0 update has finally dropped. This
@@ -16,6 +18,7 @@ A few bugs and quirks have been ironed out during the development phase, and man
 have been fixed with these rewrites.
 
 0.40.0 also brings a few community-requested QoL features, like:
+
 - Better monitor auto-positioning
 - Initial workspace tracking
 - More workspace selectors
