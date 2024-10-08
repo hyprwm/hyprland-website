@@ -1,8 +1,10 @@
 ---
 title: A Hyprland mega-release 0.40.0
 date: 1714838440
-author: Vaxry
-authorLink: https://github.com/vaxerski/
+author:
+  name: Vaxry
+  link: https://github.com/vaxerski/
+  picture: /imgs/profile_pictures/vaxry.webp
 ---
 
 Changing over 15,000 lines of code, the Hyprland 0.40.0 update has finally dropped. This

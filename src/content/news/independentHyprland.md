@@ -1,8 +1,10 @@
 ---
 title: Hyprland is now fully independent!
 date: 1721559307
-author: Vaxry
-authorLink: https://github.com/vaxerski/
+author:
+  name: Vaxry
+  link: https://github.com/vaxerski/
+  picture: /imgs/profile_pictures/vaxry.webp
 ---
 
 With great pleasure may I announce that our move off of wlroots is now complete and [MR 6608](https://github.com/hyprwm/Hyprland/pull/6608) is

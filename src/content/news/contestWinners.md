@@ -1,8 +1,10 @@
 ---
 title: Wallpaper contest winners
 date: 1706570428
-author: Vaxry
-authorLink: https://github.com/vaxerski/
+author:
+  name: Vaxry
+  link: https://github.com/vaxerski/
+  picture: /imgs/profile_pictures/vaxry.webp
 ---
 
 The competition has ended, we got some great submissions, and have finally managed to narrow down 3 winners.
