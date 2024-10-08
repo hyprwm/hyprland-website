@@ -76,3 +76,13 @@ body {
     0%,50%,to { opacity: 0 }
     66.667%,83.333% { opacity: 1 }
 }
+
+.fancy-top-gradient {
+	--sizethis: 70% 800px at 50% 0%;
+	position: absolute;
+	inset: 0;
+	z-index: -1000;
+	mask-image: radial-gradient(var(--sizethis), white 70%, transparent);
+	background: url('/imgs/grain.webp'),
+		radial-gradient(var(--sizethis), theme(colors.cyan.500 / 40%), transparent);
+}

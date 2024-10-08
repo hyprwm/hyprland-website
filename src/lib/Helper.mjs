@@ -120,7 +120,7 @@ export function getRandom(array) {
 	return array.at(Math.floor(Math.random() * array.length))
 }
 
-export function formatDate(date, dateStyle = 'medium', locales = 'en') {
+export function formatDate(date, dateStyle = 'long', locales = 'en') {
 	const dateToFormat = new Date(date)
 
 	const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle })

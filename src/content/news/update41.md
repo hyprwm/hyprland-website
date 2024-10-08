@@ -1,8 +1,10 @@
 ---
 title: A huge Hyprland release 0.41.0
 date: 1718030074
-author: Vaxry
-authorLink: https://github.com/vaxerski/
+author:
+  name: Vaxry
+  link: https://github.com/vaxerski/
+  picture: /imgs/profile_pictures/vaxry.webp
 ---
 
 Just as we thought 0.40.0 was a mega-release, we now proudly present 0.41.0, which is almost twice as sizeable.

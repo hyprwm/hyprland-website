@@ -1,8 +1,10 @@
 ---
 title: Hyprland 0.43.0 released!
 date: 1725814920
-author: Vaxry
-authorLink: https://github.com/vaxerski/
+author:
+  name: Vaxry
+  link: https://github.com/vaxerski/
+  picture: /imgs/profile_pictures/vaxry.webp
 ---
 
 Quite a while after 0.42.0, 0.43.0 has finally been released.

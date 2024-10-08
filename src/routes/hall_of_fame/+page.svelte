@@ -8,6 +8,8 @@
 	export let data
 </script>
 
+<div class="fancy-top-gradient" />
+
 <section>
 	<div class="hero-wrapper">
 		<div class="japanese" aria-hidden="true">
@@ -16,7 +18,6 @@
 				'ベンソンハウス-デイアングルオン：地面にスニーカー。カメラが上に移動して、バリーベンソンのベッドルームアングルを表示します。バリーの手がクローゼットの中でさまざまなセーターをめくっています。バリーイエローブラック、イエローブラック、イエローブラック、イエローブラック、イエローブラック、イエローブラック...うーん、ブラックとイエロー...アングル：バリーが選んだセーターを着て、鏡を見て。バリー（続き）ええ、少し振りましょう彼は黒と黄色のものを選びます。彼はそれから流しに行き、蜂蜜の容器を外し、髪に蜂蜜を入れます。彼は口の中でいくつか潮吹きしてうがいをします。それから彼はボトルの蓋を外し、デオドラントのようにいくつかを転がします。カット'
 			</div>
 		</div>
-		<div class="gradient_" />
 		<Title>
 			<TitleHeading slot="title" class="">Hall of Fame</TitleHeading>
 			<TitleSubtile slot="subtitle" class="class-w-[40ch]">
@@ -67,15 +68,6 @@
 		max-height: 900px;
 		width: 100%;
 		margin-bottom: min(-10vh, -6rem);
-	}
-
-	.gradient_ {
-		position: absolute;
-		inset: 0;
-		z-index: -1000;
-		mask-image: radial-gradient(70% 50% at 50% 0%, white 70%, transparent);
-		background: url('/imgs/grain.webp'),
-			radial-gradient(70% 50% at 50% 0%, theme(colors.cyan.500 / 40%), transparent);
 	}
 
 	.japanese {

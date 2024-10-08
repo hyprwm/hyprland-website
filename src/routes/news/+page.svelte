@@ -68,6 +68,8 @@
 	<title>Hyprland News</title>
 </svelte:head>
 
+<div class="fancy-top-gradient" />
+
 <section>
 	<header class="header">
 		<pre class="spinner-wrapper" bind:this={asciiElement} />
@@ -89,7 +91,7 @@
 
 <style lang="postcss">
 	section {
-		@apply relative flex min-h-screen flex-col items-center justify-center gap-14 overflow-hidden px-6;
+		@apply relative flex min-h-screen flex-col items-center justify-center gap-14 overflow-hidden px-6 lg:px-12 xl:px-12;
 	}
 
 	.header {
@@ -107,6 +109,7 @@
 	}
 
 	.spinner-wrapper {
+		mix-blend-mode: color-dodge;
 		@apply mb-4 flex items-center justify-center bg-gradient-to-tr from-blue-500/0 to-cyan-500 bg-clip-text text-transparent animate-in fade-in-0;
 		animation-duration: 2000ms;
 		font-size: min(1vh, 1rem);

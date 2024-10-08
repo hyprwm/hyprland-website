@@ -1,8 +1,10 @@
 ---
 title: Hyprland 0.37.0 + 2 year anniversary!
 date: 1710548497
-author: Vaxry
-authorLink: https://github.com/vaxerski/
+author:
+  name: Vaxry
+  link: https://github.com/vaxerski/
+  picture: /imgs/profile_pictures/vaxry.webp
 ---
 
 It's march 16th, and as such we're celebrating the 2 year anniversary of Hyprland!
