@@ -31,15 +31,15 @@ me, but unfortunately, it has not been as effective as I initially hoped.
 
 Although we came a very long way, my attempts to communicate on or resolve
 existing issues have failed time and time again, which is why I think the
-general narrative Hyprland community is wildly inaccurate: the feedback comes in
+general narrative around the Hyprland community is wildly inaccurate: the feedback comes in
 the form of rants, and never a constructive, two sided process of communication.
 
 From the perspective of someone who actively engages with the community, I must
 say I do not see any instances of problems present in most common comments found
 online, especially the accusation that Hyprland community hosts nazis and
 transphobes. Let me go on to say that this is _wildly_ incorrect as for the
-longest of time those who spread hateful ideology, such as not but limited to
-previously mentioned groups, have been dealt with swiftly. Those groups of
+longest time those who spread hateful ideology, such as, but not limited to
+the previously mentioned groups, have been dealt with swiftly. Those groups of
 people are NOT tolerated, and they will NEVER be tolerated. Let me make that
 **very** clear.
 
