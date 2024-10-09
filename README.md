@@ -28,4 +28,4 @@ Feel free
 
 ## Credits
 
-- [VDawg](https://github.com/Visual-Dawg) - for the new site and design.
+- [VDawg](https://github.com/vdawg-git) - for the new site and design.
