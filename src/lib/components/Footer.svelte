@@ -9,7 +9,7 @@
 	/** @type {[string, string, string, string]} */
 	let team = [
 		['Fufexan', 'Supporting Developer', 'cyan', 'https://github.com/fufexan'],
-		['NotAShelf', 'Real Chad', 'teal', 'https://github.com/NotAShelf'],
+		['NotAShelf', 'Community Manager', 'teal', 'https://github.com/NotAShelf'],
 		['VDawg', 'Webdesign-and dev', 'emerald', 'https://github.com/Visual-Dawg']
 	]
 	function createRole(role, color) {

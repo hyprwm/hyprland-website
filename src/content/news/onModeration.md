@@ -29,12 +29,10 @@ My goal was to address issues from a different perspective and bring more
 balance to the moderation process. This has certainly been... an experience for
 me, but unfortunately, it has not been as effective as I initially hoped.
 
-I am sorry to report that it was not as effective as I have initially hoped for
-it to be. Although we came a very long way, my attempts to communicate on or
-resolve existing issues have failed time and time again, which is why I think
-the general narrative Hyprland community is wildly inaccurate: the feedback
-comes in the form of rants, and never a constructive, two sided process of
-communication.
+Although we came a very long way, my attempts to communicate on or resolve
+existing issues have failed time and time again, which is why I think the
+general narrative Hyprland community is wildly inaccurate: the feedback comes in
+the form of rants, and never a constructive, two sided process of communication.
 
 From the perspective of someone who actively engages with the community, I must
 say I do not see any instances of problems present in most common comments found
@@ -70,7 +68,7 @@ directly if you have concerns. He is open to civil discussions.
 
 As we look toward improving moderation, I invite all of you to reach out with
 any concerns. You can contact me via email or, preferably, on Matrix at
-@raf:notashelf.dev. In the coming days, we will be hosting a form to collect
+`@raf:notashelf.dev`. In the coming days, we will be hosting a form to collect
 your **anonymous** comments and critiques on moderation. If you're part of the
 Discord community, I encourage you to participate in the voting process.
 
