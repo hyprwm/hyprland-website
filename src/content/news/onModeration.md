@@ -31,7 +31,7 @@ me, but unfortunately, it has not been as effective as I initially hoped.
 
 Although we came a very long way, my attempts to communicate on or resolve
 existing issues have failed time and time again, which is why I think the
-general narrative of the Hyprland community is wildly inaccurate: the feedback comes in
+general narrative around the Hyprland community is wildly inaccurate: the feedback comes in
 the form of rants, and never a constructive, two sided process of communication.
 
 From the perspective of someone who actively engages with the community, I must
