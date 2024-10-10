@@ -28,7 +28,7 @@ export const contests = [
 				name: 'Golden Era',
 				creator: 'VDawg',
 				pretitel: '#3',
-				dotfilesLink: 'https://github.com/Visual-Dawg/space_dots',
+				dotfilesLink: 'https://github.com/vdawg-git/space_dots',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/28539403?s=96&v=4',
 				thumbnail: '/imgs/ricing_competitions/3/vdawg.webp'
 			}
