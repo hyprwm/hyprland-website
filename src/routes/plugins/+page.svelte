@@ -56,7 +56,7 @@
 				href="https://github.com/hyprwm/hyprland-website/blob/main/src/content/plugins.toml"
 				target="_blank"
 				class="outline-primary       "
-				type="outline">Submit your own plugin</Button
+				type="outline">Submit a plugin</Button
 			>
 		</div>
 	</header>
