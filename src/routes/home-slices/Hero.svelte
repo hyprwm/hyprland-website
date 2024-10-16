@@ -1,5 +1,5 @@
 <script>
-	import { getIsMobile } from '$lib/Helper.mjs'
+	import { getIsMobile } from '$lib/Helper.ts'
 	import Button from '$lib/components/Button.svelte'
 	import { onMount } from 'svelte'
 	import { inview } from 'svelte-inview'

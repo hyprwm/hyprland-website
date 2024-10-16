@@ -1,5 +1,5 @@
 <script>
-	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper.mjs'
+	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper.ts'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { Subject, filter, first, map, merge, of, startWith, switchMap, timer } from 'rxjs'
 	import edgePoz from '$lib/images/poz/msedgepoz.webp'

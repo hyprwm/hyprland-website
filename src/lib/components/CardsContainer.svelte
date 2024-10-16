@@ -3,7 +3,7 @@
 </script>
 
 <script>
-	import { getIsMobile } from '$lib/Helper.mjs'
+	import { getIsMobile } from '$lib/Helper.ts'
 	import { BehaviorSubject, Subject, throttle, throttleTime } from 'rxjs'
 
 	import { onMount, setContext } from 'svelte'

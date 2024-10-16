@@ -1,5 +1,5 @@
 <script>
-	import { lerp } from '$lib/Helper.mjs'
+	import { lerp } from '$lib/Helper.ts'
 	import { createNoise2D } from 'simplex-noise'
 	import { onMount } from 'svelte'
 	import { expoIn } from 'svelte/easing'

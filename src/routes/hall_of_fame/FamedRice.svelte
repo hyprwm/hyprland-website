@@ -1,5 +1,5 @@
 <script>
-	import { getGeneratedPath } from '$lib/Helper.mjs'
+	import { getGeneratedPath } from '$lib/Helper.ts'
 	import { inview } from 'svelte-inview'
 
 	/** @type {string} */
@@ -133,7 +133,7 @@
 
 	.title_ {
 		filter: saturate(1.5) brightness(1);
-		@apply relative -mt-1 mb-5 py-1 text-4xl font-bold text-transparent    sm:text-6xl;
+		@apply relative -mt-1 mb-5 py-1 text-4xl font-bold text-transparent sm:text-6xl;
 		background-image: linear-gradient(
 				-195deg,
 				theme(colors.white / 80%) 50%,

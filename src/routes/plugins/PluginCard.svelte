@@ -1,5 +1,5 @@
 <script>
-	import { getGeneratedPath, trimText } from '$lib/Helper.mjs'
+	import { getGeneratedPath, trimText } from '$lib/Helper.ts'
 	import Card from '$lib/components/Card.svelte'
 	import clsx from 'clsx'
 	import Tag from './Tag.svelte'

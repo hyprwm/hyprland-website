@@ -1,5 +1,5 @@
 <script>
-	import { animateIn, getGeneratedPath } from '$lib/Helper.mjs'
+	import { animateIn, getGeneratedPath } from '$lib/Helper.ts'
 
 	/** @type {string}
 	 * The path to the image. Usually the file within `static`, but can also be an URL

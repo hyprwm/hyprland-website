@@ -6,7 +6,7 @@
 	import IconSlideLeft from '~icons/mingcute/align-arrow-left-line'
 	import clsx from 'clsx'
 	import Video from '$lib/components/Video.svelte'
-	import { animateIn } from '$lib/Helper.mjs'
+	import { animateIn } from '$lib/Helper.ts'
 	import { Subject, debounceTime, map, tap, throttle, throttleTime } from 'rxjs'
 	import { onMount } from 'svelte'
 	import { fade } from 'svelte/transition'
