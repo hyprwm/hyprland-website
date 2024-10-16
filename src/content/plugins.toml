@@ -1,9 +1,10 @@
+# Structure:
 # - name: Name of the plugin
 # - tagline: Very concise description of the plugin
-# - url: Link to the Github repository
+# - url: Link to the Git repository/website
 # - logo: Relative link to the logo placed in the `/static/plugins-data/logos/` directory (without the `/static/` though)
 # - tags: Tags for the plugin. Capitalized
-# - featured: Whether the plugin is featured at the top. A maximum of 4 is shown
+# - featured: Whether the plugin is featured at the top. A maximum of 4 are shown
 # - weight: Determines the sort order. A higher weight comes first.
 
 # Please only use darkmode images/videos.
