@@ -121,7 +121,7 @@
 
 		/* Desktop classes */
 		@media screen(lg) {
-			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 outline outline-primary/10;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pr-3 pl-5 outline outline-primary/10;
 		}
 	}
 
