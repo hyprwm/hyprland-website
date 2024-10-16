@@ -101,3 +101,9 @@ name     = "hyprexpo"
 url      = "https://github.com/hyprwm/hyprland-plugins"
 category = "Design"
 tagline  = "Workspaces overview"
+
+[[plugins]]
+name     = "hyprscroller"
+url      = "https://github.com/dawsers/hyprscroller"
+category = "Layout"
+tagline  = "Scrolling like PaperWM"
