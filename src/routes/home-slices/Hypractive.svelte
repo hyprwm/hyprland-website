@@ -18,7 +18,7 @@
 		take
 	} from 'rxjs'
 	import GitTile from '$lib/components/GitTile.svelte'
-	import { lerp } from '$lib/Helper.mjs'
+	import { lerp } from '$lib/Helper.ts'
 	import { cubicInOut, expoInOut } from 'svelte/easing'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { setContext } from 'svelte'

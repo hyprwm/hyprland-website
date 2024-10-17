@@ -15,7 +15,7 @@
 	import Poz from './community/Poz.svelte'
 	import { writable } from 'svelte/store'
 	import { Observable } from 'rxjs'
-	import { writableObservable } from '$lib/Helper.mjs'
+	import { writableObservable } from '$lib/Helper.ts'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 

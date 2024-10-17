@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { animateIn } from '$lib/Helper.mjs'
+	import { animateIn } from '$lib/Helper.ts'
 	import Button from '$lib/components/Button.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'

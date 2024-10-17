@@ -1,5 +1,5 @@
 <script>
-	import { animateIn } from '$lib/Helper.mjs'
+	import { animateIn } from '$lib/Helper.ts'
 	import archLogo from '$lib/images/logos/arch.svg'
 	import nixLogo from '$lib/images/logos/nixos.svg'
 	import bsdLogo from '$lib/images/logos/freebsd.svg'

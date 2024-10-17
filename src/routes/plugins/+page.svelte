@@ -4,10 +4,11 @@
 	import PluginCard from './PluginCard.svelte'
 	import clsx from 'clsx'
 	import * as R from 'remeda'
-	import { getGeneratedPath } from '$lib/Helper.mjs'
+	import { getGeneratedPath } from '$lib/Helper.ts'
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import Button from '$lib/components/Button.svelte'
 
 	export let data
 
@@ -41,24 +42,23 @@
 >
 	<div class="top-light"></div>
 
-	<header class="header mt-24 md:mt-32">
+	<header class="mt-24 flex flex-col items-center justify-center md:mt-32">
 		<Title>
-			<TitlePre>Plugins</TitlePre>
+			<TitlePre slot="pre">Plugins</TitlePre>
 			<TitleHeading slot="title" class="">Unlock full power</TitleHeading>
 			<TitleSubtile>Easily load up plugins and customize everything</TitleSubtile>
 		</Title>
 
-		<!-- <div class="absolute top-0">
-			{#each plugins.filter(({ logo }) => logo) as { logo }, index}
-				<img
-					src={getGeneratedPath(logo)}
-					alt=""
-					width={index * 50}
-					height={index * 50}
-					class="bg-logo"
-				/>
-			{/each}
-		</div> -->
+		<div
+			class="mt-8 animate-in fade-in-0 slide-in-from-bottom-2 fill-mode-backwards [animation-delay:300ms] [animation-duration:1500ms]"
+		>
+			<Button
+				href="https://github.com/hyprwm/hyprland-website/blob/main/src/content/plugins.toml"
+				target="_blank"
+				class="outline-primary       "
+				type="outline">Submit a plugin</Button
+			>
+		</div>
 	</header>
 
 	<section

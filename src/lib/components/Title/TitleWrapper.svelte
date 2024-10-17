@@ -1,5 +1,5 @@
 <script>
-	import { animateIn } from '$lib/Helper.mjs'
+	import { animateIn } from '$lib/Helper.ts'
 	import clsx from 'clsx'
 
 	/** @type { 'left' | 'right' | 'center'} */

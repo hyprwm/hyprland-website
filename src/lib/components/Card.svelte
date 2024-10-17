@@ -3,7 +3,7 @@
 	import { getContext, onMount } from 'svelte'
 	import { cardsContext } from '$lib/components/CardsContainer.svelte'
 	import { spring } from 'svelte/motion'
-	import { getIsMobile } from '$lib/Helper.mjs'
+	import { getIsMobile } from '$lib/Helper.ts'
 	/** @type {'cyan' | 'purple'}*/
 	export let color = 'cyan'
 	/** @type {number | number}*/
@@ -107,7 +107,7 @@
 
 <style lang="postcss">
 	.card {
-		@apply relative flex items-end justify-end rounded-3xl transition-colors  duration-300;
+		@apply relative flex items-end justify-end rounded-3xl transition-colors duration-300;
 		z-index: 2;
 		contain: paint style layout;
 
@@ -161,7 +161,7 @@
 	}
 
 	.gradient {
-		@apply pointer-events-none absolute  inset-0 h-full w-full;
+		@apply pointer-events-none absolute inset-0 h-full w-full;
 		width: calc(100% - 2px);
 		border-radius: inherit;
 		height: calc(100% - 2px);

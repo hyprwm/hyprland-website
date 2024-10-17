@@ -17,6 +17,9 @@ import {
 import { inview } from 'svelte-inview'
 import { pick } from 'remeda'
 import { writable } from 'svelte/store'
+import type { ClassValue } from 'clsx'
+import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 /**
  * Fade: The initial opacity from 0 to 1.
@@ -24,12 +27,18 @@ import { writable } from 'svelte/store'
  * Zoom: The scale from 0 to 1.
  *
  * Slide: Slide in in pixels.
- *
- * @param {{fade?: number, zoom?: number, slide?: number, duration?: number, delay?: number, threshold?: number}} options
- * @param { HTMLElement } node
- * @returns
  */
-export function animateIn(node, options = {}) {
+export function animateIn(
+	node: HTMLElement,
+	options: {
+		fade?: number
+		zoom?: number
+		slide?: number
+		duration?: number
+		delay?: number
+		threshold?: number
+	} = {}
+) {
 	// Do nothing on mobile
 	if (getIsMobile()) return { destroy: () => undefined }
 
@@ -53,9 +62,10 @@ export function animateIn(node, options = {}) {
 		})
 		.join(';')
 
+	// @ts-ignore
 	node.style = style
 
-	let timeoutId
+	let timeoutId: NodeJS.Timeout
 
 	node.addEventListener('inview_enter', callback)
 
@@ -85,14 +95,14 @@ export function animateIn(node, options = {}) {
  * @param {number} given
  * @returns
  */
-export function lerp(start, end, given) {
+export function lerp(start: number, end: number, given: number) {
 	return (1 - given) * start + given * end
 }
 
 /**
  * Taken from https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser/11381730#11381730
  */
-export function getIsMobile() {
+export function getIsMobile(): boolean {
 	let check = false
 	;(function (a) {
 		if (
@@ -104,23 +114,28 @@ export function getIsMobile() {
 			)
 		)
 			check = true
+		// @ts-expect-error
 	})(navigator.userAgent || navigator.vendor || window.opera)
 	return check
 }
 
 /** Get the `generated_<filename>` for the provided path  **/
-export function getGeneratedPath(path, extension = 'webp') {
+export function getGeneratedPath(path: string, extension: string = 'webp') {
 	const directory = path.substring(0, path.lastIndexOf('/'))
 	const filename = getFileNameWithoutExtension(path)
 	return `${directory}/generated_${filename}.${extension}`
 }
 
 /** Get a random item from an array */
-export function getRandom(array) {
-	return array.at(Math.floor(Math.random() * array.length))
+export function getRandom<T>(array: T[]): T {
+	return array.at(Math.floor(Math.random() * array.length))!
 }
 
-export function formatDate(date, dateStyle = 'long', locales = 'en') {
+export function formatDate(
+	date: string,
+	dateStyle: 'full' | 'long' | 'medium' | 'short' = 'long',
+	locales = 'en'
+) {
 	const dateToFormat = new Date(date)
 
 	const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle })
@@ -128,13 +143,7 @@ export function formatDate(date, dateStyle = 'long', locales = 'en') {
 	return dateFormatter.format(dateToFormat)
 }
 
-/**
- *
- * @param {string} text
- * @param {number} maxLenght
- * @returns
- */
-export function trimText(text, maxLenght) {
+export function trimText(text: string, maxLenght: number) {
 	if (text.length < maxLenght - 1) return text
 
 	const lastSpace = text.slice(0, maxLenght).lastIndexOf(' ')
@@ -143,8 +152,8 @@ export function trimText(text, maxLenght) {
 }
 
 /** Get the filename of a filepath without its extension */
-export function getFileNameWithoutExtension(filePath) {
-	return filePath.split('/').at(-1).replace(/\..*$/, '')
+export function getFileNameWithoutExtension(filePath: string) {
+	return filePath.split('/').at(-1)?.replace(/\..*$/, '')
 }
 
 /**
@@ -180,10 +189,8 @@ export function createThresholdStream({ clicksTarget = 69, clicksEachMs = 400, f
 
 /**
  * Tell the browser to preload an image
- *
- * @param {string} src
  */
-export function preloadImage(src) {
+export function preloadImage(src: string) {
 	return new Promise((resolve, reject) => {
 		const image = new Image()
 		image.src = src
@@ -195,29 +202,27 @@ export function preloadImage(src) {
 /**
  * A writable store but as as an observable.
  * Observables are much nicher than regular stores.
- * @template T
- * @param {T} init
- * @returns {Observable<T> & { update: (updater: (state: T) => T) => void}}
  */
-export function writableObservable(init) {
+export function writableObservable<T>(
+	init: T
+): Observable<T> & { update: (updater: (state: T) => T) => void } {
 	const { update, subscribe } = writable(init)
 	const observable = new Observable((subscriber) => {
 		const unsubscribe = subscribe((value) => subscriber.next(value))
 
 		return unsubscribe
 	})
+	// @ts-ignore
 	observable.update = update
 
+	// @ts-ignore
 	return observable
 }
 
-/**
- * Convert a store to an observable
- * @template T
- * @param {import('svelte/store').Readable<T>} store
- * @returns {Observable<T>}
- */
-export function convertStoreToObservable(store) {
+/** Convert a store to an observable */
+export function convertStoreToObservable<T>(
+	store: import('svelte/store').Readable<T>
+): Observable<T> {
 	return new Observable((subscriber) => {
 		return store.subscribe((value) => subscriber.next(value))
 	})
@@ -225,14 +230,23 @@ export function convertStoreToObservable(store) {
 
 /**
  * Checks if two rectangles are intersecting
- * @param {{size: number, coordinates: [x: number, y: number]}} rect1
- * @param {{size: number, coordinates: [x: number, y: number]} rect2
  */
-export function isIntersecting(rect1, rect2) {
+export function isIntersecting(
+	rect1: { size: number; coordinates: [x: number, y: number] },
+	rect2: { size: number; coordinates: [x: number, y: number] }
+) {
 	return !(
 		rect1.coordinates[0] + rect1.size < rect2.coordinates[0] ||
 		rect2.coordinates[0] + rect2.size < rect1.coordinates[0] ||
 		rect1.coordinates[1] + rect1.size < rect2.coordinates[1] ||
 		rect2.coordinates[1] + rect2.size < rect1.coordinates[1]
 	)
+}
+
+/**
+ * Merges class names using clsx and tailwind-merge.
+ * @returns  The merged class name string.
+ */
+export function cn(...inputs: ClassValue[]): string {
+	return twMerge(clsx(inputs))
 }

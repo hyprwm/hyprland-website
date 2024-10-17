@@ -1,7 +1,7 @@
 <script>
 	import ArrowRight from '~icons/mingcute/arrow-right-circle-line'
 
-	import { animateIn, formatDate } from '$lib/Helper.mjs'
+	import { animateIn, formatDate } from '$lib/Helper.ts'
 	export let entry
 
 	$: link = `/news/${entry.slug}`

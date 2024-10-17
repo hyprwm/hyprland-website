@@ -3,7 +3,7 @@
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
 	import { contextId as ctxId } from '../../routes/home-slices/CommunitySlice.svelte'
-	import { convertStoreToObservable, isIntersecting, lerp } from '$lib/Helper.mjs'
+	import { convertStoreToObservable, isIntersecting, lerp } from '$lib/Helper.ts'
 	import { inview } from 'svelte-inview'
 	import { Subject, distinctUntilChanged, throttle, throttleTime } from 'rxjs'
 

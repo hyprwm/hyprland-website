@@ -2,7 +2,6 @@
 
 import { globby } from 'globby'
 import { spawnSync } from 'node:child_process'
-import { getFileNameWithoutExtension } from '../src/lib/Helper.mjs'
 
 // This script should be run from the root of the application
 const root = new URL('..', import.meta.url)
@@ -88,4 +87,9 @@ function exec(command) {
 	} catch (error) {
 		throw new Error(error)
 	}
+}
+
+/** Get the filename of a filepath without its extension */
+export function getFileNameWithoutExtension(filePath) {
+	return filePath.split('/').at(-1)?.replace(/\..*$/, '')
 }

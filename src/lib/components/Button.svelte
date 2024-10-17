@@ -1,12 +1,13 @@
-<script>
-	import clsx from 'clsx'
+<script lang="ts">
+	import { cn } from '$lib/Helper'
+	import Card from './Card.svelte'
 
-	/** @type { 'md'|'lg'|'xl'}*/
-	export let size = 'md'
-	/** @type { 'primary'|'outline'|'fancyOutline' }*/
-	export let type = 'primary'
+	export let size: 'md' | 'lg' | 'xl' = 'md'
+	export let type: 'primary' | 'outline' | 'fancyOutline' = 'primary'
 
-	$: classes = clsx(
+	export let href: string | undefined = undefined
+
+	$: classes = cn(
 		'animate rounded text-sm font-bold hover:scale-[1.01] active:scale-100',
 		'primary' == type && 'bg-slate-200 text-black',
 		'outline' == type && 'bg-transparent text-white outline outline-2 outline-slate-200',
@@ -20,7 +21,17 @@
 
 {#if type === 'fancyOutline'}
 	<div class="relative max-w-max">
-		<button class={classes} on:click><slot>NO LABEL PROVIDED</slot></button>
+		<svelte:element
+			this={href ? 'a' : 'button'}
+			{...$$restProps}
+			{href}
+			role="button"
+			tabindex="0"
+			class={classes}
+			on:click
+		>
+			<slot>NO LABEL PROVIDED</slot>
+		</svelte:element>
 		<span
 			class="fancy-bg absolute inset-0 -z-10 h-full w-[110%] min-w-[5rem] scale-y-75 bg-cyan-500/90 px-4 py-2 blur-xl"
 			style="--easing: x; --duration: 8s;"
@@ -35,7 +46,15 @@
 		/>
 	</div>
 {:else}
-	<button class={classes} on:click><slot>NO LABEL PROVIDED</slot></button>
+	<svelte:element
+		this={href ? 'a' : 'button'}
+		{...$$restProps}
+		{href}
+		role="button"
+		tabindex="0"
+		class={classes}
+		on:click><slot>NO LABEL PROVIDED</slot></svelte:element
+	>
 {/if}
 
 <style lang="postcss">
