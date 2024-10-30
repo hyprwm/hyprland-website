@@ -24,7 +24,7 @@
 		"size": 120
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/623781003382751243/960ba27a9adbfa0084902d07ba2c44e1.webp",
+		"image": "https://cdn.discordapp.com/avatars/623781003382751243/3f77d858c66f7f95d811531c7175407f.webp",
 		"class": "outline-orange-500",
 		"coordinates": [525, 764],
 		"size": 80
@@ -60,7 +60,7 @@
 		"size": 52
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/486802226577276929/0f1a8a2e105d492d52cd3a6eee74b1a6.webp",
+		"image": "https://cdn.discordapp.com/avatars/486802226577276929/0f33239f401a6e234dd81fd6edabd846.webp",
 		"class": "outline-cyan-500",
 		"coordinates": [273, 760],
 		"size": 52,
@@ -115,7 +115,7 @@
 		"size": 74
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/482139697796349953/ce63690cf5adb8e096b4472bc0c175e8.webp",
+		"image": "https://cdn.discordapp.com/avatars/482139697796349953/3ee1be10043c662f89c7e8cc496b403d.webp",
 		"class": "outline-stone-500 ",
 		"coordinates": [263, 653],
 		"size": 65
@@ -127,7 +127,7 @@
 		"size": 80
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/784153590595321876/d10daf888b8365cf4ce5e87500254afa.webp",
+		"image": "https://cdn.discordapp.com/avatars/784153590595321876/b81736d15c74f3081a08f1cd6a58e50b.webp",
 		"class": "outline-white",
 		"coordinates": [583, 824],
 		"size": 69,
@@ -146,13 +146,13 @@
 		"size": 48
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/520860407720837131/3e73c777553fcd67f2f17bc119b79f15.webp",
+		"image": "https://cdn.discordapp.com/avatars/520860407720837131/81abed4e03a9a7fc9d973b969c9d2ddd.webp",
 		"class": "outline-orange-500  ",
 		"coordinates": [458, 913],
 		"size": 35
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/390226958241366016/4c149bb6d2ba4ed1265a36c2c9c4418a.webp",
+		"image": "https://cdn.discordapp.com/avatars/390226958241366016/aca819f6f27ff5b33f1d327b4d2f7049.webp",
 		"class": "outline-blue-500  ",
 		"coordinates": [858, 707],
 		"size": 45
@@ -170,13 +170,13 @@
 		"size": 47
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/194584980922433536/6b119f98b1d876fbcd53b32b15ce1d35.webp",
+		"image": "https://cdn.discordapp.com/avatars/194584980922433536/9f4627d337428700ec08ccf1c962748c.webp",
 		"class": "outline-blue-500 bg-black ",
 		"coordinates": [69, 561],
 		"size": 54
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/561863734264594452/e9d1b128f8a32849ae4e2a0d86d16fdb.webp",
+		"image": "https://cdn.discordapp.com/avatars/561863734264594452/65f48367b6f58d73d20fa1371cb7a5d9.webp",
 		"class": "outline-orange-500 bg-black ",
 		"coordinates": [908, 463],
 		"size": 54
@@ -194,7 +194,7 @@
 		"size": 49
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/317785409763541002/a6bd7ec5842e5210c3e0808aace18fa4.webp",
+		"image": "https://cdn.discordapp.com/avatars/317785409763541002/8d07178cb745dfcbad5bf3deac4cd549.webp",
 		"class": "outline-blue-500 bg-black ",
 		"coordinates": [119, 202],
 		"size": 49
@@ -206,7 +206,7 @@
 		"size": 69
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/706672850907430942/3f8bfe4308d2536ad524fe30b8435540.webp",
+		"image": "https://cdn.discordapp.com/avatars/706672850907430942/eb965cbff396b5c88fac4a379cc54976.webp",
 		"class": "outline-stone-500 bg-black ",
 		"coordinates": [771, 818],
 		"size": 49
