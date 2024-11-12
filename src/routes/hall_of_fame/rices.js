@@ -42,10 +42,10 @@ export const contests = [
 		color: 'orange',
 		rices: [
 			{
-				name: 'Summer Gruv',
+				name: 'Hybrid Summer',
 				creator: 'end_4',
 				pretitel: '#1',
-				dotfilesLink: 'https://github.com/end-4/dots-hyprland/tree/summer-gruv',
+				dotfilesLink: 'https://github.com/end-4/dots-hyprland/tree/archive/hybrid-summer',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/97237370?s=24&v=4',
 				thumbnail: '/imgs/ricing_competitions/2/end_4.webp'
 			},
