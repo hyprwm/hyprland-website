@@ -1,5 +1,5 @@
 ---
-title: Hyprland 0.46.0 has is upon us! 
+title: Hyprland 0.46.0 is upon us! 
 date: 1734392927
 author:
   name: Vaxry
