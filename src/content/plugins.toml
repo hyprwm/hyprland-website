@@ -13,6 +13,13 @@
 
 
 [[plugins]]
+name     = "NiflVeil"
+url      = "https://github.com/Mauitron/NiflVeil"
+category = "Quality of Life"
+tagline  = "Minimize and restore windows"
+logo     = "/plugins-data/logos/NiflVeil-Logo.svg"
+
+[[plugins]]
 name     = "Borders++"
 url      = "https://github.com/hyprwm/hyprland-plugins"
 category = "Design"
