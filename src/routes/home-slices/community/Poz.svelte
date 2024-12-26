@@ -14,7 +14,7 @@
 	const { profilesState$ } = getContext(contextId)
 	$: touches$$$$Voice = $profilesState$.intersections.includes('le_mod-poz')
 
-	const origin = [893, 622]
+	const origin = [710, 615]
 	let newPosition
 	const clicksTarget = 9
 	const shakeMax = 24
@@ -90,7 +90,7 @@
 		<DiscordProfilePicture
 			image={touches$$$$Voice ? edgePoz : '/imgs/profile_pictures/jacekpoz.svg'}
 			coordinates={origin}
-			size={80}
+			size={90}
 			class={'bg-black outline-yellow-500 '}
 			quote={'"piss blob"'}
 			intersectionHandler={(image) => (image = '"piss blob"')}
