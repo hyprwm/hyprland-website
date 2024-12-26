@@ -73,19 +73,13 @@
 		"size": 80
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/480024733535174668/5453c57e69ff16f495d8dcbd597070e9.webp",
-		"class": "outline-purple-500",
-		"coordinates": [772, 651],
-		"size": 62
-	},
-	{
 		"image": "https://cdn.discordapp.com/avatars/544368824842190861/1fbf29ea7ca9c2109b97af2ede3806fa.webp",
 		"class": "outline-lime-500",
 		"coordinates": [736, 277],
 		"size": 101
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/344854021166727180/5c5daa4bc6b540eab0832da1ee5c2385.webp",
+		"image": "https://cdn.discordapp.com/avatars/344854021166727180/af9210a5093818442316dc5942923c65.webp",
 		"class": "outline-yellow-500",
 		"coordinates": [898, 364],
 		"size": 68
@@ -242,9 +236,9 @@
 		"size": 63
 	},
 	{
-		"image": "https://cdn.discordapp.com/avatars/419571665832378369/0c5806bb19fa2d06b25045a91369e950.webp",
+		"image": "https://cdn.discordapp.com/avatars/388742599483064321/a99f68d61676d4361d4f23a36b400a9d.webp",
 		"class": "outline-orange-500",
-		"coordinates": [274, 650],
-		"size": 42
+		"coordinates": [823, 622],
+		"size": 72
 	}
 ]
