@@ -64,6 +64,9 @@
 			<li aria-current={$page.url.pathname === '/plugins' ? 'page' : undefined}>
 				<a href="/plugins">Plugins</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
+				<a href="/support">Donate</a>
+			</li>
 		</ul>
 		<ul class="flex flex-row items-center gap-3 px-4">
 			<li>
