@@ -9,7 +9,13 @@
 </script>
 
 <svelte:head>
-	<title>{'Donate to Hyprland'}</title>
+	<title>{'Donate | Hyprland'}</title>
+	<meta name="description" content="Support Hyprland Development" />
+	<meta property="og:title" content="Donate to Hyprland" />
+	<meta
+		property="og:description"
+		content="Support the continuation of Hyprland Development"
+	/>
 </svelte:head>
 
 <section

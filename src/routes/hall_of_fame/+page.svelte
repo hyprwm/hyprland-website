@@ -43,7 +43,7 @@
 </section>
 
 <svelte:head>
-	<title>Hall of Fame</title>
+	<title>Hall of Fame | Hyprland</title>
 	<meta name="description" content="The winners from Hyprlands rice contests" />
 	<meta property="og:title" content="Hyprland's Hall of Fame" />
 	<meta

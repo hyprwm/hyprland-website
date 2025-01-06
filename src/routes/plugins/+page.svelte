@@ -31,7 +31,13 @@
 </script>
 
 <svelte:head>
-	<title>{'Plugins'}</title>
+	<title>{'Plugins | Hyprland'}</title>
+	<meta name="description" content="Plugins for Hyprland" />
+	<meta property="og:title" content="Plugins for Hyprland" />
+	<meta
+		property="og:description"
+		content="An official list of plugins for Hyprland"
+	/>
 </svelte:head>
 
 <section
