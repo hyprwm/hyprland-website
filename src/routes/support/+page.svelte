@@ -71,6 +71,9 @@
 				<br/><br/>
 				Outside of that, you get the satisfaction that you rock and support
 				the software you use and love.
+				<br/><br/>
+				Hyprland is, and will always stay Free and Open Source software. Donating is purely
+				voluntary. We will never lock out features behind a paywall.
 			</p>
 			
 		</div>
