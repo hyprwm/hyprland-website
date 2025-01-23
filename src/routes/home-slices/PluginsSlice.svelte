@@ -124,7 +124,7 @@
 			</div>
 
 			<Button type="fancyOutline" size="lg" class="max-w-max"
-				><a href="/plugins/">Checkout more plugins</a></Button
+				><a href="/plugins/">Check out more plugins</a></Button
 			>
 
 			<div class="-mt-5 hidden gap-1 lg:mt-12 lg:flex lg:flex-col">
@@ -139,7 +139,7 @@
 					<IconLinkOut />
 				</a>
 				<p class="font-medium text-slate-400">
-					A list of plugins, bindings and more by the community
+					A list of plugins, bindings, apps and more made by the community
 				</p>
 			</div>
 		</div>
