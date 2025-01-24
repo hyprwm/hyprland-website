@@ -13,7 +13,7 @@
 		<TitleHeading slot="title" class="">Latest news</TitleHeading>
 	</Title>
 
-	<ul class="mt-8 flex flex-col gap-12">
+	<ul class="mt-8 flex flex-col gap-10">
 		{#each news as entry}
 			<NewsThumb {entry} />
 		{/each}
