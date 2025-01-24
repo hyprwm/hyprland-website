@@ -13,7 +13,7 @@
 		<TitleHeading slot="title" class="">Latest news</TitleHeading>
 	</Title>
 
-	<ul class="flex flex-col gap-12">
+	<ul class="mt-8 flex flex-col gap-12">
 		{#each news as entry}
 			<NewsThumb {entry} />
 		{/each}
@@ -27,7 +27,7 @@
 		width: 200%;
 		min-height: 500px;
 		height: 220%;
-		translate: -25% 0%;
+		translate: -25% 0;
 		margin-top: -100px;
 
 		background: url('/imgs/grain.webp'),
