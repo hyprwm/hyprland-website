@@ -6,81 +6,78 @@
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
+	import Button from '$lib/components/Button.svelte'
+	import Card from '$lib/components/Card.svelte'
+	import CardsContainer from '$lib/components/CardsContainer.svelte'
 </script>
 
 <svelte:head>
-	<title>{'Donate | Hyprland'}</title>
+	<title>{'Support | Hyprland'}</title>
 	<meta name="description" content="Support Hyprland Development" />
 	<meta property="og:title" content="Donate to Hyprland" />
-	<meta
-		property="og:description"
-		content="Support the continuation of Hyprland Development"
-	/>
+	<meta property="og:description" content="Support the continuation of Hyprland Development" />
 </svelte:head>
 
-<section
-	class="flex min-h-screen w-full flex-col items-center justify-center gap-14 px-6 md:pr-8
-	
-	lg:pl-0
-"
->
-	<div class="top-light"></div>
+<div class="top-light"></div>
 
-	<header class="mt-24 flex flex-col items-center justify-center md:mt-32">
-		<Title>
-			<TitlePre slot="pre">Help continue Hyprland development</TitlePre>
-			<TitleHeading slot="title" class="">Donate</TitleHeading>
-		</Title>
-	</header>
+<section class="min-h-screen w-full md:mt-32">
+	<Title class="mb-4 md:mb-8">
+		<TitlePre slot="pre">Help continue Hyprland development</TitlePre>
+		<TitleHeading slot="title" class="">Support Hyprland</TitleHeading>
+	</Title>
 
-	<section
-		class="m-0 mx-auto flex w-full max-w-screen-3xl
-	animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms]
-	"
+	<div
+		class="prose prose-slate prose-invert m-0 mx-auto flex flex-col px-6 transition-none delay-500 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
 	>
+		<p>
+			Hyprland development is done by volunteers, and led by one person in their free time. 
+			If you want to show a token of appreciation, or help the development continue, consider dontating to the project!
+		</p>
 
-		<div class="flex grow flex-col gap-4 items-start md:gap-16 items-center justify-center">
-			<p class="text-xl lg:text-xl text-pretty text-base text-white max-w-[60ch]">
-				Hyprland development is done by volunteers, and led by one person in their free time.
-				If you want to show a token of appreciation, or help the development continue,
-				consider dontating to the project!
-			</p>
+		<h2>Donate</h2>
+		<p class="!mb-0 !pb-0">
+			You can donate once, or monthly, via the following channels:
+		</p>
 
-			<p class="text-2xl font-bold lg:text-2xl text-pretty text-base text-white">
-				Donating
-			</p>
+		<ul class="">
+			<li>
+				PayPal: <a href="https://ko-fi.com/vaxry" target="_blank">ko-fi.com/vaxry</a>
+			</li>
+			<li>
+				Crypto: please see the pinned post <a href="https://ko-fi.com/vaxry" target="_blank">here</a
+				>
+			</li>
+		</ul>
 
-			<div class="flex grow flex-col gap-2 items-start items-center justify-center">
-				<p class="text-xl lg:text-xl text-pretty text-base text-white max-w-[60ch]">
-					You can donate once, or monthly, via the following channels:
-				</p>
-				<ul class="text-xl lg:text-xl text-pretty text-base text-white max-w-[60ch]" style="margin-top: 0; list-style-type: disc;">
-					<li>PayPal: <a href="https://ko-fi.com/vaxry" class="text-teal-500 hover:text-slate-200">ko-fi.com/vaxry</a></li>
-					<li>Crypto: please see the pinned post <a href="https://ko-fi.com/vaxry" class="text-teal-500 hover:text-slate-200">here</a></li>
-				</ul>
-			</div>
-			
-			<p class="text-2xl font-bold lg:text-2xl text-pretty text-base text-white">
-				Do I get anything?
-			</p>
+		<p class="rounded-xl border border-cyan-500/50 p-4 shadow-lg shadow-cyan-600/50">
+			Hyprland is, and will always stay Free and Open Source software. Donating is purely voluntary. We will never lock out features behind a paywall.
+		</p>
 
-			<p class="text-xl lg:text-xl text-pretty text-base text-white max-w-[60ch]">
-				If you decide to donate, you will be listed in the special thanks
-				part of the next Hyprland release notes, and, if you are a member of the
-				Discord server, a role to signify you have supported the project.
-				<br/><br/>
-				Outside of that, you get the satisfaction that you rock and support
-				the software you use and love.
-				<br/><br/>
-				Hyprland is, and will always stay Free and Open Source software. Donating is purely
-				voluntary. We will never lock out features behind a paywall.
-			</p>
-			
-		</div>
-	</section>
+		<h2>Do I get anything?</h2>
+
+		<p>
+			If you decide to donate, you will be listed in the special thanks part of the next Hyprland
+			release notes, and, if you are a member of the Discord server, a role to signify you have
+			supported the project.
+			<br /><br />
+			Outside of that, you get the satisfaction that you rock and support the software you use and love!
+		</p>
+
+		<h3>Thank you, you rock! :)</h3>
+	</div>
 </section>
 
 <style lang="postcss">
+	.pills li {
+		@apply mx-0 rounded-lg border border-cyan-200/10 bg-slate-200/5 p-0 px-2 transition-all;
+		&:hover {
+			@apply -translate-y-1 border-cyan-300;
+		}
+		& a {
+			@apply text-inherit no-underline;
+		}
+	}
+
 	.top-light {
 		background: url('/imgs/grain.webp'),
 			radial-gradient(
