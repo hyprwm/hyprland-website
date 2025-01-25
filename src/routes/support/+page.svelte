@@ -30,16 +30,13 @@
 		class="prose prose-slate prose-invert m-0 mx-auto flex flex-col px-6 transition-none delay-500 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
 	>
 		<p>
-			Hyprland is forever free and Open-Source. <br />
-			No paywall, no fremium, just the good stuff for you. <br />
-			Development is done by volunteers, and led by one person in their free time. <br />
-			Support us to keep the project going strong!
+			Hyprland development is done by volunteers, and led by one person in their free time. 
+			If you want to show a token of appreciation, or help the development continue, consider dontating to the project!
 		</p>
 
 		<h2>Donate</h2>
 		<p class="!mb-0 !pb-0">
-			Direclty help the creator to pay his bills (and potentially work full-time on Hyprland).
-			Donate once (or twice), or monthly, via the following channels:
+			You can donate once, or monthly, via the following channels:
 		</p>
 
 		<ul class="">
@@ -50,36 +47,11 @@
 				Crypto: please see the pinned post <a href="https://ko-fi.com/vaxry" target="_blank">here</a
 				>
 			</li>
-			<li>Cash and pipebombs to his mailbox: ghoegouh</li>
 		</ul>
 
 		<p class="rounded-xl border border-cyan-500/50 p-4 shadow-lg shadow-cyan-600/50">
-			Hyprland is, and will always stay Free and Open Source software. <br />
-			We will never lock out features behind a paywall.
+			Hyprland is, and will always stay Free and Open Source software. Donating is purely voluntary. We will never lock out features behind a paywall.
 		</p>
-
-		<h2>Share</h2>
-		<p class="!mb-0 !pb-0">
-			Spread the word. Post your rice, shitpost on Twitter, tell your parents! We need you to become
-			the best desktop on Linux.<br /><br />
-
-			Check out the socials of Vaxry, the creator and maintainer:
-		</p>
-
-		<ul class="pills flex list-none flex-wrap gap-4 !p-0">
-			<li>
-				<a href="https://x.com/vaxryy" target="_blank">Twitter</a>
-			</li>
-			<li>
-				<a href="https://vaxry.net/" target="_blank">Personal site</a>
-			</li>
-			<li>
-				<a href="https://github.com/vaxerski/" target="_blank">Github</a>
-			</li>
-			<li>
-				<a href="https://www.youtube.com/@vaxryy" target="_blank">Youtube</a>
-			</li>
-		</ul>
 
 		<h2>Do I get anything?</h2>
 
@@ -89,7 +61,6 @@
 			supported the project.
 			<br /><br />
 			Outside of that, you get the satisfaction that you rock and support the software you use and love!
-			<br /><br />
 		</p>
 
 		<h3>Thank you, you rock! :)</h3>
