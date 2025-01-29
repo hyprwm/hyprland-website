@@ -10,7 +10,7 @@
 <li class="flex" use:animateIn={{ fade: 0, slide: 24 }}>
 	<a href={link} class="w-full transition-transform hover:-translate-y-0.5">
 		<article
-			class="flex flex-col justify-between gap-3 rounded hover:outline-sky-500/80 md:flex-row md:rounded-3xl md:bg-gradient-to-tr md:from-cyan-500/10 md:to-transparent md:p-8 md:shadow-xl md:outline md:outline-1 md:outline-sky-500/30"
+			class="flex flex-col h-[100%] justify-between gap-3 rounded hover:outline-sky-500/80 md:flex-row md:rounded-3xl md:bg-gradient-to-tr md:from-cyan-500/10 md:to-transparent md:p-8 md:shadow-xl md:outline md:outline-1 md:outline-sky-500/30"
 		>
 			<div>
 				<div class="flex flex-col gap-4 font-medium text-slate-400">
