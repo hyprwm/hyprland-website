@@ -69,7 +69,7 @@
 			<TitleHeading slot="title" class="">More news</TitleHeading>
 		</Title>
 
-		<ul class="grid grid-cols-2 gap-x-7 gap-y-16 overflow-auto">
+		<ul class="grid grid-cols-2 gap-x-7 gap-y-16">
 			{#each data.other as entry}
 				<NewsThumb {entry} />
 			{/each}
