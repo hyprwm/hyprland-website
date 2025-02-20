@@ -16,7 +16,7 @@
 <section class="pb-6">
 	<Title>
 		<TitleHeading slot="title" class="">Install now</TitleHeading>
-		<TitleSubtile slot="subtitle" class="">For yor favourite distro</TitleSubtile>
+		<TitleSubtile slot="subtitle" class="">For your favourite distro</TitleSubtile>
 	</Title>
 
 	<div class="flex flex-col items-center gap-12 md:gap-6" use:animateIn={{ slide: 24, fade: 0 }}>
