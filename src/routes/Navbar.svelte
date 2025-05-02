@@ -64,9 +64,6 @@
 			<li aria-current={$page.url.pathname === '/plugins' ? 'page' : undefined}>
 				<a href="/plugins">Plugins</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
-				<a href="/support">Donate</a>
-			</li>
 		</ul>
 		<ul class="flex flex-row items-center gap-3 px-4">
 			<li>
@@ -95,12 +92,24 @@
 				</a>
 			</li>
 		</ul>
-		<a
-			class="rounded-full bg-primary px-4 py-1 uppercase tracking-wide text-black hover:bg-cyan-200"
-			href="https://wiki.hyprland.org/Getting-Started/Installation/"
-			target="_blank"
-			aria-label="Install Hyprland">Install</a
-		>
+
+		<ul class="flex gap-4">
+			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
+				<a
+					class="rounded-full px-4 py-2 outline outline-cyan-500 hover:outline-cyan-200"
+					href="/support">Donate</a
+				>
+			</li>
+
+			<li>
+				<a
+					class="rounded-full bg-cyan-300 px-4 py-2 uppercase tracking-wide text-black hover:bg-cyan-200"
+					href="https://wiki.hyprland.org/Getting-Started/Installation/"
+					target="_blank"
+					aria-label="Install Hyprland">Install</a
+				>
+			</li>
+		</ul>
 	</nav>
 </header>
 
@@ -124,7 +133,7 @@
 
 		/* Desktop classes */
 		@media screen(lg) {
-			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pr-3 pl-5 outline outline-primary/10;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 pr-3 outline outline-primary/10;
 		}
 	}
 

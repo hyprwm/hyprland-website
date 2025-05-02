@@ -1,14 +1,18 @@
-<script>
+<script lang="ts">
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
-	import clsx from 'clsx'
-	import * as R from 'remeda'
-	import { getGeneratedPath } from '$lib/Helper.ts'
-	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import Button from '$lib/components/Button.svelte'
-	import Card from '$lib/components/Card.svelte'
-	import CardsContainer from '$lib/components/CardsContainer.svelte'
+	import CloseIcon from '~icons/mingcute/close-line'
+
+	let kofiModal: HTMLDialogElement | undefined
+
+	function lockScroll() {
+		document.querySelector('html')?.classList.add('lock-scroll')
+	}
+	function unlockScroll() {
+		document.querySelector('html')?.classList.remove('lock-scroll')
+	}
 </script>
 
 <svelte:head>
@@ -30,14 +34,13 @@
 		class="prose prose-slate prose-invert m-0 mx-auto flex flex-col px-6 transition-none delay-500 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
 	>
 		<p>
-			Hyprland development is done by volunteers, and led by one person in their free time. 
-			If you want to show a token of appreciation, or help the development continue, consider dontating to the project!
+			Hyprland development is done by volunteers, and led by one person in their free time. If you
+			want to show a token of appreciation, or help the development continue, consider dontating to
+			the project!
 		</p>
 
 		<h2>Donate</h2>
-		<p class="!mb-0 !pb-0">
-			You can donate once, or monthly, via the following channels:
-		</p>
+		<p class="!mb-0 !pb-0">You can donate once, or monthly, via the following channels:</p>
 
 		<ul class="">
 			<li>
@@ -49,10 +52,6 @@
 			</li>
 		</ul>
 
-		<p class="rounded-xl border border-cyan-500/50 p-4 shadow-lg shadow-cyan-600/50">
-			Hyprland is, and will always stay Free and Open Source software. Donating is purely voluntary. We will never lock out features behind a paywall.
-		</p>
-
 		<h2>Do I get anything?</h2>
 
 		<p>
@@ -63,7 +62,50 @@
 			Outside of that, you get the satisfaction that you rock and support the software you use and love!
 		</p>
 
+		<div
+			class="flex flex-col items-center justify-center rounded-xl border border-cyan-400/20 bg-black/10 md:p-12"
+		>
+			<Button
+				type="fancyOutline"
+				size="xl"
+				on:click={() => {
+					lockScroll()
+					kofiModal?.showModal()
+				}}>Support us!</Button
+			>
+
+			<p>
+				Hyprland is, and will always stay Free and Open Source software. Donating is purely
+				voluntary.<br />We will never lock out features behind a paywall.
+			</p>
+		</div>
+
 		<h3>Thank you, you rock! :)</h3>
+
+		<dialog
+			bind:this={kofiModal}
+			class="overflow-visible bg-transparent backdrop:bg-black/40 md:p-8"
+		>
+			<div class="relative h-[712px] min-h-[712px] shadow-2xl">
+				<form class="absolute -right-2 -top-4 z-10">
+					<button
+						on:click={() => {
+							unlockScroll()
+						}}
+						formmethod="dialog"
+						class="rounded-full bg-white p-1 shadow-md"><CloseIcon class="size-5" /></button
+					>
+				</form>
+				<div class="modal-content overflow-hidden rounded-2xl">
+					<iframe
+						id="kofiframe"
+						src="https://ko-fi.com/vaxry/?hidefeed=true&widget=true&embed=true&preview=true"
+						title="vaxry"
+						height="712"
+					></iframe>
+				</div>
+			</div>
+		</dialog>
 	</div>
 </section>
 
@@ -103,15 +145,53 @@
 		left: 0;
 		pointer-events: none;
 		contain: strict;
-
-		animation: parallax ease-in-out 500ms;
-		animation-duration: 1ms;
-		animation-timeline: scroll();
 	}
 
-	@keyframes parallax {
+	dialog {
+		transition:
+			display 0.2s allow-discrete,
+			overlay 0.2s allow-discrete;
+
+		animation: close 0.2s forwards;
+		&[open] {
+			animation: open 0.5s forwards;
+
+			& .modal-content {
+				height: 712px;
+				transition:
+					scale 0.2s cubic-bezier(0.2, 0.2, 0.165, 1.5),
+					height 0.15s cubic-bezier(0.875, 0.2, 0.165, 1);
+				scale: 1;
+
+				@starting-style {
+					height: 0px;
+					scale: 0.9;
+				}
+			}
+		}
+	}
+
+	.modal-content {
+		height: 0px;
+		scale: 0.4;
+		transition: all 2.5s ease-in-out;
+	}
+
+	@keyframes open {
+		from {
+			opacity: 0;
+		}
 		to {
-			translate: 0px 1000px;
+			opacity: 1;
+		}
+	}
+
+	@keyframes close {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
 		}
 	}
 </style>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { cn } from '$lib/Helper'
-	import Card from './Card.svelte'
 
 	export let size: 'md' | 'lg' | 'xl' = 'md'
 	export let type: 'primary' | 'outline' | 'fancyOutline' = 'primary'

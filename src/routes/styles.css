@@ -14,6 +14,12 @@ body {
 	min-height: 100vh;
 }
 
+html.lock-scroll,
+.lock-scroll body {
+	overflow: hidden;
+	height: 100%;
+}
+
 .hyprgradient {
 	background-image: linear-gradient(to bottom right, #00e6cf, #00c4e3, #0081c6);
 }
