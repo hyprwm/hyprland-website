@@ -6,6 +6,13 @@
 	import CloseIcon from '~icons/mingcute/close-line'
 
 	let kofiModal: HTMLDialogElement | undefined
+
+	function lockScroll() {
+		document.querySelector('html')?.classList.add('lock-scroll')
+	}
+	function unlockScroll() {
+		document.querySelector('html')?.classList.remove('lock-scroll')
+	}
 </script>
 
 <svelte:head>
@@ -62,6 +69,7 @@
 				type="fancyOutline"
 				size="xl"
 				on:click={() => {
+					lockScroll()
 					kofiModal?.showModal()
 				}}>Support us!</Button
 			>
@@ -80,8 +88,12 @@
 		>
 			<div class="relative h-[712px] min-h-[712px] shadow-2xl">
 				<form class="absolute -right-2 -top-4 z-10">
-					<button formmethod="dialog" class="rounded-full bg-white p-1 shadow-md"
-						><CloseIcon class="size-5" /></button
+					<button
+						on:click={() => {
+							unlockScroll()
+						}}
+						formmethod="dialog"
+						class="rounded-full bg-white p-1 shadow-md"><CloseIcon class="size-5" /></button
 					>
 				</form>
 				<div class="modal-content overflow-hidden rounded-2xl">
