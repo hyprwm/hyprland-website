@@ -11,29 +11,7 @@
 # - featured (optional): Whether the plugin is featured at the top. A maximum of 4 are shown
 # - weight (optional): Determines the sort order. A higher weight comes first.
 
-
-[[plugins]]
-name     = "Borders++"
-url      = "https://github.com/hyprwm/hyprland-plugins"
-category = "Design"
-tagline  = "Extra window borders"
-logo     = "/plugins-data/logos/Borders-plus-plus-logo.svg"
-featured = true
-
-[[plugins]]
-name     = "CSGO Vulkan Fix"
-url      = "https://github.com/hyprwm/hyprland-plugins"
-category = "Miscellaneous"
-tagline  = "CSGO custom resolutions fix"
-
-
-[[plugins]]
-name     = "dwindle-autogroup"
-url      = "https://github.com/ItsDrike/hyprland-dwindle-autogroup"
-category = "Layout"
-tagline  = "Dwindle mode auto-grouping"
-featured = false
-
+# hy3
 
 [[plugins]]
 name     = "hy3"
@@ -44,24 +22,7 @@ logo     = "/plugins-data/logos/hy3-logo.svg"
 banner   = "/plugins-data/hy3_banner.mp4"
 featured = true
 
-
-[[plugins]]
-name     = "Hyprbars"
-url      = "https://github.com/hyprwm/hyprland-plugins"
-category = "Design"
-tagline  = "Bring back title bars"
-logo     = "/plugins-data/logos/hyprbars-logo.svg"
-featured = true
-
-
-[[plugins]]
-name     = "Hyprtrails"
-url      = "https://github.com/hyprwm/hyprland-plugins"
-category = "Design"
-tagline  = "Smooth window trails"
-logo     = "/plugins-data/logos/hyprtrails-logo.svg"
-featured = true
-
+# Quality of Life
 
 [[plugins]]
 name     = "Hyprwinwrap"
@@ -69,15 +30,33 @@ url      = "https://github.com/hyprwm/hyprland-plugins"
 category = "Quality of Life"
 tagline  = "Any app as wallpaper"
 logo     = "/plugins-data/logos/hyprwinwrap-logo.svg"
-featured = true
 
 [[plugins]]
 name     = "hyprgrass"
 url      = "https://github.com/horriblename/hyprgrass"
 category = "Quality of Life"
 tagline  = "Touch gestures"
-featured = false
+featured = true
 
+[[plugins]]
+name     = "split-monitor-workspaces"
+url      = "https://github.com/Duckonaut/split-monitor-workspaces"
+category = "Quality of Life"
+tagline  = "Awesome-like workspace behavior"
+
+[[plugins]]
+name     = "hyprland-easymotion"
+url      = "https://github.com/zakk4223/hyprland-easymotion"
+category = "Quality of Life"
+tagline  = "Easymotion, for Hyprland"
+
+[[plugins]]
+name     = "hypr-dynamic-cursors"
+url      = "https://github.com/VirtCode/hypr-dynamic-cursors"
+category = "Quality of Life"
+tagline  = "Cursor physics for Hyprland"
+
+# Layout
 
 [[plugins]]
 name     = "hyprNStack"
@@ -91,6 +70,48 @@ url      = "https://github.com/levnikmyskin/hyprland-virtual-desktops"
 category = "Layout"
 tagline  = "Virtual desktops"
 
+[[plugins]]
+name     = "hyprscrolling"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Layout"
+tagline  = "Scrolling layout for Hyprland"
+
+[[plugins]]
+name     = "hyprslidr"
+url      = "https://gitlab.com/magus/hyprslidr"
+category = "Layout"
+tagline  = "Scrolling layout akin to PaperWM"
+
+[[plugins]]
+name     = "hyprRiver"
+url      = "https://github.com/zakk4223/hyprRiver"
+category = "Layout"
+tagline  = "River layouts, on Hyprland"
+
+# Design
+
+[[plugins]]
+name     = "Borders++"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Extra window borders"
+logo     = "/plugins-data/logos/Borders-plus-plus-logo.svg"
+
+[[plugins]]
+name     = "Hyprbars"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Bring back title bars"
+logo     = "/plugins-data/logos/hyprbars-logo.svg"
+featured = true
+
+[[plugins]]
+name     = "Hyprtrails"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Smooth window trails"
+logo     = "/plugins-data/logos/hyprtrails-logo.svg"
+featured = false
 
 [[plugins]]
 name     = "hypr-darkwindow"
@@ -102,10 +123,28 @@ tagline  = "Invert window colors"
 name     = "hyprexpo"
 url      = "https://github.com/hyprwm/hyprland-plugins"
 category = "Design"
-tagline  = "Workspaces overview"
+tagline  = "Zoomed out workspace overview"
+featured = true
 
 [[plugins]]
-name     = "hyprscroller"
-url      = "https://github.com/dawsers/hyprscroller"
-category = "Layout"
-tagline  = "Scrolling like PaperWM"
+name     = "hyprspace"
+url      = "https://github.com/KZDKM/Hyprspace"
+category = "Design"
+tagline  = "MacOS-like workspace overview"
+featured = true
+
+# Miscellaneous
+
+[[plugins]]
+name     = "pyprland"
+url      = "https://github.com/hyprland-community/pyprland"
+category = "Miscellaneous"
+tagline  = "Python framework for Hyprland's IPC"
+featured = true
+
+[[plugins]]
+name     = "CSGO Vulkan Fix"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Miscellaneous"
+tagline  = "CSGO custom resolutions fix"
+
