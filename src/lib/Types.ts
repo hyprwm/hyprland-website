@@ -2,13 +2,11 @@ import type { Observable } from 'rxjs'
 
 export interface CommunityProfile {
 	image: string
-	coordinates: [number, number]
-	containerClass: string[]
+	coordinates: readonly [number, number]
+	containerClass?: string
 	size: number
 	quote?: string
-	onDragStart?: (event: DragEvent) => void
-	onDragEnd?: (event: DragEvent) => void
-	onHover?: (event: MouseEvent) => void
+	class?: string,
 }
 
 export interface CommunityContext {
@@ -30,9 +28,9 @@ interface ProfilesState {
 	 * Alphabetically sorted, like `a-b`, not `b-a`, to prevent duplicates.
 	 * No tuples, so that a set can look them up and delete them easily.
 	 */
-	intersections: `${string}-${string}`[]
+	intersections: string[]
 	/** All tagged profiles */
-	profiles: Record<string, { size: number; coordinates: [x: number, y: number] }>
+	profiles: Record<string, { size: number; coordinates: readonly [x: number, y: number] }>
 	/** Current active events. Currently not used, but maybe in the future */
 	events: string[]
 }
