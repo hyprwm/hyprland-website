@@ -55,3 +55,5 @@ export async function GET() {
 
 	return json(allProfiles)
 }
+
+export const prerender = true
