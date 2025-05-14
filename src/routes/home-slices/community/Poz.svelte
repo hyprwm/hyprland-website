@@ -1,21 +1,19 @@
-<script>
-	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper.ts'
+<script lang="ts">
+	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { Subject, filter, first, map, merge, of, startWith, switchMap, timer } from 'rxjs'
-	import edgePoz from '$lib/images/poz/msedgepoz.webp'
-	import { getContext, onDestroy } from 'svelte'
-	import { contextId } from '../CommunitySlice.svelte'
+	import { onDestroy } from 'svelte'
+
+	export let biggestSize: number
+	export let getRestrictionElement: (() => HTMLElement) | undefined = undefined
 
 	const thePozArmy = Object.values(import.meta.glob('$lib/images/poz/*', { eager: true })).map(
-		(x) => x.default
+		(x) => x.default as string
 	)
 
-	/** @type {import('$lib/Types').CommunityContext}*/
-	const { profilesState$ } = getContext(contextId)
-	$: touches$$$$Voice = $profilesState$.intersections.includes('le_mod-poz')
-
-	const origin = [710, 615]
-	let newPosition
+	const size = 90
+	const origin = [710, 615] as const
+	let newPosition: readonly [number, number]
 	const clicksTarget = 9
 	const shakeMax = 24
 	const clicksInput$ = new Subject()
@@ -67,6 +65,7 @@
 		{@const maxSize = 75}
 		{@const size = 35 * Math.random() + 40}
 		<DiscordProfilePicture
+			weight={size / biggestSize}
 			image={poz}
 			coordinates={newPosition ?? origin}
 			{size}
@@ -74,6 +73,7 @@
 			spawnInstantly={false}
 			isAnimating={false}
 			tag="poz"
+			{getRestrictionElement}
 			on:enteredView={({ detail: { dragCoordinates } }) => {
 				dragCoordinates.update(([x, y]) => {
 					x += lerp(400, 0, (size / maxSize) * (1 - Math.random())) * (Math.random() > 0.5 ? 1 : -1)
@@ -88,12 +88,12 @@
 {#if $showMainPoz$}
 	<div class="absolute z-20">
 		<DiscordProfilePicture
-			image={touches$$$$Voice ? edgePoz : '/imgs/profile_pictures/jacekpoz.svg'}
+			image="/imgs/profile_pictures/jacekpoz.svg"
 			coordinates={origin}
-			size={90}
+			{size}
+			weight={size / biggestSize}
 			class={'bg-black outline-yellow-500 '}
 			quote={'"piss blob"'}
-			intersectionHandler={(image) => (image = '"piss blob"')}
 			tag="poz"
 			on:click={() => clicksInput$.next(0)}
 			style={`scale:${$relativeLevel$ * 0.5 + 1};transition: scale 80ms linear; translate: ${$shake$.x}px ${$shake$.y}px; `}

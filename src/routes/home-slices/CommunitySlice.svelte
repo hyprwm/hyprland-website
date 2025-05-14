@@ -1,110 +1,29 @@
-<script context="module">
-	export const contextId = Symbol('community context')
-</script>
-
 <script lang="ts">
-	// @ts-nocheck Lets fix this file later on someday
 	import Button from '$lib/components/Button.svelte'
 	import DiscordIcon from '~icons/prime/discord'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
-	import { onMount, setContext } from 'svelte'
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import background from '$lib/images/community-bg.webp'
-	import amongUsGreenImage from '$lib/images/amongus/green.webp'
-	import { discordLink } from '$lib/constants'
-	import profiles from '../../content/profiles.json'
+	import { discordLink } from '$lib/constants.mjs'
 	import Poz from './community/Poz.svelte'
-	import { writableObservable } from '$lib/Helper'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
+	import Chan from './community/Chan.svelte'
 	import type { CommunityProfile } from '$lib/Types'
 
-	let sectionElement: HTMLElement
-	let isDraggingChan = false
+	export let communityProfiles: readonly CommunityProfile[]
 
-	const validSizes = [16, 20, 24, 32, 40, 48, 64, 80, 96, 100, 128, 160, 240, 320, 640]
+	const biggestSize = communityProfiles.reduce(
+		(previousSize, { size }) => (size > previousSize ? size : previousSize),
+		0
+	)
 
-	let allProfilesPromise: Promise<readonly CommunityProfile[]> = new Promise(() => {})
-
-	/** @type {import('$lib/Types').CommunityProfile[]} */
-	const extraProfiles = [
-		{
-			image: 'imgs/chan/joy.svg',
-			coordinates: [284, 533],
-			size: 90,
-			class: 'outline-cyan-500 bg-blue-300',
-			onDragStart: ({ detail: { currentTarget } }) => {
-				isDraggingChan = true
-				currentTarget.src = 'imgs/chan/surprise.svg'
-			},
-			onDragEnd: ({ detail: { currentTarget } }) => {
-				isDraggingChan = false
-				currentTarget.src = 'imgs/chan/tongueout.svg'
-			},
-			onHover: ({ detail: { srcElement } }) =>
-				!isDraggingChan && (srcElement.src = 'imgs/chan/wink.svg')
-		},
-		{
-			image: amongUsGreenImage,
-			coordinates: [873, 224],
-			size: 79,
-			class: 'outline-green-500'
-		},
-		{
-			image: '/imgs/profile_pictures/chan_1.webp',
-			coordinates: [91, 799],
-			size: 55,
-			class: 'outline-sky-500'
-		},
-		{
-			image: '/imgs/profile_pictures/chan_cat.webp',
-			coordinates: [-10, 844],
-			size: 32,
-			class: 'outline-blue-800'
-		},
-		{
-			image: '/imgs/profile_pictures/chan_cat_2.webp',
-			coordinates: [1000, 744],
-			size: 32,
-			class: 'outline-cyan-500'
-		},
-		{
-			image: '/imgs/profile_pictures/_anon.webp',
-			coordinates: [-85, 566],
-			size: 40,
-			class: 'outline-sky-500'
-		}
-	]
-
-	setContext(contextId, {
-		biggestSize: profiles.reduce(
-			(previousSize, { size }) => (size > previousSize ? size : previousSize),
-			1
-		),
-		smallestSize: profiles.reduce(
-			(previousSize, { size }) => (size < previousSize ? size : previousSize),
-			Number.POSITIVE_INFINITY
-		),
-		getSectionElement: () => sectionElement,
-		profilesState$: writableObservable({ events: [], intersections: [], profiles: {} })
-	})
-
-	onMount(() => {
-		allProfilesPromise = import('../../content/profiles.json').then(({ default: profiles }) => {
-			return [...profiles, ...extraProfiles]
-				.map(({ image, size, ...profile }) => ({
-					...profile,
-					size,
-					image: image + '?size=' + validSizes.find((_, index) => size <= validSizes[index])
-				}))
-				.sort(({ size: a }, { size: b }) => b - a)
-		})
-	})
+	let restrictionElement: HTMLElement
 </script>
 
 <section
 	class="relative -mb-[200px] flex h-[1100px] min-h-max w-screen flex-col items-center"
-	bind:this={sectionElement}
+	bind:this={restrictionElement}
 >
 	<Title>
 		<TitleHeading slot="title" class="">Join a great<br />community</TitleHeading>
@@ -129,22 +48,23 @@
 		</a>
 	</div>
 
-	{#await allProfilesPromise then allProfiles}
-		<div class="absolute w-[1024px] select-none">
-			<div class="flex h-full origin-bottom-right select-none flex-wrap gap-4">
-				{#each allProfiles as { onDragEnd, onDragStart, onHover, ...props }}
-					<DiscordProfilePicture
-						{...props}
-						on:dragStart={onDragStart}
-						on:dragEnd={onDragEnd}
-						on:hover={onHover}
-					/>
-				{/each}
+	<div class="absolute w-[1024px] select-none">
+		<div class="flex h-full origin-bottom-right select-none flex-wrap gap-4">
+			{#each communityProfiles as props}
+				{@const relativeSize = props.size / biggestSize}
+				<DiscordProfilePicture
+					{...props}
+					weight={relativeSize}
+					spawnDelay={Math.pow(1 - props.size / biggestSize, 4) * 4654}
+					getRestrictionElement={() => restrictionElement}
+				/>
+			{/each}
 
-				<Poz />
-			</div>
+			<Poz {biggestSize} getRestrictionElement={() => restrictionElement} />
+			<Chan {biggestSize} getRestrictionElement={() => restrictionElement} />
 		</div>
-	{/await}
+	</div>
+
 	<img
 		src={background}
 		class="absolute top-0 -z-10 min-w-[1400px] select-none"

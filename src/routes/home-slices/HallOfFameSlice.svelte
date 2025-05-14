@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { animateIn } from '$lib/Helper.ts'
+	import { animateIn } from '$lib/Helper'
 	import Button from '$lib/components/Button.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
@@ -10,7 +10,7 @@
 <section class="" use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}>
 	<div class="z-20 -mb-40 px-4">
 		<Title>
-			<TitlePre>Memorials of the ricing legends</TitlePre>
+			<TitlePre slot="pre">Memorials of the ricing legends</TitlePre>
 			<TitleHeading slot="title" class="">Hall of Fame</TitleHeading>
 		</Title>
 	</div>

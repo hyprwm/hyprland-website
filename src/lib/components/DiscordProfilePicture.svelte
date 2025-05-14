@@ -1,50 +1,50 @@
-<script>
+<script lang="ts">
 	import clsx from 'clsx'
-	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
-	import { spring } from 'svelte/motion'
-	import { contextId as ctxId } from '../../routes/home-slices/CommunitySlice.svelte'
-	import { convertStoreToObservable, isIntersecting, lerp } from '$lib/Helper.ts'
+	import { createEventDispatcher, onDestroy, onMount } from 'svelte'
+	import { spring, type Spring } from 'svelte/motion'
+	import { convertStoreToObservable, lerp } from '$lib/Helper'
 	import { inview } from 'svelte-inview'
-	import { Subject, distinctUntilChanged, throttle, throttleTime } from 'rxjs'
+	import { throttleTime } from 'rxjs'
+	import type { Interactable } from '@interactjs/types/index'
 
-	/** @type {string} */
-	export let image
-	/** @type {string} */
-	export let containerClass = ''
-	/** @type {number} */
-	export let size
-	/** @type {[number, number]} */
-	export let coordinates
-	/** @type {string | undefined} User description */
-	export let tag = undefined
+	export let image: string
+	export let containerClass: string = ''
+	export let size: number
+	export let coordinates: readonly [number, number]
 
-	/** @type {string | undefined} */
-	export let quote = undefined
+	export let quote: string | undefined = undefined
 
-	/** @type {symbol}*/
-	export let contextId = ctxId
 	export let isAnimating = true
 
-	/** @type {HTMLElement}*/
-	export let element = undefined
-	/** @type {HTMLImageElement}*/
-	export let imageWrapper
-	/** @type {HTMLImageElement}*/
-	export let imageElement
-	/** @type {string|undefined}*/
-	export let style = undefined
-	export let hasDelay = true
+	export let element: HTMLElement | undefined = undefined
+	export let imageWrapper: HTMLDivElement | undefined = undefined
+	export let imageElement: HTMLImageElement | undefined = undefined
+	export let style: string | undefined = undefined
+	export let spawnDelay = 0
 	export let spawnInstanly = false
+	/**
+	 * Usually just the size / biggestSize
+	 * Goes from 0 - 1
+	 */
+	export let weight: number
+	export let getRestrictionElement: (() => HTMLElement) | undefined = undefined
 
-	/** @type {import('$lib/Types.ts').CommunityContext} **/
-	const { biggestSize, getSectionElement, profilesState$ } = getContext(contextId)
-	const dispatch = createEventDispatcher()
+	const dispatch = createEventDispatcher<{
+		enteredView: {
+			dragCoordinates: Spring<readonly [number, number]>
+			imageElement: HTMLImageElement
+			element: HTMLElement
+			delay: number
+		}
+		dragged: readonly [number, number]
+		dragStart: any
+		dragEnd: any
+		hover: any
+	}>()
 
-	const relativeSize = size / biggestSize
-	const delay = hasDelay ? Math.pow(1 - size / biggestSize, 4) * 4654 : 0
-	const dragCoordinates = spring([0, 0], {
-		damping: lerp(0.2, 0.03, relativeSize),
-		stiffness: lerp(0.2, 0.01, relativeSize),
+	const dragCoordinates = spring([0, 0] as readonly [number, number], {
+		damping: lerp(0.2, 0.03, weight),
+		stiffness: lerp(0.2, 0.01, weight),
 		// stiffness: lerp(0.81, 0.9, relativeSize),
 		precision: 0.001
 	})
@@ -52,32 +52,31 @@
 	let hasEnteredView = false
 	let hasImageLoaded = false
 
-	/** @type {import('interactjs').default} */
-	let interactionjs
+	let interactionjs: Interactable
 
 	function onViewEnter() {
-		if (imageElement.__error) return
+		// @ts-ignore
+		if (imageElement?.__error) return
+		if (!imageElement || !element) return
 
 		setTimeout(
 			() => {
 				hasEnteredView = true
-				if (tag && profilesState$) {
-					profilesState$.update((state) => {
-						// No drag yet, so we can just use the normal coordinates
-						state.profiles[tag] = { size, coordinates }
-						return state
-					})
-				}
 
-				dispatch('enteredView', { dragCoordinates, imageElement, element, delay })
+				dispatch('enteredView', {
+					dragCoordinates,
+					imageElement: imageElement!,
+					element: element!,
+					delay: spawnDelay
+				})
 			},
 			spawnInstanly ? 0 : 550
 		)
 
 		// Only load the library if the element entered the view, to improve performance
 		import('interactjs').then(({ default: interact }) => {
-			interactionjs = interact(imageElement).draggable({
-				inertia: { resistance: lerp(5, 200, relativeSize) },
+			interactionjs = interact(imageElement!).draggable({
+				inertia: { resistance: lerp(5, 200, weight) },
 				listeners: {
 					move({ dx, dy }) {
 						dragCoordinates.update(([x, y]) => {
@@ -94,12 +93,14 @@
 						dispatch('dragEnd', event)
 					}
 				},
-				modifiers: [
-					interact.modifiers.restrictRect({
-						restriction: getSectionElement,
-						endOnly: true
-					})
-				]
+				modifiers: getRestrictionElement
+					? [
+							interact.modifiers.restrictRect({
+								restriction: getRestrictionElement,
+								endOnly: true
+							})
+						]
+					: []
 			})
 		})
 	}
@@ -109,45 +110,23 @@
 		.subscribe((drag) => {
 			const displayedPosition = getDisplayedPosition(coordinates, drag)
 			dispatch('dragged', displayedPosition)
-
-			if (!tag) return
-
-			// This whole things looks so slow, but if it works. Feel free to PR nicer way though
-			profilesState$.update((state) => {
-				state.profiles[tag] = { coordinates: displayedPosition, size }
-
-				const otherIntersections = state.intersections.filter((pair) => !pair.includes(tag))
-				const thisIntersections = Object.entries(state.profiles)
-					.filter(
-						([otherTag, rectangle]) =>
-							otherTag !== tag &&
-							isIntersecting(rectangle, { size, coordinates: displayedPosition })
-					)
-					.map(([otherTag]) => [otherTag, tag].sort().join('-'))
-				const allIntersections = [...otherIntersections, ...thisIntersections]
-
-				state.intersections = allIntersections
-
-				return state
-			})
 		})
 
 	onMount(() => {
 		// Nesecarry as the load image event might not get fired when its already loaded ( for example after a page reload )
-		hasImageLoaded = hasImageLoaded || imageElement.complete
+		hasImageLoaded = hasImageLoaded || !!imageElement?.complete
 	})
 
 	onDestroy(() => {
 		draggedSubscription.unsubscribe()
-		interactionjs?.off()
+		interactionjs?.unset()
 	})
 
-	/**
-	 * @param {[x: number, y: number]}origin
-	 * @param {[x: number, y: number]}dragCoordinates
-	 */
-	function getDisplayedPosition(origin, dragCoordinates) {
-		return [origin.at(0) + dragCoordinates.at(0), origin.at(1) + dragCoordinates.at(1)]
+	function getDisplayedPosition(
+		origin: readonly [x: number, y: number],
+		dragCoordinates: readonly [x: number, y: number]
+	) {
+		return [origin[0] + dragCoordinates[0], origin[1] + dragCoordinates[1]] as const
 	}
 </script>
 
@@ -158,7 +137,7 @@
 		hasImageLoaded ? 'opacity-100' : 'opacity-0'
 	)}
 	style:translate={coordinates.map((xy) => xy + 'px').join(' ')}
-	style="width: {size}px; height: {size}px;--delay: {delay}ms; "
+	style="width: {size}px; height: {size}px;--delay: {spawnDelay}ms; "
 	aria-hidden="true"
 	bind:this={element}
 >
@@ -188,6 +167,9 @@
 				crossorigin="anonymous"
 				width={size}
 				height={size}
+				{...{
+					/* @ts-ignore */
+				}}
 				onerror="this.__error = true"
 				{style}
 			/>
