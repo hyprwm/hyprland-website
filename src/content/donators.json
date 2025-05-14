@@ -1,0 +1,60 @@
+{
+	"top": [
+		{
+			"name": "Herbert",
+			"link": "https://github.com/herbert",
+			"image": "https://i.imgur.com/Y7xhCk2.png"
+		},
+		{
+			"name": "Peter Griffin",
+			"link": "https://github.com/peter",
+			"image": "https://i.imgur.com/4MyOkLZ.jpeg"
+		},
+		{
+			"name": "Quagmire",
+			"image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnYwNDJsdGFkeGlwbzIybXM2Zmpzb3phZ3duNHBub2lkcXJyZDhjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o2La4Pvf9CdJC/giphy.gif"
+		}
+	],
+
+	"month": [
+		{
+			"name": "Herbert",
+			"link": "https://github.com/herbert",
+			"image": "https://i.imgur.com/Y7xhCk2.png"
+		},
+		{
+			"name": "Peter Griffin",
+			"link": "https://github.com/peter"
+		},
+		{
+			"name": "Quagmire",
+			"image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnYwNDJsdGFkeGlwbzIybXM2Zmpzb3phZ3duNHBub2lkcXJyZDhjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o2La4Pvf9CdJC/giphy.gif"
+		}
+	],
+
+	"platinum": [
+		{
+			"name": "Mayor Adam West",
+			"image": "https://imgs.search.brave.com/qZa2Ugnx3RXHYzDJtulCqsf-ud-pUmcieNxxYNrDqbE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YmVoaW5kdGhldm9p/Y2VhY3RvcnMuY29t/L19pbWcvY2hhcnMv/dGh1bWJzL21heW9y/LWFkYW0td2VzdC1m/YW1pbHktZ3V5LTM1/LjlfdGh1bWIuanBn"
+		},
+		{
+			"name": "Mort Goldman",
+			"image": "https://imgs.search.brave.com/zBI1Zm_4_z6AeVdQDqF3uX6qG9HiWTp0UGEqhJUvmzk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YmVoaW5kdGhldm9p/Y2VhY3RvcnMuY29t/L19pbWcvY2hhcnMv/dGh1bWJzL21vcnQt/Z29sZG1hbi1mYW1p/bHktZ3V5LTY1LjNf/dGh1bWIuanBn"
+		},
+		{
+			"name": "Tom Tucker",
+			"image": "https://imgs.search.brave.com/IUtKZ0OeAkpFmeWqVbVt0qwS3VMmlKqLOEt6LATinuQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2Zh/bWlseS1ndXktdGhl/LXF1ZXN0LWZvci1z/dHVmZi9pbWFnZXMv/ZS9lYi9GYWNlc3Bh/Y2VfcG9ydHJhaXRf/dG9tdHVja2VyX2Rl/ZmF1bHRANHgucG5n/L3JldmlzaW9uL2xh/dGVzdC9zY2FsZS10/by13aWR0aC1kb3du/Lzc1P2NiPTIwMTQx/MDE2MTUzNDQ0"
+		}
+	],
+
+	"gold": [{ "name": "Meg Griffin" }, { "name": "Chris Griffin" }, { "name": "Stewie Griffin" }],
+
+	"silver": [{ "name": "Brian Griffin" }, { "name": "Cleveland Brown" }, { "name": "Joe Swanson" }],
+	"bronze": [
+		{ "name": " Barbara Pewterschmidt" },
+		{ "name": "Angela" },
+		{ "name": "Barbara Pewterschmidt" },
+		{ "name": "Consuela" },
+		{ "name": "James Woods" }
+	]
+}
