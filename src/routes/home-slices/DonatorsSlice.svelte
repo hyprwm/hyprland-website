@@ -8,7 +8,7 @@
 </script>
 
 <section class="relative mb-12 flex max-w-5xl flex-col gap-8 px-8 md:mb-20">
-	<Title>
+	<Title align="left" class="px-0">
 		<TitlePre slot="pre">And a huge thank you!</TitlePre>
 		<h2 slot="title" class="text-2xl font-bold md:text-3xl">Our top supporters</h2>
 	</Title>

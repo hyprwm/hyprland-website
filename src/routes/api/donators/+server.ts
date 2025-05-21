@@ -7,8 +7,9 @@ export type Donator = {
 	image?: string
 }
 export type DonatorsRanked = Readonly<{
-	top: readonly Donator[]
-	month: readonly Donator[]
+	/** The month for the top donators in `monthTop` */
+	month: String
+	monthTop: readonly Donator[]
 	platinum: readonly Donator[]
 	gold: readonly Donator[]
 	silver: readonly Donator[]
@@ -16,15 +17,7 @@ export type DonatorsRanked = Readonly<{
 }>
 
 export async function GET() {
-	return json(
-		donators
-		// await Promise.all(
-		// 	donators.map(async (donator: Donator) => ({
-		// 		...donator,
-		// 		image: donator.image ?? `/api/identicon/${encodeURI(donator.name)}`
-		// 	}))
-		// )
-	)
+	return json(donators)
 }
 
 export const prerender = true

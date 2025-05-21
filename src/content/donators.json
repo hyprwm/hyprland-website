@@ -1,22 +1,6 @@
 {
-	"top": [
-		{
-			"name": "Herbert",
-			"link": "https://github.com/herbert",
-			"image": "https://i.imgur.com/Y7xhCk2.png"
-		},
-		{
-			"name": "Peter Griffin",
-			"link": "https://github.com/peter",
-			"image": "https://i.imgur.com/4MyOkLZ.jpeg"
-		},
-		{
-			"name": "Quagmire",
-			"image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnYwNDJsdGFkeGlwbzIybXM2Zmpzb3phZ3duNHBub2lkcXJyZDhjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o2La4Pvf9CdJC/giphy.gif"
-		}
-	],
-
-	"month": [
+	"month": "May 2025",
+	"monthTop": [
 		{
 			"name": "Herbert",
 			"link": "https://github.com/herbert",
@@ -47,7 +31,22 @@
 		}
 	],
 
-	"gold": [{ "name": "Meg Griffin" }, { "name": "Chris Griffin" }, { "name": "Stewie Griffin" }],
+	"gold": [
+		{
+			"name": "Herbert",
+			"link": "https://github.com/herbert",
+			"image": "https://i.imgur.com/Y7xhCk2.png"
+		},
+		{
+			"name": "Peter Griffin",
+			"link": "https://github.com/peter",
+			"image": "https://i.imgur.com/4MyOkLZ.jpeg"
+		},
+		{
+			"name": "Quagmire",
+			"image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnYwNDJsdGFkeGlwbzIybXM2Zmpzb3phZ3duNHBub2lkcXJyZDhjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o2La4Pvf9CdJC/giphy.gif"
+		}
+	],
 
 	"silver": [{ "name": "Brian Griffin" }, { "name": "Cleveland Brown" }, { "name": "Joe Swanson" }],
 	"bronze": [
@@ -55,6 +54,7 @@
 		{ "name": "Angela" },
 		{ "name": "Barbara Pewterschmidt" },
 		{ "name": "Consuela" },
+		{ "name": "Stewie" },
 		{ "name": "James Woods" }
 	]
 }
