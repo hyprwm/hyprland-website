@@ -5,7 +5,7 @@
 	export let donators: DonatorsRanked
 </script>
 
-<div class="relative max-w-[1024px] select-none">
+<div class="relative max-w-[1024px] select-none text-slate-100">
 	<div class="flex min-h-max flex-wrap gap-8 text-sm">
 		{#if donators.platinum.length > 0}
 			<div class="flex flex-col gap-2 rounded-xl">
@@ -40,7 +40,7 @@
 		<div class="flex gap-4">
 			{#if donators.silver.length > 0}
 				<div class="flex flex-col gap-2">
-					<h2 class="font-bold text-slate-200">Silver</h2>
+					<h2 class="font-bold text-slate-300">Silver</h2>
 
 					<div class="flex flex-wrap gap-x-4 gap-y-2 font-medium">
 						{#each donators.silver as donator}
@@ -52,7 +52,7 @@
 
 			{#if donators.bronze.length > 0}
 				<div class="flex flex-col gap-2">
-					<h2 class="font-bold text-slate-200">Bronze</h2>
+					<h2 class="font-bold text-slate-300">Bronze</h2>
 
 					<div class="flex flex-wrap gap-x-4 gap-y-2 font-medium">
 						{#each donators.bronze as donator}

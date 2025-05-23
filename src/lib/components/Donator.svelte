@@ -7,7 +7,7 @@
 	export let showImage = false
 </script>
 
-<Clickable href={donator.link}>
+<Clickable href={donator.link} class="flex items-center">
 	{#if showImage && donator.image}
 		<img
 			title={donator.name}
@@ -16,7 +16,13 @@
 			alt=""
 		/>
 	{:else}
-		<div class={cn('text-xs font-bold text-slate-200', donator.link && 'hover:text-cyan-100')}>
+		<div
+			class={cn(
+				'text-xs font-bold text-slate-100',
+				donator.link && 'hover:text-cyan-100',
+				showImage && 'text-lg'
+			)}
+		>
 			{donator.name}
 		</div>
 	{/if}
