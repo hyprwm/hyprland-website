@@ -98,6 +98,13 @@ tagline  = "Extra window borders"
 logo     = "/plugins-data/logos/Borders-plus-plus-logo.svg"
 
 [[plugins]]
+name     = "Image borders"
+url      = "https://codeberg.org/zacoons/imgborders"
+category = "Design"
+tagline  = "Add tiling image borders to windows!"
+logo     = "/plugins-data/logos/imgborders.svg"
+
+[[plugins]]
 name     = "Hyprbars"
 url      = "https://github.com/hyprwm/hyprland-plugins"
 category = "Design"
