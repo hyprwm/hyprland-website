@@ -25,8 +25,7 @@
 		href="/"
 		class="flex items-center gap-4 rounded-full bg-black/50 px-4 py-2 font-london font-bold tracking-wider text-white backdrop-blur"
 	>
-		<HyprlandLogo class="h-8 w-6 object-contain" />
-		<span class="mt-1 tracking-widest">Hyprland</span></a
+		<HyprlandLogo class="h-8 w-6 object-contain" /></a
 	>
 
 	<button
