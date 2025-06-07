@@ -37,7 +37,7 @@
 			</div>
 		{/if}
 
-		<div class="flex gap-4">
+		<div class="flex flex-wrap gap-4">
 			{#if donators.silver.length > 0}
 				<div class="flex flex-col gap-2">
 					<h2 class="font-bold text-slate-300">Silver</h2>
