@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: 'London Between';
-	src: url('/fonts/LondonBetween.woff') format('woff');
-	font-display: swap;
-}
-
 body {
 	color: theme(colors.white);
 	background-color: theme(colors.black);

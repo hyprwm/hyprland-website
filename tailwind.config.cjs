@@ -9,9 +9,8 @@ export default {
 			colors: { black: '#090b0c', primary: '#58E1FF', secondary: '#00A2F8' },
 			fontFamily: {
 				...fontFamily,
-				sans: ['Work Sans Variable', ...fontFamily['sans']],
-				mono: ['IBM Plex Mono', ...fontFamily['mono']],
-				london: ['"London Between"', ...fontFamily['sans']]
+				sans: ['Inter Variable', ...fontFamily['sans']],
+				mono: ['IBM Plex Mono', ...fontFamily['mono']]
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'

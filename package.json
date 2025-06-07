@@ -48,7 +48,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource-variable/work-sans": "^5.0.19",
+		"@fontsource-variable/inter": "^5.2.5",
 		"@fontsource/ibm-plex-mono": "^5.0.13",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.13",
