@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/work-sans':
-        specifier: ^5.0.19
-        version: 5.0.19
+      '@fontsource-variable/inter':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/ibm-plex-mono':
         specifier: ^5.0.13
         version: 5.0.13
@@ -311,8 +311,8 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource-variable/work-sans@5.0.19':
-    resolution: {integrity: sha512-UAHRcHDhCt1RyDwzigdQXFwL6skyVDQJxcnD7neHEdAHP9aQuDPWDWeHUfWsmPiBlseOlyczpfsQQcAllOxA9w==}
+  '@fontsource-variable/inter@5.2.5':
+    resolution: {integrity: sha512-TrWffUAFOnT8zroE9YmGybagoOgM/HjRqMQ8k9R0vVgXlnUh/vnpbGPAS/Caz1KIlOPnPGh6fvJbb7DHbFCncA==}
 
   '@fontsource/ibm-plex-mono@5.0.13':
     resolution: {integrity: sha512-gtlMmvk//2AgDEZDFsoL5z9mgW3ZZg/9SC7pIfDwNKp5DtZpApgqd1Fua3HhPwYRIHrT76IQ1tMTzQKLEGtJGQ==}
@@ -1852,7 +1852,7 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@fontsource-variable/work-sans@5.0.19': {}
+  '@fontsource-variable/inter@5.2.5': {}
 
   '@fontsource/ibm-plex-mono@5.0.13': {}
 
