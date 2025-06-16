@@ -6,7 +6,7 @@ import { spawnSync } from 'node:child_process'
 // This script should be run from the root of the application
 const root = new URL('..', import.meta.url)
 
-const imageDirectories = ['static/imgs/ricing_competitions', 'static/plugins-data/logos']
+const imageDirectories = ['static/ricing_competitions', 'static/plugins-data/logos']
 const generatedPrefix = 'generated_'
 // This value seems to work well
 const maxBrightness = 65535
