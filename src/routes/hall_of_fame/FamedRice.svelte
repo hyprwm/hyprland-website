@@ -9,7 +9,7 @@
 	export let dotfilesLink: string
 	export let creatorProfilePicture: string
 	export let thumbnail: string
-	export let video: string
+	export let video: string | undefined = undefined
 	/**
 	 * Specify the blurred background image to be used.
 	 * Defaults to `"generated_<thumbnail>"` * */
@@ -22,7 +22,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center gap-12 px-4 {$$restProps.class}"
+	class="flex flex-col items-center gap-10 px-4 {$$restProps.class}"
 	style:--bg="url('{background}')"
 >
 	<div class="flex flex-col items-center justify-center">
@@ -37,7 +37,7 @@
 		</h3>
 
 		<a
-			class="group flex items-center gap-1.5 rounded-full bg-slate-100/10 py-1 pl-1 pr-2 text-slate-300 transition-colors hover:text-white"
+			class="group flex items-center gap-1.5 rounded-full bg-slate-100/10 py-1 pl-1 pr-2 text-slate-300 transition-all hover:scale-105 hover:text-white"
 			href={dotfilesLink}
 			target="_blank"
 		>
@@ -50,16 +50,16 @@
 			<div class="font-medium text-slate-300 transition-colors group-hover:text-white">
 				{creator}
 			</div>
-
-			<IconLinkOut class="size-6  opacity-80" />
 		</a>
 	</div>
 
 	<div class="image-wrapper">
 		<div class="rice group relative" class:hasVideo={video}>
 			{#if toShow === 'thumbnail'}
-				<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
 				{#if video}
+					<button on:click={() => (toShow = 'video')}>
+						<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
+					</button>
 					<button
 						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-900/60 p-4 text-white/80 opacity-0 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white group-hover:opacity-100"
 						on:click={() => (toShow = 'video')}><PlayIconFill class="size-8 " /></button
@@ -69,6 +69,8 @@
 						class="absolute bottom-6 left-6 rounded-full bg-gray-900/60 p-2 text-white/80 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white"
 						on:click={() => (toShow = 'video')}><PlayIconOutline class="size-5 " /></button
 					>
+				{:else}
+					<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
 				{/if}
 			{:else if toShow === 'video'}
 				<!-- svelte-ignore a11y-media-has-caption -->
