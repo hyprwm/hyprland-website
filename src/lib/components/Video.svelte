@@ -19,8 +19,8 @@
 	export let videoClass = ''
 	/** @type {string}*/
 	export let playButtonClass = ''
-	/** @type {HTMLVideoElement}*/
-	export let videoElement
+	/** @type {HTMLVideoElement | undefined}*/
+	export let videoElement = undefined
 
 	let isPaused = true
 

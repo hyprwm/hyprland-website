@@ -1,56 +1,82 @@
-<script>
-	import { getGeneratedPath } from '$lib/Helper.ts'
-	import { inview } from 'svelte-inview'
+<script lang="ts">
+	import { getGeneratedPath } from '$lib/Helper'
+	import IconLinkOut from '~icons/tabler/external-link'
+	import PlayIconFill from '~icons/mingcute/play-fill'
+	import PlayIconOutline from '~icons/mingcute/play-line'
 
-	/** @type {string} */
-	export let name
-	/** @type {string} */
-	export let creator
-	/** @type {string} */
-	export let dotfilesLink
-	/** @type {string} */
-	export let creatorProfilePicture
-	/** @type {string} */
-	export let thumbnail
+	export let name: string
+	export let creator: string
+	export let dotfilesLink: string
+	export let creatorProfilePicture: string
+	export let thumbnail: string
+	export let video: string | undefined = undefined
 	/**
 	 * Specify the blurred background image to be used.
-	 * Defaults to `"generated_<thumbnail>"`
-	 * @type {string | undefined} */
-	export let blurredThumbnail = undefined
-	/** @type {string} */
-	export let pretitel
+	 * Defaults to `"generated_<thumbnail>"` * */
+	export let blurredThumbnail: string | undefined = undefined
+	export let pretitel: string
+
+	let toShow: 'thumbnail' | 'video' = 'thumbnail'
 
 	let background = blurredThumbnail ?? getGeneratedPath(thumbnail)
 </script>
 
 <div
-	class="flex flex-col items-center gap-12 px-4 {$$restProps.class}"
+	class="flex flex-col items-center gap-10 px-4 {$$restProps.class}"
 	style:--bg="url('{background}')"
 >
 	<div class="flex flex-col items-center justify-center">
-		<div class="relative mb-2 rounded-full px-3 py-1 text-lg font-bold">
-			{pretitel}
+		<div class="flex items-center gap-2">
+			<div class="relative mb-2 rounded-full px-3 py-1 text-lg font-bold">
+				{pretitel}
+			</div>
 		</div>
+
 		<h3 class="title_">
 			<a href={dotfilesLink} target="_blank">{name}</a>
 		</h3>
-		<a class="group flex gap-3" href={dotfilesLink} target="_blank">
+
+		<a
+			class="group flex items-center gap-1.5 rounded-full bg-slate-100/10 py-1 pl-1 pr-2 text-slate-300 transition-all hover:scale-105 hover:text-white"
+			href={dotfilesLink}
+			target="_blank"
+		>
 			<img
 				src={creatorProfilePicture}
 				class="aspect-square h-6 rounded-full"
 				alt={creator + ' profile picture'}
 				loading="lazy"
 			/>
-			<div class="text-lg font-medium text-slate-300 transition-colors group-hover:text-white">
+			<div class="font-medium text-slate-300 transition-colors group-hover:text-white">
 				{creator}
 			</div>
 		</a>
 	</div>
 
 	<div class="image-wrapper">
-		<a class="rice" href={dotfilesLink} target="_blank">
-			<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
-		</a>
+		<div class="rice group relative" class:hasVideo={video}>
+			{#if toShow === 'thumbnail'}
+				{#if video}
+					<button on:click={() => (toShow = 'video')}>
+						<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
+					</button>
+					<button
+						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-900/60 p-4 text-white/80 opacity-0 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white group-hover:opacity-100"
+						on:click={() => (toShow = 'video')}><PlayIconFill class="size-8 " /></button
+					>
+
+					<button
+						class="absolute bottom-6 left-6 rounded-full bg-gray-900/60 p-2 text-white/80 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white"
+						on:click={() => (toShow = 'video')}><PlayIconOutline class="size-5 " /></button
+					>
+				{:else}
+					<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
+				{/if}
+			{:else if toShow === 'video'}
+				<!-- svelte-ignore a11y-media-has-caption -->
+				<video autoplay controls poster={thumbnail} src={video} />
+			{/if}
+		</div>
 		<!-- blur background -->
 		<img
 			src={background}
@@ -72,16 +98,18 @@
 
 	.rice {
 		position: relative;
-		display: block;
+		display: flex;
 		contain: layout style;
-		@apply w-full rounded-lg transition-transform;
+		@apply w-full items-center justify-center rounded-lg transition-transform;
 		box-shadow: 0px 0px 8px theme(colors.black / 40%);
 
-		& img {
+		&.hasVideo img:hover {
+			scale: 1.005;
+		}
+
+		& img,
+		video {
 			@apply rounded-lg shadow-lg duration-300;
-			&:hover {
-				scale: 1.005;
-			}
 		}
 
 		&:after {

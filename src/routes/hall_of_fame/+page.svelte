@@ -28,7 +28,7 @@
 
 	{#each data.contests as { name, date, number, color, rices }}
 		<Contest {name} {date} {number} --color={color}>
-			{#each rices as { name: riceName, creator, creatorProfilePicture, dotfilesLink, pretitel, thumbnail }}
+			{#each rices as { name: riceName, creator, creatorProfilePicture, dotfilesLink, pretitel, thumbnail, video }}
 				<FamedRice
 					name={riceName}
 					{creator}
@@ -36,6 +36,7 @@
 					{pretitel}
 					{dotfilesLink}
 					{thumbnail}
+					{video}
 				/>
 			{/each}
 		</Contest>
