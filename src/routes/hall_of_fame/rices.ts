@@ -50,7 +50,7 @@ export const contests: Contest[] = [
 				video: 'https://dl.hypr.land/contest-videos/disnay_type_shit_vdawg.mp4'
 			},
 			{
-				name: 'Unnamed',
+				name: 'Duskhide',
 				creator: 'Flafy',
 				pretitel: '#3',
 				dotfilesLink: 'https://github.com/vdawg-git/fantasy-rice',
