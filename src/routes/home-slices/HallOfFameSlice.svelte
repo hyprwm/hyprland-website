@@ -26,17 +26,17 @@
 		</a>
 
 		<FameRicePreview
-			image="/imgs/ricing_competitions/1/lauroro.webp"
+			image="/ricing_competitions/1/lauroro.webp"
 			containerClass="[translate:0px_50px_-100px] -mb-[30%] hover:[translate:0px_0px_-98px] transition-all duration-500"
 			imageClass="[mask-image:linear-gradient(black,black_45%,transparent_65%)] opacity-50 hover:opacity-60"
 		/>
 		<FameRicePreview
-			image="/imgs/ricing_competitions/1/amadeus.webp"
+			image="/ricing_competitions/1/amadeus.webp"
 			containerClass="[translate:0px_50px_-40px] hover:[translate:0px_0px_-38px]  -mb-[30%] duration-500 transition-all group"
 			imageClass="md:[mask-image:linear-gradient(black,black_50%,transparent_75%)] [mask-image:linear-gradient(black,black_10%,transparent_75%)] opacity-80 group-hover:opacity-100 transition-all duration-500"
 		/>
 		<FameRicePreview
-			image="/imgs/ricing_competitions/1/flicko.webp"
+			image="/ricing_competitions/1/flicko.webp"
 			imageClass="!rounded-none !rounded-t-xl [mask-image:linear-gradient(black,black_50%,transparent)] rounded-t-xl -mb-4 sm:-mb-8 md:-mb-24  "
 		/>
 	</div>
