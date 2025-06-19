@@ -121,6 +121,12 @@ logo     = "/plugins-data/logos/hyprtrails-logo.svg"
 featured = false
 
 [[plugins]]
+name     = "Hyprfocus"
+url      = "https://github.com/hyprwm/hyprland-plugins"
+category = "Design"
+tagline  = "Flashfocus for Hyprland"
+
+[[plugins]]
 name     = "hypr-darkwindow"
 url      = "https://github.com/micha4w/Hypr-DarkWindow"
 category = "Design"
