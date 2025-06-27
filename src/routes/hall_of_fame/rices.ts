@@ -53,7 +53,7 @@ export const contests: Contest[] = [
 				name: 'Duskhide',
 				creator: 'Flafy',
 				pretitel: '#3',
-				dotfilesLink: 'https://github.com/vdawg-git/fantasy-rice',
+				dotfilesLink: 'https://github.com/flafydev/fantasy_rice',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/44374434?s=24&v=4',
 				thumbnail: '/ricing_competitions/4/flafy.webp',
 				video: 'https://dl.hypr.land/contest-videos/fantasy_flafy.webm'
