@@ -35,7 +35,7 @@
 	>
 		<p>
 			Hyprland development is done by volunteers, and led by one person in their free time. If you
-			want to show a token of appreciation, or help the development continue, consider dontating to
+			want to show a token of appreciation, or help the development continue, consider donating to
 			the project!
 		</p>
 
