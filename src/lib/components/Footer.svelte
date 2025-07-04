@@ -48,9 +48,9 @@
 		<div class="flex flex-col gap-4">
 			<div class="pretitle">Links</div>
 			<ul class="flex flex-col gap-3 font-medium">
-				<li><a href="https://wiki.hyprland.org/" target="_blank">Wiki</a></li>
+				<li><a href="https://wiki.hypr.land/" target="_blank">Wiki</a></li>
 				<li>
-					<a href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/" target="_blank"
+					<a href="https://wiki.hypr.land/Getting-Started/Master-Tutorial/" target="_blank"
 						>Get started</a
 					>
 				</li>

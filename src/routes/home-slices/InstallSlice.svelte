@@ -38,7 +38,7 @@
 			<DistroOption name="NixOS" image={nixLogo}>
 				<CommandButton command="programs.hyprland.enable">
 					<div slot="extra" class="absolute -bottom-4 left-1/2 min-w-max -translate-x-1/2">
-						<a href="https://wiki.hyprland.org/Nix/" target="_blank"
+						<a href="https://wiki.hypr.land/Nix/" target="_blank"
 							>See more details and git version ↗</a
 						>
 					</div>
@@ -67,7 +67,7 @@
 
 		<a
 			target="_blank"
-			href="https://wiki.hyprland.org/Getting-Started/Installation/#packages"
+			href="https://wiki.hypr.land/Getting-Started/Installation/#packages"
 			class="mt-10"
 		>
 			<Button size="lg" type="fancyOutline">Other options</Button>

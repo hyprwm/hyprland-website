@@ -21,7 +21,7 @@ tracker are instantly actionable, as they are well-understood and confirmed.
 
 I know it might seem weird to close 1.3k issues just like that, but trust me, most of them are bad.
 
-For once, 70% of them were marked as stale. Commenting on a stale issue removes the tag, and yet ***70%*** were
+For once, 70% of them were marked as stale. Commenting on a stale issue removes the tag, and yet **_70%_** were
 stale, meaning it was very likely nobody gave a damn.
 
 Secondly, it's a good opportunity to take a reset, and get rid of dupes. There are many issues duped.
@@ -37,5 +37,5 @@ At any rate, I hope this change helps us write better code, and write it faster.
 Cheers,
 vax.
 
-New Issue Guidelines: [https://wiki.hyprland.org/Contributing-and-Debugging/Issue-Guidelines/](https://wiki.hyprland.org/Contributing-and-Debugging/Issue-Guidelines/)<br/>
+New Issue Guidelines: [https://wiki.hypr.land/Contributing-and-Debugging/Issue-Guidelines/](https://wiki.hypr.land/Contributing-and-Debugging/Issue-Guidelines/)<br/>
 Wiki MR: [https://github.com/hyprwm/hyprland-wiki/pull/1024](https://github.com/hyprwm/hyprland-wiki/pull/1024)
