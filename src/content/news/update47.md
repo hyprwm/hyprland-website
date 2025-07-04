@@ -16,7 +16,8 @@ much, it should improve stability in edge cases. Please do report any regression
 ## Breaking changes
 
 Firstly, we got one breaking change:
- - `master:always_center_master` has been replaced with a more flexible `master:slave_count_for_center_master`
+
+- `master:always_center_master` has been replaced with a more flexible `master:slave_count_for_center_master`
 
 That's it this time. :)
 
@@ -35,7 +36,7 @@ Please do note it _is_ experimental!
 
 Added support for squircles in your corners:
 
-![](https://hyprland.org/imgs/blog/update47/squircles.png)
+![](https://hypr.land/imgs/blog/update47/squircles.png)
 
 it's a cosmetic change for sure, but an anticipated one.
 
@@ -52,28 +53,30 @@ You can disable it with `ecosystem:no_donation_nag`, if you are a cruel person.
 
 It looks like this:
 
-![](https://hyprland.org/imgs/blog/update47/nag.png)
+![](https://hypr.land/imgs/blog/update47/nag.png)
 
 and will of course go away if you click "No thanks".
 
 ### Config
 
 New config stuff:
- - `negative:` for negating any regex has been added
- - `focusedmonv2` will now send more information than `focusedmon` on socket2
- - new `tag:` window selector for matching windows by tag
- - a few new window destruction dispatchers to kill windows instead of gracefully closing
- - `cyclenext` got a `visible` arg to cycle all visible windows
+
+- `negative:` for negating any regex has been added
+- `focusedmonv2` will now send more information than `focusedmon` on socket2
+- new `tag:` window selector for matching windows by tag
+- a few new window destruction dispatchers to kill windows instead of gracefully closing
+- `cyclenext` got a `visible` arg to cycle all visible windows
 
 ### Other stuff
 
 Some less, but still notable new stuff / fixes include:
- - CTM (used by hyprsunset) now has a smooth transition (except for Nvidia, because Nvidia)
- - `--verify-config` has been added to Hyprland which will not launch Hyprland, and just print whether your config is well-formed or not
- - hyprpm got an option to force reload all plugins
- - regexes have been sped up by caching the compiled regexes where possible
- - xwayland got a few fixes around clipboard and dnd
- - config should now be reloaded noticeably faster than before thanks to the move to inotify
+
+- CTM (used by hyprsunset) now has a smooth transition (except for Nvidia, because Nvidia)
+- `--verify-config` has been added to Hyprland which will not launch Hyprland, and just print whether your config is well-formed or not
+- hyprpm got an option to force reload all plugins
+- regexes have been sped up by caching the compiled regexes where possible
+- xwayland got a few fixes around clipboard and dnd
+- config should now be reloaded noticeably faster than before thanks to the move to inotify
 
 ## The raw release
 

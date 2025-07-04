@@ -19,15 +19,15 @@ Congratulations to Honkadaloonga, Kath and end_4 for winning FFA, Mascot and Log
 
 Honkadaloonga:
 
-![](https://hyprland.org/imgs/blog/contestWinners/Honkadaloonga.png)
+![](https://hypr.land/imgs/blog/contestWinners/Honkadaloonga.png)
 
 Kath:
 
-![](https://hyprland.org/imgs/blog/contestWinners/Kath.png)
+![](https://hypr.land/imgs/blog/contestWinners/Kath.png)
 
 end_4:
 
-![](https://hyprland.org/imgs/blog/contestWinners/end_4.png)
+![](https://hypr.land/imgs/blog/contestWinners/end_4.png)
 
 ## Honorable mentions
 
@@ -37,24 +37,24 @@ A few we wanted to give a honorable mention to are:
 
 alba4k:
 
-![](https://hyprland.org/imgs/blog/contestWinners/alba4k.png)
+![](https://hypr.land/imgs/blog/contestWinners/alba4k.png)
 
 corndog:
 
-![](https://hyprland.org/imgs/blog/contestWinners/corndog.png)
+![](https://hypr.land/imgs/blog/contestWinners/corndog.png)
 
 Meptl:
 
-![](https://hyprland.org/imgs/blog/contestWinners/Meptl.png)
+![](https://hypr.land/imgs/blog/contestWinners/Meptl.png)
 
 Sollee:
 
-![](https://hyprland.org/imgs/blog/contestWinners/Sollee.png)
+![](https://hypr.land/imgs/blog/contestWinners/Sollee.png)
 
 srev:
 
-![](https://hyprland.org/imgs/blog/contestWinners/srev.png)
+![](https://hypr.land/imgs/blog/contestWinners/srev.png)
 
 VDawg:
 
-![](https://hyprland.org/imgs/blog/contestWinners/VDawg.png)
+![](https://hypr.land/imgs/blog/contestWinners/VDawg.png)

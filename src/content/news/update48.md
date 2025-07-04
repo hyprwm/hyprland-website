@@ -20,13 +20,13 @@ A loot of new stuff has dropped.
 A new ANR dialog is now available. It requires `hyprland-qtutils`, but at this point I think all the packagers that matter
 do package it.
 
-![](https://hyprland.org/imgs/blog/update48/anr.png)
+![](https://hypr.land/imgs/blog/update48/anr.png)
 
 ### Various groupbar improvements
 
 Rounding, customizable gaps, height, font size, everything!
 
-![](https://hyprland.org/imgs/blog/update48/groupbar.png)
+![](https://hypr.land/imgs/blog/update48/groupbar.png)
 
 ### Color Management
 
@@ -41,18 +41,19 @@ have been fixed, and a lot of flicker issues as well.
 ### Other
 
 Other new features include:
- - new `gnomed` animation style for windows
- - new `pinned` window rule selector
- - new `cyclenext hist` option
- - IPC support for hyprsunset
- - `--hl-url` in hyprpm for a custom hyprland sources URL
- - `flip_x` and `flip_y` for touchpads
- - `follow_mouse_threshold` for waiting before following focus
- - `ext-idle-notify` version 2 support
- - many, many xwayland fixes. `INCR` support for large transfers, dnd improvements, etc.
 
+- new `gnomed` animation style for windows
+- new `pinned` window rule selector
+- new `cyclenext hist` option
+- IPC support for hyprsunset
+- `--hl-url` in hyprpm for a custom hyprland sources URL
+- `flip_x` and `flip_y` for touchpads
+- `follow_mouse_threshold` for waiting before following focus
+- `ext-idle-notify` version 2 support
+- many, many xwayland fixes. `INCR` support for large transfers, dnd improvements, etc.
 
 ## Fixes
+
 Tons of fixes under the hood as usual, too many to list. :)
 
 ## The raw release

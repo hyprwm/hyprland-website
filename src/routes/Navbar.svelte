@@ -46,13 +46,13 @@
 		>
 			<li>
 				<a
-					href="https://wiki.hyprland.org/Getting-Started/Master-Tutorial/"
+					href="https://wiki.hypr.land/Getting-Started/Master-Tutorial/"
 					rel="noopener"
 					target="_blank">Get started</a
 				>
 			</li>
 			<li>
-				<a href="https://wiki.hyprland.org">Wiki</a>
+				<a href="https://wiki.hypr.land">Wiki</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/hall_of_fame">Hall of fame</a>
@@ -103,7 +103,7 @@
 			<li>
 				<a
 					class="rounded-full bg-cyan-300 px-4 py-2 uppercase tracking-wide text-black hover:bg-cyan-200"
-					href="https://wiki.hyprland.org/Getting-Started/Installation/"
+					href="https://wiki.hypr.land/Getting-Started/Installation/"
 					target="_blank"
 					aria-label="Install Hyprland">Install</a
 				>

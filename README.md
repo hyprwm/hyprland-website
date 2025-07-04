@@ -1,6 +1,6 @@
 # hyprland-website
 
-The hyprland.org website files. See it on [hyprland.org](https://hyprland.org)
+The hypr.land website files. See it on [hypr.land](https://hypr.land)
 
 > [!NOTE]  
 > If you are here to contribute to the Wiki, [click here](https://github.com/hyprwm/hyprland-wiki).
