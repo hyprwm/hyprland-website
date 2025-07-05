@@ -9,7 +9,7 @@
 
 <section class="relative mb-12 max-w-5xl px-8 md:mb-20">
 	<Title>
-		<TitlePre>Read while it's fresh!</TitlePre>
+		<TitlePre slot="pre">Read while it's fresh!</TitlePre>
 		<TitleHeading slot="title" class="">Latest news</TitleHeading>
 	</Title>
 
