@@ -54,6 +54,12 @@
 			<li>
 				<a href="https://wiki.hypr.land">Wiki</a>
 			</li>
+			<li>
+				<a href="https://forum.hypr.land">Forums</a>
+			</li>
+			<li>
+				<a href="https://account.hypr.land">Account</a>
+			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/hall_of_fame">Hall of fame</a>
 			</li>
