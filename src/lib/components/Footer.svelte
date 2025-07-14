@@ -1,8 +1,8 @@
 <script>
 	import DiscordIcon from '~icons/prime/discord'
 	import GithubIcon from '~icons/ri/github-fill'
-	import { discordLink } from '$lib/constants.mjs'
-	import { forgejoLink } from '$lib/constants.mjs'
+	import { discordLink } from '$lib/constants'
+	import { forgejoLink } from '$lib/constants'
 	import RssIcon from '~icons/mingcute/rss-fill'
 	import ForgejoIcon from '~icons/fe/git'
 
