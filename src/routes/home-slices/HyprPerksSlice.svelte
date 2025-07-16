@@ -1,9 +1,15 @@
 <script lang="ts">
+	import Card from '$lib/components/Card.svelte'
+	import CardsContainer from '$lib/components/CardsContainer.svelte'
+	import configDefaultImage from '$lib/images/features/config_default.webp'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import Video from '$lib/components/Video.svelte'
-	import { accountsLink } from '$lib/constants'
+	import smoothDefaultImage from '$lib/images/features/smooth_default.webp'
+	import tileDefaultImage from '$lib/images/features/tiling_default.webp'
+
+	import { accountsLink, forumLink } from '$lib/constants'
 </script>
 
 <section class="relative w-full">
@@ -15,21 +21,85 @@
 	<div class="relative mx-auto mb-12 max-w-5xl px-8 md:mb-20">
 		<Title>
 			<TitleHeading slot="title" class="">Hyprperks</TitleHeading>
-			<TitleSubtile>
-				<a href={accountsLink} class="text-primary hover:underline" target="_blank"
+			<TitleSubtile class="max-w-[55ch]">
+				<a href={accountsLink} class=" text-primary hover:underline" target="_blank"
 					>Get premium configurations</a
-				> and support the development. We also have a free forum now. Supporters get priority support
-				:)
+				>
+				and support the development.<br />
+				<a href={forumLink} class="hover:underline">Also our own forum is up now</a>
 			</TitleSubtile>
 		</Title>
 
-		<Video
-			muted
-			sources={['/videos/end_4_rice_intro.mp4']}
-			poster={'/videos/end_4_thumbnail.webp'}
-			videoClass="!rounded-2xl overflow-hidden"
-			autoplay={undefined}
-		/>
+		<CardsContainer
+			class="group grid w-full flex-wrap gap-6 text-lg font-medium text-white/70 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4"
+		>
+			<Card class="col-span-2 row-span-2 aspect-video min-h-[20rem]" color="cyan">
+				<div class="grid h-full">
+					<div class="col-start-1 col-end-2 row-start-1 row-end-2 m-0.5" aria-hidden="true">
+						<Video
+							muted
+							sources={['/videos/end_4_rice_intro.mp4']}
+							poster={'/videos/end_4_thumbnail.webp'}
+							class="rounded-3xl "
+							autoplay={undefined}
+						/>
+					</div>
+				</div>
+			</Card>
+
+			<Card class="row-span-2 min-h-[20rem]" color="purple">
+				<div class="flex h-full flex-col justify-end p-8 sm:p-12">
+					<h2 class="mb-6 text-2xl font-bold text-white lg:text-5xl">First-class support</h2>
+					<p class="max-w-[60ch] text-balance">
+						Always working. Always up-to-date. Actively developed with new features for you
+					</p>
+
+					<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+						<div class="feature-image">
+							<img
+								src={smoothDefaultImage}
+								class="feature-image_inner"
+								alt=""
+								aria-hidden="true"
+								loading="lazy"
+							/>
+						</div>
+					</div>
+				</div>
+			</Card>
+			<Card class="min-h-[20rem]" color="purple">
+				<div class="flex h-full flex-col justify-end p-8 sm:p-12">
+					<div class="z-20 mix-blend-color-dodge">
+						<h2 class="mb-6 text-5xl font-bold text-slate-400">Easy</h2>
+						<p class="max-w-[60ch]">One-click install. Priority support on the forum.</p>
+					</div>
+
+					<img
+						src={configDefaultImage}
+						class="absolute inset-x-0 top-0 size-full object-contain"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
+				</div>
+			</Card>
+			<Card class="min-h-[20rem]" color="purple">
+				<div class="flex h-full flex-col justify-end p-8 sm:p-12">
+					<div class="z-20 mix-blend-color-dodge">
+						<h2 class="mb-6 text-5xl font-bold text-slate-300">Beautiful</h2>
+						<p class="max-w-[60ch]">And customizable. Crafted with love from the Hyprland team</p>
+					</div>
+
+					<img
+						src={tileDefaultImage}
+						class="absolute -top-20 object-contain"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					/>
+				</div>
+			</Card>
+		</CardsContainer>
 	</div>
 </section>
 

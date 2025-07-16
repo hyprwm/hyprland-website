@@ -1,13 +1,13 @@
 <script>
 	import DiscordIcon from '~icons/prime/discord'
 	import GithubIcon from '~icons/ri/github-fill'
-	import { discordLink } from '$lib/constants'
+	import { accountsLink, discordLink, forumLink } from '$lib/constants'
 	import { forgejoLink } from '$lib/constants'
 	import RssIcon from '~icons/mingcute/rss-fill'
 	import ForgejoIcon from '~icons/fe/git'
 
 	/** @type {[string, string, string, string]} */
-	let team = [
+	const team = [
 		['Fufexan', 'Supporting Developer', 'cyan', 'https://github.com/fufexan'],
 		['NotAShelf', 'Community Manager', 'teal', 'https://github.com/NotAShelf'],
 		['VDawg', 'Webdesign and dev', 'emerald', 'https://github.com/vdawg-git']
@@ -55,6 +55,8 @@
 					>
 				</li>
 				<li><a href="/hall_of_fame">Hall of fame</a></li>
+				<li><a href={forumLink} target="_blank">Forum</a></li>
+				<li><a href={accountsLink} target="_blank">Account</a></li>
 			</ul>
 		</div>
 
@@ -108,7 +110,7 @@
 
 <style lang="postcss">
 	.footer-inner {
-		@apply flex max-w-screen-xl flex-wrap items-start justify-between gap-12 px-8 py-14 text-slate-300;
+		@apply flex max-w-screen-xl flex-wrap items-start justify-between gap-x-12 gap-y-20 px-8 py-16 text-slate-300;
 	}
 
 	.pretitle {
