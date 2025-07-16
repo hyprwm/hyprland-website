@@ -232,8 +232,8 @@ export function convertStoreToObservable<T>(
  * Checks if two rectangles are intersecting
  */
 export function isIntersecting(
-	rect1: { size: number; coordinates: [x: number, y: number] },
-	rect2: { size: number; coordinates: [x: number, y: number] }
+	rect1: { size: number; coordinates: readonly [x: number, y: number] },
+	rect2: { size: number; coordinates: readonly [x: number, y: number] }
 ) {
 	return !(
 		rect1.coordinates[0] + rect1.size < rect2.coordinates[0] ||
