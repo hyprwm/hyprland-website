@@ -23,10 +23,9 @@
 			<TitleHeading slot="title" class="">Hyprperks</TitleHeading>
 			<TitleSubtile class="max-w-[55ch]">
 				<a href={accountsLink} class=" text-primary hover:underline" target="_blank"
-					>Get premium configurations</a
+					>Get first-party configurations</a
 				>
-				and support the development.<br />
-				<a href={forumLink} class="hover:underline">Also our own forum is up now</a>
+				and support the development
 			</TitleSubtile>
 		</Title>
 
@@ -38,10 +37,10 @@
 					<div class="col-start-1 col-end-2 row-start-1 row-end-2 m-0.5" aria-hidden="true">
 						<Video
 							muted
-							sources={['/videos/end_4_rice_intro.mp4']}
-							poster={'/videos/end_4_thumbnail.webp'}
+							sources={['https://dl.hypr.land/videos/hyprde2.mp4']}
+							poster={'/videos/hyprde.webp'}
 							class="rounded-3xl "
-							autoplay={undefined}
+							autoplay
 						/>
 					</div>
 				</div>
@@ -51,7 +50,7 @@
 				<div class="flex h-full flex-col justify-end p-8 sm:p-12">
 					<h2 class="mb-6 text-2xl font-bold text-white lg:text-5xl">First-class support</h2>
 					<p class="max-w-[60ch] text-balance">
-						Always working. Always up-to-date. Actively developed with new features for you
+						Always working, actively developed, one-click-update
 					</p>
 
 					<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
@@ -71,7 +70,7 @@
 				<div class="flex h-full flex-col justify-end p-8 sm:p-12">
 					<div class="z-20 mix-blend-color-dodge">
 						<h2 class="mb-6 text-5xl font-bold text-slate-400">Easy</h2>
-						<p class="max-w-[60ch]">One-click install. Priority support on the forum.</p>
+						<p class="max-w-[60ch]">Designed to stay out of your way, and let you do your thing.</p>
 					</div>
 
 					<img
@@ -87,7 +86,10 @@
 				<div class="flex h-full flex-col justify-end p-8 sm:p-12">
 					<div class="z-20 mix-blend-color-dodge">
 						<h2 class="mb-6 text-5xl font-bold text-slate-300">Beautiful</h2>
-						<p class="max-w-[60ch]">And customizable. Crafted with love from the Hyprland team</p>
+						<p class="max-w-[60ch]">
+							Customizable, with automatic theming for everything. Crafted with love from the
+							Hyprland team
+						</p>
 					</div>
 
 					<img
