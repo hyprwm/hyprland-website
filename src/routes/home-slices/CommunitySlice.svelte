@@ -2,7 +2,8 @@
 	export const contextId = Symbol('community context')
 </script>
 
-<script>
+<script lang="ts">
+	// @ts-nocheck Lets fix this file later on someday
 	import Button from '$lib/components/Button.svelte'
 	import DiscordIcon from '~icons/prime/discord'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
@@ -10,22 +11,20 @@
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import background from '$lib/images/community-bg.webp'
 	import amongUsGreenImage from '$lib/images/amongus/green.webp'
-	import { discordLink } from '$lib/constants.mjs'
+	import { discordLink } from '$lib/constants'
 	import profiles from '../../content/profiles.json'
 	import Poz from './community/Poz.svelte'
-	import { writable } from 'svelte/store'
-	import { Observable } from 'rxjs'
-	import { writableObservable } from '$lib/Helper.ts'
+	import { writableObservable } from '$lib/Helper'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
+	import type { CommunityProfile } from '$lib/Types'
 
-	let sectionElement
+	let sectionElement: HTMLElement
 	let isDraggingChan = false
 
 	const validSizes = [16, 20, 24, 32, 40, 48, 64, 80, 96, 100, 128, 160, 240, 320, 640]
 
-	/** @type {Promise<import('$lib/Types').CommunityProfile[]>}*/
-	let allProfilesPromise = new Promise(() => {})
+	let allProfilesPromise: Promise<readonly CommunityProfile[]> = new Promise(() => {})
 
 	/** @type {import('$lib/Types').CommunityProfile[]} */
 	const extraProfiles = [
