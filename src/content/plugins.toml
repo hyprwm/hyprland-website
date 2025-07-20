@@ -26,7 +26,7 @@ featured = true
 
 [[plugins]]
 name     = "Hyprwinwrap"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprwinwrap"
 category = "Quality of Life"
 tagline  = "Any app as wallpaper"
 logo     = "/plugins-data/logos/hyprwinwrap-logo.svg"
@@ -78,7 +78,7 @@ tagline  = "Virtual desktops"
 
 [[plugins]]
 name     = "hyprscrolling"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprscrolling"
 category = "Layout"
 tagline  = "Scrolling layout for Hyprland"
 
@@ -98,7 +98,7 @@ tagline  = "River layouts, on Hyprland"
 
 [[plugins]]
 name     = "Borders++"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/borders-plus-plus"
 category = "Design"
 tagline  = "Extra window borders"
 logo     = "/plugins-data/logos/Borders-plus-plus-logo.svg"
@@ -112,7 +112,7 @@ logo     = "/plugins-data/logos/imgborders.svg"
 
 [[plugins]]
 name     = "Hyprbars"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprbars"
 category = "Design"
 tagline  = "Bring back title bars"
 logo     = "/plugins-data/logos/hyprbars-logo.svg"
@@ -120,7 +120,7 @@ featured = true
 
 [[plugins]]
 name     = "Hyprtrails"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprtrails"
 category = "Design"
 tagline  = "Smooth window trails"
 logo     = "/plugins-data/logos/hyprtrails-logo.svg"
@@ -128,7 +128,7 @@ featured = false
 
 [[plugins]]
 name     = "Hyprfocus"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprfocus"
 category = "Design"
 tagline  = "Flashfocus for Hyprland"
 
@@ -140,7 +140,7 @@ tagline  = "Invert window colors"
 
 [[plugins]]
 name     = "hyprexpo"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo"
 category = "Design"
 tagline  = "Zoomed out workspace overview"
 featured = true
@@ -163,7 +163,6 @@ featured = true
 
 [[plugins]]
 name     = "CSGO Vulkan Fix"
-url      = "https://github.com/hyprwm/hyprland-plugins"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/csgo-vulkan-fix"
 category = "Miscellaneous"
 tagline  = "CSGO custom resolutions fix"
-
