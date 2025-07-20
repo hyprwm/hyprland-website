@@ -56,6 +56,12 @@ url      = "https://github.com/VirtCode/hypr-dynamic-cursors"
 category = "Quality of Life"
 tagline  = "Cursor physics for Hyprland"
 
+[[plugins]]
+name     = "xtra-dispatchers"
+url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/xtra-dispatchers"
+category = "Quality of Life"
+tagline  = "Additional dispatchers for Hyprland"
+
 # Layout
 
 [[plugins]]
