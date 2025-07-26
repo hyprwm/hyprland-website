@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { navigating, page } from '$app/stores'
 	import GithubIcon from '~icons/ri/github-fill'
 	import DiscordIcon from '~icons/prime/discord'
@@ -6,8 +6,8 @@
 	import MenuIcon from '~icons/mingcute/menu-line'
 	import CloseIcon from '~icons/mingcute/close-line'
 	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
-	import { discordLink } from '$lib/constants.mjs'
-	import { forgejoLink } from '$lib/constants.mjs'
+	import { discordLink } from '$lib/constants'
+	import { forgejoLink } from '$lib/constants'
 
 	let isExpanded = false
 

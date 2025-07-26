@@ -55,7 +55,7 @@
 		{muted}
 		disablepictureinpicture="true"
 		disableremoteplayback="true"
-		class="rounded-xl {videoClass}"
+		class="rounded-[inherit] {videoClass}"
 		{loop}
 		preload="auto"
 		{poster}
