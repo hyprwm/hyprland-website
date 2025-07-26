@@ -10,6 +10,7 @@
 	import tileDefaultImage from '$lib/images/features/tiling_default.webp'
 
 	import { accountsLink, forumLink } from '$lib/constants'
+	import Button from '$lib/components/Button.svelte'
 </script>
 
 <section class="relative w-full">
@@ -23,9 +24,9 @@
 			<TitleHeading slot="title" class="">Hyprperks</TitleHeading>
 			<TitleSubtile class="max-w-[55ch]">
 				<a href={accountsLink} class=" text-primary hover:underline" target="_blank"
-					>Get first-party configurations</a
+					>Buy first-party configurations</a
 				>
-				and support the development
+				and support the development.<br />Fully optional, but crafted with love
 			</TitleSubtile>
 		</Title>
 
@@ -101,14 +102,35 @@
 					/>
 				</div>
 			</Card>
+
+			<Card class="col-span-full flex min-h-40 items-center  justify-center "
+				><div class="flex size-full justify-center self-center">
+					<div class="flex items-center justify-between gap-6">
+						<div class="flex flex-col gap-1">
+							<h3 class="text-white">Support the development</h3>
+							<p>Hyprland itself will always stay free and open-source</p>
+						</div>
+						<div
+							class="flex flex-col items-center justify-center rounded-2xl border border-cyan-200/30 bg-cyan-400/5 px-5 py-2 md:px-20 md:py-8"
+						>
+							<Button type="fancyOutline" size="xl">Buy now</Button>
+						</div>
+					</div>
+				</div></Card
+			>
 		</CardsContainer>
 	</div>
 </section>
 
 <style lang="postcss">
 	.top-gradient {
-		background-image: linear-gradient(to bottom, theme(colors.cyan.500 / 30%), transparent);
-		height: 90%;
+		background-image: linear-gradient(
+			to bottom,
+			theme(colors.blue.500 / 30%),
+			transparent,
+			theme(colors.cyan.500 / 25%)
+		);
+		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
