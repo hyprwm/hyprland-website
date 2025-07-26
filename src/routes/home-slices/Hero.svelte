@@ -28,7 +28,7 @@
 		class="pointer-events-none z-10 flex h-full min-h-max flex-col items-center justify-center px-5"
 	>
 		<h1
-			class="ani-in title pointer-events-auto mb-4 max-w-[20ch] text-center text-4xl font-bold !leading-[1.25] fill-mode-backwards [animation-delay:384ms] sm:text-6xl md:text-7xl lg:text-8xl lg:tracking-tight"
+			class="ani-in title pointer-events-auto mb-4 max-w-[20ch] text-center text-4xl font-bold !leading-[1] fill-mode-backwards [animation-delay:384ms] sm:text-6xl md:text-7xl lg:text-8xl lg:tracking-tight"
 		>
 			Modern compositor <br /><span class="hyprgradient title-gradient">with the looks</span>
 		</h1>
