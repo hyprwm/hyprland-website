@@ -7,6 +7,7 @@ export type Donator = {
 	name: string
 	link?: string
 	image?: string
+	slogan?: string
 }
 
 const extraProfiles: CommunityProfile[] = [
