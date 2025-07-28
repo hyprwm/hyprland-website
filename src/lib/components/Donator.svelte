@@ -5,9 +5,10 @@
 
 	export let donator: Donator
 	export let showImage = false
+	export let showSlogan = false
 </script>
 
-<Clickable href={donator.link} class="flex items-center">
+<Clickable href={donator.link} class="flex flex-col items-center">
 	{#if showImage && donator.image}
 		<img
 			title={donator.name}
@@ -24,6 +25,15 @@
 			)}
 		>
 			{donator.name}
+		</div>
+	{/if}
+	{#if showSlogan && donator.slogan}
+		<div
+			class={cn(
+				'text-xs text-slate-100'
+			)}
+		>
+			{donator.slogan}
 		</div>
 	{/if}
 </Clickable>

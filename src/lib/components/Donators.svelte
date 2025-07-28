@@ -16,7 +16,7 @@
 				</h2>
 				<div class="flex flex-wrap gap-4">
 					{#each donators.platinum as donator}
-						<Donator {donator} showImage />
+						<Donator {donator} showImage showSlogan />
 					{/each}
 				</div>
 			</div>
@@ -61,15 +61,6 @@
 					</div>
 				</div>
 			{/if}
-		</div>
-
-		<div class="flex flex-col gap-2">
-			<h2 class="font-bold text-slate-300">Monthly top donators in {donators.month}</h2>
-			<div class="flex flex-wrap gap-4 font-medium">
-				{#each donators.monthTop as donator, index}
-					<Donator donator={{ ...donator, name: `#${index + 1} ${donator.name}` }} />
-				{/each}
-			</div>
 		</div>
 	</div>
 </div>

@@ -1,25 +1,10 @@
 {
-	"month": "May 2025",
-	"monthTop": [
-		{
-			"name": "Herbert",
-			"link": "https://github.com/herbert",
-			"image": "https://i.imgur.com/Y7xhCk2.png"
-		},
-		{
-			"name": "Peter Griffin",
-			"link": "https://github.com/peter"
-		},
-		{
-			"name": "Quagmire",
-			"image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnYwNDJsdGFkeGlwbzIybXM2Zmpzb3phZ3duNHBub2lkcXJyZDhjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o2La4Pvf9CdJC/giphy.gif"
-		}
-	],
 
 	"platinum": [
 		{
 			"name": "Mayor Adam West",
-			"image": "https://imgs.search.brave.com/qZa2Ugnx3RXHYzDJtulCqsf-ud-pUmcieNxxYNrDqbE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YmVoaW5kdGhldm9p/Y2VhY3RvcnMuY29t/L19pbWcvY2hhcnMv/dGh1bWJzL21heW9y/LWFkYW0td2VzdC1m/YW1pbHktZ3V5LTM1/LjlfdGh1bWIuanBn"
+			"image": "https://imgs.search.brave.com/qZa2Ugnx3RXHYzDJtulCqsf-ud-pUmcieNxxYNrDqbE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YmVoaW5kdGhldm9p/Y2VhY3RvcnMuY29t/L19pbWcvY2hhcnMv/dGh1bWJzL21heW9y/LWFkYW0td2VzdC1m/YW1pbHktZ3V5LTM1/LjlfdGh1bWIuanBn",
+			"slogan": "If monkeys could fly, they'd be tigers."
 		},
 		{
 			"name": "Mort Goldman",
