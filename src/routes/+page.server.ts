@@ -1,13 +1,19 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-
 import baseColors from 'tailwindcss/colors'
+import type { CommunityProfile } from '$lib/Types'
+import type { DonatorsRanked } from './api/donators/+server.js'
 
 export const load = async ({ fetch }) => ({
 	backgroundData: getHeroBackgroundTiles(),
+
 	news: await fetch('/api/news')
 		.then((response) => response.json())
-		.then((news) => news.slice(0, 3))
+		.then((news) => news.slice(0, 3)),
+
+	donators: (await fetch('/api/donators').then((resposne) => resposne.json())) as DonatorsRanked,
+
+	communityProfiles: (await fetch('/api/community').then((response) =>
+		response.json()
+	)) as readonly CommunityProfile[]
 })
 
 function getHeroBackgroundTiles() {
@@ -38,10 +44,8 @@ function getHeroBackgroundTiles() {
 		gapLength
 	}
 
-	function generateRow(amount) {
+	function generateRow(amount: number) {
 		return Array.from({ length: amount }).map(generateWorkspace)
-		// If the background should be animated
-		// return [...base, ...base]
 	}
 
 	function generateWorkspace() {

@@ -1,0 +1,39 @@
+<script lang="ts">
+	import { cn } from '$lib/Helper'
+	import type { Donator } from '../../routes/api/community/+server'
+	import Clickable from './Clickable.svelte'
+
+	export let donator: Donator
+	export let showImage = false
+	export let showSlogan = false
+</script>
+
+<Clickable href={donator.link} class="flex flex-col items-center">
+	{#if showImage && donator.image}
+		<img
+			title={donator.name}
+			class="h-24 max-w-32 self-center justify-self-start rounded-md object-contain"
+			src={donator.image}
+			alt=""
+		/>
+	{:else}
+		<div
+			class={cn(
+				'text-xs font-bold text-slate-100',
+				donator.link && 'hover:text-cyan-100',
+				showImage && 'text-lg'
+			)}
+		>
+			{donator.name}
+		</div>
+	{/if}
+	{#if showSlogan && donator.slogan}
+		<div
+			class={cn(
+				'text-xs text-slate-100'
+			)}
+		>
+			{donator.slogan}
+		</div>
+	{/if}
+</Clickable>
