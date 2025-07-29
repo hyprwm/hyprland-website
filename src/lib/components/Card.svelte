@@ -95,7 +95,9 @@
 	on:mouseenter
 	on:mouseleave
 >
-	<div class="z-10 h-full w-full">
+	<div
+		class="absolute inset-0 z-10 m-0.5 size-full min-h-0 min-w-0 grow overflow-hidden rounded-3xl"
+	>
 		<slot>Nothing in the slot here</slot>
 	</div>
 	<div class="gradient max-sm:hidden" style:opacity={gradientOpacity} />
@@ -107,7 +109,7 @@
 
 <style lang="postcss">
 	.card {
-		@apply relative flex items-end justify-end rounded-3xl transition-colors duration-300;
+		@apply relative flex items-end rounded-3xl transition-colors duration-300 md:justify-end;
 		z-index: 2;
 		contain: paint style layout;
 
@@ -137,6 +139,10 @@
 
 	/* This gradient is visible on the borders when hovering */
 	.border-gradient {
+		.isHoverCards & {
+			opacity: 100%;
+		}
+
 		position: absolute;
 		z-index: 1;
 		border-radius: inherit;
@@ -154,10 +160,6 @@
 			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 50%),
 			transparent
 		);
-
-		.isHoverCards & {
-			opacity: 100%;
-		}
 	}
 
 	.gradient {

@@ -26,9 +26,9 @@
 
 		<Community />
 
-		<NewsSlice news={data.news} />
-
 		<HyprPerks />
+
+		<NewsSlice news={data.news} />
 
 		<InstallSlice />
 	</div>

@@ -5,6 +5,7 @@
 	export let type: 'primary' | 'outline' | 'fancyOutline' = 'primary'
 
 	export let href: string | undefined = undefined
+	export let newTab = false
 
 	$: classes = cn(
 		'animate rounded text-sm font-bold hover:scale-[1.01] active:scale-100',
@@ -26,6 +27,7 @@
 			{href}
 			role="button"
 			tabindex="0"
+			target={newTab ? '_blank' : undefined}
 			class={classes}
 			on:click
 		>
