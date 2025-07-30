@@ -7,6 +7,7 @@
 	import PreviewRiceSlice from './home-slices/PreviewRiceSlice.svelte'
 	import PluginsSlice from './home-slices/PluginsSlice.svelte'
 	import NewsSlice from './home-slices/NewsSlice.svelte'
+	import HyprPerks from './home-slices/HyprPerksSlice.svelte'
 
 	export let data
 </script>
@@ -24,6 +25,8 @@
 		<HallOfFameSlice />
 
 		<Community />
+
+		<HyprPerks />
 
 		<NewsSlice news={data.news} />
 

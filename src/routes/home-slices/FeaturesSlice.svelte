@@ -86,7 +86,8 @@
 			<div class="flex h-full flex-col justify-end p-8 sm:p-12">
 				<h2 class="mb-6 text-5xl font-bold text-white">Dynamic tiling</h2>
 				<p class="max-w-[60ch]">
-					Automatic tiling that just works. Supports multiple fine-tuneable layouts, with even more as plugins.
+					Automatic tiling that just works. Supports multiple fine-tuneable layouts, with even more
+					as plugins.
 				</p>
 				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
 					<div class="feature-image">
