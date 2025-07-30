@@ -118,13 +118,7 @@
 			<div
 				class=" col-span-full mt-8 flex size-full w-full items-center justify-center self-center"
 			>
-				<div class="flex items-center justify-between gap-6">
-					<div
-						class="flex flex-col items-center justify-center rounded-2xl border border-cyan-200/30 bg-cyan-400/5 px-20 py-8"
-					>
-						<Button type="fancyOutline" href={hyprperksLink} size="xl">Subscribe now</Button>
-					</div>
-				</div>
+				<Button type="fancyOutline" href={hyprperksLink} size="xl">Subscribe now</Button>
 			</div>
 		</CardsContainer>
 	</div>
