@@ -26,7 +26,7 @@
 			<TitleHeading slot="title" class="">Hyprperks</TitleHeading>
 			<TitleSubtile class="max-w-[55ch]">
 				<a href={hyprperksLink} class=" text-primary hover:underline" target="_blank"
-					>Subsribe for first-party configurations, priority support</a
+					>Subscribe for first-party configurations, priority support</a
 				>
 				and to support the development. Fully optional, but crafted with love
 			</TitleSubtile>

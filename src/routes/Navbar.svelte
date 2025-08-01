@@ -102,7 +102,7 @@
 			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
 				<a
 					class="rounded-full px-4 py-2 outline outline-cyan-500 hover:outline-cyan-200"
-					href="/support">Donate</a
+					href="/support">Support us</a
 				>
 			</li>
 
