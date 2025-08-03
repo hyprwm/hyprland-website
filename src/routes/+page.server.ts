@@ -1,6 +1,6 @@
 import baseColors from 'tailwindcss/colors'
 import type { CommunityProfile } from '$lib/Types'
-import type { DonatorsRanked } from './api/donators/+server.js'
+import type { SponsorsRanked } from './api/sponsors/+server.js'
 
 export const load = async ({ fetch }) => ({
 	backgroundData: getHeroBackgroundTiles(),
@@ -9,7 +9,7 @@ export const load = async ({ fetch }) => ({
 		.then((response) => response.json())
 		.then((news) => news.slice(0, 3)),
 
-	donators: (await fetch('/api/donators').then((resposne) => resposne.json())) as DonatorsRanked,
+	sponsors: (await fetch('/api/sponsors').then((resposne) => resposne.json())) as SponsorsRanked,
 
 	communityProfiles: (await fetch('/api/community').then((response) =>
 		response.json()

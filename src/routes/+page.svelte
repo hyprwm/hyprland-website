@@ -7,7 +7,7 @@
 	import PluginsSlice from './home-slices/PluginsSlice.svelte'
 	import NewsSlice from './home-slices/NewsSlice.svelte'
 	import HyprPerks from './home-slices/HyprPerksSlice.svelte'
-	import DonatorsSlice from './home-slices/DonatorsSlice.svelte'
+	import Sponsors from './home-slices/SponsorsSlice.svelte'
 	import CommunitySlice from './home-slices/CommunitySlice.svelte'
 
 	export let data
@@ -27,7 +27,7 @@
 
 		<CommunitySlice communityProfiles={data.communityProfiles} />
 
-		<DonatorsSlice donators={data.donators} />
+		<Sponsors sponsors={data.sponsors} />
 
 		<HyprPerks />
 

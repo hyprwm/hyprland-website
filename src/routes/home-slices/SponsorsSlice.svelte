@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
-	import Donators from '$lib/components/Donators.svelte'
-	import type { DonatorsRanked } from '../api/donators/+server'
+	import Sponsors from '$lib/components/SponsorsSlice.svelte'
+	import type { SponsorsRanked } from '../api/sponsors/+server'
 
-	export let donators: DonatorsRanked
+	export let sponsors: SponsorsRanked
 </script>
 
 <section class="relative mb-12 flex max-w-5xl flex-col gap-8 px-8 md:mb-20">
@@ -13,5 +13,5 @@
 		<h2 slot="title" class="text-2xl font-bold md:text-3xl">Our sponsors</h2>
 	</Title>
 
-	<Donators {donators} />
+	<Sponsors {sponsors} />
 </section>

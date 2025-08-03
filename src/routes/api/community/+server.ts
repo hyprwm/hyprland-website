@@ -3,13 +3,6 @@ import amongUsGreenImage from '$lib/images/amongus/green.webp'
 import profiles from '../../../content/profiles.json'
 import type { CommunityProfile } from '$lib/Types'
 
-export type Donator = {
-	name: string
-	link?: string
-	image?: string
-	slogan?: string
-}
-
 const extraProfiles: CommunityProfile[] = [
 	{
 		image: amongUsGreenImage,

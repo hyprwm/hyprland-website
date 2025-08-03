@@ -1,5 +1,4 @@
 {
-
 	"platinum": [
 		{
 			"name": "Mayor Adam West",
@@ -25,6 +24,10 @@
 			"name": "Peter Griffin",
 			"link": "https://github.com/peter",
 			"image": "https://i.imgur.com/4MyOkLZ.jpeg"
+		},
+		{
+			"name": "Quagmire",
+			"image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnYwNDJsdGFkeGlwbzIybXM2Zmpzb3phZ3duNHBub2lkcXJyZDhjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o2La4Pvf9CdJC/giphy.gif"
 		},
 		{
 			"name": "Quagmire",
