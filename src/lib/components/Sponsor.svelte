@@ -6,13 +6,14 @@
 	export let sponsor: Sponsor
 	export let showImage = false
 	export let showSlogan = false
+	export let size = 1
 </script>
 
 <Clickable href={sponsor.link} class="flex flex-col items-center">
 	{#if showImage && sponsor.image}
 		<img
 			title={sponsor.name}
-			class="h-24 max-w-32 self-center justify-self-start rounded-md object-contain"
+			class="h-24 max-w-{size == 1 ? "32" : size == 2 ? "38" : "42"} self-center justify-self-start rounded-md object-contain"
 			src={sponsor.image}
 			alt=""
 		/>
@@ -28,7 +29,7 @@
 		</div>
 	{/if}
 	{#if showSlogan && sponsor.slogan}
-		<div class={cn('text-xs text-slate-100')}>
+		<div class={cn('text-sm text-slate-100 italic')}>
 			{sponsor.slogan}
 		</div>
 	{/if}

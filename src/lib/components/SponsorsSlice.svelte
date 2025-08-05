@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { SponsorsRanked } from '../../routes/api/sponsors/+server'
+	import Button from './Button.svelte'
 	import Sponsor from './Sponsor.svelte'
 
 	export let sponsors: SponsorsRanked
@@ -16,7 +17,7 @@
 				</h2>
 				<div class="flex flex-wrap gap-4">
 					{#each sponsors.platinum as sponsor}
-						<Sponsor {sponsor} showImage showSlogan />
+						<Sponsor {sponsor} showImage showSlogan size={3} />
 					{/each}
 				</div>
 			</div>
@@ -31,7 +32,7 @@
 				</h2>
 				<div class="flex flex-wrap gap-4">
 					{#each sponsors.gold as sponsor}
-						<Sponsor {sponsor} showImage />
+						<Sponsor {sponsor} showImage size={2} />
 					{/each}
 				</div>
 			</div>
@@ -62,5 +63,8 @@
 				</div>
 			{/if}
 		</div>
+	</div>
+	<div class="col-span-full mt-8 flex size-full w-full items-center justify-center self-center" style="margin-top: 5rem; margin-bottom: -5rem;">
+		<Button type="outline" href={'https://account.hypr.land/sponsors'} size="xl">Sponsor us</Button>
 	</div>
 </div>
