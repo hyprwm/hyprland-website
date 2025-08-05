@@ -1,5 +1,4 @@
-<script>
-	import Community from './home-slices/CommunitySlice.svelte'
+<script lang="ts">
 	import FeaturesSlice from './home-slices/FeaturesSlice.svelte'
 	import HallOfFameSlice from './home-slices/HallOfFameSlice.svelte'
 	import Hero from './home-slices/Hero.svelte'
@@ -8,6 +7,8 @@
 	import PluginsSlice from './home-slices/PluginsSlice.svelte'
 	import NewsSlice from './home-slices/NewsSlice.svelte'
 	import HyprPerks from './home-slices/HyprPerksSlice.svelte'
+	import Sponsors from './home-slices/SponsorsSlice.svelte'
+	import CommunitySlice from './home-slices/CommunitySlice.svelte'
 
 	export let data
 </script>
@@ -24,7 +25,9 @@
 
 		<HallOfFameSlice />
 
-		<Community />
+		<CommunitySlice communityProfiles={data.communityProfiles} />
+
+		<Sponsors sponsors={data.sponsors} />
 
 		<HyprPerks />
 

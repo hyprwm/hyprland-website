@@ -1,6 +1,5 @@
 <script>
-	import { animateIn } from '$lib/Helper.ts'
-	import clsx from 'clsx'
+	import { animateIn, cn } from '$lib/Helper.ts'
 
 	/** @type { 'left' | 'right' | 'center'} */
 	export let align = 'center'
@@ -15,7 +14,7 @@
 
 <hgroup
 	use:animateIn={{ slide: 24, fade: 0 }}
-	class={clsx('z-10 flex flex-col  px-3 ', alignClass, $$restProps.class)}
+	class={cn('z-10 flex flex-col  px-3 ', alignClass, $$restProps.class)}
 >
 	<slot name="pre" />
 
