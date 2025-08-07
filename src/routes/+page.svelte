@@ -31,6 +31,8 @@
 
 		<HyprPerks />
 
+		<Sponsors sponsors={data.sponsors} />
+
 		<NewsSlice news={data.news} />
 
 		<InstallSlice />

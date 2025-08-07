@@ -10,8 +10,9 @@ export type Sponsor = {
 
 export type SponsorsRanked = Readonly<{
 	/** The month for the top donators in `monthTop` */
-	month: String
+	month: string
 	monthTop: readonly Sponsor[]
+	diamond: readonly Sponsor[]
 	platinum: readonly Sponsor[]
 	gold: readonly Sponsor[]
 	silver: readonly Sponsor[]

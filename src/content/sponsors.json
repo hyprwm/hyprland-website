@@ -1,4 +1,5 @@
 {
+	"diamond": [],
 	"platinum": [
 		{
 			"name": "37signals",
@@ -8,10 +9,8 @@
 		}
 	],
 
-	"gold": [
-	],
+	"gold": [],
 
 	"silver": [],
-	"bronze": [
-	]
+	"bronze": []
 }
