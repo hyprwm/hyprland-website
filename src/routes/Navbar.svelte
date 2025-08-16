@@ -29,7 +29,7 @@
 	>
 
 	<button
-		class="z-50 rounded-full bg-black/50 p-2 md:backdrop-blur lg:hidden"
+		class="z-50 rounded-full bg-black/50 p-2 md:backdrop-blur nav:hidden"
 		on:click={toggleExpanded}
 		aria-label="Open Navigation"
 	>
@@ -42,7 +42,7 @@
 
 	<nav class="nav" class:!flex={isExpanded}>
 		<ul
-			class="flex flex-col items-center gap-5 rounded-full lg:h-full lg:max-h-full lg:flex-row [&_li]:transition-colors hover:[&_li]:text-cyan-300"
+			class="flex flex-col items-center gap-5 rounded-full nav:h-full nav:max-h-full nav:flex-row [&_li]:transition-colors hover:[&_li]:text-cyan-300"
 		>
 			<li>
 				<a
@@ -137,7 +137,7 @@
 		display: none;
 
 		/* Desktop classes */
-		@media screen(lg) {
+		@media screen(nav) {
 			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 pr-3 outline outline-primary/10;
 		}
 	}
@@ -149,7 +149,7 @@
 
 		@apply rounded-full p-1 transition-colors hover:bg-cyan-500 hover:text-white;
 
-		@media screen(lg) {
+		@media screen(nav) {
 			width: 2rem;
 			height: 2rem;
 		}
