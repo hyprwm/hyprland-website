@@ -23,7 +23,7 @@
 
 		<section class="relative mb-12 flex max-w-5xl flex-col gap-2 px-8 md:mb-20">
 			<Title class="px-0">
-				<TitlePre slot="pre">And a huge thank you!</TitlePre>
+				<TitlePre slot="pre">A huge thank you!</TitlePre>
 				<TitleHeading size="small" slot="title">Our sponsors</TitleHeading>
 			</Title>
 
