@@ -27,8 +27,6 @@
 
 		<CommunitySlice communityProfiles={data.communityProfiles} />
 
-		<Sponsors sponsors={data.sponsors} />
-
 		<HyprPerks />
 
 		<Sponsors sponsors={data.sponsors} />
