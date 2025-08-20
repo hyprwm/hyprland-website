@@ -17,7 +17,10 @@ export default {
 			},
 			margin: { navbar: '3.5rem' },
 
-			screens: { '3xl': '2560px' },
+			screens: {
+				'3xl': '2560px',
+				'nav': '1124px'
+			},
 
 			typography: {
 				DEFAULT: {
