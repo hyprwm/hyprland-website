@@ -5,7 +5,6 @@
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
 	import background from '$lib/images/community-bg.webp'
 	import { discordLink } from '$lib/constants'
-	import Poz from './community/Poz.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import Chan from './community/Chan.svelte'
@@ -60,7 +59,6 @@
 				/>
 			{/each}
 
-			<Poz {biggestSize} getRestrictionElement={() => restrictionElement} />
 			<Chan {biggestSize} getRestrictionElement={() => restrictionElement} />
 		</div>
 	</div>
