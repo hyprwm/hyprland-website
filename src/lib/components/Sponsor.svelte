@@ -9,7 +9,7 @@
 	export let sloganClass = ''
 </script>
 
-<Clickable href={sponsor.link} class="flex flex-col  items-center gap-4">
+<Clickable href={sponsor.link} class="flex flex-col items-center gap-4">
 	{#if showImage && sponsor.image}
 		<img
 			title={sponsor.name}
@@ -23,7 +23,7 @@
 	{:else}
 		<div
 			class={cn(
-				'size-full px-1 py-0.5 text-sm font-medium  text-slate-100',
+				'size-full px-1 py-0.5 text-sm font-medium text-slate-100',
 				sponsor.link && 'hover:text-cyan-200',
 				showImage && 'text-lg'
 			)}

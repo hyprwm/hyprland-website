@@ -1,6 +1,5 @@
 {
-	"diamond": [],
-	"platinum": [
+	"diamond": [
 		{
 			"name": "37signals",
 			"image": "/imgs/sponsors/37signals.svg",
@@ -8,9 +7,8 @@
 			"link": "https://37signals.com/"
 		}
 	],
-
+	"platinum": [],
 	"gold": [],
-
 	"silver": [],
 	"bronze": []
 }

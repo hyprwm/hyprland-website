@@ -40,7 +40,7 @@
 							</h2>
 							<div class="flex justify-center gap-14 md:gap-16">
 								{#each sponsors.diamond as sponsor}
-									<Sponsor {sponsor} showImage showSlogan class="h-16 w-40 md:h-24 md:w-64" />
+									<Sponsor {sponsor} showImage showSlogan class="h-18 w-50 md:h-30 md:w-72" />
 								{/each}
 							</div>
 						</div>
