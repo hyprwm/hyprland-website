@@ -83,12 +83,6 @@ category = "Layout"
 tagline  = "Scrolling layout for Hyprland"
 
 [[plugins]]
-name     = "hyprslidr"
-url      = "https://gitlab.com/magus/hyprslidr"
-category = "Layout"
-tagline  = "Scrolling layout akin to PaperWM"
-
-[[plugins]]
 name     = "hyprRiver"
 url      = "https://github.com/zakk4223/hyprRiver"
 category = "Layout"
