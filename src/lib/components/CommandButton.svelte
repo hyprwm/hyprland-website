@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Cannot split a chunk that has already been edited (28:12 – "on:click={$$slots.default ? undefined : copyCommand}") -->
 <script>
 	import { onDestroy } from 'svelte'
 	import ClipboardIcon from '~icons/mingcute/copy-2-line'

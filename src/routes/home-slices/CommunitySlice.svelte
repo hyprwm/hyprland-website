@@ -10,14 +10,18 @@
 	import Chan from './community/Chan.svelte'
 	import type { CommunityProfile } from '$lib/Types'
 
-	export let communityProfiles: readonly CommunityProfile[]
+	interface Props {
+		communityProfiles: readonly CommunityProfile[];
+	}
+
+	let { communityProfiles }: Props = $props();
 
 	const biggestSize = communityProfiles.reduce(
 		(previousSize, { size }) => (size > previousSize ? size : previousSize),
 		0
 	)
 
-	let restrictionElement: HTMLElement
+	let restrictionElement: HTMLElement | undefined = $state() 
 </script>
 
 <section
@@ -25,10 +29,14 @@
 	bind:this={restrictionElement}
 >
 	<Title>
-		<TitleHeading slot="title" class="">Join a great<br />community</TitleHeading>
-		<TitleSubtile slot="subtitle" class="class-w-[40ch]">
-			Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies, and human_(probably)
-		</TitleSubtile>
+		{#snippet title()}
+				<TitleHeading  class="">Join a great<br />community</TitleHeading>
+			{/snippet}
+		{#snippet subtitle()}
+				<TitleSubtile  class="class-w-[40ch]">
+				Get help from Distro Hoppers, Haiku writers,<br />Hydrohomies, and human_(probably)
+			</TitleSubtile>
+			{/snippet}
 	</Title>
 
 	<div class="group mt-16 flex flex-col items-center">
@@ -55,11 +63,11 @@
 					{...props}
 					weight={relativeSize}
 					spawnDelay={Math.pow(1 - props.size / biggestSize, 4) * 4654}
-					getRestrictionElement={() => restrictionElement}
+					getRestrictionElement={() => restrictionElement!}
 				/>
 			{/each}
 
-			<Chan {biggestSize} getRestrictionElement={() => restrictionElement} />
+			<Chan {biggestSize} getRestrictionElement={() => restrictionElement!} />
 		</div>
 	</div>
 

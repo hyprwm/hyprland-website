@@ -1,5 +1,5 @@
 <script>
-	export let backgroundData
+	let { backgroundData } = $props();
 
 	const { workspacesPerRow, gapLength, workspaceHeight, height, leftColumns, rightColumns } =
 		backgroundData
@@ -13,7 +13,7 @@
 		style={`--amount: ${workspacesPerRow}; --workspace-gap: ${gapLength}px;--workspace-height: ${workspaceHeight}px; --length: ${height}px;`}
 	>
 		<!-- Gradient background -->
-		<div class="top-light" />
+		<div class="top-light"></div>
 
 		<div class="columns left" aria-hidden="true">
 			{#each leftColumns as column}

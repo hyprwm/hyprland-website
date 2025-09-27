@@ -10,12 +10,16 @@
 <section class="" use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}>
 	<div class="z-20 -mb-40 px-4">
 		<Title>
-			<TitlePre slot="pre">Memorials of the ricing legends</TitlePre>
-			<TitleHeading slot="title" class="">Hall of Fame</TitleHeading>
+			{#snippet pre()}
+						<TitlePre >Memorials of the ricing legends</TitlePre>
+					{/snippet}
+			{#snippet title()}
+						<TitleHeading  class="">Hall of Fame</TitleHeading>
+					{/snippet}
 		</Title>
 	</div>
 
-	<div class="atmosphere" />
+	<div class="atmosphere"></div>
 
 	<div
 		class="relative -mt-8 flex w-full max-w-[1100px] flex-col items-center justify-end gap-16 overflow-hidden [perspective:100px] md:px-16 lg:gap-24"
@@ -41,7 +45,7 @@
 		/>
 	</div>
 
-	<div class="glow" />
+	<div class="glow"></div>
 </section>
 
 <style lang="postcss">

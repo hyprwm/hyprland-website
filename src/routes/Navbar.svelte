@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { navigating, page } from '$app/stores'
 	import GithubIcon from '~icons/ri/github-fill'
 	import DiscordIcon from '~icons/prime/discord'
@@ -9,9 +11,11 @@
 	import { discordLink } from '$lib/constants'
 	import { forgejoLink } from '$lib/constants'
 
-	let isExpanded = false
+	let isExpanded = $state(false)
 
-	$: if ($navigating) isExpanded = false
+	run(() => {
+		if ($navigating) isExpanded = false
+	});
 
 	function toggleExpanded() {
 		isExpanded = !isExpanded
@@ -30,7 +34,7 @@
 
 	<button
 		class="z-50 rounded-full bg-black/50 p-2 md:backdrop-blur nav:hidden"
-		on:click={toggleExpanded}
+		onclick={toggleExpanded}
 		aria-label="Open Navigation"
 	>
 		{#if isExpanded}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ActiveGitIcon from '~icons/gg/git-branch'
 	import VaxryImage from '$lib/images/vaxry-github.webp'
 
@@ -18,7 +18,7 @@
 		take
 	} from 'rxjs'
 	import GitTile from '$lib/components/GitTile.svelte'
-	import { lerp } from '$lib/Helper.ts'
+	import { lerp } from '$lib/Helper'
 	import { cubicInOut, expoInOut } from 'svelte/easing'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
 	import { setContext } from 'svelte'
@@ -76,18 +76,18 @@
 		),
 		scan(
 			(acc, value) => (value === 0 ? [] : [...acc, ...Array.from({ length: value }, () => 1)]),
-			[]
+			[] as number[]
 		),
-		startWith([])
+		startWith([] as number[])
 	)
 
-	$: hue = lerp(200, 130, $cubicRelativeLevel$)
-	$: scale = lerp(0.9, 2, $cubicRelativeLevel$)
-	$: translateY = lerp(0, 10, $cubicRelativeLevel$)
+	let hue = $derived(lerp(200, 130, $cubicRelativeLevel$))
+	let scale = $derived(lerp(0.9, 2, $cubicRelativeLevel$))
+	let translateY = $derived(lerp(0, 10, $cubicRelativeLevel$))
 
 	/** @type {HTMLDivElement} */
-	let containerElement
-	let isAnimationComplete = false
+	let containerElement = $state()
+	let isAnimationComplete = $state(false)
 
 	const vaxrySize = 220
 	const contextId = Symbol('hypractive context')
@@ -108,7 +108,7 @@
 <div class="relative overflow-visible">
 	<button
 		class="flex items-center gap-3 font-bold text-slate-400 shadow-black drop-shadow-lg transition-colors hover:underline active:scale-95"
-		on:click={isAnimationComplete ? onClickUnlocked : onClick}
+		onclick={isAnimationComplete ? onClickUnlocked : onClick}
 		style:color={$relativeLevel$ > 0 ? `hsl(${hue} 64% 53%)` : undefined}
 		style:scale={$relativeLevel$ > 0 ? scale : undefined}
 		style:translate={$relativeLevel$ > 0 ? `0px -${translateY}px` : undefined}
@@ -132,14 +132,14 @@
 			<div
 				class="vaxx-wrapper absolute bottom-[240px] left-1/2 z-50 aspect-square -translate-x-[100px] rounded-full animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-[500px] slide-in-from-left-20 [animation-duration:2.5s]"
 				style:width={vaxrySize + 'px'}
-				on:animationend={() => (isAnimationComplete = true)}
+				onanimationend={() => (isAnimationComplete = true)}
 			>
 				<DiscordProfilePicture
 					image={VaxryImage}
 					size={vaxrySize}
+					weight={10}
 					coordinates={[0, 0]}
 					class="outline-orange-300"
-					{contextId}
 					isAnimating={false}
 				/>
 			</div>
@@ -150,7 +150,7 @@
 			class="bg-gradient"
 			style:opacity={$hasAscended$ ? 1 : $relativeLevel$}
 			style="--relativeLevel: {$hasAscended$ ? 1 : $expoRelativeLevel$ - 0.2}"
-		/>
+		></div>
 	</div>
 </div>
 

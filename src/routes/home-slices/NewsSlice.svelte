@@ -4,13 +4,17 @@
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
 
-	export let news
+	let { news } = $props();
 </script>
 
 <section class="relative mb-12 max-w-5xl px-8 md:mb-20">
 	<Title>
-		<TitlePre slot="pre">Read while it's fresh!</TitlePre>
-		<TitleHeading slot="title" class="">Latest news</TitleHeading>
+		{#snippet pre()}
+				<TitlePre >Read while it's fresh!</TitlePre>
+			{/snippet}
+		{#snippet title()}
+				<TitleHeading  class="">Latest news</TitleHeading>
+			{/snippet}
 	</Title>
 
 	<ul class="mt-8 flex flex-col gap-10">

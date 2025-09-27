@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script>
 	import clsx from 'clsx'
 	import PlayIcon from '~icons/mingcute/play-circle-line'

@@ -4,25 +4,41 @@
 	import PlayIconFill from '~icons/mingcute/play-fill'
 	import PlayIconOutline from '~icons/mingcute/play-line'
 
-	export let name: string
-	export let creator: string
-	export let dotfilesLink: string
-	export let creatorProfilePicture: string
-	export let thumbnail: string
-	export let video: string | undefined = undefined
-	/**
+	
+	interface Props {
+		name: string;
+		creator: string;
+		dotfilesLink: string;
+		creatorProfilePicture: string;
+		thumbnail: string;
+		video?: string | undefined;
+		/**
 	 * Specify the blurred background image to be used.
 	 * Defaults to `"generated_<thumbnail>"` * */
-	export let blurredThumbnail: string | undefined = undefined
-	export let pretitel: string
+		blurredThumbnail?: string | undefined;
+		pretitel: string;
+		[key: string]: any
+	}
 
-	let toShow: 'thumbnail' | 'video' = 'thumbnail'
+	let {
+		name,
+		creator,
+		dotfilesLink,
+		creatorProfilePicture,
+		thumbnail,
+		video = undefined,
+		blurredThumbnail = undefined,
+		pretitel,
+		...rest
+	}: Props = $props();
+
+	let toShow: 'thumbnail' | 'video' = $state('thumbnail')
 
 	let background = blurredThumbnail ?? getGeneratedPath(thumbnail)
 </script>
 
 <div
-	class="flex flex-col items-center gap-10 px-4 {$$restProps.class}"
+	class="flex flex-col items-center gap-10 px-4 {rest.class}"
 	style:--bg="url('{background}')"
 >
 	<div class="flex flex-col items-center justify-center">
@@ -57,24 +73,24 @@
 		<div class="rice group relative" class:hasVideo={video}>
 			{#if toShow === 'thumbnail'}
 				{#if video}
-					<button on:click={() => (toShow = 'video')}>
+					<button onclick={() => (toShow = 'video')}>
 						<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
 					</button>
 					<button
 						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-900/60 p-4 text-white/80 opacity-0 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white group-hover:opacity-100"
-						on:click={() => (toShow = 'video')}><PlayIconFill class="size-8 " /></button
+						onclick={() => (toShow = 'video')}><PlayIconFill class="size-8 " /></button
 					>
 
 					<button
 						class="absolute bottom-6 left-6 rounded-full bg-gray-900/60 p-2 text-white/80 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white"
-						on:click={() => (toShow = 'video')}><PlayIconOutline class="size-5 " /></button
+						onclick={() => (toShow = 'video')}><PlayIconOutline class="size-5 " /></button
 					>
 				{:else}
 					<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
 				{/if}
 			{:else if toShow === 'video'}
-				<!-- svelte-ignore a11y-media-has-caption -->
-				<video autoplay controls poster={thumbnail} src={video} />
+				<!-- svelte-ignore a11y_media_has_caption -->
+				<video autoplay controls poster={thumbnail} src={video}></video>
 			{/if}
 		</div>
 		<!-- blur background -->
@@ -85,7 +101,7 @@
 			alt={`${name} by ${creator} thumbnail`}
 			loading="lazy"
 		/>
-		<div class="grain_" />
+		<div class="grain_"></div>
 	</div>
 </div>
 

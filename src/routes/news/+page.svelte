@@ -6,10 +6,10 @@
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 
-	export let data
+	let { data } = $props();
 
 	/** @type {HTMLElement} */
-	let asciiElement
+	let asciiElement = $state()
 
 	const { posts } = data
 
@@ -68,14 +68,16 @@
 	<title>Hyprland News</title>
 </svelte:head>
 
-<div class="fancy-top-gradient" />
+<div class="fancy-top-gradient"></div>
 
 <section>
 	<header class="header">
-		<pre class="spinner-wrapper" bind:this={asciiElement} />
+		<pre class="spinner-wrapper" bind:this={asciiElement}></pre>
 
 		<Title>
-			<TitleHeading slot="title" class="">News</TitleHeading>
+			{#snippet title()}
+						<TitleHeading  class="">News</TitleHeading>
+					{/snippet}
 			<TitleSubtile>Fresh updates straight from the oven</TitleSubtile>
 		</Title>
 	</header>

@@ -7,7 +7,11 @@
 	import Button from '$lib/components/Button.svelte'
 	import PatternBackground from '$lib/PatternBackground.svelte'
 
-	export let sponsors: SponsorsRanked
+	interface Props {
+		sponsors: SponsorsRanked
+	}
+
+	let { sponsors }: Props = $props()
 	const hasSponsors = Object.values(sponsors)
 		.filter((value) => !Array.isArray(value))
 		.every((array) => array.length === 0)
@@ -18,13 +22,17 @@
 {#if hasSponsors}
 	<div class="relative flex w-full flex-col items-center justify-center">
 		<PatternBackground
-			class="absolute -inset-12 inset-x-0  h-[100%]  w-full text-slate-800 opacity-40"
+			class="absolute -inset-24 inset-x-0  h-[120%]  w-full text-slate-800 opacity-40"
 		/>
 
 		<section class="relative mb-12 flex max-w-5xl flex-col gap-2 px-8 md:mb-20">
 			<Title class="px-0">
-				<TitlePre slot="pre">A huge thank you!</TitlePre>
-				<TitleHeading size="small" slot="title">Our sponsors</TitleHeading>
+				{#snippet pre()}
+					<TitlePre>A huge thank you!</TitlePre>
+				{/snippet}
+				{#snippet title()}
+					<TitleHeading size="small">Our sponsors</TitleHeading>
+				{/snippet}
 			</Title>
 
 			<div

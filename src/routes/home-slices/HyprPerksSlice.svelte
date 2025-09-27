@@ -17,13 +17,15 @@
 
 <section class="relative w-full">
 	<div class="mb-16 md:mb-32">
-		<div class="h-[2px] w-full bg-gradient-to-l from-transparent via-cyan-400/50 to-transparent" />
+		<div class="h-[2px] w-full bg-gradient-to-l from-transparent via-cyan-400/50 to-transparent"></div>
 	</div>
 	<div class="top-gradient"></div>
 
 	<div class="relative mx-auto mb-12 max-w-5xl px-8 md:mb-20">
 		<Title class="mb-10">
-			<TitleHeading slot="title" class="">Hyprperks</TitleHeading>
+			{#snippet title()}
+						<TitleHeading  class="">Hyprperks</TitleHeading>
+					{/snippet}
 			<TitleSubtile class="max-w-[55ch]">
 				<a href={hyprperksLink} class=" text-primary hover:underline" target="_blank"
 					>Subscribe for first-party configurations, priority support</a

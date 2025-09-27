@@ -105,7 +105,7 @@
 		</div>
 	</div>
 
-	<div class="gradient" aria-hidden="true" />
+	<div class="gradient" aria-hidden="true"></div>
 </footer>
 
 <style lang="postcss">

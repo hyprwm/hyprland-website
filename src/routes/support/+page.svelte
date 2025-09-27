@@ -5,7 +5,7 @@
 	import Button from '$lib/components/Button.svelte'
 	import CloseIcon from '~icons/mingcute/close-line'
 
-	let kofiModal: HTMLDialogElement | undefined
+	let kofiModal: HTMLDialogElement | undefined = $state()
 
 	function lockScroll() {
 		document.querySelector('html')?.classList.add('lock-scroll')
@@ -26,8 +26,12 @@
 
 <section class="min-h-screen w-full md:mt-32">
 	<Title class="mb-4 md:mb-8">
-		<TitlePre slot="pre">Help continue Hyprland development</TitlePre>
-		<TitleHeading slot="title" class="">Support Hyprland</TitleHeading>
+		{#snippet pre()}
+				<TitlePre >Help continue Hyprland development</TitlePre>
+			{/snippet}
+		{#snippet title()}
+				<TitleHeading  class="">Support Hyprland</TitleHeading>
+			{/snippet}
 	</Title>
 
 	<div
@@ -101,7 +105,7 @@
 			<div class="relative h-[712px] min-h-[712px] shadow-2xl">
 				<form class="absolute -right-2 -top-4 z-10">
 					<button
-						on:click={() => {
+						onclick={() => {
 							unlockScroll()
 						}}
 						formmethod="dialog"

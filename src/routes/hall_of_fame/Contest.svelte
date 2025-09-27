@@ -1,15 +1,27 @@
 <script>
 	import { inview } from 'svelte-inview'
 
-	/** @type {string} */
-	export let name
-	/** @type {number} */
-	export let number
-	/** @type {string} */
-	export let date
+	
+	
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} name
+	 * @property {number} number
+	 * @property {string} date
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let {
+		name,
+		number,
+		date,
+		children
+	} = $props();
 
 	/** Used to show the background gradient. Show if user scrolls, but do not disable when the user scrolls past from the top.  */
-	let enabled = false
+	let enabled = $state(false)
 
 	function setEnabled({ detail }) {
 		// Show the effect when the user scrolls in and keep it enabled until the user scrolls up from it again
@@ -31,7 +43,7 @@
 		<header
 			class="flex flex-col items-center gap-2 p-6 mix-blend-color-dodge"
 			use:inview={{ threshold: 0.45 }}
-			on:inview_change={setEnabled}
+			oninview_change={setEnabled}
 		>
 			<div class="text-xl font-bold text-neutral-300/80 sm:text-2xl">Contest #{number}</div>
 			<h2 class="text-center text-6xl font-bold text-neutral-200/80 sm:text-9xl">{name}</h2>
@@ -48,7 +60,7 @@
 	</div>
 
 	<div class="flex flex-col gap-40">
-		<slot />
+		{@render children?.()}
 	</div>
 </section>
 

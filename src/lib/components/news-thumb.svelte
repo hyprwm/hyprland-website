@@ -2,9 +2,9 @@
 	import ArrowRight from '~icons/mingcute/arrow-right-circle-line'
 
 	import { animateIn, formatDate } from '$lib/Helper.ts'
-	export let entry
+	let { entry } = $props();
 
-	$: link = `/news/${entry.slug}`
+	let link = $derived(`/news/${entry.slug}`)
 </script>
 
 <li class="flex" use:animateIn={{ fade: 0, slide: 24 }}>

@@ -1,4 +1,9 @@
-<svg viewBox="0 330 1006.49 347.4685344827586" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" style="width: 6rem; height: 2rem;" class={$$props.class} width="1006.49" height="347.4685344827586">
+<script>
+  /** @type {{ [key: string]: any }} */
+  let { ...props } = $props();
+</script>
+
+<svg viewBox="0 330 1006.49 347.4685344827586" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" style="width: 6rem; height: 2rem;" class={props.class} width="1006.49" height="347.4685344827586">
    <defs>
     <style>
       .st0 {
@@ -36,7 +41,7 @@
       .st8 {
         fill: url(#i);
       }
-    </style><style class="darkreader darkreader--sync" media="screen"/>
+    </style><style class="darkreader darkreader--sync" media="screen"></style>
     <linearGradient gradientUnits="userSpaceOnUse" y2="491.29" x2="561.93" y1="593.85" x1="561.93" id="i">
       <stop stop-color="#00a8f4" offset="0" style="--darkreader-inline-stopcolor: var(--darkreader-background-00a8f4, #0086c3);" data-darkreader-inline-stopcolor=""/>
       <stop stop-color="#00e5d0" offset="1" style="--darkreader-inline-stopcolor: var(--darkreader-background-00e5d0, #00b7a6);" data-darkreader-inline-stopcolor=""/>

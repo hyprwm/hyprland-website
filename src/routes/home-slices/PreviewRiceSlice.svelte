@@ -2,13 +2,15 @@
 	import { inview } from 'svelte-inview'
 	import Video from '$lib/components/Video.svelte'
 	import { onMount } from 'svelte'
+	/** @type {{ [key: string]: any }} */
+	let { ...rest } = $props();
 
 	/** @type HTMLVideoElement */
-	let videoElement
+	let videoElement = $state()
 
-	let isVisible = false
-	let isManuallyPaused = false
-	let isChrome = false
+	let isVisible = $state(false)
+	let isManuallyPaused = $state(false)
+	let isChrome = $state(false)
 
 	onMount(() => {
 		isChrome = navigator.userAgent.toLowerCase().includes('chrome')
@@ -21,18 +23,18 @@
 	})
 </script>
 
-<section class={$$restProps.class} class:isVisible>
+<section class={rest.class} class:isVisible>
 	<div
 		class="wrapper"
 		role="banner"
 		use:inview={{ threshold: 0.5 }}
-		on:inview_enter={() => {
+		oninview_enter={() => {
 			isVisible = true
 			if (!isManuallyPaused && isChrome) {
 				videoElement.play().catch(() => {})
 			}
 		}}
-		on:inview_leave={() => {
+		oninview_leave={() => {
 			isVisible = false
 			isManuallyPaused = videoElement.paused
 			videoElement.pause()
@@ -56,7 +58,7 @@
 		>
 	</div>
 
-	<div class="preview-rice-bg" aria="hidden" />
+	<div class="preview-rice-bg" aria="hidden"></div>
 </section>
 
 <style lang="postcss">

@@ -10,7 +10,7 @@
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import Button from '$lib/components/Button.svelte'
 
-	export let data
+	let { data } = $props();
 
 	const { plugins } = data
 	const featuredPlugins = plugins.filter(({ featured }) => featured).slice(0, 4)
@@ -50,8 +50,12 @@
 
 	<header class="mt-24 flex flex-col items-center justify-center md:mt-32">
 		<Title>
-			<TitlePre slot="pre">Plugins</TitlePre>
-			<TitleHeading slot="title" class="">Unlock full power</TitleHeading>
+			{#snippet pre()}
+						<TitlePre >Plugins</TitlePre>
+					{/snippet}
+			{#snippet title()}
+						<TitleHeading  class="">Unlock full power</TitleHeading>
+					{/snippet}
 			<TitleSubtile>Easily load up plugins and customize everything</TitleSubtile>
 		</Title>
 

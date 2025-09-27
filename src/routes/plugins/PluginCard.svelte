@@ -6,22 +6,34 @@
 
 	// Dont forget to put this component inside of CardsContainer.svelte
 	// Also pass a hight class to the element, as otherwise the banner might not align properly,
-	// due to the parent container being unable to use height: full as there wont be a reference
+	
 
-	export let plugin
-	export let color = undefined
-	export let showCategory = false
-	export let taglineMaxLength = 0
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} plugin - due to the parent container being unable to use height: full as there wont be a reference
+	 * @property {any} [color]
+	 * @property {boolean} [showCategory]
+	 * @property {number} [taglineMaxLength]
+	 */
+
+	/** @type {Props & { [key: string]: any }} */
+	let {
+		plugin,
+		color = undefined,
+		showCategory = false,
+		taglineMaxLength = 0,
+		...rest
+	} = $props();
 
 	/** @type {HTMLVideoElement}*/
-	let videoElement
+	let videoElement = $state()
 </script>
 
 <Card
 	on:mouseenter={() => videoElement && videoElement.play().catch(console.error)}
 	on:mouseleave={() => videoElement && videoElement.pause()}
 	{color}
-	class={$$restProps.class}
+	class={rest.class}
 	gradientOpacity={0.5}
 	><a
 		href={plugin.url}

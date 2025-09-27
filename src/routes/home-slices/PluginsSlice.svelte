@@ -13,9 +13,9 @@
 	import Button from '$lib/components/Button.svelte'
 
 	/** @type {HTMLVideoElement[]}*/
-	const videos = []
-	let activeIndex = 0
-	let isHoveringVideo = false
+	const videos = $state([])
+	let activeIndex = $state(0)
+	let isHoveringVideo = $state(false)
 	const isVideoCroppedInput$ = new Subject()
 	/** @type {import('rxjs').Subject<boolean>}*/
 	const isVideoCropped$ = isVideoCroppedInput$.pipe(
@@ -78,7 +78,7 @@
 	})
 </script>
 
-<svelte:window on:resize={() => isVideoCroppedInput$.next(0)} />
+<svelte:window onresize={() => isVideoCroppedInput$.next(0)} />
 
 <section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
 	<div
@@ -102,14 +102,15 @@
 			<div class="flex h-full flex-col gap-4">
 				{#each items as { icon, title, description }, index}
 					{@const isActive = index === activeIndex}
+					{@const SvelteComponent = icon}
 					<button
 						class={clsx(
 							'flex gap-3 rounded-xl px-4 py-4  outline-0  outline-cyan-400/50 transition-all  sm:-ml-4',
 							isActive && 'bg-blue-300/5 shadow-md outline outline-1 backdrop-blur-sm    '
 						)}
-						on:mouseenter={() => setActiveItem(index)}
+						onmouseenter={() => setActiveItem(index)}
 					>
-						<svelte:component this={icon} class="h-8 w-8 shrink-0 text-primary" />
+						<SvelteComponent class="h-8 w-8 shrink-0 text-primary" />
 						<p
 							class={clsx(
 								'txt-shadow_ text-left text-lg font-medium transition-colors ',
@@ -153,7 +154,7 @@
 		>
 			{#if $isVideoCropped$}
 				<button
-					on:click={toggleVideoSlide}
+					onclick={toggleVideoSlide}
 					class:rotate-180={isHoveringVideo}
 					class="group absolute -left-6 top-1/2 z-50 rounded-full bg-blue-400/5 p-2 outline outline-white/10 backdrop-blur-sm transition-transform"
 					out:fade

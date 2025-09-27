@@ -1,18 +1,25 @@
 <script>
 	import { animateIn, getGeneratedPath } from '$lib/Helper.ts'
 
-	/** @type {string}
-	 * The path to the image. Usually the file within `static`, but can also be an URL
+	
+	
+	
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} image
+	 * @property {string | undefined} [imageClass]
+	 * @property {string | undefined} [containerClass]
+	 * @property {string} [blurredBackground]
 	 */
-	export let image
-	/** @type {string | undefined} */
-	export let imageClass = undefined
-	/** @type {string | undefined} */
-	export let containerClass = undefined
-	/** @type {string}
-	 * The path to the image. Usually the file within `static`, but can also be an URL. Defaults to `generated_<image>`
-	 */
-	export let blurredBackground = undefined
+
+	/** @type {Props} */
+	let {
+		image,
+		imageClass = undefined,
+		containerClass = undefined,
+		blurredBackground = undefined
+	} = $props();
 </script>
 
 <div class="rice {containerClass} group">

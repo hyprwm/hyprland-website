@@ -10,7 +10,7 @@
 	import Sponsors from './home-slices/SponsorsSlice.svelte'
 	import CommunitySlice from './home-slices/CommunitySlice.svelte'
 
-	export let data
+	let { data } = $props()
 </script>
 
 <div class="overflow-hidden">

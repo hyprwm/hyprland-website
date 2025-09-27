@@ -6,9 +6,9 @@
 	import HeroBackground from './HeroBackground.svelte'
 	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
 
-	export let backgroundData
+	let { backgroundData } = $props();
 
-	let isVisible = true
+	let isVisible = $state(true)
 	let isMobile = false
 
 	onMount(() => {
@@ -19,7 +19,7 @@
 <section
 	class="relative flex h-[100svh] min-h-[36rem] w-full flex-col items-center justify-center overflow-x-hidden"
 	use:inview
-	on:inview_change={({ detail: { inView } }) => {
+	oninview_change={({ detail: { inView } }) => {
 		isVisible = inView
 	}}
 >

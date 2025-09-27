@@ -1,6 +1,12 @@
 <script>
-	/** @type {string}*/
-	export let tag
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} tag
+	 */
+
+	/** @type {Props} */
+	let { tag } = $props();
 
 	const colors = {
 		Design: 'text-pink-200 bg-pink-500/15',

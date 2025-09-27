@@ -1,12 +1,22 @@
 <script>
-	/** @type {string | undefined} */
-	export let image = undefined
-	/** @type {string | undefined} */
-	export let name = undefined
+	
+	
 	/**
-	 * @type {string | undefined }
-	 * Classes for the command text
+	 * @typedef {Object} Props
+	 * @property {string | undefined} [image]
+	 * @property {string | undefined} [name]
+	 * @property {import('svelte').Snippet} [imageExtra]
+	 * @property {import('svelte').Snippet} [children]
 	 */
+
+	/** @type {Props} */
+	let {
+		image = undefined,
+		name = undefined,
+		imageExtra,
+		children
+	} = $props();
+	
 </script>
 
 <div class="group relative flex flex-col items-center gap-2 md:flex-row md:gap-4">
@@ -16,12 +26,12 @@
 		>
 			<img src={image} class="h-20 w-32 object-contain" alt="{name} Logo" loading="lazy" />{name}
 
-			<slot name="imageExtra" />
+			{@render imageExtra?.()}
 		</div>
 	{/if}
 
 	<!-- Command button slot -->
 	<div class="mb-2 w-full">
-		<slot />
+		{@render children?.()}
 	</div>
 </div>

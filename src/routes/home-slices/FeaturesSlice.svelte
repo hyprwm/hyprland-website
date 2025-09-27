@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 	import Card from '$lib/components/Card.svelte'
 	import GameIcon from '~icons/gg/games'
 	import SpecialWorkspaceIcon from '~icons/gg/shutterstock'
@@ -21,8 +21,12 @@
 
 <section class="relative flex max-w-screen-xl flex-col items-center px-3 md:px-8">
 	<Title>
-		<TitlePre slot="pre">TLDR</TitlePre>
-		<TitleHeading slot="title" class="">Features</TitleHeading>
+		{#snippet pre()}
+				<TitlePre >TLDR</TitlePre>
+			{/snippet}
+		{#snippet title()}
+				<TitleHeading  class="">Features</TitleHeading>
+			{/snippet}
 	</Title>
 
 	<CardsContainer
@@ -162,6 +166,8 @@
 </section>
 
 <style lang="postcss">
+	
+
 	.icon-feature {
 		@apply flex items-center justify-center gap-3 font-bold text-slate-400;
 	}

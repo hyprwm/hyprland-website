@@ -4,8 +4,12 @@
 	import { Subject, filter, first, map, merge, of, startWith, switchMap, timer } from 'rxjs'
 	import { onDestroy } from 'svelte'
 
-	export let biggestSize: number
-	export let getRestrictionElement: (() => HTMLElement) | undefined = undefined
+	interface Props {
+		biggestSize: number
+		getRestrictionElement?: (() => HTMLElement) | undefined
+	}
+
+	let { biggestSize, getRestrictionElement = undefined }: Props = $props()
 
 	const thePozArmy = Object.values(import.meta.glob('$lib/images/poz/*', { eager: true })).map(
 		(x) => x.default as string
@@ -13,7 +17,7 @@
 
 	const size = 90
 	const origin = [710, 615] as const
-	let newPosition: readonly [number, number]
+	let newPosition: readonly [number, number] = $state()
 	const clicksTarget = 9
 	const shakeMax = 24
 	const clicksInput$ = new Subject()
@@ -74,7 +78,7 @@
 			isAnimating={false}
 			tag="poz"
 			{getRestrictionElement}
-			on:enteredView={({ detail: { dragCoordinates } }) => {
+			onenteredView={({ detail: { dragCoordinates } }) => {
 				dragCoordinates.update(([x, y]) => {
 					x += lerp(400, 0, (size / maxSize) * (1 - Math.random())) * (Math.random() > 0.5 ? 1 : -1)
 					y += lerp(400, 0, (size / maxSize) * (1 - Math.random())) * (Math.random() > 0.5 ? 1 : -1)
