@@ -1,14 +1,21 @@
 <script lang="ts">
 	interface Props {
-		href?: string | undefined;
-		isExternal?: boolean;
-		children?: import('svelte').Snippet;
+		href?: string | undefined
+		isExternal?: boolean
+		children?: import('svelte').Snippet
 		[key: string]: any
 	}
 
-	let { href = undefined, isExternal = true, children, ...rest }: Props = $props();
+	let {
+		href = undefined,
+		isExternal = true,
+		children,
+		...rest
+	}: Props = $props()
 
-	let isExternalProp = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+	let isExternalProp = isExternal
+		? { target: '_blank', rel: 'noopener noreferrer' }
+		: {}
 </script>
 
 {#if href}

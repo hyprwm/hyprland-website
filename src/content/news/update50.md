@@ -41,6 +41,7 @@ a bunch of things, and we hope to get more and more tests there as time goes on.
 ### Other
 
 Other new stuff include amongst others:
+
 - New `monitorv2` syntax for monitor configs that are less cluttered
 - tons of small optimizations (thanks Tom!)
 - new `ext_workspace_v1` support
@@ -52,10 +53,10 @@ Other new stuff include amongst others:
 - new permission management for keyboards
 - and more...
 
-
 ### Fixes
 
 Tons of fixes, including:
+
 - fixes for some `hyprpm` and hyprland crashes.
 - fixed some minor blur artifacts on popups
 - snap now respects outer gaps

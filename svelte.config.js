@@ -10,8 +10,12 @@ const mdsvexOptions = {
 	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await getHighlighter({ theme: 'github-dark' })
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+			const highlighter = await getHighlighter({
+				theme: 'github-dark'
+			})
+			const html = escapeSvelte(
+				highlighter.codeToHtml(code, { lang })
+			)
 			return `{@html \`${html}\` }`
 		}
 	},
@@ -23,7 +27,10 @@ const mdsvexOptions = {
 const config = {
 	extensions: ['.svelte', '.md'],
 	kit: { adapter: adapter() },
-	preprocess: [vitePreprocess({ script: true }), mdsvex(mdsvexOptions)]
+	preprocess: [
+		vitePreprocess({ script: true }),
+		mdsvex(mdsvexOptions)
+	]
 }
 
 export default config

@@ -3,7 +3,7 @@
 	import Video from '$lib/components/Video.svelte'
 	import { onMount } from 'svelte'
 	/** @type {{ [key: string]: any }} */
-	let { ...rest } = $props();
+	let { ...rest } = $props()
 
 	/** @type HTMLVideoElement */
 	let videoElement = $state()
@@ -68,7 +68,7 @@
 		contain: layout style content;
 	}
 	.wrapper {
-		@apply mx-3  rounded-xl;
+		@apply mx-3 rounded-xl;
 		transition: all cubic-bezier(0.9, -1, 0.065, 1.8) 1060ms;
 		position: relative;
 		box-shadow: 0px 0px 44px theme(colors.primary / 80%);
@@ -111,8 +111,13 @@
 		width: 1100px;
 		height: 200%;
 
-		background-image: url('/imgs/grain.webp'),
-			radial-gradient(closest-side, theme(colors.sky.500), theme(colors.indigo.500 / 0%));
+		background-image:
+			url('/imgs/grain.webp'),
+			radial-gradient(
+				closest-side,
+				theme(colors.sky.500),
+				theme(colors.indigo.500 / 0%)
+			);
 
 		mask-image: radial-gradient(
 			closest-side,

@@ -6,13 +6,18 @@
 		getRestrictionElement?: (() => HTMLElement) | undefined
 	}
 
-	let { biggestSize, getRestrictionElement = undefined }: Props = $props()
+	let { biggestSize, getRestrictionElement = undefined }: Props =
+		$props()
 	const size = 90
 
 	let isDragging = $state(false)
 	let isHover = $state(false)
 	let image: string = $derived(
-		isDragging ? 'imgs/chan/surprise.svg' : isHover ? 'imgs/chan/wink.svg' : 'imgs/chan/joy.svg'
+		isDragging
+			? 'imgs/chan/surprise.svg'
+			: isHover
+				? 'imgs/chan/wink.svg'
+				: 'imgs/chan/joy.svg'
 	)
 </script>
 

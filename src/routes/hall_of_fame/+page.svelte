@@ -5,7 +5,7 @@
 	import Contest from './Contest.svelte'
 	import FamedRice from './FamedRice.svelte'
 
-	let { data } = $props();
+	let { data } = $props()
 </script>
 
 <div class="fancy-top-gradient"></div>
@@ -20,13 +20,14 @@
 		</div>
 		<Title>
 			{#snippet title()}
-						<TitleHeading  class="">Hall of Fame</TitleHeading>
-					{/snippet}
+				<TitleHeading class="">Hall of Fame</TitleHeading>
+			{/snippet}
 			{#snippet subtitle()}
-						<TitleSubtile  class="class-w-[40ch]">
-					The chronicles of the triumphant from bygone rice contests held within our Discord
+				<TitleSubtile class="class-w-[40ch]">
+					The chronicles of the triumphant from bygone rice contests
+					held within our Discord
 				</TitleSubtile>
-					{/snippet}
+			{/snippet}
 		</Title>
 	</div>
 
@@ -49,7 +50,10 @@
 
 <svelte:head>
 	<title>Hall of Fame | Hyprland</title>
-	<meta name="description" content="The winners from Hyprlands rice contests" />
+	<meta
+		name="description"
+		content="The winners from Hyprlands rice contests"
+	/>
 	<meta property="og:title" content="Hyprland's Hall of Fame" />
 	<meta
 		property="og:description"

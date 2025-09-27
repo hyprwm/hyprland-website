@@ -13,7 +13,13 @@
 		scale: number
 	}
 
-	let { lifeSpan = 1500, maxSpeed = 20, minSpeed = 4, maxOpacity = 1, scale = 1 }: Props = $props()
+	let {
+		lifeSpan = 1500,
+		maxSpeed = 20,
+		minSpeed = 4,
+		maxOpacity = 1,
+		scale = 1
+	}: Props = $props()
 
 	const isDescending = Math.random() > 0.8
 	const wobbliness = lerp(0.0001, 0.004, Math.random())
@@ -64,7 +70,9 @@
 	style:translate={`${x}px ${y}px`}
 	style:background={color}
 	style:opacity={(lifeRemaining / lifeSpan - (1 - maxOpacity)) ** 5}
-	style:scale={isDescending ? (lifeRemaining / lifeSpan - (1 - scale)) ** 2 : undefined}
+	style:scale={isDescending
+		? (lifeRemaining / lifeSpan - (1 - scale)) ** 2
+		: undefined}
 	style:top={50 + (Math.random() * 5 - 5) + '%'}
 	style:left={50 + (Math.random() * 5 - 5) + '%'}
 ></div>

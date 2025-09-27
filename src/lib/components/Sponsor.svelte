@@ -4,10 +4,10 @@
 	import Clickable from './Clickable.svelte'
 
 	interface Props {
-		sponsor: Sponsor;
-		showImage?: boolean;
-		showSlogan?: boolean;
-		sloganClass?: string;
+		sponsor: Sponsor
+		showImage?: boolean
+		showSlogan?: boolean
+		sloganClass?: string
 		[key: string]: any
 	}
 
@@ -17,10 +17,13 @@
 		showSlogan = false,
 		sloganClass = '',
 		...rest
-	}: Props = $props();
+	}: Props = $props()
 </script>
 
-<Clickable href={sponsor.link} class="flex flex-col items-center gap-4">
+<Clickable
+	href={sponsor.link}
+	class="flex flex-col items-center gap-4"
+>
 	{#if showImage && sponsor.image}
 		<img
 			title={sponsor.name}

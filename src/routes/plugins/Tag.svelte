@@ -1,12 +1,11 @@
 <script>
-	
 	/**
 	 * @typedef {Object} Props
 	 * @property {string} tag
 	 */
 
 	/** @type {Props} */
-	let { tag } = $props();
+	let { tag } = $props()
 
 	const colors = {
 		Design: 'text-pink-200 bg-pink-500/15',
@@ -18,7 +17,8 @@
 </script>
 
 <div
-	class={'min-w-max rounded-full  p-1 px-2.5 text-xs font-bold ' + colors[tag] ?? 'bg-slate-100/5'}
+	class={'min-w-max rounded-full  p-1 px-2.5 text-xs font-bold ' +
+		colors[tag] ?? 'bg-slate-100/5'}
 >
 	{tag}
 </div>

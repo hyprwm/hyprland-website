@@ -12,7 +12,7 @@ Hey hey people, vaxry here. It's time for a new Hyprland update, after 2 months 
 ## Breaking changes
 
 - The gesture system has been reworked and is now way more flexible. Thus, the old `gestures:workspace_swipe`,
-`gestures:workspace_swipe_fingers` and `gestures:workspace_swipe_min_fingers` are gone.
+  `gestures:workspace_swipe_fingers` and `gestures:workspace_swipe_min_fingers` are gone.
 
 - `animations:first_launch_animation` is gone, use the new `monitorAdded` animation leaf.
 
@@ -39,7 +39,6 @@ Check the new [gestures wiki page](https://wiki.hypr.land/Configuring/Gestures/)
 - Wayland-native popups now have fade in/out animations
 - Screensharing now forces 8-bit by default (fixes chromium / firefox screensharing on wide color gamut displays)
 - New `novrr` windowrule.
-
 
 ## Fixes
 

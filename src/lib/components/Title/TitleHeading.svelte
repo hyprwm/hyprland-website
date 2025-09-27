@@ -6,12 +6,12 @@
 		small: 'text-3xl  md:text-5xl lg:text-6xl'
 	}
 	interface Props {
-		size?: keyof typeof sizes;
-		children?: import('svelte').Snippet;
+		size?: keyof typeof sizes
+		children?: import('svelte').Snippet
 		[key: string]: any
 	}
 
-	let { size = 'default', children, ...rest }: Props = $props();
+	let { size = 'default', children, ...rest }: Props = $props()
 </script>
 
 <h1 class={cn('mb-12  font-bold', sizes[size], rest.class)}>

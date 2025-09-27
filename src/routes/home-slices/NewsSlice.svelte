@@ -4,17 +4,17 @@
 	import TitlePre from '$lib/components/Title/TitlePre.svelte'
 	import Title from '$lib/components/Title/TitleWrapper.svelte'
 
-	let { news } = $props();
+	let { news } = $props()
 </script>
 
 <section class="relative mb-12 max-w-5xl px-8 md:mb-20">
 	<Title>
 		{#snippet pre()}
-				<TitlePre >Read while it's fresh!</TitlePre>
-			{/snippet}
+			<TitlePre>Read while it's fresh!</TitlePre>
+		{/snippet}
 		{#snippet title()}
-				<TitleHeading  class="">Latest news</TitleHeading>
-			{/snippet}
+			<TitleHeading class="">Latest news</TitleHeading>
+		{/snippet}
 	</Title>
 
 	<ul class="mt-8 flex flex-col gap-10">
@@ -34,7 +34,8 @@
 		translate: -25% 0;
 		margin-top: -100px;
 
-		background: url('/imgs/grain.webp'),
+		background:
+			url('/imgs/grain.webp'),
 			radial-gradient(
 				50% 50% at 50% 50%,
 				theme(colors.cyan.500 / 50%) 0%,

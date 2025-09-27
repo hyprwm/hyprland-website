@@ -49,11 +49,15 @@
 				)
 			)
 		),
-		scan((level, value) => Math.min(ASCENION_CLICKS, Math.max(level + value, 0))),
+		scan((level, value) =>
+			Math.min(ASCENION_CLICKS, Math.max(level + value, 0))
+		),
 		startWith(0)
 	)
 	/** How many clicks are left in percent */
-	const relativeLevel$ = clickLevel$.pipe(map((clicks) => clicks / ASCENION_CLICKS))
+	const relativeLevel$ = clickLevel$.pipe(
+		map((clicks) => clicks / ASCENION_CLICKS)
+	)
 	/** Tween/Ease the percents for a nicer look */
 	const cubicRelativeLevel$ = relativeLevel$.pipe(map(cubicInOut))
 	const expoRelativeLevel$ = relativeLevel$.pipe(map(expoInOut))
@@ -69,13 +73,24 @@
 	const tiles$ = click$.pipe(
 		switchMap(() =>
 			merge(
-				of(Math.floor(lerp(MIN_TILES_PER_CLICK, MAX_TILES_PER_CLICK, $cubicRelativeLevel$))),
+				of(
+					Math.floor(
+						lerp(
+							MIN_TILES_PER_CLICK,
+							MAX_TILES_PER_CLICK,
+							$cubicRelativeLevel$
+						)
+					)
+				),
 				// Remove the tiles after a timeout, if no new ones came in
 				timer(MAX_LIFESPAN_TILE)
 			)
 		),
 		scan(
-			(acc, value) => (value === 0 ? [] : [...acc, ...Array.from({ length: value }, () => 1)]),
+			(acc, value) =>
+				value === 0
+					? []
+					: [...acc, ...Array.from({ length: value }, () => 1)],
 			[] as number[]
 		),
 		startWith([] as number[])
@@ -101,7 +116,10 @@
 	}
 
 	function onClickUnlocked() {
-		window.open('https://github.com/hyprwm/Hyprland/commits/main/', '_blank')
+		window.open(
+			'https://github.com/hyprwm/Hyprland/commits/main/',
+			'_blank'
+		)
 	}
 </script>
 
@@ -109,9 +127,13 @@
 	<button
 		class="flex items-center gap-3 font-bold text-slate-400 shadow-black drop-shadow-lg transition-colors hover:underline active:scale-95"
 		onclick={isAnimationComplete ? onClickUnlocked : onClick}
-		style:color={$relativeLevel$ > 0 ? `hsl(${hue} 64% 53%)` : undefined}
+		style:color={$relativeLevel$ > 0
+			? `hsl(${hue} 64% 53%)`
+			: undefined}
 		style:scale={$relativeLevel$ > 0 ? scale : undefined}
-		style:translate={$relativeLevel$ > 0 ? `0px -${translateY}px` : undefined}
+		style:translate={$relativeLevel$ > 0
+			? `0px -${translateY}px`
+			: undefined}
 	>
 		<ActiveGitIcon class="h-8 w-8" />
 		<span class="transition-colors"> Hypractive development </span>
@@ -120,7 +142,11 @@
 	<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10">
 		{#each $tiles$ as _}
 			<GitTile
-				lifeSpan={lerp(MIN_LIFESPAN_TILE, MAX_LIFESPAN_TILE, $cubicRelativeLevel$)}
+				lifeSpan={lerp(
+					MIN_LIFESPAN_TILE,
+					MAX_LIFESPAN_TILE,
+					$cubicRelativeLevel$
+				)}
 				maxSpeed={lerp(10, 38, $expoRelativeLevel$)}
 				minSpeed={lerp(1, 9, $expoRelativeLevel$)}
 			/>
@@ -149,7 +175,9 @@
 		<div
 			class="bg-gradient"
 			style:opacity={$hasAscended$ ? 1 : $relativeLevel$}
-			style="--relativeLevel: {$hasAscended$ ? 1 : $expoRelativeLevel$ - 0.2}"
+			style="--relativeLevel: {$hasAscended$
+				? 1
+				: $expoRelativeLevel$ - 0.2}"
 		></div>
 	</div>
 </div>

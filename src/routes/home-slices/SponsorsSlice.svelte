@@ -20,12 +20,16 @@
 </script>
 
 {#if hasSponsors}
-	<div class="relative flex w-full flex-col items-center justify-center">
+	<div
+		class="relative flex w-full flex-col items-center justify-center"
+	>
 		<PatternBackground
 			class="absolute -inset-24 inset-x-0  h-[120%]  w-full text-slate-800 opacity-40"
 		/>
 
-		<section class="relative mb-12 flex max-w-5xl flex-col gap-2 px-8 md:mb-20">
+		<section
+			class="relative mb-12 flex max-w-5xl flex-col gap-2 px-8 md:mb-20"
+		>
 			<Title class="px-0">
 				{#snippet pre()}
 					<TitlePre>A huge thank you!</TitlePre>
@@ -48,7 +52,12 @@
 							</h2>
 							<div class="flex justify-center gap-14 md:gap-16">
 								{#each sponsors.diamond as sponsor}
-									<Sponsor {sponsor} showImage showSlogan class="h-18 w-50 md:h-30 md:w-72" />
+									<Sponsor
+										{sponsor}
+										showImage
+										showSlogan
+										class="h-18 w-50 md:h-30 md:w-72"
+									/>
 								{/each}
 							</div>
 						</div>
@@ -63,7 +72,12 @@
 							</h2>
 							<div class="flex justify-center gap-14 md:gap-16">
 								{#each sponsors.platinum as sponsor}
-									<Sponsor {sponsor} showImage showSlogan class="h-16 w-40 md:h-20 md:w-60" />
+									<Sponsor
+										{sponsor}
+										showImage
+										showSlogan
+										class="h-16 w-40 md:h-20 md:w-60"
+									/>
 								{/each}
 							</div>
 						</div>
@@ -90,14 +104,24 @@
 						</div>
 					{/if}
 
-					<div class="flex flex-wrap justify-center gap-x-16 gap-y-10">
+					<div
+						class="flex flex-wrap justify-center gap-x-16 gap-y-10"
+					>
 						{#if sponsors.silver.length > 0}
 							<div class="flex flex-col gap-2">
-								<h2 class="text-center font-bold text-slate-300">Silver</h2>
+								<h2 class="text-center font-bold text-slate-300">
+									Silver
+								</h2>
 
-								<div class="flex flex-wrap gap-x-4 gap-y-2 font-medium">
+								<div
+									class="flex flex-wrap gap-x-4 gap-y-2 font-medium"
+								>
 									{#each sponsors.silver as sponsor}
-										<Sponsor {sponsor} showImage class={smallImages} />
+										<Sponsor
+											{sponsor}
+											showImage
+											class={smallImages}
+										/>
 									{/each}
 								</div>
 							</div>
@@ -105,9 +129,13 @@
 
 						{#if sponsors.bronze.length > 0}
 							<div class="flex flex-col gap-2">
-								<h2 class="text-center font-bold text-slate-300">Bronze</h2>
+								<h2 class="text-center font-bold text-slate-300">
+									Bronze
+								</h2>
 
-								<div class="flex flex-wrap gap-x-4 gap-y-2 font-medium">
+								<div
+									class="flex flex-wrap gap-x-4 gap-y-2 font-medium"
+								>
 									{#each sponsors.bronze as sponsor}
 										<Sponsor {sponsor} class={smallImages} />
 									{/each}
@@ -121,8 +149,10 @@
 					class="col-span-full mt-8 flex size-full w-full items-center justify-center self-center"
 					style="margin-top: 5rem; margin-bottom: -5rem;"
 				>
-					<Button type="outline" href="https://account.hypr.land/sponsors" size="xl"
-						>Sponsor us</Button
+					<Button
+						type="outline"
+						href="https://account.hypr.land/sponsors"
+						size="xl">Sponsor us</Button
 					>
 				</div>
 			</div>
@@ -132,8 +162,12 @@
 	<section
 		class="group -my-5 mt-16 flex flex-col gap-3 self-center text-center text-slate-300 md:-my-[8rem]"
 	>
-		<p class="text-2xl font-medium text-slate-500">We currently have no sponsors :(</p>
-		<p class="text-slate-200">Are you interested or know one person who might be?</p>
+		<p class="text-2xl font-medium text-slate-500">
+			We currently have no sponsors :(
+		</p>
+		<p class="text-slate-200">
+			Are you interested or know one person who might be?
+		</p>
 		<a
 			href="https://account.hypr.land/sponsors"
 			class="text-cyan-400 decoration-primary hover:text-cyan-300 hover:underline"

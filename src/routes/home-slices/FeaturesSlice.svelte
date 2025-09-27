@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import Card from '$lib/components/Card.svelte'
 	import GameIcon from '~icons/gg/games'
 	import SpecialWorkspaceIcon from '~icons/gg/shutterstock'
@@ -19,14 +19,16 @@
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 </script>
 
-<section class="relative flex max-w-screen-xl flex-col items-center px-3 md:px-8">
+<section
+	class="relative flex max-w-screen-xl flex-col items-center px-3 md:px-8"
+>
 	<Title>
 		{#snippet pre()}
-				<TitlePre >TLDR</TitlePre>
-			{/snippet}
+			<TitlePre>TLDR</TitlePre>
+		{/snippet}
 		{#snippet title()}
-				<TitleHeading  class="">Features</TitleHeading>
-			{/snippet}
+			<TitleHeading class="">Features</TitleHeading>
+		{/snippet}
 	</Title>
 
 	<CardsContainer
@@ -34,12 +36,18 @@
 	>
 		<Card class="row-span-2 min-h-[20rem]" color="purple">
 			<div class="flex h-full flex-col justify-end p-8 sm:p-12">
-				<h2 class="mb-6 text-5xl font-bold text-white lg:text-8xl">Smooth</h2>
+				<h2 class="mb-6 text-5xl font-bold text-white lg:text-8xl">
+					Smooth
+				</h2>
 				<p class="max-w-[60ch]">
-					Smooth transitions. Eye-pleasing animations. Great performance. Highly responsive.
+					Smooth transitions. Eye-pleasing animations. Great
+					performance. Highly responsive.
 				</p>
 
-				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+				<div
+					class="_wrapper absolute inset-0 select-none"
+					aria-hidden="true"
+				>
 					<div class="feature-image">
 						<img
 							src={smoothDefaultImage}
@@ -61,12 +69,18 @@
 		</Card>
 		<Card class="min-h-[20rem]" color="purple">
 			<div class="flex h-full flex-col justify-end p-8 sm:p-12">
-				<h2 class="mb-6 text-5xl font-bold text-white">Easy to configure</h2>
+				<h2 class="mb-6 text-5xl font-bold text-white">
+					Easy to configure
+				</h2>
 				<p class="max-w-[60ch]">
-					Live reloading config. Easy configuration format. Sensible defaults. Great documentation.
+					Live reloading config. Easy configuration format. Sensible
+					defaults. Great documentation.
 				</p>
 
-				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+				<div
+					class="_wrapper absolute inset-0 select-none"
+					aria-hidden="true"
+				>
 					<div class="feature-image">
 						<img
 							src={configDefaultImage}
@@ -88,12 +102,17 @@
 		</Card>
 		<Card class="min-h-[20rem]" color="purple">
 			<div class="flex h-full flex-col justify-end p-8 sm:p-12">
-				<h2 class="mb-6 text-5xl font-bold text-white">Dynamic tiling</h2>
+				<h2 class="mb-6 text-5xl font-bold text-white">
+					Dynamic tiling
+				</h2>
 				<p class="max-w-[60ch]">
-					Automatic tiling that just works. Supports multiple fine-tuneable layouts, with even more
-					as plugins.
+					Automatic tiling that just works. Supports multiple
+					fine-tuneable layouts, with even more as plugins.
 				</p>
-				<div class="_wrapper absolute inset-0 select-none" aria-hidden="true">
+				<div
+					class="_wrapper absolute inset-0 select-none"
+					aria-hidden="true"
+				>
 					<div class="feature-image">
 						<img
 							src={tileDefaultImage}
@@ -126,7 +145,11 @@
 			<GameIcon class="h-8 w-8" />
 			Tearing support
 		</a>
-		<a href="https://wiki.hyprland.org/IPC/" target="_blank" class="icon-feature hover:underline">
+		<a
+			href="https://wiki.hyprland.org/IPC/"
+			target="_blank"
+			class="icon-feature hover:underline"
+		>
 			<IpcIcon class="h-8 w-8" />
 			Socket-based IPC
 		</a>
@@ -166,8 +189,6 @@
 </section>
 
 <style lang="postcss">
-	
-
 	.icon-feature {
 		@apply flex items-center justify-center gap-3 font-bold text-slate-400;
 	}

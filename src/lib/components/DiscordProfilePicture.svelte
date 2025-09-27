@@ -73,11 +73,14 @@
 		children
 	}: Props = $props()
 
-	const dragCoordinates = spring([0, 0] as readonly [number, number], {
-		damping: lerp(0.2, 0.03, weight),
-		stiffness: lerp(0.2, 0.01, weight),
-		precision: 0.001
-	})
+	const dragCoordinates = spring(
+		[0, 0] as readonly [number, number],
+		{
+			damping: lerp(0.2, 0.03, weight),
+			stiffness: lerp(0.2, 0.01, weight),
+			precision: 0.001
+		}
+	)
 
 	let hasEnteredView = $state(false)
 	let hasImageLoaded = $state(false)
@@ -206,7 +209,8 @@
 
 <style lang="postcss">
 	._animate {
-		animation: reveal 440ms 1 var(--delay) both cubic-bezier(0, 1, 0.765, 3.8);
+		animation: reveal 440ms 1 var(--delay) both
+			cubic-bezier(0, 1, 0.765, 3.8);
 		touch-action: none;
 		user-select: none;
 

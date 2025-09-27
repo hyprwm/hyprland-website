@@ -3,7 +3,7 @@ module.exports = {
 	singleQuote: true,
 	semi: false,
 	trailingComma: 'none',
-	printWidth: 100,
+	printWidth: 70,
 	plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
 	tailwindFunctions: ['clsx']
 }

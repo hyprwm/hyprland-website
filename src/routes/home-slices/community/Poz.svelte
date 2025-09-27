@@ -1,7 +1,21 @@
 <script lang="ts">
-	import { createThresholdStream, lerp, preloadImage } from '$lib/Helper'
+	import {
+		createThresholdStream,
+		lerp,
+		preloadImage
+	} from '$lib/Helper'
 	import DiscordProfilePicture from '$lib/components/DiscordProfilePicture.svelte'
-	import { Subject, filter, first, map, merge, of, startWith, switchMap, timer } from 'rxjs'
+	import {
+		Subject,
+		filter,
+		first,
+		map,
+		merge,
+		of,
+		startWith,
+		switchMap,
+		timer
+	} from 'rxjs'
 	import { onDestroy } from 'svelte'
 
 	interface Props {
@@ -9,11 +23,12 @@
 		getRestrictionElement?: (() => HTMLElement) | undefined
 	}
 
-	let { biggestSize, getRestrictionElement = undefined }: Props = $props()
+	let { biggestSize, getRestrictionElement = undefined }: Props =
+		$props()
 
-	const thePozArmy = Object.values(import.meta.glob('$lib/images/poz/*', { eager: true })).map(
-		(x) => x.default as string
-	)
+	const thePozArmy = Object.values(
+		import.meta.glob('$lib/images/poz/*', { eager: true })
+	).map((x) => x.default as string)
 
 	const size = 90
 	const origin = [710, 615] as const
@@ -22,9 +37,15 @@
 	const shakeMax = 24
 	const clicksInput$ = new Subject()
 	const level$ = clicksInput$.pipe(
-		createThresholdStream({ clicksTarget, clicksEachMs: 250, fallof: 10 })
+		createThresholdStream({
+			clicksTarget,
+			clicksEachMs: 250,
+			fallof: 10
+		})
 	)
-	const relativeLevel$ = level$.pipe(map((clicks) => clicks / clicksTarget))
+	const relativeLevel$ = level$.pipe(
+		map((clicks) => clicks / clicksTarget)
+	)
 	const hasFinished$ = relativeLevel$.pipe(
 		filter((clicks) => clicks >= 1),
 		first(),
@@ -80,8 +101,12 @@
 			{getRestrictionElement}
 			onenteredView={({ detail: { dragCoordinates } }) => {
 				dragCoordinates.update(([x, y]) => {
-					x += lerp(400, 0, (size / maxSize) * (1 - Math.random())) * (Math.random() > 0.5 ? 1 : -1)
-					y += lerp(400, 0, (size / maxSize) * (1 - Math.random())) * (Math.random() > 0.5 ? 1 : -1)
+					x +=
+						lerp(400, 0, (size / maxSize) * (1 - Math.random())) *
+						(Math.random() > 0.5 ? 1 : -1)
+					y +=
+						lerp(400, 0, (size / maxSize) * (1 - Math.random())) *
+						(Math.random() > 0.5 ? 1 : -1)
 					return [x, y]
 				})
 			}}

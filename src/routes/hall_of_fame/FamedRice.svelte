@@ -4,19 +4,18 @@
 	import PlayIconFill from '~icons/mingcute/play-fill'
 	import PlayIconOutline from '~icons/mingcute/play-line'
 
-	
 	interface Props {
-		name: string;
-		creator: string;
-		dotfilesLink: string;
-		creatorProfilePicture: string;
-		thumbnail: string;
-		video?: string | undefined;
+		name: string
+		creator: string
+		dotfilesLink: string
+		creatorProfilePicture: string
+		thumbnail: string
+		video?: string | undefined
 		/**
-	 * Specify the blurred background image to be used.
-	 * Defaults to `"generated_<thumbnail>"` * */
-		blurredThumbnail?: string | undefined;
-		pretitel: string;
+		 * Specify the blurred background image to be used.
+		 * Defaults to `"generated_<thumbnail>"` * */
+		blurredThumbnail?: string | undefined
+		pretitel: string
 		[key: string]: any
 	}
 
@@ -30,7 +29,7 @@
 		blurredThumbnail = undefined,
 		pretitel,
 		...rest
-	}: Props = $props();
+	}: Props = $props()
 
 	let toShow: 'thumbnail' | 'video' = $state('thumbnail')
 
@@ -43,7 +42,9 @@
 >
 	<div class="flex flex-col items-center justify-center">
 		<div class="flex items-center gap-2">
-			<div class="relative mb-2 rounded-full px-3 py-1 text-lg font-bold">
+			<div
+				class="relative mb-2 rounded-full px-3 py-1 text-lg font-bold"
+			>
 				{pretitel}
 			</div>
 		</div>
@@ -63,7 +64,9 @@
 				alt={creator + ' profile picture'}
 				loading="lazy"
 			/>
-			<div class="font-medium text-slate-300 transition-colors group-hover:text-white">
+			<div
+				class="font-medium text-slate-300 transition-colors group-hover:text-white"
+			>
 				{creator}
 			</div>
 		</a>
@@ -74,23 +77,36 @@
 			{#if toShow === 'thumbnail'}
 				{#if video}
 					<button onclick={() => (toShow = 'video')}>
-						<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
+						<img
+							src={thumbnail}
+							alt={`${name} by ${creator} thumbnail`}
+							class=""
+							loading="lazy"
+						/>
 					</button>
 					<button
 						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-900/60 p-4 text-white/80 opacity-0 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white group-hover:opacity-100"
-						onclick={() => (toShow = 'video')}><PlayIconFill class="size-8 " /></button
+						onclick={() => (toShow = 'video')}
+						><PlayIconFill class="size-8 " /></button
 					>
 
 					<button
 						class="absolute bottom-6 left-6 rounded-full bg-gray-900/60 p-2 text-white/80 outline outline-gray-100/10 duration-300 hover:scale-105 hover:bg-gray-900/80 hover:text-white"
-						onclick={() => (toShow = 'video')}><PlayIconOutline class="size-5 " /></button
+						onclick={() => (toShow = 'video')}
+						><PlayIconOutline class="size-5 " /></button
 					>
 				{:else}
-					<img src={thumbnail} alt={`${name} by ${creator} thumbnail`} class="" loading="lazy" />
+					<img
+						src={thumbnail}
+						alt={`${name} by ${creator} thumbnail`}
+						class=""
+						loading="lazy"
+					/>
 				{/if}
 			{:else if toShow === 'video'}
 				<!-- svelte-ignore a11y_media_has_caption -->
-				<video autoplay controls poster={thumbnail} src={video}></video>
+				<video autoplay controls poster={thumbnail} src={video}
+				></video>
 			{/if}
 		</div>
 		<!-- blur background -->
@@ -171,14 +187,19 @@
 		contain: layout size style paint;
 
 		background-blend-mode: hard-light;
-		mask-image: radial-gradient(farthest-side, black 80%, transparent);
+		mask-image: radial-gradient(
+			farthest-side,
+			black 80%,
+			transparent
+		);
 		background-image: url('/imgs/grain.webp');
 	}
 
 	.title_ {
 		filter: saturate(1.5) brightness(1);
 		@apply relative -mt-1 mb-5 py-1 text-4xl font-bold text-transparent sm:text-6xl;
-		background-image: linear-gradient(
+		background-image:
+			linear-gradient(
 				-195deg,
 				theme(colors.white / 80%) 50%,
 				rgba(255, 255, 255, 0.4)

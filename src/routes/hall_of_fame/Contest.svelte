@@ -1,9 +1,6 @@
 <script>
 	import { inview } from 'svelte-inview'
 
-	
-	
-	
 	/**
 	 * @typedef {Object} Props
 	 * @property {string} name
@@ -13,12 +10,7 @@
 	 */
 
 	/** @type {Props} */
-	let {
-		name,
-		number,
-		date,
-		children
-	} = $props();
+	let { name, number, date, children } = $props()
 
 	/** Used to show the background gradient. Show if user scrolls, but do not disable when the user scrolls past from the top.  */
 	let enabled = $state(false)
@@ -45,8 +37,14 @@
 			use:inview={{ threshold: 0.45 }}
 			oninview_change={setEnabled}
 		>
-			<div class="text-xl font-bold text-neutral-300/80 sm:text-2xl">Contest #{number}</div>
-			<h2 class="text-center text-6xl font-bold text-neutral-200/80 sm:text-9xl">{name}</h2>
+			<div class="text-xl font-bold text-neutral-300/80 sm:text-2xl">
+				Contest #{number}
+			</div>
+			<h2
+				class="text-center text-6xl font-bold text-neutral-200/80 sm:text-9xl"
+			>
+				{name}
+			</h2>
 			<div
 				class="mt-2 rounded-full bg-slate-100/5 px-4 py-1 text-center text-xl font-bold text-slate-200/80 shadow"
 			>
@@ -87,7 +85,10 @@
 			height: 300px;
 			width: 100%;
 			z-index: -10;
-			background: linear-gradient(theme(colors.black / 40%), transparent);
+			background: linear-gradient(
+				theme(colors.black / 40%),
+				transparent
+			);
 			mix-blend-mode: color-burn;
 			border-radius: inherit;
 		}
@@ -105,25 +106,66 @@
 		transform-origin: top;
 	}
 	.background {
-		--c1: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 10%);
-		--c2: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 15%);
-		--c3: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 20%);
-		--c4: color-mix(in hsl shorter hue, var(--color), hsl(0, 100%, 0%) 30%);
+		--c1: color-mix(
+			in hsl shorter hue,
+			var(--color),
+			hsl(0, 100%, 0%) 10%
+		);
+		--c2: color-mix(
+			in hsl shorter hue,
+			var(--color),
+			hsl(0, 100%, 0%) 15%
+		);
+		--c3: color-mix(
+			in hsl shorter hue,
+			var(--color),
+			hsl(0, 100%, 0%) 20%
+		);
+		--c4: color-mix(
+			in hsl shorter hue,
+			var(--color),
+			hsl(0, 100%, 0%) 30%
+		);
 
 		position: absolute;
 		translate: -50% -50%;
 		width: 100%;
 		height: 1000px;
 		z-index: -10;
-		background: url('/imgs/grain.webp'),
-			radial-gradient(140px 100px at 50% 45%, var(--color), transparent),
+		background:
+			url('/imgs/grain.webp'),
+			radial-gradient(
+				140px 100px at 50% 45%,
+				var(--color),
+				transparent
+			),
 			radial-gradient(145px 110px at 50% 45%, var(--c1), transparent),
-			radial-gradient(210px 140px, var(--c2, theme(colors.blue.600)), transparent),
-			radial-gradient(300px 200px, var(--c2, theme(colors.sky.600)), transparent),
-			radial-gradient(600px 220px, var(--c3, theme(colors.blue.700)), transparent),
-			radial-gradient(1100px 420px, var(--c4, theme(colors.blue.800 / 60%)), transparent);
+			radial-gradient(
+				210px 140px,
+				var(--c2, theme(colors.blue.600)),
+				transparent
+			),
+			radial-gradient(
+				300px 200px,
+				var(--c2, theme(colors.sky.600)),
+				transparent
+			),
+			radial-gradient(
+				600px 220px,
+				var(--c3, theme(colors.blue.700)),
+				transparent
+			),
+			radial-gradient(
+				1100px 420px,
+				var(--c4, theme(colors.blue.800 / 60%)),
+				transparent
+			);
 
-		mask-image: radial-gradient(100% 100% at 50% 50%, black 20%, transparent 50%);
+		mask-image: radial-gradient(
+			100% 100% at 50% 50%,
+			black 20%,
+			transparent 50%
+		);
 
 		opacity: 0.25;
 		scale: 0.95 1;

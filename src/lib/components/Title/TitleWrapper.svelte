@@ -1,7 +1,6 @@
 <script>
 	import { animateIn, cn } from '$lib/Helper.ts'
 
-	
 	/**
 	 * @typedef {Object} Props
 	 * @property { 'left' | 'right' | 'center'} [align]
@@ -19,14 +18,15 @@
 		subtitle,
 		children,
 		...rest
-	} = $props();
+	} = $props()
 
-	let alignClass =
-		$derived(align === 'center'
+	let alignClass = $derived(
+		align === 'center'
 			? 'text-center items-center'
 			: align === 'left'
 				? 'text-left items-start'
-				: 'text-right items-end')
+				: 'text-right items-end'
+	)
 </script>
 
 <hgroup

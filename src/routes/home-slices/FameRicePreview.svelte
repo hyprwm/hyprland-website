@@ -1,10 +1,6 @@
 <script>
 	import { animateIn, getGeneratedPath } from '$lib/Helper.ts'
 
-	
-	
-	
-	
 	/**
 	 * @typedef {Object} Props
 	 * @property {string} image
@@ -19,11 +15,14 @@
 		imageClass = undefined,
 		containerClass = undefined,
 		blurredBackground = undefined
-	} = $props();
+	} = $props()
 </script>
 
 <div class="rice {containerClass} group">
-	<div class="h-full w-full" use:animateIn={{ slide: 20, duration: 800 }}>
+	<div
+		class="h-full w-full"
+		use:animateIn={{ slide: 20, duration: 800 }}
+	>
 		<img
 			src={image}
 			alt="Rice desktop"
@@ -59,7 +58,11 @@
 		opacity: 0.9;
 		/* filter: brightness(2.5); */
 		z-index: -10;
-		mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent);
+		mask-image: radial-gradient(
+			50% 50% at 50% 50%,
+			black,
+			transparent
+		);
 		contain: content layout size style;
 
 		@apply -z-10 transition-[filter] duration-500;

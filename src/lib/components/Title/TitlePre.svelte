@@ -5,7 +5,7 @@
 	 */
 
 	/** @type {Props} */
-	let { children } = $props();
+	let { children } = $props()
 </script>
 
 <p class="mb-3 font-extrabold text-slate-300">

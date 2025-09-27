@@ -22,41 +22,56 @@
 		class?: string
 	}
 
-	let { class: className, startPosition = [-1000, -1000] }: Props = $props()
+	let { class: className, startPosition = [-1000, -1000] }: Props =
+		$props()
 
 	let wrapperElement: HTMLDivElement | undefined = $state(undefined)
 
 	const isMouseOver$ = new BehaviorSubject(false).pipe(
 		// Do not harshly stop updating the gradient when the mouse leaves, but wait a bit
-		switchMap((isTrue) => (isTrue ? of(isTrue) : timer(1500).pipe(map(() => false)))),
+		switchMap((isTrue) =>
+			isTrue ? of(isTrue) : timer(1500).pipe(map(() => false))
+		),
 		distinctUntilChanged()
 	) as BehaviorSubject<boolean>
 
-	const gradientSize$: BehaviorSubject<number> = new BehaviorSubject(undefined).pipe(
+	const gradientSize$: BehaviorSubject<number> = new BehaviorSubject(
+		undefined
+	).pipe(
 		// Debounce resize events with some high number for performance
 		auditTime(16),
-		map(() => (wrapperElement?.getBoundingClientRect().width ?? 0) * 3),
+		map(
+			() => (wrapperElement?.getBoundingClientRect().width ?? 0) * 3
+		),
 		startWith(800)
 	) as BehaviorSubject<number>
-	const mousePosition$: Subject<{ clientX: number; clientY: number }> = new Subject()
+	const mousePosition$: Subject<{
+		clientX: number
+		clientY: number
+	}> = new Subject()
 
-	const gradientPosition$: Observable<[number, number]> = combineLatest([
-		mousePosition$,
-		gradientSize$,
-		isMouseOver$
-	]).pipe(
-		filter(([_, __, isMouseOver]) => isMouseOver),
-		map(([{ clientX, clientY }, gradientSize]) => {
-			const { x, y } = wrapperElement?.getBoundingClientRect() ?? { x: 0, y: 0 }
-			return [clientX - x - gradientSize * 0.5, clientY - y - gradientSize * 0.5] as [
-				number,
-				number
-			]
-		}),
-		startWith(startPosition)
+	const gradientPosition$: Observable<[number, number]> =
+		combineLatest([mousePosition$, gradientSize$, isMouseOver$]).pipe(
+			filter(([_, __, isMouseOver]) => isMouseOver),
+			map(([{ clientX, clientY }, gradientSize]) => {
+				const { x, y } = wrapperElement?.getBoundingClientRect() ?? {
+					x: 0,
+					y: 0
+				}
+				return [
+					clientX - x - gradientSize * 0.5,
+					clientY - y - gradientSize * 0.5
+				] as [number, number]
+			}),
+			startWith(startPosition)
+		)
+	const gradientWiggle = new Spring(startPosition, {
+		damping: 0.95,
+		stiffness: 0.1
+	})
+	const subscription = gradientPosition$.subscribe((data) =>
+		gradientWiggle.set(data)
 	)
-	const gradientWiggle = new Spring(startPosition, { damping: 0.95, stiffness: 0.1 })
-	const subscription = gradientPosition$.subscribe((data) => gradientWiggle.set(data))
 
 	onDestroy(() => {
 		subscription.unsubscribe()
@@ -87,7 +102,13 @@
 		globalThis.document?.addEventListener('mousemove', track)
 	}
 
-	function track({ clientX, clientY }: { clientX: number; clientY: number }) {
+	function track({
+		clientX,
+		clientY
+	}: {
+		clientX: number
+		clientY: number
+	}) {
 		mousePosition$.next({ clientX, clientY })
 	}
 
@@ -102,9 +123,13 @@
 	class={className + '  wrapper'}
 	onmouseenter={startTrackingMouse}
 	onmouseleave={({ clientX, clientY, currentTarget }) => {
-		const { x, width, y, height } = currentTarget.getBoundingClientRect()
+		const { x, width, y, height } =
+			currentTarget.getBoundingClientRect()
 		const isMouseStillOver =
-			x <= clientX && y <= clientY && x + width > clientX && y + height > clientY
+			x <= clientX &&
+			y <= clientY &&
+			x + width > clientX &&
+			y + height > clientY
 		isMouseOver$.next(isMouseStillOver)
 	}}
 	aria-hidden="true"
@@ -117,7 +142,12 @@
 		style:--size={$gradientSize$ + 'px'}
 	></div>
 
-	<svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg
+		width="100%"
+		height="100%"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
 		<pattern
 			id="background-pattern-id"
 			x="0"
@@ -126,7 +156,14 @@
 			height="30"
 			patternUnits="userSpaceOnUse"
 		>
-			<rect x="0.5" y="0.5" width="30" height="30" rx="0" stroke="currentColor" />
+			<rect
+				x="0.5"
+				y="0.5"
+				width="30"
+				height="30"
+				rx="0"
+				stroke="currentColor"
+			/>
 		</pattern>
 
 		<rect

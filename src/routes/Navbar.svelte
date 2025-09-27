@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import { run } from 'svelte/legacy'
 
 	import { navigating, page } from '$app/stores'
 	import GithubIcon from '~icons/ri/github-fill'
@@ -15,7 +15,7 @@
 
 	run(() => {
 		if ($navigating) isExpanded = false
-	});
+	})
 
 	function toggleExpanded() {
 		isExpanded = !isExpanded
@@ -64,19 +64,36 @@
 			<li>
 				<a href="https://account.hypr.land">Account</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
+			<li
+				aria-current={$page.url.pathname === '/about'
+					? 'page'
+					: undefined}
+			>
 				<a href="/hall_of_fame">Hall of fame</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/news' ? 'page' : undefined}>
+			<li
+				aria-current={$page.url.pathname === '/news'
+					? 'page'
+					: undefined}
+			>
 				<a href="/news">News</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/plugins' ? 'page' : undefined}>
+			<li
+				aria-current={$page.url.pathname === '/plugins'
+					? 'page'
+					: undefined}
+			>
 				<a href="/plugins">Plugins</a>
 			</li>
 		</ul>
 		<ul class="flex flex-row items-center gap-3 px-4">
 			<li>
-				<a href={discordLink} class="social-icon" aria-label="Join us on Discord" target="_blank">
+				<a
+					href={discordLink}
+					class="social-icon"
+					aria-label="Join us on Discord"
+					target="_blank"
+				>
 					<DiscordIcon class="h-full w-full" />
 				</a>
 			</li>
@@ -103,7 +120,11 @@
 		</ul>
 
 		<ul class="flex gap-4">
-			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
+			<li
+				aria-current={$page.url.pathname === '/support'
+					? 'page'
+					: undefined}
+			>
 				<a
 					class="rounded-full px-4 py-2 outline outline-cyan-500 hover:outline-cyan-200"
 					href="/support">Support us</a
