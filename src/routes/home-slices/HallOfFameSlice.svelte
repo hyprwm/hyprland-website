@@ -7,22 +7,38 @@
 	import FameRicePreview from './FameRicePreview.svelte'
 </script>
 
-<section class="" use:animateIn={{ fade: 0, slide: 24, duration: 3000, threshold: 0.1 }}>
+<section
+	class=""
+	use:animateIn={{
+		fade: 0,
+		slide: 24,
+		duration: 3000,
+		threshold: 0.1
+	}}
+>
 	<div class="z-20 -mb-40 px-4">
 		<Title>
-			<TitlePre slot="pre">Memorials of the ricing legends</TitlePre>
-			<TitleHeading slot="title" class="">Hall of Fame</TitleHeading>
+			{#snippet pre()}
+				<TitlePre>Memorials of the ricing legends</TitlePre>
+			{/snippet}
+			{#snippet title()}
+				<TitleHeading class="">Hall of Fame</TitleHeading>
+			{/snippet}
 		</Title>
 	</div>
 
-	<div class="atmosphere" />
+	<div class="atmosphere"></div>
 
 	<div
 		class="relative -mt-8 flex w-full max-w-[1100px] flex-col items-center justify-end gap-16 overflow-hidden [perspective:100px] md:px-16 lg:gap-24"
 		use:animateIn={{ slide: 24, fade: 0.5, duration: 800 }}
 	>
-		<a class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2" href="/hall_of_fame">
-			<Button size="lg" type="fancyOutline">Go to Hall of Fame</Button>
+		<a
+			class="absolute bottom-24 left-1/2 z-20 -translate-x-1/2"
+			href="/hall_of_fame"
+		>
+			<Button size="lg" type="fancyOutline">Go to Hall of Fame</Button
+			>
 		</a>
 
 		<FameRicePreview
@@ -41,7 +57,7 @@
 		/>
 	</div>
 
-	<div class="glow" />
+	<div class="glow"></div>
 </section>
 
 <style lang="postcss">
@@ -60,10 +76,24 @@
 		width: 200vw;
 		max-width: 2400px;
 		max-height: 1000px;
-		background: url('/imgs/grain.webp'),
-			radial-gradient(closest-side, theme(colors.blue.500 / 30%), transparent),
-			radial-gradient(15% 20%, theme(colors.cyan.500 / 70%), transparent);
-		mask-image: radial-gradient(closest-side, white, rgba(0, 0, 0, 0.8) 80%, transparent);
+		background:
+			url('/imgs/grain.webp'),
+			radial-gradient(
+				closest-side,
+				theme(colors.blue.500 / 30%),
+				transparent
+			),
+			radial-gradient(
+				15% 20%,
+				theme(colors.cyan.500 / 70%),
+				transparent
+			);
+		mask-image: radial-gradient(
+			closest-side,
+			white,
+			rgba(0, 0, 0, 0.8) 80%,
+			transparent
+		);
 	}
 
 	.glow {
@@ -76,13 +106,19 @@
 		left: 0;
 		right: 0;
 		pointer-events: none;
-		background-image: url('/imgs/grain.webp'),
+		background-image:
+			url('/imgs/grain.webp'),
 			radial-gradient(
 				ellipse at bottom,
 				theme(colors.pink.400),
 				theme(colors.indigo.700 / 50%) 50%,
 				theme(colors.indigo.950 / 0%) 80%
 			);
-		mask-image: radial-gradient(ellipse at bottom, white, rgba(0, 0, 0, 1) 90%, transparent);
+		mask-image: radial-gradient(
+			ellipse at bottom,
+			white,
+			rgba(0, 0, 0, 1) 90%,
+			transparent
+		);
 	}
 </style>

@@ -15,7 +15,12 @@ html.lock-scroll,
 }
 
 .hyprgradient {
-	background-image: linear-gradient(to bottom right, #00e6cf, #00c4e3, #0081c6);
+	background-image: linear-gradient(
+		to bottom right,
+		#00e6cf,
+		#00c4e3,
+		#0081c6
+	);
 }
 
 ::selection {
@@ -82,7 +87,16 @@ html.lock-scroll,
 	position: absolute;
 	inset: 0;
 	z-index: -1000;
-	mask-image: radial-gradient(var(--sizethis), white 70%, transparent);
-	background: url('/imgs/grain.webp'),
-		radial-gradient(var(--sizethis), theme(colors.cyan.500 / 40%), transparent);
+	mask-image: radial-gradient(
+		var(--sizethis),
+		white 70%,
+		transparent
+	);
+	background:
+		url('/imgs/grain.webp'),
+		radial-gradient(
+			var(--sizethis),
+			theme(colors.cyan.500 / 40%),
+			transparent
+		);
 }

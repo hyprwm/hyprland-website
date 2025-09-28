@@ -1,19 +1,29 @@
 <script>
-	export let backgroundData
+	let { backgroundData } = $props()
 
-	const { workspacesPerRow, gapLength, workspaceHeight, height, leftColumns, rightColumns } =
-		backgroundData
+	const {
+		workspacesPerRow,
+		gapLength,
+		workspaceHeight,
+		height,
+		leftColumns,
+		rightColumns
+	} = backgroundData
 
 	const REVEAL_DURATION = 800 // in ms
 </script>
 
-<div class="wrapper" aria-hidden="true" style:--reveal-duration={REVEAL_DURATION + 'ms'}>
+<div
+	class="wrapper"
+	aria-hidden="true"
+	style:--reveal-duration={REVEAL_DURATION + 'ms'}
+>
 	<div
 		class="inner-wrapper"
 		style={`--amount: ${workspacesPerRow}; --workspace-gap: ${gapLength}px;--workspace-height: ${workspaceHeight}px; --length: ${height}px;`}
 	>
 		<!-- Gradient background -->
-		<div class="top-light" />
+		<div class="top-light"></div>
 
 		<div class="columns left" aria-hidden="true">
 			{#each leftColumns as column}
@@ -23,9 +33,17 @@
 							{#each workspace as tiles}
 								<div class="tiles">
 									{#each tiles as { color, image }}
-										<div class="tile" style:--color={color} class:hasImage={image}>
+										<div
+											class="tile"
+											style:--color={color}
+											class:hasImage={image}
+										>
 											{#if image}
-												<img src={image} class="h-full w-full object-contain" alt="" />
+												<img
+													src={image}
+													class="h-full w-full object-contain"
+													alt=""
+												/>
 											{/if}
 										</div>
 									{/each}
@@ -45,9 +63,17 @@
 							{#each workspace as tiles}
 								<div class="tiles">
 									{#each tiles as { color, image }}
-										<div class="tile" style:--color={color} class:hasImage={image}>
+										<div
+											class="tile"
+											style:--color={color}
+											class:hasImage={image}
+										>
 											{#if image}
-												<img src={image} class="h-full w-full object-contain" alt="" />
+												<img
+													src={image}
+													class="h-full w-full object-contain"
+													alt=""
+												/>
 											{/if}
 										</div>
 									{/each}
@@ -94,7 +120,11 @@
 
 		&::after {
 			content: ' ';
-			background: radial-gradient(80% 250%, theme(colors.black) 10%, transparent 50%);
+			background: radial-gradient(
+				80% 250%,
+				theme(colors.black) 10%,
+				transparent 50%
+			);
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -161,7 +191,11 @@
 		&:hover {
 			opacity: 1;
 			scale: 1.02;
-			background-color: color-mix(in hsl, var(--color), transparent 20%);
+			background-color: color-mix(
+				in hsl,
+				var(--color),
+				transparent 20%
+			);
 			box-shadow:
 				0px 0px 10px var(--color),
 				0px 0px 40px var(--color);
@@ -181,7 +215,8 @@
 
 		& img {
 			opacity: 0;
-			transition: opacity var(--reveal-duration) cubic-bezier(1, -0.4, 0.165, 1);
+			transition: opacity var(--reveal-duration)
+				cubic-bezier(1, -0.4, 0.165, 1);
 			pointer-events: none;
 		}
 		&:hover img {
@@ -191,7 +226,8 @@
 	}
 
 	.top-light {
-		background: url('/imgs/grain.webp'),
+		background:
+			url('/imgs/grain.webp'),
 			radial-gradient(
 				100% 80% at top,
 				theme(colors.cyan.500 / 50%) 0%,

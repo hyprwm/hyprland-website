@@ -36,14 +36,22 @@ const extraProfiles: CommunityProfile[] = [
 	}
 ]
 
-const validSizes = [16, 20, 24, 32, 40, 48, 64, 80, 96, 100, 128, 160, 240, 320, 640]
+const validSizes = [
+	16, 20, 24, 32, 40, 48, 64, 80, 96, 100, 128, 160, 240, 320, 640
+]
 
 export async function GET() {
-	const allProfiles = [...profiles.filter(({ image }) => !!image), ...extraProfiles]
+	const allProfiles = [
+		...profiles.filter(({ image }) => !!image),
+		...extraProfiles
+	]
 		.map(({ image, size, ...profile }) => ({
 			...profile,
 			size,
-			image: image + '?size=' + validSizes.find((_, index) => size <= validSizes[index])
+			image:
+				image +
+				'?size=' +
+				validSizes.find((_, index) => size <= validSizes[index])
 		}))
 		.sort(({ size: a }, { size: b }) => b - a)
 

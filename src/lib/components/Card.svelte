@@ -1,39 +1,67 @@
 <script>
+	import { run, createBubbler, handlers } from 'svelte/legacy'
+
+	const bubble = createBubbler()
 	import clsx from 'clsx'
 	import { getContext, onMount } from 'svelte'
 	import { cardsContext } from '$lib/components/CardsContainer.svelte'
 	import { spring } from 'svelte/motion'
 	import { getIsMobile } from '$lib/Helper.ts'
-	/** @type {'cyan' | 'purple'}*/
-	export let color = 'cyan'
-	/** @type {number | number}*/
-	export let gradientOpacity = undefined
 
-	const { mouseCoordinates$, isHoverCards, enableBorders = true } = getContext(cardsContext)
+	/**
+	 * @typedef {Object} Props
+	 * @property {'cyan' | 'purple'} [color]
+	 * @property {number | number} [gradientOpacity]
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props & { [key: string]: any }} */
+	let {
+		color = 'cyan',
+		gradientOpacity = undefined,
+		children,
+		...rest
+	} = $props()
+
+	const {
+		mouseCoordinates$,
+		isHoverCards,
+		enableBorders = true
+	} = getContext(cardsContext)
 
 	/** @type HTMLDivElement */
-	let container
+	let container = $state()
 	let isMobile = false
 
 	const damping = 0.2
 
-	const fillX = spring(0, { damping, stiffness: 0.021, precision: 0.3 })
-	const fillY = spring(0, { damping, stiffness: 0.021, precision: 0.3 })
-	const borderX = spring(0, { damping, stiffness: 0.03, precision: 0.3 })
-	const borderY = spring(0, { damping, stiffness: 0.03, precision: 0.3 })
+	const fillX = spring(0, {
+		damping,
+		stiffness: 0.021,
+		precision: 0.3
+	})
+	const fillY = spring(0, {
+		damping,
+		stiffness: 0.021,
+		precision: 0.3
+	})
+	const borderX = spring(0, {
+		damping,
+		stiffness: 0.03,
+		precision: 0.3
+	})
+	const borderY = spring(0, {
+		damping,
+		stiffness: 0.03,
+		precision: 0.3
+	})
 
 	const bounceBack = 2
 	const soft = 0.8
 
-	let isMouseOver = false
+	let isMouseOver = $state(false)
 	/** Has the mouse entered and not left*/
 	let hasMouseEntered = false
-
-	$: {
-		if (container && $mouseCoordinates$?.x !== undefined) {
-			updateGradient()
-		}
-	}
 
 	onMount(() => {
 		isMobile = getIsMobile()
@@ -42,7 +70,12 @@
 	function updateGradient() {
 		if (isMobile) return
 
-		const { x: rectX, y: rectY, width, height } = container.getBoundingClientRect()
+		const {
+			x: rectX,
+			y: rectY,
+			width,
+			height
+		} = container.getBoundingClientRect()
 
 		const normX = $mouseCoordinates$.x - rectX
 		const normY = $mouseCoordinates$.y - rectY
@@ -67,43 +100,56 @@
 		}
 		*/
 
-		if ($mouseCoordinates$.x < rectX) fillX.set(rectX + bounceBack, { soft })
-		else if ($mouseCoordinates$.x > rectX + width) fillX.set(rectX + width - bounceBack, { soft })
+		if ($mouseCoordinates$.x < rectX)
+			fillX.set(rectX + bounceBack, { soft })
+		else if ($mouseCoordinates$.x > rectX + width)
+			fillX.set(rectX + width - bounceBack, { soft })
 		else fillX.set(normX)
 
-		if ($mouseCoordinates$.y < rectY) fillY.set(rectY + bounceBack, { soft: 1 })
-		if ($mouseCoordinates$.y > rectY + height) fillX.set(rectY - height - bounceBack, { soft })
+		if ($mouseCoordinates$.y < rectY)
+			fillY.set(rectY + bounceBack, { soft: 1 })
+		if ($mouseCoordinates$.y > rectY + height)
+			fillX.set(rectY - height - bounceBack, { soft })
 		else fillY.set(normY)
 	}
+	run(() => {
+		if (container && $mouseCoordinates$?.x !== undefined) {
+			updateGradient()
+		}
+	})
 </script>
 
 <div
-	class={clsx('card group ', $$restProps.class)}
+	class={clsx('card group ', rest.class)}
 	style:--x={$fillX}
 	style:--y={$fillY}
 	style:--borderX={enableBorders && $borderX}
 	style:--borderY={enableBorders && $borderY}
 	class:isHoverCards={$isHoverCards}
 	bind:this={container}
-	on:mouseenter={() => (isMouseOver = true)}
-	on:mouseleave={() => {
+	onmouseenter={handlers(
+		() => (isMouseOver = true),
+		bubble('mouseenter')
+	)}
+	onmouseleave={handlers(() => {
 		isMouseOver = false
 		updateGradient()
-	}}
+	}, bubble('mouseleave'))}
 	class:purpleGradient={color === 'purple'}
 	role="contentinfo"
-	on:mouseenter
-	on:mouseleave
 >
 	<div
 		class="absolute inset-0 z-10 m-0.5 size-full min-h-0 min-w-0 grow overflow-hidden rounded-3xl"
 	>
-		<slot>Nothing in the slot here</slot>
+		{#if children}{@render children()}{:else}Nothing in the slot here{/if}
 	</div>
-	<div class="gradient max-sm:hidden" style:opacity={gradientOpacity} />
-	<div class="gradient_black max-sm:hidden" />
+	<div
+		class="gradient max-sm:hidden"
+		style:opacity={gradientOpacity}
+	></div>
+	<div class="gradient_black max-sm:hidden"></div>
 	{#if enableBorders}
-		<div class="border-gradient max-sm:hidden" />
+		<div class="border-gradient max-sm:hidden"></div>
 	{/if}
 </div>
 
@@ -156,8 +202,13 @@
 		pointer-events: none;
 		contain: strict;
 		background: radial-gradient(
-			620px circle at calc(var(--borderX) * 1px) calc(var(--borderY) * 1px),
-			color-mix(in srgb, var(--color1, theme(colors.cyan.500)), transparent 50%),
+			620px circle at calc(var(--borderX) * 1px)
+				calc(var(--borderY) * 1px),
+			color-mix(
+				in srgb,
+				var(--color1, theme(colors.cyan.500)),
+				transparent 50%
+			),
 			transparent
 		);
 	}
@@ -191,7 +242,8 @@
 			opacity: 0%;
 			contain: strict;
 
-			background: url('/imgs/grain.webp'),
+			background:
+				url('/imgs/grain.webp'),
 				radial-gradient(
 					ellipse at calc(var(--x) * 1px) calc(var(--y) * 1px),
 					var(--color1, theme(colors.cyan.500 / 100%)),

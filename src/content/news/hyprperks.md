@@ -18,6 +18,7 @@ If you want to support the development for 5€ + tax a month, and also get a fe
 please check out [the pricing page](https://account.hypr.land/pricing)
 
 You will get:
+
 - Member-only forum access, with dev Q&A, support from me, and more
 - Premium desktop experience, which is a set of preconfigured dotfiles with a one-click install and update
 - And of course, support the continued development.

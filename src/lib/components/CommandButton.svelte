@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Cannot split a chunk that has already been edited (28:12 – "on:click={$$slots.default ? undefined : copyCommand}") -->
 <script>
 	import { onDestroy } from 'svelte'
 	import ClipboardIcon from '~icons/mingcute/copy-2-line'
@@ -13,7 +14,9 @@
 	let timeoutId
 
 	async function copyCommand() {
-		await navigator.clipboard.writeText(command).then(() => (isShowingCopied = true))
+		await navigator.clipboard
+			.writeText(command)
+			.then(() => (isShowingCopied = true))
 		clearTimeout(timeoutId)
 		timeoutId = setTimeout(() => (isShowingCopied = false), 1400)
 	}
@@ -23,7 +26,9 @@
 	})
 </script>
 
-<div class="relative flex grow flex-col font-mono {containerClass ?? ''}">
+<div
+	class="relative flex grow flex-col font-mono {containerClass ?? ''}"
+>
 	<button
 		class="group flex min-w-[18rem] items-center justify-center gap-4 rounded-lg border border-primary py-3 pl-6 pr-6 text-base font-medium transition-transform active:scale-[1.01] sm:rounded-full"
 		on:click={$$slots.default ? undefined : copyCommand}

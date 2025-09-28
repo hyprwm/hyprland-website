@@ -9,7 +9,9 @@ export const load = async ({ fetch }) => ({
 		.then((response) => response.json())
 		.then((news) => news.slice(0, 3)),
 
-	sponsors: (await fetch('/api/sponsors').then((resposne) => resposne.json())) as SponsorsRanked,
+	sponsors: (await fetch('/api/sponsors').then((resposne) =>
+		resposne.json()
+	)) as SponsorsRanked,
 
 	communityProfiles: (await fetch('/api/community').then((response) =>
 		response.json()
@@ -20,7 +22,11 @@ function getHeroBackgroundTiles() {
 	const workspacesPerRow = 4
 	const workspaceHeight = 240
 	const gapLength = 32
-	const colors = [baseColors.blue[500], baseColors.cyan[400], baseColors.sky[500]]
+	const colors = [
+		baseColors.blue[500],
+		baseColors.cyan[400],
+		baseColors.sky[500]
+	]
 	const images = [
 		'/imgs/chan/joy.svg',
 		'/imgs/chan/surprise.svg',
@@ -28,9 +34,13 @@ function getHeroBackgroundTiles() {
 		'/imgs/waylnad.webp'
 	]
 
-	const leftColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
+	const leftColumns = Array.from({ length: 3 }, () =>
+		generateRow(workspacesPerRow)
+	)
 
-	const rightColumns = Array.from({ length: 3 }, () => generateRow(workspacesPerRow))
+	const rightColumns = Array.from({ length: 3 }, () =>
+		generateRow(workspacesPerRow)
+	)
 
 	/** Used to transform the rows by their own lenght*/
 	const height = workspacesPerRow * (workspaceHeight + gapLength)
@@ -57,13 +67,19 @@ function getHeroBackgroundTiles() {
 	}
 
 	function generateTiles() {
-		const result = Math.random() > 0.5 ? [generateTile()] : [generateTile(), generateTile()]
+		const result =
+			Math.random() > 0.5
+				? [generateTile()]
+				: [generateTile(), generateTile()]
 
 		return result
 	}
 
 	function generateTile() {
-		return { color: getRandomColor(), image: Math.random() > 0.7 ? getRandomImage() : undefined }
+		return {
+			color: getRandomColor(),
+			image: Math.random() > 0.7 ? getRandomImage() : undefined
+		}
 	}
 
 	/** @returns {string} */

@@ -3,19 +3,33 @@
 	import type { Sponsor } from '../../routes/api/sponsors/+server'
 	import Clickable from './Clickable.svelte'
 
-	export let sponsor: Sponsor
-	export let showImage = false
-	export let showSlogan = false
-	export let sloganClass = ''
+	interface Props {
+		sponsor: Sponsor
+		showImage?: boolean
+		showSlogan?: boolean
+		sloganClass?: string
+		[key: string]: any
+	}
+
+	let {
+		sponsor,
+		showImage = false,
+		showSlogan = false,
+		sloganClass = '',
+		...rest
+	}: Props = $props()
 </script>
 
-<Clickable href={sponsor.link} class="flex flex-col items-center gap-4">
+<Clickable
+	href={sponsor.link}
+	class="flex flex-col items-center gap-4"
+>
 	{#if showImage && sponsor.image}
 		<img
 			title={sponsor.name}
 			class={cn(
 				'size-full self-center justify-self-start rounded-md object-contain',
-				$$restProps.class
+				rest.class
 			)}
 			src={sponsor.image}
 			alt={sponsor.name}

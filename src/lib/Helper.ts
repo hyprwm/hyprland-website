@@ -42,11 +42,16 @@ export function animateIn(
 	// Do nothing on mobile
 	if (getIsMobile()) return { destroy: () => undefined }
 
-	const observer = inview(node, { unobserveOnEnter: true, threshold: options.threshold ?? 0.4 })
+	const observer = inview(node, {
+		unobserveOnEnter: true,
+		threshold: options.threshold ?? 0.4
+	})
 
 	options.duration ??= 840
 
-	const effects = Object.entries(pick(options, ['fade', 'zoom', 'slide', 'duration']))
+	const effects = Object.entries(
+		pick(options, ['fade', 'zoom', 'slide', 'duration'])
+	)
 
 	const style = effects
 		.map(([effect, value]) => {
@@ -73,9 +78,12 @@ export function animateIn(
 		timeoutId = setTimeout(
 			() =>
 				effects.forEach(([effect]) => {
-					if (effect === 'slide') node.style.removeProperty('translate')
-					else if (effect === 'fade') node.style.removeProperty('opacity')
-					else if (effect === 'zoom') node.style.removeProperty('scale')
+					if (effect === 'slide')
+						node.style.removeProperty('translate')
+					else if (effect === 'fade')
+						node.style.removeProperty('opacity')
+					else if (effect === 'zoom')
+						node.style.removeProperty('scale')
 				}),
 			options.delay ?? 0
 		)
@@ -120,7 +128,10 @@ export function getIsMobile(): boolean {
 }
 
 /** Get the `generated_<filename>` for the provided path  **/
-export function getGeneratedPath(path: string, extension: string = 'webp') {
+export function getGeneratedPath(
+	path: string,
+	extension: string = 'webp'
+) {
 	const directory = path.substring(0, path.lastIndexOf('/'))
 	const filename = getFileNameWithoutExtension(path)
 	return `${directory}/generated_${filename}.${extension}`
@@ -138,7 +149,9 @@ export function formatDate(
 ) {
 	const dateToFormat = new Date(date)
 
-	const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle })
+	const dateFormatter = new Intl.DateTimeFormat(locales, {
+		dateStyle
+	})
 
 	return dateFormatter.format(dateToFormat)
 }
@@ -164,7 +177,11 @@ export function getFileNameWithoutExtension(filePath: string) {
  *
  * Used here to do fancy stuff with clicks
  */
-export function createThresholdStream({ clicksTarget = 69, clicksEachMs = 400, fallof = 20 }) {
+export function createThresholdStream({
+	clicksTarget = 69,
+	clicksEachMs = 400,
+	fallof = 20
+}) {
 	const FALLOF = -clicksTarget / fallof
 
 	return rxpipe(
@@ -182,7 +199,9 @@ export function createThresholdStream({ clicksTarget = 69, clicksEachMs = 400, f
 				)
 			)
 		),
-		scan((level, value) => Math.min(clicksTarget, Math.max(level + value, 0))),
+		scan((level, value) =>
+			Math.min(clicksTarget, Math.max(level + value, 0))
+		),
 		startWith(0)
 	)
 }
@@ -232,8 +251,14 @@ export function convertStoreToObservable<T>(
  * Checks if two rectangles are intersecting
  */
 export function isIntersecting(
-	rect1: { size: number; coordinates: readonly [x: number, y: number] },
-	rect2: { size: number; coordinates: readonly [x: number, y: number] }
+	rect1: {
+		size: number
+		coordinates: readonly [x: number, y: number]
+	},
+	rect2: {
+		size: number
+		coordinates: readonly [x: number, y: number]
+	}
 ) {
 	return !(
 		rect1.coordinates[0] + rect1.size < rect2.coordinates[0] ||
