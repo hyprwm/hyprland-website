@@ -72,7 +72,8 @@ export const contests: Contest[] = [
 				pretitel: '#1',
 				dotfilesLink: 'https://github.com/flafydev/nixos-config/',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/44374434?s=24&v=4',
-				thumbnail: '/ricing_competitions/3/flafy.webp'
+				thumbnail: '/ricing_competitions/3/flafy.webp',
+				video: 'https://dl.hypr.land/videos/flafy-3-space.mp4'
 			},
 			{
 				name: 'Globes',
@@ -80,7 +81,8 @@ export const contests: Contest[] = [
 				pretitel: '#2',
 				dotfilesLink: 'https://github.com/Aylur/dotfiles/tree/ags-pre-ts',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/104676705?s=24&v=4',
-				thumbnail: '/ricing_competitions/3/aylur.webp'
+				thumbnail: '/ricing_competitions/3/aylur.webp',
+				video: 'https://dl.hypr.land/videos/aylur-3-space.mp4'
 			},
 			{
 				name: 'Golden Era',
@@ -106,7 +108,8 @@ export const contests: Contest[] = [
 				pretitel: '#1',
 				dotfilesLink: 'https://github.com/end-4/dots-hyprland/tree/archive/hybrid-summer',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/97237370?s=24&v=4',
-				thumbnail: '/ricing_competitions/2/end_4.webp'
+				thumbnail: '/ricing_competitions/2/end_4.webp',
+				video: 'https://dl.hypr.land/videos/end4-2-summer.mp4'
 			},
 			{
 				name: 'Unnamed',
@@ -114,7 +117,8 @@ export const contests: Contest[] = [
 				pretitel: '#2',
 				dotfilesLink: 'https://github.com/FlafyDev/flutter_background_bar',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/44374434?s=24&v=4',
-				thumbnail: '/ricing_competitions/2/flafy.webp'
+				thumbnail: '/ricing_competitions/2/flafy.webp',
+				video: 'https://dl.hypr.land/videos/flafy-2-summer.mp4'
 			},
 			{
 				name: 'Day and Night',
@@ -139,7 +143,8 @@ export const contests: Contest[] = [
 				pretitel: '#1',
 				dotfilesLink: 'https://github.com/FlafyDev/flutter_workspaces_2',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/25975326?s=24&v=4',
-				thumbnail: '/ricing_competitions/1/flafy.webp'
+				thumbnail: '/ricing_competitions/1/flafy.webp',
+				video: 'https://dl.hypr.land/videos/flafy-1-winter.mp4'
 			},
 			{
 				name: 'Aurora',
@@ -147,7 +152,8 @@ export const contests: Contest[] = [
 				pretitel: '#2 (ex aequo)',
 				dotfilesLink: 'https://github.com/flick0/dotfiles/tree/aurora',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/77581181?s=24&v=4',
-				thumbnail: '/ricing_competitions/1/flicko.webp'
+				thumbnail: '/ricing_competitions/1/flicko.webp',
+				video: 'https://dl.hypr.land/videos/flicko-1-winter.mp4'
 			},
 			{
 				name: 'Hyprland Winter',
