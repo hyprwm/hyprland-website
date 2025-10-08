@@ -74,7 +74,7 @@
 										{sponsor}
 										showImage
 										showLink
-										class="w-30 h-12 md:h-20 md:w-48"
+										class="w-30 h-12 md:h-20 md:w-52"
 										linkClass="max-md:hidden"
 									/>
 								{/each}

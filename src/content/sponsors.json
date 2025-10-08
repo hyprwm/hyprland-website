@@ -8,7 +8,13 @@
 		}
 	],
 	"platinum": [],
-	"gold": [],
+	"gold": [
+		{
+			"name": "Framework",
+			"image": "/imgs/sponsors/framework-white.png",
+			"link": "https://frame.work/"
+		}
+	],
 	"silver": [],
 	"bronze": []
 }
