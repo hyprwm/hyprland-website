@@ -6,10 +6,10 @@
 	import TitleSubtile from '$lib/components/Title/TitleSubtile.svelte'
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 
-	export let data
+	let { data } = $props()
 
 	/** @type {HTMLElement} */
-	let asciiElement
+	let asciiElement = $state()
 
 	const { posts } = data
 
@@ -18,7 +18,9 @@
 
 	// Taken from https://github.com/NotAShelf/hyprascii/blob/main/web/script.js
 	onMount(async () => {
-		const logoBlob = await fetch(LogoPng).then((response) => response.blob())
+		const logoBlob = await fetch(LogoPng).then((response) =>
+			response.blob()
+		)
 		objectUrl = URL.createObjectURL(logoBlob)
 		const img = document.createElement('img')
 		img.src = objectUrl
@@ -48,8 +50,13 @@
 			const chars = ' .-=+'
 			for (let y = 0; y < cvs.height; y++) {
 				for (let x = 0; x < cvs.width; x++) {
-					const idx = 4 * ((sx < 0 ? cvs.width - x - 1 : x) + cvs.width * y)
-					const br = getLuminance(pixels[idx] / 256, pixels[idx + 1] / 256, pixels[idx + 2] / 256)
+					const idx =
+						4 * ((sx < 0 ? cvs.width - x - 1 : x) + cvs.width * y)
+					const br = getLuminance(
+						pixels[idx] / 256,
+						pixels[idx + 1] / 256,
+						pixels[idx + 2] / 256
+					)
 					text.push(chars[Math.floor(br * chars.length)])
 				}
 				text.push('\n')
@@ -68,15 +75,18 @@
 	<title>Hyprland News</title>
 </svelte:head>
 
-<div class="fancy-top-gradient" />
+<div class="fancy-top-gradient"></div>
 
 <section>
 	<header class="header">
-		<pre class="spinner-wrapper" bind:this={asciiElement} />
+		<pre class="spinner-wrapper" bind:this={asciiElement}></pre>
 
 		<Title>
-			<TitleHeading slot="title" class="">News</TitleHeading>
-			<TitleSubtile>Fresh updates straight from the oven</TitleSubtile>
+			{#snippet title()}
+				<TitleHeading class="">News</TitleHeading>
+			{/snippet}
+			<TitleSubtile>Fresh updates straight from the oven</TitleSubtile
+			>
 		</Title>
 	</header>
 

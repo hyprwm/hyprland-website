@@ -6,7 +6,7 @@ export interface CommunityProfile {
 	containerClass?: string
 	size: number
 	quote?: string
-	class?: string,
+	class?: string
 }
 
 export interface CommunityContext {
@@ -30,7 +30,10 @@ interface ProfilesState {
 	 */
 	intersections: string[]
 	/** All tagged profiles */
-	profiles: Record<string, { size: number; coordinates: readonly [x: number, y: number] }>
+	profiles: Record<
+		string,
+		{ size: number; coordinates: readonly [x: number, y: number] }
+	>
 	/** Current active events. Currently not used, but maybe in the future */
 	events: string[]
 }

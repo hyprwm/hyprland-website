@@ -10,7 +10,7 @@
 	import Sponsors from './home-slices/SponsorsSlice.svelte'
 	import CommunitySlice from './home-slices/CommunitySlice.svelte'
 
-	export let data
+	let { data } = $props()
 </script>
 
 <div class="overflow-hidden">
@@ -39,10 +39,16 @@
 
 <svelte:head>
 	<title>Hyprland</title>
-	<meta name="description" content="Hyprland - Dynamic tiling Wayland compositor with the looks." />
+	<meta
+		name="description"
+		content="Hyprland - Dynamic tiling Wayland compositor with the looks."
+	/>
 	<meta
 		property="og:description"
 		content="Hyprland - Dynamic tiling Wayland compositor with the looks."
 	/>
-	<meta property="og:title" content="Hyprland: Dynamic tiling window compositor with the looks" />
+	<meta
+		property="og:title"
+		content="Hyprland: Dynamic tiling window compositor with the looks"
+	/>
 </svelte:head>

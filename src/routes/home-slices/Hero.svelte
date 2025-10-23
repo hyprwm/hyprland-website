@@ -6,9 +6,9 @@
 	import HeroBackground from './HeroBackground.svelte'
 	import HyprlandLogo from '$lib/images/logos/HyprlandLogo.svelte'
 
-	export let backgroundData
+	let { backgroundData } = $props()
 
-	let isVisible = true
+	let isVisible = $state(true)
 	let isMobile = false
 
 	onMount(() => {
@@ -19,7 +19,7 @@
 <section
 	class="relative flex h-[100svh] min-h-[36rem] w-full flex-col items-center justify-center overflow-x-hidden"
 	use:inview
-	on:inview_change={({ detail: { inView } }) => {
+	oninview_change={({ detail: { inView } }) => {
 		isVisible = inView
 	}}
 >
@@ -30,13 +30,16 @@
 		<h1
 			class="ani-in title pointer-events-auto mb-4 max-w-[20ch] text-center text-4xl font-bold !leading-[1] fill-mode-backwards [animation-delay:384ms] sm:text-6xl md:text-7xl lg:text-8xl lg:tracking-tight"
 		>
-			Modern compositor <br /><span class="hyprgradient title-gradient">with the looks</span>
+			Modern compositor <br /><span
+				class="hyprgradient title-gradient">with the looks</span
+			>
 		</h1>
 		<p
 			class="ani-in mb-8 text-center text-base font-medium text-slate-400 fill-mode-backwards [animation-delay:794ms] sm:mb-12 sm:max-w-lg sm:px-0 sm:text-xl md:max-w-lg md:text-2xl lg:max-w-[50ch]"
 		>
-			Hyprland provides the latest Wayland features, dynamic tiling, all the eyecandy, powerful
-			plugins and much more, while still being lightweight and responsive
+			Hyprland provides the latest Wayland features, dynamic tiling,
+			all the eyecandy, powerful plugins and much more, while still
+			being lightweight and responsive
 		</p>
 
 		<div

@@ -10,10 +10,12 @@
 	import TitleHeading from '$lib/components/Title/TitleHeading.svelte'
 	import Button from '$lib/components/Button.svelte'
 
-	export let data
+	let { data } = $props()
 
 	const { plugins } = data
-	const featuredPlugins = plugins.filter(({ featured }) => featured).slice(0, 4)
+	const featuredPlugins = plugins
+		.filter(({ featured }) => featured)
+		.slice(0, 4)
 	const pluginsByCategory = R.pipe(
 		plugins,
 		R.groupBy(({ category }) => category),
@@ -48,11 +50,19 @@
 >
 	<div class="top-light"></div>
 
-	<header class="mt-24 flex flex-col items-center justify-center md:mt-32">
+	<header
+		class="mt-24 flex flex-col items-center justify-center md:mt-32"
+	>
 		<Title>
-			<TitlePre slot="pre">Plugins</TitlePre>
-			<TitleHeading slot="title" class="">Unlock full power</TitleHeading>
-			<TitleSubtile>Easily load up plugins and customize everything</TitleSubtile>
+			{#snippet pre()}
+				<TitlePre>Plugins</TitlePre>
+			{/snippet}
+			{#snippet title()}
+				<TitleHeading class="">Unlock full power</TitleHeading>
+			{/snippet}
+			<TitleSubtile
+				>Easily load up plugins and customize everything</TitleSubtile
+			>
 		</Title>
 
 		<div
@@ -74,11 +84,17 @@
 	>
 		<!-- Secondary navigation -->
 		<div class="hidden lg:block">
-			<nav class="sticky top-32 z-40 max-h-max min-w-52 shrink-0 grow-0 flex-col gap-2 px-8">
-				<ul class="flex flex-col gap-4 text-sm font-medium text-slate-400">
+			<nav
+				class="sticky top-32 z-40 max-h-max min-w-52 shrink-0 grow-0 flex-col gap-2 px-8"
+			>
+				<ul
+					class="flex flex-col gap-4 text-sm font-medium text-slate-400"
+				>
 					{#each pluginsByCategory as category}
 						<li>
-							<a href={'#' + category[0]} class=" px-2 py-1 transition-colors hover:text-white"
+							<a
+								href={'#' + category[0]}
+								class=" px-2 py-1 transition-colors hover:text-white"
 								>{category[0]}</a
 							>
 						</li>
@@ -101,7 +117,11 @@
 								plugin.banner &&
 									featuredPlugins
 										.slice(0, index)
-										.reduce((total, { banner }) => (banner ? total + 1 : total), 0) < 2
+										.reduce(
+											(total, { banner }) =>
+												banner ? total + 1 : total,
+											0
+										) < 2
 									? 'col-span-8 h-[18rem] md:col-span-6  lg:col-span-8   '
 									: 'col-span-6 h-[16rem]  lg:col-span-4  ',
 
@@ -119,7 +139,10 @@
 			>
 				{#each pluginsByCategory as [category, plugins]}
 					<div class="flex w-full flex-col gap-2">
-						<h3 id={category} class="scroll-mt-32 text-lg font-medium text-slate-300">
+						<h3
+							id={category}
+							class="scroll-mt-32 text-lg font-medium text-slate-300"
+						>
 							{category}
 						</h3>
 						<div class="flex w-full flex-wrap gap-4">
@@ -141,7 +164,8 @@
 
 <style lang="postcss">
 	.top-light {
-		background: url('/imgs/grain.webp'),
+		background:
+			url('/imgs/grain.webp'),
 			radial-gradient(
 				100% 80% at top,
 				theme(colors.cyan.500 / 50%) 0%,

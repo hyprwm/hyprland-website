@@ -7,15 +7,22 @@
 	import clsx from 'clsx'
 	import Video from '$lib/components/Video.svelte'
 	import { animateIn } from '$lib/Helper.ts'
-	import { Subject, debounceTime, map, tap, throttle, throttleTime } from 'rxjs'
+	import {
+		Subject,
+		debounceTime,
+		map,
+		tap,
+		throttle,
+		throttleTime
+	} from 'rxjs'
 	import { onMount } from 'svelte'
 	import { fade } from 'svelte/transition'
 	import Button from '$lib/components/Button.svelte'
 
 	/** @type {HTMLVideoElement[]}*/
-	const videos = []
-	let activeIndex = 0
-	let isHoveringVideo = false
+	const videos = $state([])
+	let activeIndex = $state(0)
+	let isHoveringVideo = $state(false)
 	const isVideoCroppedInput$ = new Subject()
 	/** @type {import('rxjs').Subject<boolean>}*/
 	const isVideoCropped$ = isVideoCroppedInput$.pipe(
@@ -41,7 +48,8 @@
 		{
 			icon: IconIpc,
 			title: 'Bindings and IPC.',
-			description: 'Control your desktop with your favourite languages or simply via IPC.',
+			description:
+				'Control your desktop with your favourite languages or simply via IPC.',
 			poster: '/videos/aylur_thumb.png',
 			src: '/videos/aylur',
 			subtext: `Setup by <a href="https://github.com/Aylur/dotfiles" target="_blank">Aylur</a>, creator of
@@ -55,13 +63,17 @@
 	}
 
 	function onPlay(currentIndex) {
-		videos.filter((_, index) => index !== currentIndex).forEach((video) => video.play())
+		videos
+			.filter((_, index) => index !== currentIndex)
+			.forEach((video) => video.play())
 	}
 	function onPause(activeIndex, currentIndex) {
 		// Prevent infinite loop when active video gets paused and other videos also get paused as a result
 		if (currentIndex !== activeIndex) return
 
-		videos.filter((_, index) => index !== currentIndex).forEach((video) => video.pause())
+		videos
+			.filter((_, index) => index !== currentIndex)
+			.forEach((video) => video.pause())
 	}
 	function toggleVideoSlide() {
 		isHoveringVideo ? slideVideoOut() : slideVideoIn()
@@ -78,9 +90,11 @@
 	})
 </script>
 
-<svelte:window on:resize={() => isVideoCroppedInput$.next(0)} />
+<svelte:window onresize={() => isVideoCroppedInput$.next(0)} />
 
-<section class="relative z-0 flex min-h-max w-full flex-col items-center py-20">
+<section
+	class="relative z-0 flex min-h-max w-full flex-col items-center py-20"
+>
 	<div
 		class="mx-auto grid max-w-7xl grid-cols-1 gap-8 transition-all lg:grid-cols-2 lg:gap-12"
 		use:animateIn={{ slide: 24 }}
@@ -94,22 +108,24 @@
 			<div class="txt-shadow_ mt-8 flex flex-col gap-6">
 				<h2 class=" text-6xl font-bold">Unlock full power</h2>
 				<p class="text-lg font-bold text-slate-300">
-					Get the latest features Linux offers. Have full control over your workflow by customizing
-					and extending it how you want.
+					Get the latest features Linux offers. Have full control over
+					your workflow by customizing and extending it how you want.
 				</p>
 			</div>
 
 			<div class="flex h-full flex-col gap-4">
 				{#each items as { icon, title, description }, index}
 					{@const isActive = index === activeIndex}
+					{@const SvelteComponent = icon}
 					<button
 						class={clsx(
 							'flex gap-3 rounded-xl px-4 py-4  outline-0  outline-cyan-400/50 transition-all  sm:-ml-4',
-							isActive && 'bg-blue-300/5 shadow-md outline outline-1 backdrop-blur-sm    '
+							isActive &&
+								'bg-blue-300/5 shadow-md outline outline-1 backdrop-blur-sm    '
 						)}
-						on:mouseenter={() => setActiveItem(index)}
+						onmouseenter={() => setActiveItem(index)}
 					>
-						<svelte:component this={icon} class="h-8 w-8 shrink-0 text-primary" />
+						<SvelteComponent class="h-8 w-8 shrink-0 text-primary" />
 						<p
 							class={clsx(
 								'txt-shadow_ text-left text-lg font-medium transition-colors ',
@@ -134,12 +150,15 @@
 					target="_blank"
 				>
 					<div>
-						Also see <span class="text-cyan-500">Awesome Hyprland</span>
+						Also see <span class="text-cyan-500"
+							>Awesome Hyprland</span
+						>
 					</div>
 					<IconLinkOut />
 				</a>
 				<p class="font-medium text-slate-400">
-					A list of plugins, bindings, apps and more made by the community
+					A list of plugins, bindings, apps and more made by the
+					community
 				</p>
 			</div>
 		</div>
@@ -153,7 +172,7 @@
 		>
 			{#if $isVideoCropped$}
 				<button
-					on:click={toggleVideoSlide}
+					onclick={toggleVideoSlide}
 					class:rotate-180={isHoveringVideo}
 					class="group absolute -left-6 top-1/2 z-50 rounded-full bg-blue-400/5 p-2 outline outline-white/10 backdrop-blur-sm transition-transform"
 					out:fade
@@ -189,7 +208,9 @@
 		</div>
 	</div>
 
-	<PatternBackground class="absolute inset-0  h-[110%]  w-full text-slate-800 opacity-40" />
+	<PatternBackground
+		class="absolute inset-0  h-[110%]  w-full text-slate-800 opacity-40"
+	/>
 </section>
 
 <style lang="postcss">

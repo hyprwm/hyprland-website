@@ -6,22 +6,34 @@
 
 	// Dont forget to put this component inside of CardsContainer.svelte
 	// Also pass a hight class to the element, as otherwise the banner might not align properly,
-	// due to the parent container being unable to use height: full as there wont be a reference
 
-	export let plugin
-	export let color = undefined
-	export let showCategory = false
-	export let taglineMaxLength = 0
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} plugin - due to the parent container being unable to use height: full as there wont be a reference
+	 * @property {any} [color]
+	 * @property {boolean} [showCategory]
+	 * @property {number} [taglineMaxLength]
+	 */
+
+	/** @type {Props & { [key: string]: any }} */
+	let {
+		plugin,
+		color = undefined,
+		showCategory = false,
+		taglineMaxLength = 0,
+		...rest
+	} = $props()
 
 	/** @type {HTMLVideoElement}*/
-	let videoElement
+	let videoElement = $state()
 </script>
 
 <Card
-	on:mouseenter={() => videoElement && videoElement.play().catch(console.error)}
+	on:mouseenter={() =>
+		videoElement && videoElement.play().catch(console.error)}
 	on:mouseleave={() => videoElement && videoElement.pause()}
 	{color}
-	class={$$restProps.class}
+	class={rest.class}
 	gradientOpacity={0.5}
 	><a
 		href={plugin.url}
@@ -47,7 +59,11 @@
 						)}
 						style:--background={`url("${getGeneratedPath(plugin.logo)}")`}
 					>
-						<img class="size-full" src={plugin.logo} alt={'Logo of ' + plugin.name} />
+						<img
+							class="size-full"
+							src={plugin.logo}
+							alt={'Logo of ' + plugin.name}
+						/>
 					</div>
 				{:else}
 					<!-- Placeholder logo -->
@@ -73,7 +89,10 @@
 				<p
 					class="overflow-hiddenx text-nowrapx max-w-[60ch] text-ellipsis text-sm font-medium text-slate-400 @xl:overflow-auto @xl:text-pretty @xl:text-base"
 				>
-					{trimText(plugin.tagline, taglineMaxLength || Number.POSITIVE_INFINITY)}
+					{trimText(
+						plugin.tagline,
+						taglineMaxLength || Number.POSITIVE_INFINITY
+					)}
 				</p>
 			</div>
 
@@ -100,7 +119,11 @@
 						loop
 					></video>
 				{:else}
-					<img src={plugin.banner} class="absolute inset-0 size-full object-cover" alt="" />
+					<img
+						src={plugin.banner}
+						class="absolute inset-0 size-full object-cover"
+						alt=""
+					/>
 				{/if}
 			</div>
 		{/if}
@@ -124,7 +147,11 @@
 			z-index: -1;
 			opacity: 50%;
 			/* filter: brightness(2); */
-			mask-image: radial-gradient(closest-side, black 0%, transparent 99%);
+			mask-image: radial-gradient(
+				closest-side,
+				black 0%,
+				transparent 99%
+			);
 		}
 	}
 	.logo-container:not(.banner) {
@@ -139,7 +166,11 @@
 		height: 100%;
 		z-index: -20;
 		/* translate: 0 -2px; */
-		mask-image: radial-gradient(450% 120% at 0% 100%, black 18%, white);
+		mask-image: radial-gradient(
+			450% 120% at 0% 100%,
+			black 18%,
+			white
+		);
 		mask-mode: luminance;
 		@apply rounded-3xl;
 		contain: strict;
