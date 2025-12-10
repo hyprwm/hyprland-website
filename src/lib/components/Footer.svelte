@@ -100,6 +100,7 @@
 
 		<div class="flex w-full flex-wrap gap-4 text-sm font-medium text-slate-400">
 			<p>Hyprland is licensed under the BSD 3-Clause "New" or "Revised" License.</p>
+			<p>The name "Hyprland" and the logo are registered trademarks of Hyprland Development.</p>
 			<p>© Hyprland Development {new Date().getFullYear()}.</p>
 			<p>Stay hydrated</p>
 		</div>
