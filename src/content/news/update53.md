@@ -68,3 +68,4 @@ vax
 
 - hyprpaper [0.8.0](https://github.com/hyprwm/hyprpaper/releases/tag/v0.8.0)
 - hyprland-guiutils [0.2.1](https://github.com/hyprwm/hyprland-guiutils/releases/tag/v0.2.1)
+- hyprtoolkit [0.5.0](https://github.com/hyprwm/hyprtoolkit/releases/tag/v0.5.0)
