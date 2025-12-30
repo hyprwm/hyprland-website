@@ -16,7 +16,7 @@ This is a large update with a lot of things, and a few breaking changes.
 Just two, but one big:
 
 - Windowrule syntax has been completely overhauled. Please check the wiki: [here](https://wiki.hypr.land/Configuring/Window-Rules/)
-- `misc:new_window_takes_over_fs` replaces `misc:new_window_takes_over_fullscreen` and `master:inherit_fullscreen`
+- `misc:on_focus_under_fullscreen` replaces `misc:new_window_takes_over_fullscreen` and `master:inherit_fullscreen`
 
 All of your windowrules will need to be re-written for the new syntax.
 
