@@ -20,6 +20,8 @@ Just two, but one big:
 
 All of your windowrules will need to be re-written for the new syntax.
 
+For an unofficial windowrule syntax converter, ItsOhen on Github created an automatic syntax fixer: [forum post](https://forum.hypr.land/t/0-53-window-layerrule-converter/1243).
+
 ## Major new stuff
 
 ### start-hyprland
