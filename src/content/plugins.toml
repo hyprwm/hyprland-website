@@ -71,6 +71,12 @@ category = "Layout"
 tagline  = "N-Stack tiling"
 
 [[plugins]]
+name     = "hypr-hot-edge"
+url      = "https://github.com/claychinasky/hypr-hot-edge"
+category = "Layout"
+tagline  = "Hot Edge Side Panel Like Workspaces"
+
+[[plugins]]
 name     = "hyprland-virtual-desktops"
 url      = "https://github.com/levnikmyskin/hyprland-virtual-desktops"
 category = "Layout"
