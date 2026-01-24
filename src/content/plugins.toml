@@ -160,3 +160,10 @@ name     = "CSGO Vulkan Fix"
 url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/csgo-vulkan-fix"
 category = "Miscellaneous"
 tagline  = "CSGO custom resolutions fix"
+
+
+[[plugins]]
+name     = "hypr-hot-edge"
+url      = "https://github.com/claychinasky/hypr-hot-edge"
+category = "Miscellaneous"
+tagline  = "Hot Edge Side Panel Like Workspaces"
