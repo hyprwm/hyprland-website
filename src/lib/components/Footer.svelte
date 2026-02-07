@@ -5,6 +5,8 @@
 	import { forgejoLink } from '$lib/constants'
 	import RssIcon from '~icons/mingcute/rss-fill'
 	import ForgejoIcon from '~icons/fe/git'
+	import Sponsor from '$lib/components/Sponsor.svelte'
+	import sponsors from '../../content/sponsors.json'
 
 	/** @type {[string, string, string, string]} */
 	const team = [
@@ -15,12 +17,47 @@
 	function createRole(role, color) {
 		return `<span class='text-${color}-500'><span class='text-${color}-600'>[ </span>${role}<span class='text-${color}-600'> ]</span></span>`
 	}
+
+	const categories = [
+		{ name: 'diamond', label: 'Diamond', gradient: 'from-primary to-blue-500' },
+		{ name: 'platinum', label: 'Platinum', gradient: 'from-white to-cyan-300' },
+		{ name: 'gold', label: 'Gold', gradient: 'from-yellow-200 to-yellow-400' },
+		{ name: 'silver', label: 'Silver', gradient: '' },
+		{ name: 'bronze', label: 'Bronze', gradient: '' }
+	]
+
+	const hasAnySponsors = categories.some((cat) => sponsors[cat.name]?.length > 0)
 </script>
 
 <footer
 	class="max-w-screen relative mt-16 flex items-center justify-center border-t border-blue-400/50 bg-black/50 md:mt-24 lg:mt-32"
 >
 	<div class="footer-inner">
+		{#if hasAnySponsors}
+			<div class="sponsors-row">
+				<div class="sponsors-title">Sponsors</div>
+				{#each categories as category, index}
+					{#if sponsors[category.name]?.length > 0}
+						<div class="sponsor-category">
+							<div class="sponsor-label {category.gradient ? 'gradient-text' : 'text-slate-400'}">
+								{#if category.gradient}
+									<span class="bg-gradient-to-r {category.gradient} bg-clip-text text-transparent">
+										{category.label}
+									</span>
+								{:else}
+									{category.label}
+								{/if}
+							</div>
+							<div class="sponsor-logos">
+								{#each sponsors[category.name] as sponsor}
+									<Sponsor {sponsor} showImage class="sponsor-logo tier-{category.name}" />
+								{/each}
+							</div>
+						</div>
+					{/if}
+				{/each}
+			</div>
+		{/if}
 		<div class="flex grow flex-col gap-4 rounded-lg">
 			<div class="pretitle">Humans</div>
 			<ul class="flex flex-col gap-3 font-medium">
@@ -116,6 +153,48 @@
 
 	.pretitle {
 		@apply text-sm font-bold uppercase text-slate-400;
+	}
+
+	.sponsors-row {
+		@apply -mb-4 flex w-full flex-wrap gap-x-8 gap-y-6 border-b border-blue-400/30 pb-6;
+	}
+
+	.sponsors-title {
+		@apply -mb-3 w-full text-sm font-bold uppercase text-slate-400;
+	}
+
+	.sponsor-category {
+		@apply flex flex-col gap-2;
+	}
+
+	.sponsor-label {
+		@apply text-xs font-bold uppercase;
+		@apply flex h-4 items-center;
+	}
+
+	.sponsor-logos {
+		@apply flex flex-wrap items-center gap-3;
+		@apply min-h-[theme(spacing.10)];
+	}
+
+	.sponsor-category :global(.sponsor-logo.tier-diamond) {
+		@apply h-10 w-auto object-contain;
+	}
+
+	.sponsor-category :global(.sponsor-logo.tier-platinum) {
+		@apply h-8 w-auto object-contain;
+	}
+
+	.sponsor-category :global(.sponsor-logo.tier-gold) {
+		@apply h-7 w-auto object-contain;
+	}
+
+	.sponsor-category :global(.sponsor-logo.tier-silver) {
+		@apply h-6 w-auto object-contain;
+	}
+
+	.sponsor-category :global(.sponsor-logo.tier-bronze) {
+		@apply h-5 w-auto object-contain;
 	}
 
 	a:hover {
