@@ -101,14 +101,14 @@
 		<ul class="flex gap-4">
 			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
 				<a
-					class="rounded-full px-4 py-2 outline outline-cyan-500 hover:outline-cyan-200"
+					class="inline-block rounded-full px-4 py-2 outline outline-cyan-500 hover:outline-cyan-200"
 					href="/support">Support us</a
 				>
 			</li>
 
 			<li>
 				<a
-					class="rounded-full bg-cyan-300 px-4 py-2 uppercase tracking-wide text-black hover:bg-cyan-200"
+					class="inline-block rounded-full bg-cyan-300 px-4 py-2 uppercase tracking-wide text-black hover:bg-cyan-200"
 					href="https://wiki.hypr.land/Getting-Started/Installation/"
 					target="_blank"
 					aria-label="Install Hyprland">Install</a
@@ -138,7 +138,7 @@
 
 		/* Desktop classes */
 		@media screen(nav) {
-			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 pr-3 outline outline-primary/10;
+			@apply relative flex h-min w-max flex-row rounded-full bg-black/40 p-2 pl-5 outline outline-primary/10;
 		}
 	}
 
