@@ -62,6 +62,12 @@ url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/xtra-dispatcher
 category = "Quality of Life"
 tagline  = "Additional dispatchers for Hyprland"
 
+[[plugins]]
+name     = "hypr-kinetic-scroll"
+url      = "https://github.com/savonovv/hypr-kinetic-scroll"
+category = "Quality of Life"
+tagline  = "Compositor-level kinetic touchpad scrolling"
+
 # Layout
 
 [[plugins]]
