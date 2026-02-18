@@ -146,6 +146,12 @@ category = "Design"
 tagline  = "MacOS-like workspace overview"
 featured = true
 
+[[plugins]]
+name     = "Hyprglass"
+url      = "https://github.com/hyprnux/hyprglass"
+category = "Design"
+tagline  = "Liquid-glass like effects, fully customizable"
+
 # Miscellaneous
 
 [[plugins]]
