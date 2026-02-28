@@ -16,6 +16,7 @@ Special thanks to our HIs (Human Intelligences) for powering Hyprland developmen
 ## Breaking changes
 
 - `togglesplit` and `swapsplit` dispatchers have been finally removed after being long deprecated. Please use `layoutmsg` now.
+- `single_window_aspect_ratio` and `single_window_aspect_ratio_tolerance` have been migrated from dwindle to layout, and are layout-agnostic.
 
 ## Per-workspace layouts
 
