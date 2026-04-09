@@ -13,6 +13,11 @@
 			"name": "Framework",
 			"image": "/imgs/sponsors/framework-white.png",
 			"link": "https://frame.work/"
+		},
+		{
+			"name": "Butterfly",
+			"image": "/imgs/sponsors/butterfly-white.svg",
+			"link": "https://butterfly.so/"
 		}
 	],
 	"silver": [],
