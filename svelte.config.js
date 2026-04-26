@@ -10,8 +10,8 @@ const mdsvexOptions = {
 	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await getHighlighter({ theme: 'github-dark' })
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+			const highlighter = await getHighlighter({ themes: ['github-dark'], langs: ['ini', 'txt', 'c', 'cpp'] })
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'github-dark' }))
 			return `{@html \`${html}\` }`
 		}
 	},
