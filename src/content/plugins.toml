@@ -71,6 +71,13 @@ tagline  = "Best Screenshot tool for Hyprland"
 logo     = "/plugins-data/logos/hyprcapture-logo.svg"
 
 [[plugins]]
+name     = "hypr-kdeconnect-fix"
+url      = "https://github.com/gfhdhytghd/hypr-kdeconnect-fix"
+category = "Quality of Life"
+tagline  = "KDE Connect remote input bridge"
+logo     = "/plugins-data/logos/hypr-kdeconnect-fix-logo.svg"
+
+[[plugins]]
 name     = "xtra-dispatchers"
 url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/xtra-dispatchers"
 category = "Quality of Life"
