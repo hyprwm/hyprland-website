@@ -63,6 +63,12 @@ category = "Quality of Life"
 tagline  = "MacOS/KDE Mission Control for Hyprland"
 logo     = "/plugins-data/logos/hymission-logo.svg"
 
+[[plugins]]
+name     = "hyprcapture"
+url      = "https://github.com/gfhdhytghd/HyprCapture"
+category = "Quality of Life"
+tagline  = "Best Screenshot tool for Hyprland"
+logo     = "/plugins-data/logos/hyprcapture-logo.svg"
 
 [[plugins]]
 name     = "xtra-dispatchers"

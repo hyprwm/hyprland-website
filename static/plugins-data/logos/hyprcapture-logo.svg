@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <filter id="glow-bg" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="25" result="blur" />
+    </filter>
+
+    <filter id="glow-element" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#80FFFF" />
+      <stop offset="50%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#0055FF" />
+    </linearGradient>
+
+  </defs>
+
+  <ellipse cx="120" cy="140" rx="55" ry="45" fill="#00E5FF" filter="url(#glow-bg)" opacity="0.35" />
+  <ellipse cx="120" cy="110" rx="40" ry="40" fill="#0055FF" filter="url(#glow-bg)" opacity="0.4" />
+
+  <g filter="url(#glow-element)">
+    <path d="M 60 90 V 60 H 90" fill="none" stroke="url(#neonCyan)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 150 60 H 180 V 90" fill="none" stroke="url(#neonCyan)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 60 150 V 180 H 90" fill="none" stroke="url(#neonCyan)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 180 150 V 180 H 150" fill="none" stroke="url(#neonCyan)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+
+    <circle cx="120" cy="120" r="18" fill="none" stroke="url(#neonCyan)" stroke-width="8" />
+
+    <circle cx="120" cy="120" r="6" fill="#80FFFF" />
+  </g>
+</svg>
