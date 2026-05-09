@@ -28,13 +28,13 @@ With Lua, we've also added a Layout API for you to define your own layouts direc
 layouts can be set globally, per-workspace, per-monitor, etc. and behave just like regular layouts,
 except fully controlled by you.
 
-<video src="https://hypr.land/imgs/blog/update55/spiralShowcase.mp4" autoplay muted controls/>
+<video src="https://hypr.land/imgs/blog/update55/spiralShowcase.mp4" autoplay muted controls loop/>
 
 ### Various scrolling improvements
 
 Scrolling now supports fullscreen windows as part of the tape by default:
 
-<video src="https://hypr.land/imgs/blog/update55/scrollShowcase.mp4" autoplay muted controls/>
+<video src="https://hypr.land/imgs/blog/update55/scrollShowcase.mp4" autoplay muted controls loop/>
 
 As well as a native trackpad gesture via `scroll_move` in lua.
 
