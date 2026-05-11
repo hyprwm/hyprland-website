@@ -17,7 +17,7 @@
 <div class="fancy-top-gradient fad animate-in" />
 
 <article
-	class="mx-auto mt-navbar flex max-w-4xl flex-col gap-4 px-6 pt-20 md:gap-8 md:px-8 lg:mt-32 lg:gap-14"
+	class="mx-auto mt-navbar flex w-full max-w-4xl flex-col gap-4 px-6 pt-20 md:gap-8 md:px-8 lg:mt-32 lg:gap-14"
 >
 	<hgroup
 		class="flex flex-col items-start gap-8 duration-1000 animate-in fade-in-0 slide-in-from-bottom-4"
