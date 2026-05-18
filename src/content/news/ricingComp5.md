@@ -13,7 +13,8 @@ It's that time again, where we are excited to announce yet another ricing compet
 
 As usual, we're giving you 2 (and a half) weeks to make a new and original rice, based on the competition's theme.
 
-Prizes:
+## Prizes
+
 1st:
  - 100$ (paypal, crypto, cs2 skins) or equivalent in discord nitro
  - README featuring of the rice
@@ -21,17 +22,20 @@ Prizes:
  - new splash of choice (T&C apply)
  - discord role
  - hall of fame on the website
+
 2nd: 
  - 50$ (paypal, crypto, cs2 skins) or equivalent in discord nitro
  - one free issue/fr priority ticket (T&C apply)
  - discord role
  - hall of fame on the website
+
 3rd:
  - 25$ (paypal, crypto, cs2 skins) or equivalent in discord nitro
  - discord role
  - hall of fame on the website
 
-Rules of the competition:
+## Rules of the competition
+
 - the deadline is 5th May, 23:59 UTC.
 - your submission must be original (no stealing of dotfiles)
 - you cannot use your own existing dotfiles, but you can base your submission on **your** existing dotfiles.
@@ -41,15 +45,18 @@ Rules of the competition:
 - your submission can be either a **video** or **screenshot(s)**.
 - no AI generated wallpapers allowed.
 
-Submitting:
+## Submitting
+
  - all submissions must be made in `#ricing-competition-submissions` on our Discord server. You are only allowed **one rice submission** in **ONE message**. _You are allowed to delete your old submission and post a new one, or edit your submission until the deadline._
  - If you do not use discord, you may also submit them on matrix `#hyprland:matrix.vaxry.net`.
  - Multiple submissions = you are out
 
-Rating:
+## Rating
+
 Jury TBD. Will be at least me, and probably fox / fuffie / mathbuilder, could be more.
 
-Points (new revised rating scheme):
+### Points (new revised rating scheme)
+
 - 0 - 10 in total for adherence to the theme. 0 means you are out.
 - 0 - 5 points from each jury for creativity
 - 0 - 5 points from each jury for effort
