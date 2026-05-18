@@ -36,7 +36,7 @@ As usual, we're giving you 2 (and a half) weeks to make a new and original rice,
 
 ## Rules of the competition
 
-- the deadline is 5th May, 23:59 UTC.
+- the deadline is 5th June, 23:59 UTC.
 - your submission must be original (no stealing of dotfiles)
 - you cannot use your own existing dotfiles, but you can base your submission on **your** existing dotfiles.
 - your dotfiles **must** become public at some point before the deadline. If you prefer to keep them private during the competition, that's fine, edit your submission on the last day with the link if that's what you prefer.
