@@ -65,7 +65,7 @@ Jury TBD. Will be at least me, and probably fox / fuffie / mathbuilder, could be
 - Bonus 0 - 3 overall points for _something funny / an easter egg_ - but not forced, that's cringe.
 - Bonus 0.5 point for past winners of competitions (chess / rice)
 
-The theme this time is **MOON**, as in Lua. :crescent_moon:.
+The theme this time is **MOON**, as in Lua. 🌙
 
 All of the above may change if yall tryna sneak around the rules.
 
