@@ -44,6 +44,7 @@ As usual, we're giving you 2 (and a half) weeks to make a new and original rice,
 - your submission must be a Hyprland rice. (workflow, other apps riced - OK, but can't be sway / i3 / windows / blackboard / etc)
 - your submission can be either a **video** or **screenshot(s)**.
 - no AI generated wallpapers allowed.
+- your submission cannot be largely made, or made with significant help, from AI. This falls under the originality rule.
 
 ## Submitting
 
