@@ -115,19 +115,19 @@
 		class="z-10 mt-14 flex max-w-screen-xl flex-col flex-wrap justify-center gap-8 text-lg sm:flex-row"
 	>
 		<a
-			href="https://wiki.hyprland.org/Configuring/Tearing/"
+			href="https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
 			<GameIcon class="h-8 w-8" />
 			Tearing support
 		</a>
-		<a href="https://wiki.hyprland.org/IPC/" target="_blank" class="icon-feature hover:underline">
+		<a href="https://wiki.hypr.land/IPC/" target="_blank" class="icon-feature hover:underline">
 			<IpcIcon class="h-8 w-8" />
 			Socket-based IPC
 		</a>
 		<a
-			href="https://wiki.hyprland.org/Configuring/Dispatchers/"
+			href="https://wiki.hypr.land/Configuring/Basics/Dispatchers/"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
@@ -135,7 +135,7 @@
 			Window groups
 		</a>
 		<a
-			href="https://wiki.hyprland.org/Configuring/Dispatchers/#special-workspace"
+			href="https://wiki.hypr.land/Configuring/Basics/Dispatchers/#special-workspace"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
@@ -144,7 +144,7 @@
 		</a>
 		<Hypractive />
 		<a
-			href="https://wiki.hyprland.org/Configuring/Binds/#global-keybinds"
+			href="https://wiki.hypr.land/Configuring/Basics/Binds/#global-keybinds"
 			target="_blank"
 			class="icon-feature hover:underline"
 		>
@@ -152,7 +152,7 @@
 			Global shortcuts for apps
 		</a>
 		<a
-			href="https://wiki.hyprland.org/Configuring/Variables/#gestures"
+			href="https://wiki.hypr.land/Configuring/Basics/Variables/#gestures"
 			class="icon-feature hover:underline"
 			target="_blank"
 		>
