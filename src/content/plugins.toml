@@ -97,12 +97,6 @@ category = "Layout"
 tagline  = "Virtual desktops"
 
 [[plugins]]
-name     = "hyprscrolling"
-url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprscrolling"
-category = "Layout"
-tagline  = "Scrolling layout for Hyprland"
-
-[[plugins]]
 name     = "hyprRiver"
 url      = "https://github.com/zakk4223/hyprRiver"
 category = "Layout"
@@ -153,11 +147,18 @@ category = "Design"
 tagline  = "Invert window colors"
 
 [[plugins]]
-name     = "hyprexpo"
-url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo"
+name     = "sandwichfarm/hyprexpo"
+url      = "https://github.com/sandwichfarm/hyprexpo"
 category = "Design"
-tagline  = "Zoomed out workspace overview"
-featured = true
+tagline  = "A long-maintained fork of the original HyprExpo with additional features"
+featured = false
+
+[[plugins]]
+name     = "colonelpanic8/hyprexpo"
+url      = "https://github.com/colonelpanic8/hyprexpo"
+category = "Design"
+tagline  = "A new fork of the original HyprExpo with additional features"
+featured = false
 
 [[plugins]]
 name     = "hyprspace"
