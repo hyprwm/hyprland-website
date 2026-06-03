@@ -82,6 +82,12 @@ url      = "https://github.com/savonovv/hypr-kinetic-scroll"
 category = "Quality of Life"
 tagline  = "Compositor-level kinetic touchpad scrolling"
 
+[[plugins]]
+name     = "confined-floats"
+url      = "https://github.com/mennemann/hyprland-confined-floats"
+category = "Quality of Life"
+tagline  = "Prevent floating windows from moving off-screen"
+
 # Layout
 
 [[plugins]]
