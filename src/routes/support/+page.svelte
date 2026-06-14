@@ -34,9 +34,8 @@
 		class="prose prose-slate prose-invert m-0 mx-auto flex flex-col px-6 transition-none delay-500 animate-in fade-in-0 slide-in-from-bottom-6 fill-mode-backwards [animation-delay:800ms] [animation-duration:1500ms] lg:prose-xl prose-a:text-cyan-400 prose-img:rounded-lg"
 	>
 		<p>
-			Hyprland development is done by volunteers, and led by one person working on it full-time. If you
-			want to show a token of appreciation, or help the development continue, consider supporting
-			the project!
+			Hyprland is developed by volunteers and led by one person working on it full-time.
+			If you enjoy Hyprland and want to help keep development sustainable, consider supporting the project!
 		</p>
 
 		<h2>Subscribe to Hyprperks</h2>
