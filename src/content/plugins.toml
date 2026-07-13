@@ -93,7 +93,7 @@ logo     = "/plugins-data/logos/gloview-logo.svg"
 name     = "hyprstatus"
 url      = "https://github.com/Tecknich/hyprstatus"
 category = "Quality of Life"
-tagline  = "Status bar rendered inside the compositor"
+tagline  = "Status bar for hyprland"
 logo     = "/plugins-data/logos/hyprstatus-logo.svg"
 
 # Layout
