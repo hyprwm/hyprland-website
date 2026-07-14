@@ -57,6 +57,13 @@ category = "Quality of Life"
 tagline  = "Cursor physics for Hyprland"
 
 [[plugins]]
+name     = "hypr-edgehover"
+url      = "https://github.com/gfhdhytghd/hypr-edgehover"
+category = "Quality of Life"
+tagline  = "Forward edge hover to adjacent windows"
+logo     = "/plugins-data/logos/hypr-edgehover-logo.svg"
+
+[[plugins]]
 name     = "hymission"
 url      = "https://github.com/gfhdhytghd/hymission"
 category = "Quality of Life"

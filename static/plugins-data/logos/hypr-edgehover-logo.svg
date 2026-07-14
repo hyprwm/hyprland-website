@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc">
+  <title id="title">hypr-edgehover logo</title>
+  <desc id="desc">A pointer hovering at a screen edge and being forwarded into an adjacent Hyprland window.</desc>
+  <defs>
+    <linearGradient id="edge-gradient" x1="38" y1="43" x2="210" y2="213" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7df9ff"/>
+      <stop offset="0.52" stop-color="#00d4ff"/>
+      <stop offset="1" stop-color="#5b7cfa"/>
+    </linearGradient>
+    <linearGradient id="window-gradient" x1="78" y1="52" x2="204" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#151a2f"/>
+      <stop offset="1" stop-color="#080a14"/>
+    </linearGradient>
+    <linearGradient id="cursor-gradient" x1="112" y1="60" x2="28" y2="132" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#009dff"/>
+      <stop offset="1" stop-color="#8eeeff"/>
+    </linearGradient>
+    <radialGradient id="halo-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(130 133) rotate(48) scale(105 88)">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity="0.42"/>
+      <stop offset="0.58" stop-color="#2563ff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="drop-shadow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#020617" flood-opacity="0.72"/>
+    </filter>
+  </defs>
+
+  <circle cx="128" cy="128" r="112" fill="url(#halo-gradient)"/>
+
+  <g filter="url(#drop-shadow)">
+    <rect x="76" y="48" width="134" height="160" rx="20" fill="url(#window-gradient)" stroke="url(#edge-gradient)" stroke-width="6"/>
+    <path d="M96 78H190" stroke="#7df9ff" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
+    <path d="M96 101H166" stroke="#4ddcff" stroke-width="5" stroke-linecap="round" opacity="0.25"/>
+    <path d="M96 184H151" stroke="#7895ff" stroke-width="5" stroke-linecap="round" opacity="0.22"/>
+  </g>
+
+  <g filter="url(#soft-glow)">
+    <rect x="36" y="49" width="10" height="158" rx="5" fill="url(#edge-gradient)"/>
+    <path d="M43 64H62" stroke="#7df9ff" stroke-width="7" stroke-linecap="round"/>
+    <path d="M43 192H62" stroke="#7df9ff" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(37 103) scale(1.9)">
+    <g transform="translate(-2.069871 31.0184) scale(0.1 -0.1)">
+      <path d="M40 308c-19-7-22-13-17-46 2-20 25-81 50-134 43-92 48-98 76-98 27 0 32 5 51 58 17 46 29 62 56 77 67 36 69 87 6 105-107 30-200 46-222 38z" fill="none" stroke="#00e5ff" stroke-width="20" stroke-linejoin="round" opacity="0.22" filter="url(#soft-glow)"/>
+      <path d="M40 308c-19-7-22-13-17-46 2-20 25-81 50-134 43-92 48-98 76-98 27 0 32 5 51 58 17 46 29 62 56 77 67 36 69 87 6 105-107 30-200 46-222 38z" fill="url(#cursor-gradient)" stroke="#7df9ff" stroke-width="12" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
