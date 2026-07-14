@@ -71,12 +71,6 @@ tagline  = "Best Screenshot tool for Hyprland"
 logo     = "/plugins-data/logos/hyprcapture-logo.svg"
 
 [[plugins]]
-name     = "xtra-dispatchers"
-url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/xtra-dispatchers"
-category = "Quality of Life"
-tagline  = "Additional dispatchers for Hyprland"
-
-[[plugins]]
 name     = "hypr-kinetic-scroll"
 url      = "https://github.com/savonovv/hypr-kinetic-scroll"
 category = "Quality of Life"
