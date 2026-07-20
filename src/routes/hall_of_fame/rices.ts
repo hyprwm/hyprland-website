@@ -25,6 +25,42 @@ type Rice = {
 
 export const contests: Contest[] = [
 	{
+		name: 'Moon',
+		number: 5,
+		date: 'June 2026',
+		color: colors.indigo[500],
+		rices: [
+			{
+				name: 'Astroland',
+				creator: 'zacoons',
+				pretitel: '#1',
+				dotfilesLink: 'https://codeberg.org/zacoons/astroland_dots',
+				creatorProfilePicture:
+					'https://codeberg.org/avatars/c4669a53a4de58a5f700fa461405b1fd151d90da48cf927639e3855570e0ca49?size=24',
+				thumbnail: '/ricing_competitions/5/zacoons.png',
+				video: 'https://dl.hypr.land/contest-videos/astroland_zacoons.webm'
+			},
+			{
+				name: 'Moon Rice',
+				creator: 'Flafy',
+				pretitel: '#2',
+				dotfilesLink: 'https://github.com/FlafyDev/hyprland_moon_rice_public',
+				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/44374434?s=24&v=4',
+				thumbnail: '/ricing_competitions/5/flafy.png',
+				video: 'https://dl.hypr.land/contest-videos/moon_flafy.mp4'
+			},
+			{
+				name: 'SPACE',
+				creator: 'Ilyamiro',
+				pretitel: '#3',
+				dotfilesLink: 'https://github.com/ilyamiro/hypr-comp',
+				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/142908366?s=24&v=4',
+				thumbnail: '/ricing_competitions/5/ilyamiro.png',
+				video: 'https://dl.hypr.land/contest-videos/moon_ilyamiro.mp4'
+			}
+		]
+	},
+	{
 		name: 'Fantasy',
 		number: 4,
 		date: 'May 2025',
