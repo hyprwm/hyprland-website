@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900"
+     height="560"
+     viewBox="80 240 864 544"
+     preserveAspectRatio="xMidYMid meet"
+     fill="none">
+
+  <defs>
+    <linearGradient id="hyprGradient"
+                    gradientUnits="userSpaceOnUse"
+                    x1="126" y1="286"
+                    x2="898" y2="738">
+      <stop offset="0" stop-color="#28E0D0"/>
+      <stop offset="0.48" stop-color="#13AAC5"/>
+      <stop offset="1" stop-color="#2685FF"/>
+    </linearGradient>
+
+    <filter id="softGlow"
+            filterUnits="userSpaceOnUse"
+            x="60" y="220"
+            width="904" height="584">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- subtle glow layer -->
+  <g stroke="url(#hyprGradient)"
+     stroke-width="34"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     opacity="0.30"
+     filter="url(#softGlow)">
+    <line x1="205" y1="286" x2="819" y2="286"/>
+    <line x1="205" y1="738" x2="819" y2="738"/>
+
+    <rect x="126" y="397" width="230" height="230" rx="20"/>
+    <rect x="397" y="397" width="230" height="230" rx="20"/>
+    <rect x="668" y="397" width="230" height="230" rx="20"/>
+
+    <path d="M453 457 L508 512 L453 567"/>
+    <line x1="525" y1="567" x2="579" y2="567"/>
+  </g>
+
+  <!-- crisp visible layer -->
+  <g stroke="url(#hyprGradient)"
+     stroke-width="26"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <line x1="205" y1="286" x2="819" y2="286"/>
+    <line x1="205" y1="738" x2="819" y2="738"/>
+
+    <rect x="126" y="397" width="230" height="230" rx="20"/>
+    <rect x="397" y="397" width="230" height="230" rx="20"/>
+    <rect x="668" y="397" width="230" height="230" rx="20"/>
+
+    <path d="M453 457 L508 512 L453 567"/>
+    <line x1="525" y1="567" x2="579" y2="567"/>
+  </g>
+</svg>
