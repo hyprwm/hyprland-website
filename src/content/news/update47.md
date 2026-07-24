@@ -36,7 +36,7 @@ Please do note it _is_ experimental!
 
 Added support for squircles in your corners:
 
-![](https://hypr.land/imgs/blog/update47/squircles.png)
+![](https://hypr.land/imgs/blog/update47/squircles.webp)
 
 it's a cosmetic change for sure, but an anticipated one.
 
@@ -53,7 +53,7 @@ You can disable it with `ecosystem:no_donation_nag`, if you are a cruel person.
 
 It looks like this:
 
-![](https://hypr.land/imgs/blog/update47/nag.png)
+![](https://hypr.land/imgs/blog/update47/nag.webp)
 
 and will of course go away if you click "No thanks".
 
