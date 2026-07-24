@@ -52,10 +52,25 @@
 
 	function setActiveItem(index) {
 		activeIndex = index
+		// Play the newly revealed video; below lg (no sync-play) also pause the
+		// previous one so only a single video decodes at a time.
+		videos.forEach((video, i) => {
+			if (i === index) video?.play().catch(() => {})
+			else if (!window.matchMedia('(min-width: 1024px)').matches) video?.pause()
+		})
 	}
 
+	let hasEnteredView = false
+	let isManuallyPaused = false
+
 	function onPlay(currentIndex) {
-		videos.filter((_, index) => index !== currentIndex).forEach((video) => video.play())
+		// Keep the hidden sibling in sync so the hover swap feels instant — but
+		// only where the hover interaction exists (lg+), so phones don't download
+		// and decode a video they never see.
+		if (!window.matchMedia('(min-width: 1024px)').matches) return
+		videos
+			.filter((_, index) => index !== currentIndex)
+			.forEach((video) => video.play().catch(() => {}))
 	}
 	function onPause(activeIndex, currentIndex) {
 		// Prevent infinite loop when active video gets paused and other videos also get paused as a result
@@ -169,7 +184,8 @@
 					<Video
 						sources={[src + '.mp4']}
 						{poster}
-						autoplay
+						autoplay={index === activeIndex ? true : undefined}
+						preload={index === activeIndex ? 'auto' : 'metadata'}
 						muted
 						bind:videoElement={videos[index]}
 						class="z-10 aspect-video origin-left object-cover    object-left shadow-xl  shadow-cyan-700/50    outline-2 outline-cyan-500 duration-500 sm:h-[inherit] sm:rounded-lg sm:outline"
@@ -177,6 +193,19 @@
 						hidden={index !== activeIndex}
 						on:pause={() => onPause(activeIndex, index)}
 						on:play={() => onPlay(index)}
+						on:inview_enter={() => {
+							hasEnteredView = true
+							if (index === activeIndex && !isManuallyPaused) videos[index]?.play().catch(() => {})
+						}}
+						on:inview_leave={() => {
+							// Fires both when scrolling away and when this video gets `hidden`
+							// after an item switch — only the visible video's leave means the
+							// slice left the viewport. It also fires once at the start (see
+							// PreviewRiceSlice), hence the hasEnteredView guard.
+							if (index !== activeIndex) return
+							if (hasEnteredView) isManuallyPaused = !!videos[index]?.paused
+							videos.forEach((video) => video?.pause())
+						}}
 						videoClass="h-[inherit] aspect-video"
 					/>
 				{/each}

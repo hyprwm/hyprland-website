@@ -15,6 +15,8 @@
 	/** @type {true | undefined}*/
 	export let autoplay = undefined
 	export let hidden = false
+	/** @type {'auto' | 'metadata' | 'none'}*/
+	export let preload = 'auto'
 	/** @type {string}*/
 	export let videoClass = ''
 	/** @type {string}*/
@@ -57,7 +59,7 @@
 		disableremoteplayback="true"
 		class="rounded-[inherit] {videoClass}"
 		{loop}
-		preload="auto"
+		{preload}
 		{poster}
 		on:click={togglePlay}
 		on:dblclick={makeFullscreen}
