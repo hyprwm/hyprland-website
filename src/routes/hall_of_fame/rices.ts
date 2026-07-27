@@ -37,7 +37,7 @@ export const contests: Contest[] = [
 				dotfilesLink: 'https://codeberg.org/zacoons/astroland_dots',
 				creatorProfilePicture:
 					'https://codeberg.org/avatars/c4669a53a4de58a5f700fa461405b1fd151d90da48cf927639e3855570e0ca49?size=24',
-				thumbnail: '/ricing_competitions/5/zacoons.png',
+				thumbnail: '/ricing_competitions/5/zacoons.webp',
 				video: 'https://dl.hypr.land/contest-videos/astroland_zacoons.webm'
 			},
 			{
@@ -46,7 +46,7 @@ export const contests: Contest[] = [
 				pretitel: '#2',
 				dotfilesLink: 'https://github.com/FlafyDev/hyprland_moon_rice_public',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/44374434?s=24&v=4',
-				thumbnail: '/ricing_competitions/5/flafy.png',
+				thumbnail: '/ricing_competitions/5/flafy.webp',
 				video: 'https://dl.hypr.land/contest-videos/moon_flafy.mp4'
 			},
 			{
@@ -55,7 +55,7 @@ export const contests: Contest[] = [
 				pretitel: '#3',
 				dotfilesLink: 'https://github.com/ilyamiro/hypr-comp',
 				creatorProfilePicture: 'https://avatars.githubusercontent.com/u/142908366?s=24&v=4',
-				thumbnail: '/ricing_competitions/5/ilyamiro.png',
+				thumbnail: '/ricing_competitions/5/ilyamiro.webp',
 				video: 'https://dl.hypr.land/contest-videos/moon_ilyamiro.mp4'
 			}
 		]
