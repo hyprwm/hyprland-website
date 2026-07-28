@@ -90,6 +90,13 @@ category = "Quality of Life"
 tagline  = "MacOS-like overview with extra features"
 logo     = "/plugins-data/logos/gloview-logo.svg"
 
+[[plugins]]
+name     = "hyprstatus"
+url      = "https://github.com/Tecknich/hyprstatus"
+category = "Quality of Life"
+tagline  = "Status bar for hyprland"
+logo     = "/plugins-data/logos/hyprstatus-logo.svg"
+
 # Layout
 
 [[plugins]]
