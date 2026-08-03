@@ -20,13 +20,13 @@ A loot of new stuff has dropped.
 A new ANR dialog is now available. It requires `hyprland-qtutils`, but at this point I think all the packagers that matter
 do package it.
 
-![](https://hypr.land/imgs/blog/update48/anr.png)
+![](https://hypr.land/imgs/blog/update48/anr.webp)
 
 ### Various groupbar improvements
 
 Rounding, customizable gaps, height, font size, everything!
 
-![](https://hypr.land/imgs/blog/update48/groupbar.png)
+![](https://hypr.land/imgs/blog/update48/groupbar.webp)
 
 ### Color Management
 
