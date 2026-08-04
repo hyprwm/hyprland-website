@@ -181,6 +181,13 @@ url      = "https://github.com/hyprnux/hyprglass"
 category = "Design"
 tagline  = "Liquid-glass like effects, fully customizable"
 
+[[plugins]]
+name     = "scrolloverview"
+url      = "https://github.com/yayuuu/hyprland-scroll-overview"
+category = "Design"
+tagline  = "Niri-like overview for Hyprland"
+logo     = "/plugins-data/logos/scrolloverview.svg"
+
 # Miscellaneous
 
 [[plugins]]
