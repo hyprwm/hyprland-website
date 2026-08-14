@@ -194,6 +194,12 @@ category = "Design"
 tagline  = "Niri-like overview for Hyprland"
 logo     = "/plugins-data/logos/scrolloverview.svg"
 
+[[plugins]]
+name     = "hyprliquid"
+url      = "https://github.com/zaregototsukai/hyprliquid"
+category = "Design"
+tagline  = "Liquid Glass, Acrylic, Mica, and Aero material effects for windows and layers"
+
 # Miscellaneous
 
 [[plugins]]
