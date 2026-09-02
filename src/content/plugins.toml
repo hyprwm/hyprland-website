@@ -96,6 +96,12 @@ url      = "https://github.com/mennemann/hyprland-confined-floats"
 category = "Quality of Life"
 tagline  = "Prevent floating windows from moving off-screen"
 
+[[plugins]]
+name     = "macos-zoom"
+url      = "https://github.com/aastrand/hyprland-macos-zoom"
+category = "Quality of Life"
+tagline  = "Continuous modifier-scroll screen zoom"
+
 # Layout
 
 [[plugins]]
