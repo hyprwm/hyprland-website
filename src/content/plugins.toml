@@ -200,6 +200,12 @@ category = "Design"
 tagline  = "Niri-like overview for Hyprland"
 logo     = "/plugins-data/logos/scrolloverview.svg"
 
+[[plugins]]
+name     = "HyprWindowShade"
+url      = "https://github.com/ManofJELLO/HyprWindowShade"
+category = "Design"
+tagline  = "Apply shaders to individual windows/layers"
+
 # Miscellaneous
 
 [[plugins]]
