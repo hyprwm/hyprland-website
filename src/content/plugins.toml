@@ -204,7 +204,7 @@ logo     = "/plugins-data/logos/scrolloverview.svg"
 name     = "HyprWindowShade"
 url      = "https://github.com/ManofJELLO/HyprWindowShade"
 category = "Design"
-tagline  = "Apply shaders to individual windows/layers"
+tagline  = "Apply shaders to windows"
 
 # Miscellaneous
 
