@@ -198,7 +198,7 @@ logo     = "/plugins-data/logos/scrolloverview.svg"
 name     = "hyprliquid"
 url      = "https://github.com/zaregototsukai/hyprliquid"
 category = "Design"
-tagline  = "Liquid Glass, Acrylic, Mica, and Aero material effects for windows and layers"
+tagline  = "Liquid Glass and more"
 
 # Miscellaneous
 
