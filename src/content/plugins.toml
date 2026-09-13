@@ -206,6 +206,13 @@ url      = "https://github.com/ManofJELLO/HyprWindowShade"
 category = "Design"
 tagline  = "Apply shaders to windows"
 
+[[plugins]]
+name     = "HyprThanos"
+url      = "https://github.com/Relz/HyprThanos"
+category = "Design"
+tagline  = "Thanos-style window close effect"
+logo     = "/plugins-data/logos/hyprthanos-logo.svg"
+
 # Miscellaneous
 
 [[plugins]]
