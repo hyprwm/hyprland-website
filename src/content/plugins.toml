@@ -96,6 +96,12 @@ url      = "https://github.com/mennemann/hyprland-confined-floats"
 category = "Quality of Life"
 tagline  = "Prevent floating windows from moving off-screen"
 
+[[plugins]]
+name     = "macos-zoom"
+url      = "https://github.com/aastrand/hyprland-macos-zoom"
+category = "Quality of Life"
+tagline  = "Continuous modifier-scroll screen zoom"
+
 # Layout
 
 [[plugins]]
@@ -193,6 +199,12 @@ url      = "https://github.com/yayuuu/hyprland-scroll-overview"
 category = "Design"
 tagline  = "Niri-like overview for Hyprland"
 logo     = "/plugins-data/logos/scrolloverview.svg"
+
+[[plugins]]
+name     = "HyprWindowShade"
+url      = "https://github.com/ManofJELLO/HyprWindowShade"
+category = "Design"
+tagline  = "Apply shaders to windows"
 
 [[plugins]]
 name     = "hyprliquid"
