@@ -206,6 +206,12 @@ url      = "https://github.com/ManofJELLO/HyprWindowShade"
 category = "Design"
 tagline  = "Apply shaders to windows"
 
+[[plugins]]
+name     = "hyprliquid"
+url      = "https://github.com/zaregototsukai/hyprliquid"
+category = "Design"
+tagline  = "Liquid Glass and more"
+
 # Miscellaneous
 
 [[plugins]]
