@@ -122,6 +122,12 @@ url      = "https://github.com/zakk4223/hyprRiver"
 category = "Layout"
 tagline  = "River layouts, on Hyprland"
 
+[[plugins]]
+name     = "omarchy-stage"
+url      = "https://github.com/Sulejman/omarchy-stage"
+category = "Layout"
+tagline  = "Stage Manager-style layout for Omarchy"
+
 # Design
 
 [[plugins]]
