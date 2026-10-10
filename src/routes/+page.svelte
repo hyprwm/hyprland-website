@@ -6,7 +6,6 @@
 	import PreviewRiceSlice from './home-slices/PreviewRiceSlice.svelte'
 	import PluginsSlice from './home-slices/PluginsSlice.svelte'
 	import NewsSlice from './home-slices/NewsSlice.svelte'
-	import HyprPerks from './home-slices/HyprPerksSlice.svelte'
 	import Sponsors from './home-slices/SponsorsSlice.svelte'
 	import CommunitySlice from './home-slices/CommunitySlice.svelte'
 
@@ -28,8 +27,6 @@
 		<CommunitySlice communityProfiles={data.communityProfiles} />
 
 		<Sponsors sponsors={data.sponsors} />
-
-		<HyprPerks />
 
 		<NewsSlice news={data.news} />
 
