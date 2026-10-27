@@ -38,18 +38,6 @@
 			If you enjoy Hyprland and want to help keep development sustainable, consider supporting the project!
 		</p>
 
-		<h2>Subscribe to Hyprperks</h2>
-		<p class="!mb-0 !pb-0">We offer hyprperks, a 5€+tax/mo subscription that is like a monthly donation,
-			but you also get access to member-only forums (with dev Q&A, support straight from the devs)
-			and Hyprland DE, a fully preconfigured, easy to use, one-click updating dotfiles
-			straight from the Hyprland team.
-
-			<br/>
-			<br/>
-
-			Check it out <a href="https://account.hypr.land/pricing" target="_blank">here</a>
-		</p>
-
 		<h2>Donate</h2>
 		<p class="!mb-0 !pb-0">You can donate once, or monthly, via the following channels:</p>
 
