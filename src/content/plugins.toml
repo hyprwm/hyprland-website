@@ -212,6 +212,13 @@ url      = "https://github.com/zaregototsukai/hyprliquid"
 category = "Design"
 tagline  = "Liquid Glass and more"
 
+[[plugins]]
+name     = "HyprThanos"
+url      = "https://github.com/Relz/HyprThanos"
+category = "Design"
+tagline  = "Thanos-style window close effect"
+logo     = "/plugins-data/logos/hyprthanos-logo.svg"
+
 # Miscellaneous
 
 [[plugins]]
