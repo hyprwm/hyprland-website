@@ -10,6 +10,8 @@ author:
 Hello hello! Hyprland 0.57 is finally released, bringing tons of new features and bug fixes. It's been a bit of a wait, but hopefully
 it's all going to be worth it!
 
+As Hyprland's been warning you for the past few months, starting with this version, .conf configs are no longer supported.
+
 ## Highlights
 
 Some highlights of this release, in no particular order
