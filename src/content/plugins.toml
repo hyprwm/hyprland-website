@@ -105,6 +105,12 @@ tagline  = "Continuous modifier-scroll screen zoom"
 # Layout
 
 [[plugins]]
+name     = "Hyprflip"
+url      = "https://github.com/nocstah/hyprflip"
+category = "Layout"
+tagline  = "Two-sided window cards with flip, peek and unfold"
+
+[[plugins]]
 name     = "hyprNStack"
 url      = "https://github.com/zakk4223/hyprNStack"
 category = "Layout"
