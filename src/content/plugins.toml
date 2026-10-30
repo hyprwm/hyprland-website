@@ -102,6 +102,14 @@ url      = "https://github.com/aastrand/hyprland-macos-zoom"
 category = "Quality of Life"
 tagline  = "Continuous modifier-scroll screen zoom"
 
+[[plugins]]
+name     = "MRU Switcher"
+url      = "https://github.com/code-warlord-dev/mru-switcher"
+category = "Quality of Life"
+tagline  = "Niri-style MRU Alt+Tab with frozen list and apply-on-release"
+logo     = "/plugins-data/logos/mru-switcher-logo.png"
+banner   = "/plugins-data/mru-switcher_banner.mp4"
+
 # Layout
 
 [[plugins]]
