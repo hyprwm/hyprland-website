@@ -46,7 +46,7 @@
 		>
 			<li>
 				<a
-					href="https://wiki.hypr.land/Getting-Started/Master-Tutorial/"
+					href="https://wiki.hypr.land/getting-started/master-tutorial/"
 					rel="noopener"
 					target="_blank">Get started</a
 				>
@@ -109,7 +109,7 @@
 			<li>
 				<a
 					class="inline-block rounded-full bg-cyan-300 px-4 py-2 uppercase tracking-wide text-black hover:bg-cyan-200"
-					href="https://wiki.hypr.land/Getting-Started/Installation/"
+					href="https://wiki.hypr.land/getting-started/installation/"
 					target="_blank"
 					aria-label="Install Hyprland">Install</a
 				>

@@ -42,7 +42,7 @@
 		<div
 			class="pointer-events-auto flex items-center gap-7 duration-500 animate-in fade-in-0 slide-in-from-bottom-4 fill-mode-backwards [animation-delay:1390ms]"
 		>
-			<a href="https://wiki.hypr.land/Getting-Started/Installation/">
+			<a href="https://wiki.hypr.land/getting-started/installation/">
 				<Button size="xl">Install</Button>
 			</a>
 			<a href="https://wiki.hypr.land/">
