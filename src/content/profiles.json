@@ -299,15 +299,6 @@
     "size": 28
   },
   {
-    "image": "https://cdn.discordapp.com/avatars/142688838127583232/cd8a2857cfd1b4090e3cd2934d0bcd4e.webp",
-    "class": "outline-red-500 bg-black ",
-    "coordinates": [
-      57,
-      313
-    ],
-    "size": 57
-  },
-  {
     "image": "https://cdn.discordapp.com/avatars/389202953862512641/1ec9240abbae61b1f1f8f4a154859890.webp",
     "class": "outline-stone-500 bg-black ",
     "coordinates": [
