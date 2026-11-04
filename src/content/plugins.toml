@@ -102,6 +102,12 @@ url      = "https://github.com/aastrand/hyprland-macos-zoom"
 category = "Quality of Life"
 tagline  = "Continuous modifier-scroll screen zoom"
 
+[[plugins]]
+name     = "hyprland-thumbwheel"
+url      = "https://github.com/peterxiemin/hyprland-thumbwheel"
+category = "Quality of Life"
+tagline  = "Continuous window scrolling with a horizontal mouse wheel"
+
 # Layout
 
 [[plugins]]
