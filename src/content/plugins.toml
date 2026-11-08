@@ -147,6 +147,12 @@ logo     = "/plugins-data/logos/hyprbars-logo.svg"
 featured = true
 
 [[plugins]]
+name     = "hyprbars-macos"
+url      = "https://github.com/AfshinJalili/hyprbars-macos"
+category = "Design"
+tagline  = "macOS-style title bars with traffic lights"
+
+[[plugins]]
 name     = "Hyprtrails"
 url      = "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprtrails"
 category = "Design"
