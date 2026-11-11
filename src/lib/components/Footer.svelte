@@ -67,6 +67,7 @@
 				<li><a href="/hall_of_fame">Hall of fame</a></li>
 				<li><a href={forumLink} target="_blank">Forum</a></li>
 				<li><a href={accountsLink} target="_blank">Account</a></li>
+				<li><a href="/trademark-usage">Trademark Usage</a></li>
 			</ul>
 		</div>
 
