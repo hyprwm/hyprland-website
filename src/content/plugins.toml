@@ -201,6 +201,12 @@ tagline  = "Niri-like overview for Hyprland"
 logo     = "/plugins-data/logos/scrolloverview.svg"
 
 [[plugins]]
+name     = "hyprdrop"
+url      = "https://github.com/lauwr/hyprdrop"
+category = "Design"
+tagline  = "Workspace overview with drag and drop"
+
+[[plugins]]
 name     = "HyprWindowShade"
 url      = "https://github.com/ManofJELLO/HyprWindowShade"
 category = "Design"
