@@ -45,6 +45,12 @@ category = "Quality of Life"
 tagline  = "Awesome-like workspace behavior"
 
 [[plugins]]
+name     = "hyprdynamic"
+url      = "https://github.com/desdic/hyprdynamic"
+category = "Quality of Life"
+tagline  = "Dynamic workspaces, window_rules and monitor setup"
+
+[[plugins]]
 name     = "hyprland-easymotion"
 url      = "https://github.com/zakk4223/hyprland-easymotion"
 category = "Quality of Life"
